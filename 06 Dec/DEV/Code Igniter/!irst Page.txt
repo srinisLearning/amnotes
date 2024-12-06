@@ -3,31 +3,31 @@
 
 
 
+add this here
 
 
 
 
 
 
+Â <?php if(isset(auth()->user()->username)) : ?>
 
- <?php if(isset(auth()->user()->username)) : ?>
-
-                  <li class="has-children">
-                    <a href=""><?= auth()->user()->username; ?></a>
-                    <ul class="dropdown arrow-top">
-                      <li><a href="#">Condo</a></li>
-                      <li><a href="#">Property Land</a></li>
-                      <li><a href="<?= base_url('logout') ?>">Logout</a></li>                     
-                    </ul>
-                  </li>
-                  
+Â  Â  Â  Â  Â  Â  Â  Â  Â  <li class="has-children">
+Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  <a href=""><?= auth()->user()->username; ?></a>
+Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  <ul class="dropdown arrow-top">
+Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  <li><a href="#">Condo</a></li>
+Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  <li><a href="#">Property Land</a></li>
+Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  <li><a href="<?= base_url('logout') ?>">Logout</a></li>Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â 
+Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  </ul>
+Â  Â  Â  Â  Â  Â  Â  Â  Â  </li>
+Â  Â  Â  Â  Â  Â  Â  Â  Â  
 <?php else : ?>
-                   
-                 
-                  <li><a href="<?= base_url('login')?>">Login</a></li>
-                  <li><a href="<?= base_url('register')?>">Register</a></li>
+Â  Â  Â  Â  Â  Â  Â  Â  Â  Â 
+Â  Â  Â  Â  Â  Â  Â  Â  Â 
+Â  Â  Â  Â  Â  Â  Â  Â  Â  <li><a href="<?= base_url('login')?>">Login</a></li>
+Â  Â  Â  Â  Â  Â  Â  Â  Â  <li><a href="<?= base_url('register')?>">Register</a></li>
 
- <?php endif; ?>
+Â <?php endif; ?>
 
 
 npm install -D tailwindcss
@@ -42,11 +42,11 @@ npx tailwindcss init
 /** @type {import('tailwindcss').Config} */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/Views/**/*.{html,js,php}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+Â  content: ["./app/Views/**/*.{html,js,php}"],
+Â  theme: {
+Â  Â  extend: {},
+Â  },
+Â  plugins: [],
 }
 
 
