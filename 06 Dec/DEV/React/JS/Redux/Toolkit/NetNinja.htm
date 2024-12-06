@@ -1,0 +1,268 @@
+<html><head><title>NetNinja</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td colspan=2 bgcolor="#808000"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#ffffff"><b>Counter Example Net Ninja</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=4 color="#008000" face="Calibri"><b>app.js</b></font></div>
+<div><br></div>
+<div>import React from "react";</div>
+<div>import { useDispatch, useSelector } from "react-redux";</div>
+<div>import { decrement, increment, incrementByAmount } from "./redux/counter";</div>
+<div>import "./styles.css";</div>
+<div><br></div>
+<div>export default function App() {</div>
+<div>const { count } = useSelector((state) =&gt; state.counter);</div>
+<div>const dispatch = useDispatch();</div>
+<div>return (</div>
+<div>&lt;div className="App"&gt;</div>
+<div>&lt;h1&gt; The count is: {count}&lt;/h1&gt;</div>
+<div>&lt;button onClick={() =&gt; dispatch(increment())}&gt;increment&lt;/button&gt;</div>
+<div>&lt;button onClick={() =&gt; dispatch(decrement())}&gt;decrement&lt;/button&gt;</div>
+<div>&lt;button onClick={() =&gt; dispatch(incrementByAmount(33))}&gt;</div>
+<div>Increment by 33</div>
+<div>&lt;/button&gt;</div>
+<div>&lt;/div&gt;</div>
+<div>);</div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=4 color="#008000" face="Calibri"><b>store.js</b></font></div>
+<div><br></div>
+<div>import { configureStore } from "@reduxjs/toolkit";</div>
+<div>import counterReducer from "./counter";</div>
+<div><br></div>
+<div>export default configureStore({</div>
+<div>reducer: {</div>
+<div>counter: counterReducer</div>
+<div>}</div>
+<div>});</div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div><font size=4 color="#008000" face="Calibri"><b>counter.js</b></font></div>
+<div><br></div>
+<div>import { createSlice } from "@reduxjs/toolkit";</div>
+<div><br></div>
+<div>export const counterSlice = createSlice({</div>
+<div>name: "counter",</div>
+<div>initialState: {</div>
+<div>count: 0</div>
+<div>},</div>
+<div>reducers: {</div>
+<div>increment: (state) =&gt; {</div>
+<div>state.count += 1;</div>
+<div>},</div>
+<div>decrement: (state) =&gt; {</div>
+<div>state.count -= 1;</div>
+<div>},</div>
+<div>incrementByAmount: (state, action) =&gt; {</div>
+<div>state.count += action.payload;</div>
+<div>}</div>
+<div>}</div>
+<div>});</div>
+<div><br></div>
+<div>// Action creators are generated for each case reducer function</div>
+<div>export const { increment, decrement, incrementByAmount } = counterSlice.actions;</div>
+<div><br></div>
+<div>export default counterSlice.reducer;</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#808000"><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#ffffff" face="Verdana">&nbsp;</font><font size=4 color="#ffffff" face="Verdana">Basic Example ChatGPT </font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

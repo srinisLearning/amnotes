@@ -1,0 +1,98 @@
+<html><head><title>JS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td width=450><font size=2 color="#000000" face="Arial">
+<div><img width=572 height=585 src="JS1.jpg"></div>
+</font>
+</td>
+<td width=450><font size=2 color="#000000" face="Arial">
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><img width=513 height=530 src="JS2.jpg"></div>
+<div><br></div>
+<div><font size=3 face="Calibri Light"><b>https://www.w3schools.com/jsref/jsref_obj_array.asp</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=450><font size=2 color="#000000" face="Arial">
+<div align=center><font size=3 color="#008000" face="Verdana"><b>var &nbsp;myArray = [4,5,6.7]</b></font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><table border=0 cellpadding=6 cellspacing=-1 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td width=279><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">myArray.at(1) </font></div>
+</font>
+</td>
+<td width=279><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">5</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=279><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">myArray.push(8)</font></div>
+</font>
+</td>
+<td width=279><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">[4,5,6,7,8]</font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=450><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=450><font size=2 color="#000000" face="Arial">
+<div><font face="Courier New">setTimeout</font>(() =&gt; {</div>
+<div>&nbsp; console.log("Delayed for 1 second.");</div>
+<div>}, "1000");</div>
+</font>
+</td>
+<td width=450><br>
+</td>
+</tr>
+<tr valign=top>
+<td width=450><font size=2 color="#000000" face="Arial">
+<div>fetch('https://api.example.com/data')</div>
+<div>&nbsp; .then(response =&gt; {</div>
+<div>&nbsp; &nbsp; if (!response.ok) {</div>
+<div>&nbsp; &nbsp; &nbsp; throw new Error(response.statusText);</div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; return response.json();</div>
+<div>&nbsp; })</div>
+<div>&nbsp; .then(data =&gt; console.log(data))</div>
+<div>&nbsp; .catch(error =&gt; console.error(error));</div>
+<div><br></div>
+</font>
+</td>
+<td width=450><font size=2 color="#000000" face="Arial">
+<div><font face="Courier New">const</font>&nbsp;xhr = new XMLHttpRequest();</div>
+<div>xhr.open('GET', 'https://api.example.com/data');</div>
+<div>xhr.onload = function() {</div>
+<div>&nbsp; if (xhr.status === 200) {</div>
+<div>&nbsp; &nbsp; console.log(xhr.responseText);</div>
+<div>&nbsp; } else {</div>
+<div>&nbsp; &nbsp; console.error(xhr.statusText);</div>
+<div>&nbsp; }</div>
+<div>};</div>
+<div>xhr.send();</div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

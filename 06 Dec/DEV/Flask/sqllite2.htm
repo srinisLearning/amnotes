@@ -1,0 +1,231 @@
+<html><head><title>sqllite2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=3 face="Century Gothic">from flask import Flask,render_template,request,flash,redirect,url_for;</font></div>
+<div><font size=3 face="Century Gothic">from flask_bootstrap import Bootstrap;</font></div>
+<div><font size=3 face="Century Gothic">import sqlite3;</font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic">app = Flask(__name__);</font></div>
+<div><font size=3 face="Century Gothic">Bootstrap(app);</font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic">con = sqlite3.connect('database1.sqlite');</font></div>
+<div><font size=3 face="Century Gothic">con.execute("CREATE TABLE IF NOT EXISTS data(pid INTEGER PRIMARY KEY,name TEXT,mobile INTEGER,email TEXT,city TEXT,state TEXT)");</font></div>
+<div><font size=3 face="Century Gothic">con.close();</font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic"><br></font></div>
+<div><font size=3 face="Century Gothic">if __name__ &nbsp;== '__main__':</font></div>
+<div><font size=3 face="Century Gothic">&nbsp; &nbsp; app.run(debug=True,port=5001);</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

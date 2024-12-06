@@ -1,0 +1,461 @@
+<html><head><title>CustSessLogin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td colspan=2 bgcolor="#333300"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#ccffcc" face="Verdana">CustSessLogin</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#000000"><b>CustSesLoginController.php</b></font></div>
+<div>&lt;?php</div>
+<div><br></div>
+<div>namespace App\Http\Controllers;</div>
+<div><br></div>
+<div>use Illuminate\Http\Request;</div>
+<div>use Illuminate\Support\Facades\Session;</div>
+<div>use App\Models\User;</div>
+<div>use Hash;</div>
+<div><br></div>
+<div>class CustomSesLoginController extends Controller</div>
+<div>{</div>
+<div>&nbsp; &nbsp; public function showLogin()</div>
+<div>&nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return view('auth.login');</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function showRegister()</div>
+<div>&nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return view('auth.register');</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function registerUser(Request $request)</div>
+<div>&nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $request-&gt;validate([</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name' =&gt; 'required',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'email' =&gt; 'required | email | unique:users',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'password' =&gt; 'required',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'mobile' =&gt; 'required'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; ]);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /*</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user = &nbsp;User::create([</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name' =&gt; request('name'),</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'email' =&gt; request('email'),</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'mobile' =&gt; request('mobile'),</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'password' =&gt; request('password')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; ]);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; */</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user = new User();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;name = $request-&gt;name;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;email = $request-&gt;email;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;password = Hash::make($request-&gt;password);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;mobile = $request-&gt;mobile;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $res = $user-&gt;save();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if ($res) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return redirect()-&gt;route('showLogin')-&gt;with('success', 'Registartion successfull.Pls Login');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return back()-&gt;with('error', 'Registration failed');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function loginUser(Request $request)</div>
+<div>&nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $request-&gt;validate([</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'email' =&gt; 'required | email &nbsp;',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'password' =&gt; 'required:min:5|max:12'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; ]);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user = User::where('email', '=', $request-&gt;email)-&gt;first();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if ($user) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (Hash::check($request-&gt;password, $user-&gt;password)) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $request-&gt;session()-&gt;put('loginId', $user-&gt;id);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return redirect('dashboard');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return back()-&gt;with('error', 'Password do not match');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return back()-&gt;with('error', 'This email is not registered');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function dashboard()</div>
+<div>&nbsp; &nbsp; {</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; //dd(session()-&gt;get('loginId'));</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $data = array();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if (Session::has('loginId')) {</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $data = User::where('id', '=', session()-&gt;get('loginId'))-&gt;first();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return view('dashboard',compact('data'));</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function logout(){</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if(Session::has('loginId')){</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Session::pull('loginId');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return &nbsp;redirect('login');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; </div>
+<div>}</div>
+<div><br></div>
+<div>}</div>
+<div><br></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#333300"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#ccffcc" face="Verdana">BLADE</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#000000"><b>login.blade.php</b></font></div>
+<div align=center><font color="#000000"><b><br></b></font></div>
+<div>&nbsp;&lt;!DOCTYPE html&gt;</div>
+<div>&nbsp;&lt;html lang="en"&gt;</div>
+<div><br></div>
+<div>&nbsp;&lt;head&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;meta charset="UTF-8"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;!-- CSS only --&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;!-- JavaScript Bundle with Popper --&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;title&gt;Login&lt;/title&gt;</div>
+<div>&nbsp;&lt;/head&gt;</div>
+<div><br></div>
+<div>&nbsp;&lt;body&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;div class="container"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="col-md-4 col-md-offset-4" style='margin-top:20px'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;h4 class='text-primary mx-auto d-block'&gt;Login Form&lt;/h4&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;hr /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@if (Session::has('success'))</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="alert alert-success"&gt;{{ Session::get('success') }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@endif</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@if (Session::has('error'))</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="alert alert-danger"&gt;{{ Session::get('error') }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@endif</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;form action="{{ route('login-user') }}" method='post'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@csrf</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;label for="email"&gt;E-Mail&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;input type="email" class="form-control" name='email' id='email'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;placeholder='Enter Email' value='{{ old('email') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('email')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;label for="password"&gt;Password&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&lt;input type="password" class="form-control" name='password' id='password'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;placeholder='Enter Password' value='{{ old('password') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('email')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;button class="btn btn-primary btn-block m-2 d-block mx-auto" type='submit'&gt;Login&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;a href='register'&gt; New User ?? Register Here&lt;/a&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/form&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp;&lt;/body&gt;</div>
+<div><br></div>
+<div>&nbsp;&lt;/html&gt;</div>
+<div><br></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#000000" face="Verdana"><b>register.blade.php</b></font></div>
+<div align=center><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div>&lt;!DOCTYPE html&gt;</div>
+<div>&lt;html lang="en"&gt;</div>
+<div><br></div>
+<div>&lt;head&gt;</div>
+<div>&nbsp; &nbsp; &lt;meta charset="UTF-8"&gt;</div>
+<div>&nbsp; &nbsp; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+<div>&nbsp; &nbsp; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;</div>
+<div>&nbsp; &nbsp; &lt;!-- CSS only --&gt;</div>
+<div>&nbsp; &nbsp; &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</div>
+<div>&nbsp; &nbsp; &lt;!-- JavaScript Bundle with Popper --&gt;</div>
+<div>&nbsp; &nbsp; &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</div>
+<div>&nbsp; &nbsp; &lt;title&gt;Register&lt;/title&gt;</div>
+<div>&lt;/head&gt;</div>
+<div><br></div>
+<div>&lt;body&gt;</div>
+<div>&nbsp; &nbsp; &lt;div class="container"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-4 col-md-offset-6" style='margin-top:20px'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h4 class='text-primary mx-auto d-block'&gt;Registration Form&lt;/h4&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;hr /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @if (Session::has('error'))</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="alert alert-success"&gt;{{ Session::get('success') }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @endif</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;form action="{{ route('register-user') }}" method='POST'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @csrf</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Full name&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" class="form-control" name='name' id='name'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Enter Full Name' value='{{ old('name') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('name')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="mobile"&gt;Mobile&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" class="form-control" name='mobile' id='mobile'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Enter Mobile Number' value='{{ old('mobile') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('mobile')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="email"&gt;E-Mail&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="email" class="form-control" name='email' id='email'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Enter Email' value='{{ old('email') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('email')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="password"&gt;Password&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="password" class="form-control" name='password' id='password'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Enter Password' value='{{ old('password') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('password')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="cpassword"&gt;Confirm Password&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="password" class="form-control" name='cpassword' id='cpassword'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Confirm Password' value='{{ old('cpassword') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class="btn btn-primary btn-block m-2 d-block mx-auto" type='submit'&gt;Register&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;a href='login'&gt; Already Registered !!! Login Here&lt;/a&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/form&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&lt;/body&gt;</div>
+<div><br></div>
+<div>&lt;/html&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=938 bgcolor="#333300"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#ccffcc" face="Verdana">Routes</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div>&lt;?php</div>
+<div><br></div>
+<div>use App\Http\Controllers\CustomSesLoginController;</div>
+<div>use Illuminate\Support\Facades\Route;</div>
+<div><br></div>
+<div>/*</div>
+<div>|--------------------------------------------------------------------------</div>
+<div>| Web Routes</div>
+<div>|--------------------------------------------------------------------------</div>
+<div>|</div>
+<div>| Here is where you can register web routes for your application. These</div>
+<div>| routes are loaded by the RouteServiceProvider within a group which</div>
+<div>| contains the "web" middleware group. Now create something great!</div>
+<div>|</div>
+<div>*/</div>
+<div><br></div>
+<div>Route::get('/', function () {</div>
+<div>&nbsp; &nbsp; return view('welcome');</div>
+<div>});</div>
+<div><br></div>
+<div>Route::get('login',[CustomSesLoginController::class,'showLogin'])-&gt;name('showLogin')-&gt;middleware('auth-check');</div>
+<div><br></div>
+<div>Route::get('register',[CustomSesLoginController::class,'showRegister'])-&gt;name('register')-&gt;middleware('auth-check');</div>
+<div><br></div>
+<div>Route::post('/register-user',[CustomSesLoginController::class,'registerUser'])-&gt;name('register-user');</div>
+<div><br></div>
+<div>Route::post('/login-user',[CustomSesLoginController::class,'loginUser'])-&gt;name('login-user');</div>
+<div><br></div>
+<div>Route::get('/dashboard',[CustomSesLoginController::class,'dashboard'])-&gt;name('dashboard')-&gt;middleware('isLoggedIn');</div>
+<div><br></div>
+<div>Route::get('/logout',[CustomSesLoginController::class,'logout'])-&gt;name('logout');</div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=444><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

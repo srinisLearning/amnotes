@@ -1,0 +1,1916 @@
+<html><head><title>wasan_resto</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=1 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td rowspan=2><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000"><b>ADD RESTAURANT</b></font></div>
+<div><br></div>
+<div><br></div>
+<div>/* eslint-disable */</div>
+<div><br></div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" /&gt;</div>
+<div>&nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &lt;h3 class="text-success text-center m-3"&gt;ADD RESTAURANT&lt;/h3&gt;</div>
+<div>&nbsp; &nbsp; &lt;form id="addrest"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Restaurant Name&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="name"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="name"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: nameError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="nameError" class="error"&gt;Name is required&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Contact Person&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="Contact Person"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="contactPerson"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: contactPersonError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="contactPersonError" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ContactPerson is required</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="mobile"&gt;Mobile&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="tel"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: mobileError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="mobileError" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Valid mobile number is required</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="landline"&gt;Landline&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="tel"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="landline"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="landline"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: landlineError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="landlineError" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Valid landline number is required</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="email"&gt;E-Mail&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: emailError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="emailError" class="error"&gt;Valid email is required&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="website"&gt;Website&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="website"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="website"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder="Optional Parameter"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: websiteError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="websiteError" class="error"&gt;Website type is required&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="city"&gt;City&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;select v-model="city" name="city" class="m-2" style="width: 50%"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="none"&gt;None&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Chennai"&gt;Chennai&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Hyderabad"&gt;Hyderabad&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Bangalore"&gt;Bangalore&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/select&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="cusineTypeError" class="error"&gt;Cuisine type is required&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="location"&gt;Location&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="loocation"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="location"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="location"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="locationError" class="error"&gt;Location is required&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="food-type"&gt;Food Type&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id="food-type"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="radio"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="veg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="food-type"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="Vegetarian"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="foodType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Vegetarian</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="radio"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="non-veg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="food-type"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="Non Vegetarian"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="foodType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Non-Vegetarian</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="radio"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="both"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="food-type"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="Veg &amp; Non Veg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="foodType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Veg &amp; Non Veg</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="foodTypeError" class="error"&gt;Food type is required&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id="cusine_type"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="cusine-type"&gt;Cusine Type&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;select</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="cusineType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="cusineType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="m-2"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; style="width: 50%"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="none"&gt;None&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Indian"&gt;Indian&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Chinese"&gt;Chinese&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Korean"&gt;Korean&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Thai"&gt;Thai&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/select&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="cusineTypeError" class="error"&gt;Cuisine type is required&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="image"&gt;Image:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="file"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; size="15"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="image"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @change="onImageChange"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;&lt;br /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;small</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;Note: After uploading the file manually copy the uploaded files</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; to src/assets/uploads&lt;/small</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="imageError" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Image is required and must be a valid image file</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col text-center m-3"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="button"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @click="submitForm"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="btn btn-success mt-3"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add Restaurant</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/form&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;Footer /&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>import { reactive, toRefs } from "vue";</div>
+<div>import { v4 as uuidv4 } from "uuid";</div>
+<div>import axios from "axios";</div>
+<div>import Header from "./Header";</div>
+<div>import Footer from "./Footer";</div>
+<div><br></div>
+<div>export default {</div>
+<div>&nbsp; name: "RestaurantAddForm",</div>
+<div>&nbsp; components: {</div>
+<div>&nbsp; &nbsp; Header,</div>
+<div>&nbsp; &nbsp; Footer,</div>
+<div>&nbsp; },</div>
+<div>&nbsp; setup() {</div>
+<div>&nbsp; &nbsp; const state = reactive({</div>
+<div>&nbsp; &nbsp; &nbsp; id: uuidv4().substring(5, 14),</div>
+<div>&nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; contactPerson: "",</div>
+<div>&nbsp; &nbsp; &nbsp; email: "",</div>
+<div>&nbsp; &nbsp; &nbsp; mobile: "",</div>
+<div>&nbsp; &nbsp; &nbsp; landline: "",</div>
+<div>&nbsp; &nbsp; &nbsp; website: "",</div>
+<div>&nbsp; &nbsp; &nbsp; city: "",</div>
+<div>&nbsp; &nbsp; &nbsp; foodType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; cusineType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; image: null,</div>
+<div>&nbsp; &nbsp; &nbsp; selectedImage: null,</div>
+<div>&nbsp; &nbsp; &nbsp; location: "",</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; approved: false,</div>
+<div>&nbsp; &nbsp; &nbsp; nameError: false,</div>
+<div>&nbsp; &nbsp; &nbsp; contactPersonError: false,</div>
+<div>&nbsp; &nbsp; &nbsp; emailError: false,</div>
+<div>&nbsp; &nbsp; &nbsp; mobileError: false,</div>
+<div>&nbsp; &nbsp; &nbsp; landlineError: false,</div>
+<div>&nbsp; &nbsp; &nbsp; foodTypeError: false,</div>
+<div>&nbsp; &nbsp; &nbsp; cusineTypeError: false,</div>
+<div>&nbsp; &nbsp; &nbsp; imageError: false,</div>
+<div>&nbsp; &nbsp; &nbsp; locationError: false,</div>
+<div>&nbsp; &nbsp; &nbsp; websiteError: "",</div>
+<div>&nbsp; &nbsp; &nbsp; formValid: false,</div>
+<div>&nbsp; &nbsp; });</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const validateName = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.nameError = state.name.trim() === "";</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; &nbsp; const validateContactPerson = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.contactPersonError = state.contactPerson.trim() === "";</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const validateEmail = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email.trim());</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const validateMobile = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.mobileError = !/^(\+\d{1,3}[- ]?)?\d{10}$/.test(</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; state.mobile.trim()</div>
+<div>&nbsp; &nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const validateLandline = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.landlineError = state.landline.trim() &lt; 8;</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const validateFoodType = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.foodTypeError = state.foodType === "";</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const validateCusineType = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.cusineTypeError = state.cusineType === "none";</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const validateCity = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.cityError = state.city === "";</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const validateImage = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.imageError =</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; state.image === null || !/^\w+\.(jpg|jpeg|gif|png)$/.test(state.image);</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const validateLocation = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.locationError = state.location === "";</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const onImageChange = (event) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; state.image = event.target.files[0].name;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; validateImage();</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; &nbsp; // eslint-disable-next-line no-unused-vars</div>
+<div>&nbsp; &nbsp; const validateForm = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; console.log("Submit");</div>
+<div>&nbsp; &nbsp; &nbsp; validateName();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.nameError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Error in Name");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; validateContactPerson();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.contactPersonError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Contact Person Error");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; validateEmail();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.emailError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Email Error");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; validateMobile();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.mobileError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Mobile Error");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; validateLandline();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.landlineError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Landline Error");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; validateFoodType();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.foodTypeError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Food Error");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; validateCusineType();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.cusineTypeError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Cusine Error");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; validateCity();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.cityError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("City Error");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; validateImage();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.imageError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Image Error");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; validateLocation();</div>
+<div>&nbsp; &nbsp; &nbsp; if (state.locationError) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Location Error");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; return (</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.nameError &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.contactPersonError &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.emailError &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.mobileError &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.landlineError &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.foodTypeError &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.cusineTypeError &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.cityError &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.imageError &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; !state.locationError</div>
+<div>&nbsp; &nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const submitForm = async () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; // &nbsp; alert("validate Form" + validateForm());</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; if (validateForm()) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; try {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var result = await axios.post("http://localhost:3000/restaurants", {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id: state.id,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: state.name,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; contactPerson: state.contactPerson,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; email: state.email,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mobile: state.mobile,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; landline: state.landline,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; website: state.website,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; city: state.city,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foodType: state.foodType,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cusineType: state.cusineType,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; image: state.image.name,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location: state.location,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; approved: state.approved,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; } catch (e) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.error(e);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; console.warn("result", result);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if (result.status == 201) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert("Restaurant Successfully Added");</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Error submitting Form");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; // Reset form state</div>
+<div>&nbsp; &nbsp; &nbsp; state.id = "";</div>
+<div>&nbsp; &nbsp; &nbsp; state.name = "";</div>
+<div>&nbsp; &nbsp; &nbsp; (state.contactPerson = ""), (state.email = "");</div>
+<div>&nbsp; &nbsp; &nbsp; state.mobile = "";</div>
+<div>&nbsp; &nbsp; &nbsp; state.landline = "";</div>
+<div>&nbsp; &nbsp; &nbsp; state.website = "";</div>
+<div>&nbsp; &nbsp; &nbsp; state.city = "";</div>
+<div>&nbsp; &nbsp; &nbsp; state.foodType = "";</div>
+<div>&nbsp; &nbsp; &nbsp; state.cusineType = "";</div>
+<div>&nbsp; &nbsp; &nbsp; state.image = null;</div>
+<div>&nbsp; &nbsp; &nbsp; state.location = "";</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; state.nameError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.contactPresonError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.emailError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.mobileError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.landlineError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.websiteError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.cityError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.foodTypeError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.cusineTypeError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.imageError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.locationError = false;</div>
+<div>&nbsp; &nbsp; &nbsp; state.approved = 0;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; this.$router.push({ name: "Home" });</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; ...toRefs(state),</div>
+<div>&nbsp; &nbsp; &nbsp; onImageChange,</div>
+<div>&nbsp; &nbsp; &nbsp; submitForm,</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div>&lt;style scoped&gt;</div>
+<div>form {</div>
+<div>&nbsp; max-width: 600px;</div>
+<div>}</div>
+<div><br></div>
+<div>.error {</div>
+<div>&nbsp; color: red;</div>
+<div>&nbsp; font-size: 12px;</div>
+<div>&nbsp; text-align: center;</div>
+<div>&nbsp; margin: 5px;</div>
+<div>&nbsp; padding: 0;</div>
+<div>}</div>
+<div>.invalid {</div>
+<div>&nbsp; border: 1px solid red;</div>
+<div>}</div>
+<div><br></div>
+<div>input[type="file"] {</div>
+<div>&nbsp; margin: 10px auto !important;</div>
+<div>&nbsp; width: 200px !important;</div>
+<div>&nbsp; margin: auto;</div>
+<div>&nbsp; font-size: 15px;</div>
+<div>&nbsp; border: 0 !important;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+<td height=1548><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000" face="Verdana"><b>DETAIL RESTAURANT</b></font></div>
+<div><font size=4 color="#008000" face="Verdana"><b><br></b></font></div>
+<div>&lt;template&gt;</div>
+<div>&nbsp;</div>
+<div>&lt;Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" /&gt;</div>
+<div>&nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &lt;p class="text-center"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;router-link to="/" class="text-small router-link class='router-link"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;Back to Restaurant List&lt;/router-link</div>
+<div>&nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &lt;h2 class="text-center text-success"&gt;Details Page&lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &lt;div class="rest-detail"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Name&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.name }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Contact&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.contactPerson }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Mobile&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.mobile }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Landline&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.landline }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;E-Mail&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.email }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Website&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.website }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;City&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.city }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Location&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 &nbsp;"&gt;{{ restaurant.location }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Food Type&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 &nbsp;"&gt;{{ restaurant.foodType }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Cusine Type&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 &nbsp;"&gt;{{ restaurant.cusineType }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div v-if="restaurant.image"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :src="require(`../assets/uploads/${restaurant.image}`)"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="detailImage"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;Footer /&gt;</div>
+<div>&lt;/template&gt;</div>
+<div>&lt;script&gt;</div>
+<div>import Header from "./Header";</div>
+<div>import Footer from "./Footer";</div>
+<div>import axios from "axios";</div>
+<div>export default {</div>
+<div>&nbsp; </div>
+<div>&nbsp; name: "Restaurant Details",</div>
+<div>&nbsp; props: {},</div>
+<div>&nbsp; components: {</div>
+<div>&nbsp; &nbsp; Header, Footer</div>
+<div>&nbsp; },</div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; restaurant: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; id: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; contactPerson: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; city: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; landline: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; website: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; foodType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; cusineType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; image: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; location: "",</div>
+<div>&nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; mounted: async function () {</div>
+<div>&nbsp; &nbsp; this.restaurant.id = this.$route.params.id;</div>
+<div>&nbsp; &nbsp; let result = await axios.get(</div>
+<div>&nbsp; &nbsp; &nbsp; "http://localhost:3000/restaurants/" + this.$route.params.id</div>
+<div>&nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; console.log(result);</div>
+<div>&nbsp; &nbsp; this.restaurant = result.data;</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;</div>
+<div>.rest-detail {</div>
+<div>&nbsp; width: 800px;</div>
+<div>&nbsp; margin: 10px auto;</div>
+<div>&nbsp; background-color: rgb(97, 202, 97);</div>
+<div>&nbsp; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;</div>
+<div>&nbsp; font-size:16px!important;</div>
+<div>&nbsp; padding: 5px;</div>
+<div>}</div>
+<div>.detailImage {</div>
+<div>&nbsp; width: 100%;</div>
+<div>&nbsp; height: 50%!important;</div>
+<div>&nbsp; border: 1px solid black;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td height=1548><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000" face="Verdana"><b>EDIT REST</b></font></div>
+<div align=center><font size=4 color="#008000" face="Verdana"><b><br></b></font></div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" /&gt;</div>
+<div>&nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &lt;p class="text-center"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;router-link to="/" class="text-small router-link class='router-link"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;Back to Restaurant List&lt;/router-link</div>
+<div>&nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &lt;h3 class="text-success text-center m-3"&gt;UPDATE RESTAURANT&lt;/h3&gt;</div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;form id="updaterest"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Name:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="name"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.name"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: nameError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Contact Person:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="Contact Person"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.contactPerson"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: contactPersonError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="mobile"&gt;Mobile:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="tel"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: mobileError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="restaurant.landline"&gt;Landline:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="tel"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="landline"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.landline"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: landlineError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="email"&gt;E-Mail:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: emailError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="website"&gt;Website:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="website"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.website"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder="Optional Parameter"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: websiteError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="restaurant.city"&gt;City:&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;select</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.city"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="city"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="m-2"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; style="width: 50%"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="none"&gt;None&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Chennai"&gt;Chennai&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Hyderabad" selected&gt;Hyderabad&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Bangalore"&gt;Bangalore&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/select&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="food-type"&gt;Food Type:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id="food-type"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="radio"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="veg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="food-type"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="Vegtarian"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.foodType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Vegetarian</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="radio"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="non-veg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="food-type"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="Non Vegetarian"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.foodType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Non Vegetatian</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="radio"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="both"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="food-type"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="Veg &amp; Non Veg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.foodType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Veg &amp; Non Veg</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id="cusineType"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="cusineType"&gt;Cusine Type:&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;select</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.cusineType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="cusineType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="m-2"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; style="width: 50%"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="none"&gt;None&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Thai"&gt;Thai&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Indian"&gt;Indian&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Chinese"&gt;Chinese&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Korean"&gt;Korean&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/select&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="image"&gt;Image:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="file"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width="15"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="image"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @change="onImageChange"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="location"&gt;Location:&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" id="location" v-model="restaurant.location" /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col text-center m-3"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="button"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @click="updateRest"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="btn btn-success mt-3"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Update Restaurant</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/form&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;Footer /&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>import axios from "axios";</div>
+<div>import Header from "./Header";</div>
+<div>import Footer from "./Footer";</div>
+<div><br></div>
+<div>export default {</div>
+<div>&nbsp; name: "RestaurantAddForm",</div>
+<div>&nbsp; components: {</div>
+<div>&nbsp; &nbsp; Header,</div>
+<div>&nbsp; &nbsp; Footer,</div>
+<div>&nbsp; },</div>
+<div><br></div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; restaurant: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; id: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; contactPerson: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; landline: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; website: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; city: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; location: null,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; foodType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; cusineType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; image: null,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; approved: true,</div>
+<div>&nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; methods: {</div>
+<div>&nbsp; &nbsp; async updateRest() {</div>
+<div>&nbsp; &nbsp; &nbsp; this.id = this.restaurant.id;</div>
+<div>&nbsp; &nbsp; &nbsp; let result = await axios.put(</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; "http://localhost:3000/restaurants/" + this.restaurant.id,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: this.restaurant.name,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; contactPerson: this.restaurant.contactPerson,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mobile: this.restaurant.mobile,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; landline: this.restaurant.landline,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; email: this.restaurant.email,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; website: this.restaurant.website,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; city: this.restaurant.city,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location: this.restaurant.location,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foodType: this.restaurant.foodType,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cusineType: this.restaurant.cusineType,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; image: this.restaurant.image,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; approved: this.restaurant.approved,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; );</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; // console.warn(result);</div>
+<div>&nbsp; &nbsp; &nbsp; if (result.status == 200) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Updation Successfull");</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.$router.push({ name: "Home" });</div>
+<div>&nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Updation Failure");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; onImageChange(event) {</div>
+<div>&nbsp; &nbsp; &nbsp; this.restaurant.image = event.target.files[0].name;</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div><br></div>
+<div>&nbsp; mounted: async function () {</div>
+<div>&nbsp; &nbsp; this.restaurant.id = this.$route.params.id;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; let result = await axios.get(</div>
+<div>&nbsp; &nbsp; &nbsp; "http://localhost:3000/restaurants/" + this.$route.params.id</div>
+<div>&nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; console.log(result);</div>
+<div>&nbsp; &nbsp; this.restaurant = result.data;</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div>&lt;style scoped&gt;</div>
+<div>form {</div>
+<div>&nbsp; max-width: 600px;</div>
+<div>}</div>
+<div><br></div>
+<div>.error {</div>
+<div>&nbsp; color: red;</div>
+<div>&nbsp; font-weight: bold;</div>
+<div>}</div>
+<div><br></div>
+<div>input[type="file"] {</div>
+<div>&nbsp; margin: 10px auto !important;</div>
+<div>&nbsp; width: 200px !important;</div>
+<div>&nbsp; margin: auto;</div>
+<div>&nbsp; font-size: 15px;</div>
+<div>&nbsp; border: 0 !important;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000"><b>FOOTER</b></font></div>
+<div><br></div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;hr /&gt;</div>
+<div>&nbsp; &lt;div v-html="footerText" class="text-center"&gt;&lt;/div&gt;</div>
+<div>&nbsp; &lt;p class="text-center"&gt;{{ footerText2 }}&lt;/p&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>export default {</div>
+<div>&nbsp; name: "Footer",</div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; footerText: " &lt;b&gt; &amp;#169 2023 &lt;i&gt;Wasan Services&lt;i&gt;&lt;/b&gt;",</div>
+<div>&nbsp; &nbsp; &nbsp; footerText2: "All Rights Reserved",</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+<td rowspan=2 height=195><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000" face="Verdana"><b>HEADER</b></font></div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;div class="row align-items-center"&gt;</div>
+<div>&nbsp; &nbsp; &lt;div class="col-md-8"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;h2 class="project-header-text text-center"&gt;{{ projectTitle }}&lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;div class="col-md-4"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;img :src="require(`../assets/${logo_url}`)" class="logoStyle" /&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &lt;nav class="navbar"&gt;</div>
+<div>&nbsp; &nbsp; &lt;ul&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;router-link class="routerLink" to="/"&gt;HOME&lt;/router-link&gt;&lt;/li&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;!--</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;router-link class="routerLink" &nbsp;v-if="!isLoggedIn" to="/login"&gt;Login&lt;/router-link&gt;&lt;/li&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;--&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;a</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; :href="$router.resolve({ name: 'Login' }).href"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; class="routerLink"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; v-if="!isLoggedIn"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;Login</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/a&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &lt;!-- &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &lt;li&gt;&lt;router-link class="routerLink" v-if="!isLoggedIn" to="/signup"&gt;Signup&lt;/router-link&gt;&lt;/li&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; --&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;a</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; :href="$router.resolve({ name: 'SignUp' }).href"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; class="routerLink"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; v-if="!isLoggedIn"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;SignUp</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/a&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &lt;li&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;a href="#" v-if="isLoggedIn" class="routerLink" @click="logoutUser"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;Logout&lt;/a</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/li&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &lt;li&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;router-link class="routerLink" v-if="isLoggedIn" to="/addrest"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;Add Restaurant&lt;/router-link</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/li&gt;</div>
+<div>&nbsp; &nbsp; &lt;/ul&gt;</div>
+<div>&nbsp; &lt;/nav&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>export default {</div>
+<div>&nbsp; name: "Header",</div>
+<div>&nbsp; props: ["projectTitle", "logo_url"],</div>
+<div><br></div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; isLoggedIn: false,</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; methods: {</div>
+<div>&nbsp; &nbsp; logoutUser() {</div>
+<div>&nbsp; &nbsp; &nbsp; // alert("logoutUser");</div>
+<div>&nbsp; &nbsp; &nbsp; localStorage.clear();</div>
+<div>&nbsp; &nbsp; &nbsp; this.isLoggedIn = "false";</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; this.$router.push({ name: "Login" });</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div>&nbsp; mounted: function () {</div>
+<div>&nbsp; &nbsp; var userString = localStorage.getItem("myUser");</div>
+<div>&nbsp; &nbsp; let user = JSON.parse(userString);</div>
+<div>&nbsp; &nbsp; if (user) {</div>
+<div>&nbsp; &nbsp; &nbsp; this.isLoggedIn = true;</div>
+<div>&nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; this.isLoggedIn = false;</div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;</div>
+<div>logoStyle {</div>
+<div>&nbsp; width: 100px;</div>
+<div>&nbsp; height: 100px;</div>
+<div>}</div>
+<div><br></div>
+<div>.project-header-text {</div>
+<div>&nbsp; color: #545454;</div>
+<div>&nbsp; font-size: 36px;</div>
+<div>&nbsp; font-weight: 600;</div>
+<div>}</div>
+<div><br></div>
+<div>.navbar {</div>
+<div>&nbsp; background-color: rgb(97, 202, 97);</div>
+<div>&nbsp; overflow: hidden;</div>
+<div>&nbsp; text-align: right !important;</div>
+<div>}</div>
+<div><br></div>
+<div>.navbar ul {</div>
+<div>&nbsp; list-style-type: none;</div>
+<div>&nbsp; margin: 0;</div>
+<div>&nbsp; padding: 0;</div>
+<div>&nbsp; float: right;</div>
+<div>}</div>
+<div><br></div>
+<div>.navbar li {</div>
+<div>&nbsp; display: inline-block;</div>
+<div>}</div>
+<div><br></div>
+<div>.navbar li a {</div>
+<div>&nbsp; display: block;</div>
+<div>&nbsp; color: #000;</div>
+<div>&nbsp; text-align: center;</div>
+<div>&nbsp; padding: 10px 16px;</div>
+<div>&nbsp; text-decoration: none;</div>
+<div>}</div>
+<div><br></div>
+<div>.navbar li a:hover {</div>
+<div>&nbsp; background-color: #555;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000"><b>LOGIN</b></font></div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" /&gt;</div>
+<div>&nbsp; &lt;div id="signuppage"&gt;</div>
+<div>&nbsp; &nbsp; &lt;h3 class="text-center text-wasan-green mt-3"&gt;LOGIN&lt;/h3&gt;</div>
+<div>&nbsp; &nbsp; &lt;form @submit.prevent="submitForm" id="login"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="email"&gt;Email:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: !emailValid &amp;&amp; email.length &gt; 0 }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="!emailValid &amp;&amp; email.length &gt; 0" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Valid domain is of format name@domain.com</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="password"&gt;Password:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="password"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="password"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="password"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: !passwordValid &amp;&amp; password.length &gt; 0 }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="!passwordValid &amp;&amp; password.length &gt; 0" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Valid Paaswod must be 8 characters long.</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div class="text-center"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;button</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="submit"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :disabled="!formValid"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="btn btn-success mt-3"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Login</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="!loginStatus" class="error"&gt;Invalid User Credientials&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/form&gt;</div>
+<div>&nbsp; &nbsp; &lt;div class="text-center"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; Not a User Yet!!!</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;router-link class="routerLink" to="/signup"&gt;SIGN UP&lt;/router-link&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;Footer /&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>import axios from "axios";</div>
+<div>import Header from "./Header";</div>
+<div>import Footer from "./Footer";</div>
+<div><br></div>
+<div>export default {</div>
+<div>&nbsp; name: "Login",</div>
+<div>&nbsp; components: {</div>
+<div>&nbsp; &nbsp; Header,</div>
+<div>&nbsp; &nbsp; Footer,</div>
+<div>&nbsp; },</div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; email: "",</div>
+<div>&nbsp; &nbsp; &nbsp; password: "",</div>
+<div>&nbsp; &nbsp; &nbsp; loginStatus: true,</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; computed: {</div>
+<div>&nbsp; &nbsp; emailValid() {</div>
+<div>&nbsp; &nbsp; &nbsp; return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);</div>
+<div>&nbsp; &nbsp; },</div>
+<div><br></div>
+<div>&nbsp; &nbsp; passwordValid() {</div>
+<div>&nbsp; &nbsp; &nbsp; return this.password.length &gt;= 8;</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; formValid() {</div>
+<div>&nbsp; &nbsp; &nbsp; return this.emailValid &amp;&amp; this.passwordValid;</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div>&nbsp; methods: {</div>
+<div>&nbsp; &nbsp; async submitForm() {</div>
+<div>&nbsp; &nbsp; &nbsp; if (this.formValid) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; try {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var query = `http://localhost:3000/users?email=${this.email}&amp;password=${this.password}`;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var result = await axios.get(query);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // console.log(result);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (result.status == 200 &amp;&amp; result.data.length &gt; 0) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; localStorage.setItem("myUser", JSON.stringify(result.data));</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.$router.push({ name: "Home" });</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.loginStatus = false;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; } catch (e) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.error(e);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style scoped&gt;</div>
+<div>.error {</div>
+<div>&nbsp; color: red;</div>
+<div>&nbsp; font-size: 12px;</div>
+<div>&nbsp; text-align: center;</div>
+<div>&nbsp; margin: 5px;</div>
+<div>&nbsp; padding: 0;</div>
+<div>}</div>
+<div>.invalid {</div>
+<div>&nbsp; border: 1px solid red;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000"><b>DETAIL</b></font></div>
+<div><br></div>
+<div>&lt;template&gt;</div>
+<div>&nbsp;</div>
+<div>&lt;Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" /&gt;</div>
+<div>&nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &lt;p class="text-center"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;router-link to="/" class="text-small router-link class='router-link"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;Back to Restaurant List&lt;/router-link</div>
+<div>&nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &lt;h2 class="text-center text-success"&gt;Details Page&lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &lt;div class="rest-detail"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Name&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.name }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Contact&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.contactPerson }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Mobile&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.mobile }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Landline&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.landline }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;E-Mail&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.email }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Website&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.website }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;City&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 "&gt;{{ restaurant.city }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Location&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 &nbsp;"&gt;{{ restaurant.location }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Food Type&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 &nbsp;"&gt;{{ restaurant.foodType }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row m-2"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 text-white text-bolder"&gt;Cusine Type&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6 &nbsp;"&gt;{{ restaurant.cusineType }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div v-if="restaurant.image"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :src="require(`../assets/uploads/${restaurant.image}`)"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="detailImage"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;Footer /&gt;</div>
+<div>&lt;/template&gt;</div>
+<div>&lt;script&gt;</div>
+<div>import Header from "./Header";</div>
+<div>import Footer from "./Footer";</div>
+<div>import axios from "axios";</div>
+<div>export default {</div>
+<div>&nbsp; </div>
+<div>&nbsp; name: "Restaurant Details",</div>
+<div>&nbsp; props: {},</div>
+<div>&nbsp; components: {</div>
+<div>&nbsp; &nbsp; Header, Footer</div>
+<div>&nbsp; },</div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; restaurant: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; id: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; contactPerson: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; city: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; landline: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; website: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; foodType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; cusineType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; image: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; location: "",</div>
+<div>&nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; mounted: async function () {</div>
+<div>&nbsp; &nbsp; this.restaurant.id = this.$route.params.id;</div>
+<div>&nbsp; &nbsp; let result = await axios.get(</div>
+<div>&nbsp; &nbsp; &nbsp; "http://localhost:3000/restaurants/" + this.$route.params.id</div>
+<div>&nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; console.log(result);</div>
+<div>&nbsp; &nbsp; this.restaurant = result.data;</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;</div>
+<div>.rest-detail {</div>
+<div>&nbsp; width: 800px;</div>
+<div>&nbsp; margin: 10px auto;</div>
+<div>&nbsp; background-color: rgb(97, 202, 97);</div>
+<div>&nbsp; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;</div>
+<div>&nbsp; font-size:16px!important;</div>
+<div>&nbsp; padding: 5px;</div>
+<div>}</div>
+<div>.detailImage {</div>
+<div>&nbsp; width: 100%;</div>
+<div>&nbsp; height: 50%!important;</div>
+<div>&nbsp; border: 1px solid black;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+<td height=388><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000"><b>SIGN UP</b></font></div>
+<div align=center><font size=4 color="#008000"><b><br></b></font></div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" /&gt;</div>
+<div>&nbsp; &lt;div id="signuppage"&gt;</div>
+<div>&nbsp; &nbsp; &lt;h3 class="text-center text-wasan-green mt-3"&gt;SIGN UP&lt;/h3&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;form @submit.prevent="submitForm" id="signup"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Name:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="name"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="name"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: !nameValid &amp;&amp; name.length &gt; 0 }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="!nameValid &amp;&amp; name.length &gt; 0" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Valid Name must be atleast 3 characters long...</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="email"&gt;Email:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: !emailValid &amp;&amp; email.length &gt; 0 }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="!emailValid &amp;&amp; email.length &gt; 0" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Valid domain is of format name@domain.com</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="mobile"&gt;Mobile:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="tel"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: !mobileValid &amp;&amp; mobile.length &gt; 9 }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="!mobileValid &amp;&amp; mobile.length &gt; 0" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Mobile Numbers should be only numbers and should be aleast 10 digits</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="password"&gt;Password:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="password"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="password"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="password"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: !passwordValid &amp;&amp; password.length &gt; 0 }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="!passwordValid &amp;&amp; password.length &gt; 0" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Valid Paaswod must be 8 characters long.</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="confirm-password"&gt;Confirm Password:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="password"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="confirm-password"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="confirmPassword"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: !passwordsMatch &amp;&amp; confirmPassword.length &gt; 0 }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p v-if="!passwordsMatch &amp;&amp; confirmPassword.length &gt; 0" class="error"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Passwords do not match.</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div class="text-center"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;button type="submit" class="btn btn-success mt-3"&gt;Sign Up&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/form&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;div class="text-center"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; Already an User !!!! Pls</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;router-link class="routerLink" to="./login"&gt;LOGIN &lt;/router-link&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;Footer /&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>import { v4 as uuidv4 } from "uuid";</div>
+<div>import axios from "axios";</div>
+<div>import Header from "./Header";</div>
+<div>import Footer from "./Footer";</div>
+<div>export default {</div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; email: "",</div>
+<div>&nbsp; &nbsp; &nbsp; mobile: "",</div>
+<div>&nbsp; &nbsp; &nbsp; password: "",</div>
+<div>&nbsp; &nbsp; &nbsp; confirmPassword: "",</div>
+<div>&nbsp; &nbsp; &nbsp; id: uuidv4().substring(5, 14),</div>
+<div>&nbsp; &nbsp; &nbsp; isAdmin: 0,</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; components: {</div>
+<div>&nbsp; &nbsp; Header,</div>
+<div>&nbsp; &nbsp; Footer,</div>
+<div>&nbsp; },</div>
+<div>&nbsp; computed: {</div>
+<div>&nbsp; &nbsp; nameValid() {</div>
+<div>&nbsp; &nbsp; &nbsp; return this.name.length &gt;= 3;</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; emailValid() {</div>
+<div>&nbsp; &nbsp; &nbsp; return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; mobileValid() {</div>
+<div>&nbsp; &nbsp; &nbsp; return /^\d{10}$/.test(this.mobile);</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; passwordValid() {</div>
+<div>&nbsp; &nbsp; &nbsp; return this.password.length &gt;= 8;</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; passwordsMatch() {</div>
+<div>&nbsp; &nbsp; &nbsp; return this.password === this.confirmPassword;</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; formValid() {</div>
+<div>&nbsp; &nbsp; &nbsp; return (</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.nameValid &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.emailValid &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.mobileValid &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.passwordValid &amp;&amp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.passwordsMatch</div>
+<div>&nbsp; &nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div>&nbsp; methods: {</div>
+<div>&nbsp; &nbsp; async submitForm() {</div>
+<div>&nbsp; &nbsp; &nbsp; if (this.formValid) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; try {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var result = await axios.post("http://localhost:3000/users", {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id: this.id,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: this.name,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; email: this.email,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; password: this.password,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mobile: this.mobile,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; isAdmin: this.isAdmin,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; } catch (e) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(e);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert("Error Inserting Data");</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; console.warn("result", result);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if (result.status == 201) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert("User Sucessfull Registered");</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.$router.push({ name: "Login" });</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert("Error in Form Submission");</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style scoped&gt;</div>
+<div>.error {</div>
+<div>&nbsp; color: red;</div>
+<div>&nbsp; font-size: 12px;</div>
+<div>&nbsp; text-align: center;</div>
+<div>&nbsp; margin: 5px;</div>
+<div>&nbsp; padding: 0;</div>
+<div>}</div>
+<div>.invalid {</div>
+<div>&nbsp; border: 1px solid red;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td rowspan=2><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000"><b>HOME </b></font></div>
+<div><br></div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" /&gt;</div>
+<div>&nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &lt;p class="text-center"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;router-link to="/" class="text-small router-link class='router-link"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;Back to Restaurant List&lt;/router-link</div>
+<div>&nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &lt;h3 class="text-success text-center m-3"&gt;UPDATE RESTAURANT&lt;/h3&gt;</div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;form id="updaterest"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Name:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="name"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.name"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: nameError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Contact Person:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="Contact Person"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.contactPerson"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: contactPersonError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="mobile"&gt;Mobile:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="tel"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: mobileError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="restaurant.landline"&gt;Landline:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="tel"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="landline"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.landline"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: landlineError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="email"&gt;E-Mail:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model.trim="restaurant.email"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: emailError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="website"&gt;Website:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="website"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.website"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder="Optional Parameter"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :class="{ invalid: websiteError }"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-6"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="restaurant.city"&gt;City:&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;select</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.city"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="city"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="m-2"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; style="width: 50%"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="none"&gt;None&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Chennai"&gt;Chennai&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Hyderabad" selected&gt;Hyderabad&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Bangalore"&gt;Bangalore&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/select&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="food-type"&gt;Food Type:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id="food-type"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="radio"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="veg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="food-type"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="Vegtarian"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.foodType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Vegetarian</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="radio"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="non-veg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="food-type"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="Non Vegetarian"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.foodType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Non Vegetatian</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="radio"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="both"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="food-type"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="Veg &amp; Non Veg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.foodType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Veg &amp; Non Veg</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id="cusineType"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="cusineType"&gt;Cusine Type:&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;select</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v-model="restaurant.cusineType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="cusineType"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="m-2"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; style="width: 50%"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="none"&gt;None&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Thai"&gt;Thai&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Indian"&gt;Indian&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Chinese"&gt;Chinese&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value="Korean"&gt;Korean&lt;/option&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/select&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="image"&gt;Image:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="file"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width="15"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="image"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @change="onImageChange"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="location"&gt;Location:&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" id="location" v-model="restaurant.location" /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col text-center m-3"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="button"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @click="updateRest"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class="btn btn-success mt-3"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Update Restaurant</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/form&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &lt;Footer /&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>import axios from "axios";</div>
+<div>import Header from "./Header";</div>
+<div>import Footer from "./Footer";</div>
+<div><br></div>
+<div>export default {</div>
+<div>&nbsp; name: "RestaurantAddForm",</div>
+<div>&nbsp; components: {</div>
+<div>&nbsp; &nbsp; Header,</div>
+<div>&nbsp; &nbsp; Footer,</div>
+<div>&nbsp; },</div>
+<div><br></div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; restaurant: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; id: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; contactPerson: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; landline: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; website: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; city: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; location: null,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; foodType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; cusineType: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; image: null,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; approved: true,</div>
+<div>&nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; methods: {</div>
+<div>&nbsp; &nbsp; async updateRest() {</div>
+<div>&nbsp; &nbsp; &nbsp; this.id = this.restaurant.id;</div>
+<div>&nbsp; &nbsp; &nbsp; let result = await axios.put(</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; "http://localhost:3000/restaurants/" + this.restaurant.id,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: this.restaurant.name,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; contactPerson: this.restaurant.contactPerson,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mobile: this.restaurant.mobile,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; landline: this.restaurant.landline,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; email: this.restaurant.email,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; website: this.restaurant.website,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; city: this.restaurant.city,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location: this.restaurant.location,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foodType: this.restaurant.foodType,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cusineType: this.restaurant.cusineType,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; image: this.restaurant.image,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; approved: this.restaurant.approved,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; );</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; // console.warn(result);</div>
+<div>&nbsp; &nbsp; &nbsp; if (result.status == 200) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Updation Successfull");</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.$router.push({ name: "Home" });</div>
+<div>&nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert("Updation Failure");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; onImageChange(event) {</div>
+<div>&nbsp; &nbsp; &nbsp; this.restaurant.image = event.target.files[0].name;</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div><br></div>
+<div>&nbsp; mounted: async function () {</div>
+<div>&nbsp; &nbsp; this.restaurant.id = this.$route.params.id;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; let result = await axios.get(</div>
+<div>&nbsp; &nbsp; &nbsp; "http://localhost:3000/restaurants/" + this.$route.params.id</div>
+<div>&nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; console.log(result);</div>
+<div>&nbsp; &nbsp; this.restaurant = result.data;</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div>&lt;style scoped&gt;</div>
+<div>form {</div>
+<div>&nbsp; max-width: 600px;</div>
+<div>}</div>
+<div><br></div>
+<div>.error {</div>
+<div>&nbsp; color: red;</div>
+<div>&nbsp; font-weight: bold;</div>
+<div>}</div>
+<div><br></div>
+<div>input[type="file"] {</div>
+<div>&nbsp; margin: 10px auto !important;</div>
+<div>&nbsp; width: 200px !important;</div>
+<div>&nbsp; margin: auto;</div>
+<div>&nbsp; font-size: 15px;</div>
+<div>&nbsp; border: 0 !important;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+<td height=1548><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

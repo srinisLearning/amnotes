@@ -1,0 +1,638 @@
+<html><head><title>1irstPage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td rowspan=2><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">var createError = require('http-errors');</font></div>
+<div><font face="Verdana">var express = require('express');</font></div>
+<div><font face="Verdana">var path = require('path');</font></div>
+<div><font face="Verdana">var cookieParser = require('cookie-parser');</font></div>
+<div><font face="Verdana">var logger = require('morgan');</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">var indexRouter = require('./routes/index');</font></div>
+<div><font face="Verdana">var usersRouter = require('./routes/users');</font></div>
+<div><font face="Verdana">app.use('/', indexRouter);</font></div>
+<div><font face="Verdana">app.use('/users', usersRouter);</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">var app = express();</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">// view engine setup</font></div>
+<div><font face="Verdana">app.set('views', path.join(__dirname, 'views'));</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">app.set('view engine', 'jade');</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">app.use(logger('dev'));</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">app.use(express.json());</font></div>
+<div><font face="Verdana">app.use(express.urlencoded({ extended: false }));</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">app.use(cookieParser());</font></div>
+<div><font face="Verdana">app.use(express.static(path.join(__dirname, 'public')));</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">// catch 404 and forward to error handler</font></div>
+<div><font face="Verdana">app.use(function(req, res, next) {</font></div>
+<div><font face="Verdana">&nbsp; next(createError(404));</font></div>
+<div><font face="Verdana">});</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">// error handler</font></div>
+<div><font face="Verdana">app.use(function(err, req, res, next) {</font></div>
+<div><font face="Verdana">&nbsp; // set locals, only providing error in development</font></div>
+<div><font face="Verdana">&nbsp; res.locals.message = err.message;</font></div>
+<div><font face="Verdana">&nbsp; res.locals.error = req.app.get('env') === 'development' ? err : {};</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; // render the error page</font></div>
+<div><font face="Verdana">&nbsp; res.status(err.status || 500);</font></div>
+<div><font face="Verdana">&nbsp; res.render('error');</font></div>
+<div><font face="Verdana">});</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">module.exports = app;</font></div>
+<div><br></div>
+</font>
+</td>
+<td height=327><font size=2 color="#000000" face="Arial">
+<div>var express = require('express');</div>
+<div>var router = express.Router();</div>
+<div><br></div>
+<div>/* GET home page. */</div>
+<div>router.get('/', function(req, res, next) {</div>
+<div>&nbsp; res.render('index', { title: 'Express' });</div>
+<div>});</div>
+<div><br></div>
+<div>module.exports = router;</div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div>var express = require('express');</div>
+<div>var router = express.Router();</div>
+<div><br></div>
+<div>/* GET users listing. */</div>
+<div>router.get('/', function(req, res, next) {</div>
+<div>&nbsp; res.send('respond with a resource');</div>
+<div>});</div>
+<div><br></div>
+<div>module.exports = router;</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>extends layout</div>
+<div><br></div>
+<div>block content</div>
+<div>&nbsp; h1= title</div>
+<div>&nbsp; p Welcome to #{title}</div>
+<hr noshade size=1 color="#000000">
+<div>extends layout</div>
+<div><br></div>
+<div>block content</div>
+<div>&nbsp; h1= message</div>
+<div>&nbsp; h2= error.status</div>
+<div>&nbsp; pre #{error.stack}</div>
+<div><br></div>
+<div>doctype html</div>
+<div>html</div>
+<div>&nbsp; head</div>
+<div>&nbsp; &nbsp; title= title</div>
+<div>&nbsp; &nbsp; link(rel='stylesheet', href='/stylesheets/style.css')</div>
+<div>&nbsp; body</div>
+<div>&nbsp; &nbsp; block content</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td rowspan=2><font size=2 color="#000000" face="Arial">
+<div>&nbsp;</div>
+<div>import axios from 'axios';</div>
+<div>import React, { useState } from'react';</div>
+<div><br></div>
+<div>function App() {</div>
+<div>&nbsp; const [message,setMessage] = useState('');</div>
+<div>&nbsp; const getServerMessage = () =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; axios.get('/getMessage').then((response) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;console.log(response)</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;setMessage(response.data)</div>
+<div>&nbsp; &nbsp; }).catch((error) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; console.log(error)</div>
+<div>&nbsp; &nbsp; })</div>
+<div>&nbsp; }</div>
+<div>&nbsp; &nbsp;const handleSubmit = (e) =&gt; {</div>
+<div>&nbsp; &nbsp; e.preventDefault();</div>
+<div>&nbsp; &nbsp; const email = document.getElementById('email').value;</div>
+<div>&nbsp; &nbsp; const password = document.getElementById('password').value;</div>
+<div>&nbsp; &nbsp; const user = {email, password};</div>
+<div>&nbsp; &nbsp; console.log(user);</div>
+<div>&nbsp; &nbsp; axios.post('/login', user).then((response) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; console.log(response)</div>
+<div>&nbsp; &nbsp; &nbsp; alert(response.data )</div>
+<div>&nbsp; &nbsp; }).catch((error) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; console.log(error)</div>
+<div>&nbsp; &nbsp; })</div>
+<div>&nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp;}</div>
+<div>&nbsp;</div>
+<div>&nbsp; </div>
+<div>&nbsp;</div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;&gt;</div>
+<div>&nbsp; &nbsp; &lt;div className="App"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;h2&gt;React Client&lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;button onClick={getServerMessage}&gt;Get Server Message&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;p&gt;{</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;(message)? message: 'No Server Message'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;hr /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; {/* email password */}</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;form&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label htmlFor="email"&gt;Email:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="email" id="email" /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label htmlFor="password"&gt;Password:&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="password" id="password" /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;button onClick={handleSubmit}&gt;login&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/form&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &lt;/&gt;</div>
+<div>&nbsp; );</div>
+<div>&nbsp; }</div>
+<div>&nbsp; </div>
+<div><br></div>
+<div>export default App;</div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp; {/* name email password mobile city &nbsp;*/}</div>
+<div>&nbsp;</div>
+</font>
+</td>
+<td height=696><font size=2 color="#000000" face="Arial">
+<div>const express = require('express')</div>
+<div>const app = express()</div>
+<div>const cors = require('cors')</div>
+<div><br></div>
+<div>const port = 6060</div>
+<div><br></div>
+<div>const testRouter = require('./routes/testrouter')</div>
+<div><br></div>
+<div>app.use('/test', testRouter)</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><font color="#0000ff"><b>const corsOptions = {</b></font></div>
+<div><font color="#0000ff"><b>&nbsp; &nbsp; origin: '*',</b></font></div>
+<div><font color="#0000ff"><b>&nbsp; &nbsp; credentials: true,</b></font></div>
+<div><font color="#0000ff"><b>&nbsp; &nbsp; optionSuccessStatus: 200</b></font></div>
+<div><font color="#0000ff"><b>}</b></font></div>
+<div><font color="#0000ff"><b><br></b></font></div>
+<div><font color="#0000ff"><b>app.use(cors(corsOptions))</b></font></div>
+<div><font color="#0000ff"><b><br></b></font></div>
+<div><b><br></b></div>
+<div><font color="#008000">app.use(express.json());</font></div>
+<div><font color="#008000">app.use(express.urlencoded({ extended: false }));</font></div>
+<div><br></div>
+<div>app.get('/', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; res.send('Hello from Wasan World World!')</div>
+<div>})</div>
+<div>app.get('/getMessage', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; res.send('This message is from the server')</div>
+<div>})</div>
+<div>app.post('/login', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; var email = req.body.email;</div>
+<div>&nbsp; &nbsp; var password = req.body.password;</div>
+<div>&nbsp; &nbsp; if (email === 'wasan@gmail.com' &amp;&amp; password === '123456') {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; res.send('Login successful');</div>
+<div>&nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; res.send('Login failed');</div>
+<div>&nbsp; &nbsp; }</div>
+<div>})</div>
+<div><br></div>
+<div>app.listen(port, () =&gt; {</div>
+<div>&nbsp; &nbsp; console.log(`Example app listening on the &nbsp;port ${port}`)</div>
+<div>})</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>{</div>
+<div>&nbsp; "name": "server",</div>
+<div>&nbsp; "version": "1.0.0",</div>
+<div>&nbsp; "description": "",</div>
+<div>&nbsp; "main": "index.js",</div>
+<div>&nbsp; "scripts": {</div>
+<div>&nbsp; &nbsp; "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"</div>
+<div>&nbsp; },</div>
+<div>&nbsp; "keywords": [],</div>
+<div>&nbsp; "author": "",</div>
+<div>&nbsp; "license": "ISC",</div>
+<div>&nbsp; "dependencies": {</div>
+<div>&nbsp; &nbsp; "body-parser": "^1.20.2",</div>
+<div>&nbsp; &nbsp; "cors": "^2.8.5",</div>
+<div>&nbsp; &nbsp; "express": "^4.18.2",</div>
+<div>&nbsp; &nbsp; "nodemon": "^3.1.0"</div>
+<div>&nbsp; },</div>
+<div>&nbsp; "proxy": "http://localhost:6060"</div>
+<div>}</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>const express = require('express')</div>
+<div>const app = express()</div>
+<div>const port = 6060</div>
+<div>app.listen(port, () =&gt; {</div>
+<div>&nbsp; &nbsp; console.log(`Example app listening on the &nbsp;port ${port}`)</div>
+<div>})</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>app.set('view engine', 'ejs')</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>app.use(express.urlencoded({ extended: true }))</div>
+<div>app.use(express.static('public'))</div>
+<div><br></div>
+<div>app.get('/', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; res.send('Hello World!')</div>
+<div>})</div>
+<div><br></div>
+<div>const products =</div>
+<div>&nbsp; &nbsp; [</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; { id: 1, name: "mobile", price: 200, },</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; { id: 2, name: "laptop", price: 400, },</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; { id: 3, name: "smartwatch", price: 100, }</div>
+<div>&nbsp; &nbsp; ]</div>
+<div><br></div>
+<div><br></div>
+<div>app.get('/products', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; res.json(products)</div>
+<div><br></div>
+<div>})</div>
+<div>app.get('/products/:id', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; console.log(req.params.id)</div>
+<div>&nbsp; &nbsp; let myProduct = products.find(product =&gt; product.id === parseInt(req.params.id))</div>
+<div>&nbsp; &nbsp; if (!myProduct) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; res.status(404).send('Product not found')</div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; res.send(myProduct)</div>
+<div>})</div>
+<div><br></div>
+<div>app.post('/products', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; const product = {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; id: products.length + 1,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: req.body.name,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; price: req.body.price,</div>
+<div><br></div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; products.push(product)</div>
+<div>&nbsp; &nbsp; res.send(product)</div>
+<div>})</div>
+<div><br></div>
+<div>app.get('/contact', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; res.render('contact.ejs', { name: 'John' })</div>
+<div><br></div>
+<div>})</div>
+<div><br></div>
+<div><br></div>
+<div>app.get('/getqueryparam', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; res.send(req.query)</div>
+<div>})</div>
+<div>app.get('/getPage', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; res.sendFile(__dirname + '/getPage.html')</div>
+<div>})</div>
+<div><br></div>
+<div><br></div>
+<div>app.get('/calci', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; res.render('calci.ejs')</div>
+<div>})</div>
+<div>app.post('/calci', (req, res) =&gt; {</div>
+<div>&nbsp; &nbsp; console.log(req.body)</div>
+<div>&nbsp; &nbsp; let num1 = parseInt(req.body.num1)</div>
+<div>&nbsp; &nbsp; let num2 = parseInt(req.body.num2)</div>
+<div>&nbsp; &nbsp; res.send(num1 + num2)</div>
+<div>})</div>
+<div><br></div>
+<div><br></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">const express = require('express')</font></div>
+<div><font color="#000000" face="Verdana">const mongoose = require('mongoose')</font></div>
+<div><font color="#000000" face="Verdana">const app = express()</font></div>
+<div><font color="#000000" face="Verdana">mongoose.connect("mongodb://localhost:27017/&lt;databaseName&gt;",</font></div>
+<div><font color="#000000" face="Verdana">{</font></div>
+<div><font color="#000000" face="Verdana">useNewUrlParser:true,</font></div>
+<div><font color="#000000" face="Verdana">useUnifiedTopology:true</font></div>
+<div><font color="#000000" face="Verdana">},(err) =&gt;{</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp;if(err)</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp;{console.log(err)</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp;}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp;else{</font></div>
+<div><font color="#000000" face="Verdana">console.log("successfully connected")</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; </font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div>var path = require('path');</div>
+<div>app.set('views', path.join(__dirname, 'views'));</div>
+<div>app.use(express.static(path.join(__dirname, 'public')));node</div>
+<div><br></div>
+<div>&nbsp;</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">Schema defines what the structure of the data is like and </font></div>
+<div><font color="#000000" face="Verdana">Model is the Schema in a format that you can use</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>&nbsp;const mongoose = require('mongoose');</div>
+<div>&nbsp;const Person = require('./models/person');</div>
+<div><br></div>
+<div>&nbsp;mongoose.connect('mongodb://localhost:27017/personDB').then(() =&gt; {</div>
+<div>&nbsp; &nbsp;console.log('Connected to MongoDB');</div>
+<div>&nbsp;}).catch((err) =&gt; {</div>
+<div>&nbsp; &nbsp;console.log('Error connecting to MongoDB', err);</div>
+<div>&nbsp;});</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const person= new Person({</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: 'Sachin',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: 'abc@example.com',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: '1234567890',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; personCode: 123</div>
+<div>&nbsp; &nbsp; });</div>
+<div>&nbsp; &nbsp; person.save().then((doc) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; console.log(doc);</div>
+<div>&nbsp; &nbsp; }).catch((err) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; console.log(err);</div>
+<div>&nbsp; &nbsp; });</div>
+<div><br></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>const mongoose = require('mongoose');</div>
+<div>const personSchema = new mongoose.Schema({</div>
+<div>&nbsp; name: String,</div>
+<div>&nbsp; email: String,</div>
+<div>&nbsp; mobile: String,</div>
+<div>&nbsp; personCode:Number</div>
+<div>})</div>
+<div>module.exports = mongoose.model('Person', personSchema);</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>const mongoose = require('mongoose');</div>
+<div>&nbsp;const Person = require('./models/person');</div>
+<div><br></div>
+<div>&nbsp;mongoose.connect('mongodb://localhost:27017/personDB').then(() =&gt; {</div>
+<div>&nbsp; &nbsp;console.log('Connected to MongoDB');</div>
+<div>&nbsp;}).catch((err) =&gt; {</div>
+<div>&nbsp; &nbsp;console.log('Error connecting to MongoDB', err);</div>
+<div>&nbsp;});</div>
+<div>&nbsp;</div>
+<div>&nbsp; &nbsp;/* const person= new Person({</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: 'Sachin',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: 'abc@example.com',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: '1234567890',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; });</div>
+<div>&nbsp; &nbsp; person.save().then((doc) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; console.log(doc);</div>
+<div>&nbsp; &nbsp; }).catch((err) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; console.log(err);</div>
+<div>&nbsp; &nbsp; });</div>
+<div><br></div>
+<div>*/</div>
+<div><br></div>
+<div>&nbsp; &nbsp; </div>
+<div>createPerson() </div>
+<div><br></div>
+<div>&nbsp; &nbsp; async function createPerson() {</div>
+<div>&nbsp; &nbsp; const person = new Person({</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: 'Raajkumar',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: 'vinod@example.com',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: '1234567890',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; personCode: 123</div>
+<div>&nbsp; &nbsp; });</div>
+<div>&nbsp; &nbsp; await person.save();</div>
+<div>&nbsp; &nbsp; console.log(person);</div>
+<div>}</div>
+<div>&nbsp;/*</div>
+<div>createPerson();</div>
+<div>async function createPerson() {</div>
+<div>&nbsp; &nbsp; try {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; const person = await Person.create({</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: 'Saurav',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; email: 'vinod@example.com',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mobile: '1234567890',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; personCode: 234,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; skills:['java','python','nodejs']</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; });</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; console.log(person);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; } catch (error) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; console.log(error);</div>
+<div>&nbsp; &nbsp; }</div>
+<div>}</div>
+<div><br></div>
+<div>async function getPersons() {</div>
+<div>&nbsp; &nbsp; const persons = await Person.find();</div>
+<div>&nbsp; &nbsp; console.log(persons);</div>
+<div>}</div>
+<div><br></div>
+<div>async function getPersonById(id) {</div>
+<div>&nbsp; &nbsp; const person = await Person.findById (id); &nbsp; </div>
+<div>&nbsp; &nbsp; console.log(person); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+<div>}</div>
+<div><br></div>
+<div>async function getPersonByName(name) {</div>
+<div>&nbsp; &nbsp; const person = await Person.find ({name:name});</div>
+<div>&nbsp; &nbsp; console.log(person);</div>
+<div>}</div>
+<div><br></div>
+<div>async function deletePerson(id) {</div>
+<div>&nbsp; &nbsp; const result = await Person.delete &nbsp;({_id:id});</div>
+<div>&nbsp; &nbsp; console.log(result);</div>
+<div>}</div>
+<div>*/</div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

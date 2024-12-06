@@ -1,0 +1,97 @@
+<html><head><title>Installation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table border=0 cellpadding=15 cellspacing=-1 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">Download the Code Igniter and extract it and place it htdocs of xampp</font></div>
+<div><font face="Verdana">rename &nbsp;env file to .env</font></div>
+<div><font face="Verdana">change environment to development</font></div>
+<div><font face="Verdana">Create a database</font></div>
+<div><font face="Verdana">add databae details to .env file</font></div>
+<div><font face="Verdana">in app.php </font></div>
+<div><font face="Verdana">&nbsp; 1) change the url of &nbsp;public string $baseURL = '</font><a href="http://localhost:8080/&apos;"><font color="#0000ff" face="Verdana"><u>http://localhost:8080/'</u></font></a><font face="Verdana">&nbsp;to </font><a href="http://localhost/&lt;project_url"><font color="#0000ff" face="Verdana"><u>http://localhost/&lt;project_url</u></font></a><font face="Verdana">&gt;</font></div>
+<div><font face="Verdana">&nbsp; 2) change </font>&nbsp;public string $indexPage = 'index.php'; to &nbsp;public string $indexPage = ' '</div>
+<div>&nbsp; &nbsp;3) change &nbsp; public string $uriProtocol &nbsp;to &nbsp;'PATH_INFO'; </div>
+<div><br></div>
+<div>copy index.php</div>
+<div><br></div>
+<div>change FCPATH</div>
+<div><br></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=1 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>npm install -D tailwindcss</div>
+<div>npx tailwindcss init</div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div>@tailwind base;</div>
+<div>@tailwind components; </div>
+<div>@tailwind utilities;</div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>/** @type {import('tailwindcss').Config} */</div>
+<div>/** @type {import('tailwindcss').Config} */</div>
+<div>module.exports = {</div>
+<div>&nbsp; content: ["./app/Views/**/*.{html,js,php}"],</div>
+<div>&nbsp; theme: {</div>
+<div>&nbsp; &nbsp; extend: {},</div>
+<div>&nbsp; },</div>
+<div>&nbsp; plugins: [],</div>
+<div>}</div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font size=4 color="#000000">composer create-project codeigniter4/appstarter &lt;project-folder-name&gt;</font></div>
+<div><font size=4 color="#000000"><br></font></div>
+<div><font color="#000000">rename env file</font></div>
+<div><font color="#000000"><br></font></div>
+<div><font color="#000000">change the return type of Home Controller</font></div>
+<div><font color="#000000"><br></font></div>
+<div><font color="#000000">php spark&nbsp; serve</font></div>
+<div><font color="#000000"><br></font></div>
+<div><font color="#000000" face="Verdana">composer require codeigniter4/shield</font></div>
+<div><font color="#000000" face="Verdana">php spark shield:setup</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">After installing CI using composer do the following to remove public from the url</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">1) app-&gt;config-&gt;app.php</font></div>
+<div><font color="#000000" face="Verdana">change $baseUrl to&nbsp;</font><font color="#000000">&nbsp; = '</font><a href="http://localhost/project_root&apos;"><font color="#000000"><u>http://localhost/project_root'</u></font></a><font color="#000000">;</font></div>
+<div><br></div>
+<div>2) move htaccess and index.php from public folder to root</div>
+<div><br></div>
+<div>3) in index.php change FCPATH to</div>
+<div>require FCPATH . 'app/Config/Paths.php';</div>
+<div><font color="#008000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">https://www.youtube.com/watch?v=96vDcjh3a9w</font></div>
+<div><font color="#008000"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

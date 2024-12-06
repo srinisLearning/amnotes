@@ -1,0 +1,262 @@
+<html><head><title>NPM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<h2><font size=2 color="#000000" face="Arial"><font size=2 color="#000000"><b>Option 1: Disable globally</b></font></font></h2>
+<div>To disable the rule in all files (even those in&nbsp;src/components):</div>
+<div><font face="Courier New">// &lt;projectRoot&gt;/.eslintrc.js</font></div>
+<div>module.exports = {
+ </div>
+<div>&nbsp; ⋮
+ </div>
+<div>&nbsp; rules: {
+ </div>
+<div>&nbsp; &nbsp; 'vue/multi-word-component-names': 0,
+ </div>
+<div>&nbsp; },
+}</div>
+<div>}
+</div>
+<div><br></div>
+<h2><font size=2 color="#000000" face="Arial"><b>Option 2:&nbsp;</b></font></h2>
+<h2><font size=2 color="#000000" face="Arial">overrides&nbsp;in ESLint config for&nbsp;src/views/</font></h2>
+<div>To disable the rule only for&nbsp;src/views/**/*.vue, specify an&nbsp;<a href="https://eslint.org/docs/user-guide/configuring/configuration-files#how-do-overrides-work"><font color="#0000ff"><u>overrides&nbsp;</u></font></a>config:</div>
+<div><font face="Courier New">// &lt;projectRoot&gt;/.eslintrc.js</font></div>
+<div>module.exports = {
+ </div>
+<div>&nbsp; ⋮
+ </div>
+<div>&nbsp; overrides: [
+ </div>
+<div>&nbsp; &nbsp; {
+ </div>
+<div>&nbsp; &nbsp; &nbsp; files: ['src/views/**/*.vue'],
+ </div>
+<div>&nbsp; &nbsp; &nbsp; rules: {
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; 'vue/multi-word-component-names': 0,
+ </div>
+<div>&nbsp; &nbsp; &nbsp; },
+ </div>
+<div>&nbsp; &nbsp; },
+ </div>
+<div>&nbsp; ],
+}</div>
+<div>}</div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>&nbsp; &nbsp;// eslint-disable-next-line no-unused-vars</div>
+<div>/* eslint-disable */</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>"rules": {</div>
+<div>&nbsp; &nbsp; &nbsp; "vue/multi-word-component-names": 0</div>
+<div>&nbsp; &nbsp; }</div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#008000" face="Verdana">Bootstrap</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font face="Courier New">npm install bootstrap
+n</font></div>
+<div><font face="Courier New">npm install bootstrap-</font>vue</div>
+<div>&nbsp;</div>
+<div>Then, open the&nbsp;main.js&nbsp;file with your code editor. Import bootstrap.</div>
+<div><font face="Courier New">import</font>&nbsp;'bootstrap/dist/css/bootstrap.css'</div>
+<div>import 'bootstrap-vue/dist/bootstrap-vue.css'</div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

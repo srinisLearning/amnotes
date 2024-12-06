@@ -1,0 +1,129 @@
+<html><head><title>Layouts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table border=0 cellpadding=1 cellspacing=-1 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div align=center><img width=769 height=353 src="Layouts1.jpg"></div>
+<div><font size=3 color="#000000" face="Verdana"><br></font></div>
+<div><font size=3 color="#000000" face="Verdana"><br></font></div>
+<div><font size=3 color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font size=4 face="Verdana">&lt;!DOCTYPE html&gt;</font></div>
+<div><font size=4 face="Verdana">&nbsp;&lt;html&gt;</font></div>
+<div><font size=4 face="Verdana">&nbsp;&lt;head&gt;</font></div>
+<div><font size=4 face="Verdana">&nbsp;&lt;meta charset="UTF-8"&gt;</font></div>
+<div><font size=4 face="Verdana">&nbsp;&lt;title&gt;&lt;?= $this-&gt;renderSection("title") ?&gt;&lt;/title&gt;</font></div>
+<div><font size=4 face="Verdana">&nbsp;&lt;/head&gt;</font></div>
+<div><font size=4 face="Verdana">&nbsp;&lt;body&gt;</font></div>
+<div><font size=4 face="Verdana"><br></font></div>
+<div><font size=4 face="Verdana">&nbsp;&lt;?= $this-&gt;renderSection("content") ?&gt;</font></div>
+<div><font size=4 face="Verdana"><br></font></div>
+<div><font size=4 face="Verdana">&nbsp;&lt;/body&gt;</font></div>
+<div><font size=4 face="Verdana">&nbsp;&lt;/html&gt;</font></div>
+<hr noshade size=1 color="#000000">
+<div><font size=4>&lt;?= $this-&gt;extend("layouts/default") ?&gt;</font></div>
+<div><font size=4><br></font></div>
+<div><font size=4>&nbsp;&lt;?= $this-&gt;section("title") ?&gt;Tasks&lt;?= $this-&gt;endSection() ?&gt;</font></div>
+<div><font size=4><br></font></div>
+<div><font size=4>&nbsp;&lt;?= $this-&gt;section("content") ?&gt;</font></div>
+<div><font size=4><br></font></div>
+<div><font size=4>&nbsp;&lt;h1&gt;Tasks&lt;/h1&gt;</font></div>
+<div><font size=4><br></font></div>
+<div><font size=4>&nbsp;&lt;?= $this-&gt;endSection() ?&gt;</font></div>
+<div><font size=3><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font size=3><br></font></div>
+<div><font size=4 face="Verdana">?= $this-&gt;extend('default') ?&gt;</font></div>
+<div><font size=4 face="Verdana"><br></font></div>
+<div><font size=4 face="Verdana">&lt;?= $this-&gt;section('content') ?&gt;</font></div>
+<div><font size=4 face="Verdana">&nbsp; &nbsp; &lt;h1&gt;Hello World!&lt;/h1&gt;</font></div>
+<div><font size=4 face="Verdana"><br></font></div>
+<div><font size=4 face="Verdana">&nbsp; &nbsp; &lt;?= $this-&gt;include('sidebar') ?&gt;</font></div>
+<div><font size=4 face="Verdana">&lt;?= $this-&gt;endSection() ?&gt;</font></div>
+<div><font size=4 face="Verdana"><br></font></div>
+<div><font size=4 face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5><b><br></b></font></div>
+<div align=center><font size=5 color="#008000"><b>TABLE</b></font></div>
+<div><font size=3><br></font></div>
+<div><font size=3>&lt;?php</font></div>
+<div><font size=3><br></font></div>
+<div><font size=3>namespace App\Controllers;</font></div>
+<div><font size=3>use CodeIgniter\View\Table;</font></div>
+<div><font size=3><br></font></div>
+<div><font size=3>class TableController extends BaseController</font></div>
+<div><font size=3>{</font></div>
+<div><font size=3>&nbsp; &nbsp; public function index()</font></div>
+<div><font size=3>&nbsp; &nbsp; {</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; $table = new Table();</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; $table-&gt;setHeading('Name','City','State');</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; $template = [</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'table_open' =&gt; '&lt;table border="1" cellpadding="5" cellspacing="5"&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'thead_open' &nbsp;=&gt; '&lt;thead&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'thead_close' =&gt; '&lt;/thead&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'heading_row_start' &nbsp;=&gt; '&lt;tr&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'heading_row_end' &nbsp; &nbsp;=&gt; '&lt;/tr&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'heading_cell_start' =&gt; '&lt;th&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'heading_cell_end' &nbsp; =&gt; '&lt;/th&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'tfoot_open' &nbsp;=&gt; '&lt;tfoot&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'tfoot_close' =&gt; '&lt;/tfoot&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'footing_row_start' &nbsp;=&gt; '&lt;tr&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'footing_row_end' &nbsp; &nbsp;=&gt; '&lt;/tr&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'footing_cell_start' =&gt; '&lt;td&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'footing_cell_end' &nbsp; =&gt; '&lt;/td&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'tbody_open' &nbsp;=&gt; '&lt;tbody&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'tbody_close' =&gt; '&lt;/tbody&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'row_start' &nbsp;=&gt; '&lt;tr&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'row_end' &nbsp; &nbsp;=&gt; '&lt;/tr&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'cell_start' =&gt; '&lt;td&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'cell_end' &nbsp; =&gt; '&lt;/td&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'row_alt_start' &nbsp;=&gt; '&lt;tr&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'row_alt_end' &nbsp; &nbsp;=&gt; '&lt;/tr&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'cell_alt_start' =&gt; '&lt;td&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'cell_alt_end' &nbsp; =&gt; '&lt;/td&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'table_close' =&gt; '&lt;/table&gt;',</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; ];</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; $table-&gt;setTemplate($template);</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; $data = [</font></div>
+<div><font size=3><br></font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp; ['Name', 'City','State'],</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ['Fred','Hyderabad','TS'],</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ['Mary','Kolkata','WS'],</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ['Jhon','Mumbai','GS']</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; ]; &nbsp; </font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; $table-&gt;addRow(['Srini','Chennai','TN']);</font></div>
+<div><font size=3>&nbsp; &nbsp; &nbsp; &nbsp; print $table-&gt;generate($data);</font></div>
+<div><font size=3>&nbsp; &nbsp; }</font></div>
+<div><font size=3>}</font></div>
+<div><font size=3><br></font></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font size=4>&nbsp; &lt;img src="&lt;?= base_url('public/assets/images/hero_bg_1.jpg') ?&gt;" alt="Image" class="img-fluid rounded mb-4"&gt;</font></div>
+<div><font size=4>if composer</font></div>
+<div><font size=4>&nbsp;&lt;img src="&lt;?= base_url('assets/images/hero_bg_1.jpg') ?&gt;" alt="Image" class="img-fluid rounded mb-4"&gt;</font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

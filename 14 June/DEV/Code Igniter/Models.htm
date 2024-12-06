@@ -1,0 +1,256 @@
+<html><head><title>Models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">php spark make:model &lt;ModelName&gt;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&lt;?php</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">namespace App\Models;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">use CodeIgniter\Model;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">class EmployeeModel extends Model</font></div>
+<div><font color="#000000" face="Verdana">{</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $DBGroup &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 'default';</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $table &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 'employees';</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $primaryKey &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 'id';</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $useAutoIncrement &nbsp; &nbsp; = true;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $insertID &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 0;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $returnType &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 'array';</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $useSoftDeletes &nbsp; &nbsp; &nbsp; = false;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $protectFields &nbsp; &nbsp; &nbsp; &nbsp;= true;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $allowedFields &nbsp; &nbsp; &nbsp; &nbsp;= [</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">"name",</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">"email",</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">"profile_image"</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">];</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">// Dates</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $useTimestamps &nbsp; &nbsp; &nbsp; &nbsp;= false;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $dateFormat &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 'datetime';</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $createdField &nbsp; &nbsp; &nbsp; &nbsp; = 'created_at';</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $updatedField &nbsp; &nbsp; &nbsp; &nbsp; = 'updated_at';</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $deletedField &nbsp; &nbsp; &nbsp; &nbsp; = 'deleted_at';</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">// Validation</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $validationRules &nbsp; &nbsp; &nbsp;= [];</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $validationMessages &nbsp; = [];</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $skipValidation &nbsp; &nbsp; &nbsp; = false;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $cleanValidationRules = true;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">// Callbacks</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $allowCallbacks &nbsp; &nbsp; &nbsp; = true;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $beforeInsert &nbsp; &nbsp; &nbsp; &nbsp; = [];</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $afterInsert &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= [];</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $beforeUpdate &nbsp; &nbsp; &nbsp; &nbsp; = [];</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $afterUpdate &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= [];</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $beforeFind &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = [];</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $afterFind &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= [];</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $beforeDelete &nbsp; &nbsp; &nbsp; &nbsp; = [];</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">protected $afterDelete &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= [];</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

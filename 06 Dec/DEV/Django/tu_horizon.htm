@@ -1,0 +1,414 @@
+<html><head><title>tu_horizon</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=1 cellpadding=6 cellspacing=6 bordercolorlight="#000000" bordercolordark="#99cc00" bgcolor="#ffffff">
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">install python</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">pip install django</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">To Check the Django version</font></div>
+<div><font face="Verdana">python</font></div>
+<div><font face="Verdana">import django</font><br><font face="Verdana">django.VERSION</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">django-admin startproject &lt;PROJECT_NAME&gt;</font></div>
+<div><font face="Verdana">py &nbsp;manage.py startapp&lt;APP_NAME&gt;</font></div>
+<div><font face="Verdana">py &nbsp;manage.py runserver</font></div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=392><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">pip install virtualenv &nbsp; </font></div>
+<div><font color="#000000" face="Verdana">virtualenv &lt;virtualenvname&gt; | </font></div>
+<div><font color="#000000" face="Verdana">&lt;virtualenvname&gt;\Scripts\activate</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">pip freeze &gt; requirements.txt</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">pip install -r requirements.txt</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=392><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">pip install pipenv</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp;pipenv shell</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">pipenv install django</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">pip &nbsp;freeze</font></div>
+</font>
+</td>
+<td width=392><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">install bootstrap</font></div>
+<div><font color="#000000" face="Verdana">create urls.py in the app folder</font></div>
+<div><font color="#000000" face="Verdana">include the app urls.py in the project url folder</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">create template and static directory in the root</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">import os</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div>BASE_DIR = Path(__file__).resolve().parent.parent</div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')</font></div>
+<div><font color="#000000" face="Verdana">STATIC_DIR = os.path.join(BASE_DIR,'static')</font></div>
+<div><font color="#008000" face="Verdana"><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">TEMPLATES = [</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; 'DIRS': [TEMPLATE_DIR],</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">]</font></div>
+<div><font face="Verdana"><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">STATICFILES_DIRS = [STATIC_DIR]</font></div>
+<div><font color="#008000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176 height=150><font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td colspan=2 bgcolor="#99cc00"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#ffffff" face="Verdana"><b>ADMIN</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">add the apps to Installed Apps</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp;py manage.py migrate to enable admin mode</font></div>
+<div><font face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana"><b><br></b></font></div>
+<div><font face="Verdana">&nbsp;py manage.ppy createsuperuser</font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</td>
+<td width=390 height=150><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td colspan=2 bgcolor="#99cc00"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#ffffff" face="Verdana">VIEWS &nbsp;</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">from django.contrib import admin</font></div>
+<div><font face="Verdana">from django.urls import path,include</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">urlpatterns = [</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path('admin/', admin.site.urls),</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path('appleone/', include('appleone.urls')),</font></div>
+<div><font face="Verdana">]</font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">from django.urls import path</font></div>
+<div><font face="Verdana">from . import views</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">urlpatterns = [</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path('', views.index, name='index'),</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path('about/', views.about, name='about'),</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path('contact/', views.contact, name='contact'),</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path('add/&lt;int:a&gt;/&lt;int:b&gt;/', views.add, name='add'),</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path('info/&lt;str:name&gt;/&lt;str:email&gt;/', views.info, name='info')</font></div>
+<div><font face="Verdana">]</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana"><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Verdana">&nbsp;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">&nbsp;</font></div>
+<div>from django.shortcuts import render </div>
+<div>from django.http import HttpResponse,JsonResponse</div>
+<div>&nbsp;</div>
+<div><br></div>
+<div>def index(request):</div>
+<div>&nbsp; &nbsp; return &nbsp;HttpResponse('Hello from Appleone')</div>
+<div><br></div>
+<div>def about(request):</div>
+<div>&nbsp; &nbsp; return &nbsp;HttpResponse('About Appleone')</div>
+<div><br></div>
+<div>def contact(request):</div>
+<div>&nbsp; &nbsp; return &nbsp;HttpResponse('Contact Appleone') &nbsp; &nbsp;</div>
+<div><br></div>
+<div>def add(request,a,b):</div>
+<div>&nbsp; &nbsp; return &nbsp;HttpResponse(a+b)</div>
+<div><br></div>
+<div>def info(request,name,email):</div>
+<div>&nbsp; &nbsp; return &nbsp;JsonResponse({'name':name,'email':email})</div>
+<div>&nbsp; </div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b>TEMPLATES</b></font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">https://docs.djangoproject.c</font><font color="#000000" face="Verdana">om/en/3.0/ref/templates/language</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font face="Verdana">{% extends "base_generic.html" %}</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">{% block title %}{{ section.title }}{% endblock %}</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">{% block content %}</font></div>
+<div><font face="Verdana">&lt;h1&gt;{{ section.title }}&lt;/h1&gt;</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">{% for story in story_list %}</font></div>
+<div><font face="Verdana">&lt;h2&gt;</font></div>
+<div><font face="Verdana">&nbsp; &lt;a href="{{ story.get_absolute_url }}"&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; {{ story.headline|upper }}</font></div>
+<div><font face="Verdana">&nbsp; &lt;/a&gt;</font></div>
+<div><font face="Verdana">&lt;/h2&gt;</font></div>
+<div><font face="Verdana">&lt;p&gt;{{ story.tease|truncatewords:"100" }}&lt;/p&gt;</font></div>
+<div><font face="Verdana">{% endfor %}</font></div>
+<div><font face="Verdana">{% endblock %}</font></div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Verdana">def displayVariables(request):</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; fruits = ['apple','banana','orange','grapes','mango']</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; mydata = {</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp;"name":"srini",</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp;"age": 45,</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp;"greeting":"Hello, How are you?",</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp;"myfruits":fruits,</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; }</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; {% block content %}</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;h3&gt;Display Variables&lt;/h3&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; {{ name }} &lt;br&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; {{ age }} &lt;br&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; {{ greeting }} &lt;br&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; {% endblock %}</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;hr&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;h3&gt;Fruits&lt;/h3&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;ul&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; {% for fruit in myfruits %}</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;{{ fruit }}&lt;/li&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; {% endfor %}</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;/ul&gt;</font></div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b>BOOTSTRAP</b></font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">pip install django-bootstrap-v5</font></div>
+<div><br></div>
+<div><font face="Verdana">INSTALLED_APPS = [</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; 'bootstrap5',</font></div>
+<div><font face="Verdana">]</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&lt;head&gt;</font></div>
+<div><font face="Verdana">&nbsp;{% load bootstrap5 %}</font></div>
+<div><font face="Verdana">&nbsp;{% bootstrap_css %}</font></div>
+<div><font face="Verdana">&nbsp;{% bootstrap_javascript %}</font></div>
+<div><font face="Verdana">&lt;/head&gt;</font></div>
+<div><font face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000"><b>STATIC</b></font></div>
+<div><br></div>
+<div>{% load static %}</div>
+<div><font color="#000000" face="Verdana">&lt;link rel="stylesheet" href="{% static 'styles/styles.css' %}"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&lt;img src="{% static 'images/dlogo.png' &nbsp;%}" alt="Django Logo"&gt;</font></div>
+<div>&lt;script src="{% static 'js/script.js' %}" defer&gt;&lt;/script&gt;</div>
+</font>
+</td>
+<td width=390><br>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">from django import forms</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">class </font></div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000"><b>MIGRATIONS</b></font></div>
+<div>from django.db import models</div>
+<div><br></div>
+<div>class Tour(models.Model):</div>
+<div>&nbsp; &nbsp; origin_country = models.CharField(max_length=200)</div>
+<div>&nbsp; &nbsp; destination_country = models.CharField(max_length=200)</div>
+<div>&nbsp; &nbsp; price = models.IntegerField()</div>
+<div>&nbsp; &nbsp; mumber_of_nights = models.IntegerField()</div>
+<div><br></div>
+<div>&nbsp; &nbsp; def __str__(self):</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return (f"ID:{self.id}: From {self.origin_country} To {self.destination_country}, {self.number_of_nights} nights costs ${self.price}")</div>
+<hr noshade size=1 color="#000000">
+<div>from django.contrib import admin</div>
+<div>from .models import Tour </div>
+<div><br></div>
+<div><br></div>
+<div>admin.site.register(Tour)</div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div>def showtours(request):</div>
+<div>&nbsp; &nbsp; tours = Tour.objects.all()</div>
+<div>&nbsp; &nbsp; context = {'tours':tours}</div>
+<div>&nbsp; &nbsp; return &nbsp;render(request,'asiantours/showtours.html',context) &nbsp; </div>
+<div><br></div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div>&nbsp; &lt;h3 class="text-center text-primary"&gt;All Tours&lt;/h3&gt;</div>
+<div>&nbsp; &nbsp; {% for tour in tours %}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="card"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="card-body"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class="card-title"&gt;{{ tour.origin_country }}&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class="card-text"&gt;{{ tour.destination_country }}&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class="card-text"&gt;{{ tour.price }}&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class="card-text"&gt;{{ tour.number_of_nights }}&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; {% endfor %}</div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div>py manage.py makemigrations</div>
+<div><br></div>
+<div>py manage.py migrate</div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">pipenv install ipython</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">ipython</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">py manage.py shell</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">py manage.py createsuperuser</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1176><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b>LINKS</b></font></div>
+<div><a href="https://github.com/prosoftwaredevelopment/Learn-Django"><font color="#0000ff" face="Verdana"><u><br></u></font></a></div>
+<div><a href="https://github.com/prosoftwaredevelopment/Learn-Django"><font color="#0000ff" face="Verdana"><u>https://github.com/prosoftwaredevelopment/Learn-Django</u></font></a></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">https://github.com/BekBrace/django_course_2024/tree/main</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=390><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

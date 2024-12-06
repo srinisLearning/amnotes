@@ -1,0 +1,266 @@
+<html><head><title>nextui</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">npm install @nextui-org/react framer-motion</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>tailwind.config</div>
+<div><br></div>
+<div>import type { Config } from "tailwindcss";</div>
+<div>const {nextui} = require("@nextui-org/react");</div>
+<div>const config: Config = {</div>
+<div>&nbsp; content: [</div>
+<div>&nbsp; &nbsp; "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",</div>
+<div>&nbsp; &nbsp; "./src/components/**/*.{js,ts,jsx,tsx,mdx}",</div>
+<div>&nbsp; &nbsp; "./src/app/**/*.{js,ts,jsx,tsx,mdx}",</div>
+<div>&nbsp; &nbsp; "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",</div>
+<div>&nbsp; ],</div>
+<div>&nbsp; theme: {</div>
+<div>&nbsp; &nbsp; extend: {</div>
+<div>&nbsp; &nbsp; &nbsp; backgroundImage: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; "gradient-conic":</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",</div>
+<div>&nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div>&nbsp; darkMode: "class",</div>
+<div>&nbsp; plugins: [nextui()],</div>
+<div>&nbsp; corePlugins:{</div>
+<div>&nbsp; &nbsp; preflight: false, &nbsp;// Remove the default preflight styles from TailwindCSS</div>
+<div>&nbsp; }</div>
+<div>&nbsp; &nbsp;</div>
+<div>};</div>
+<div>export default config;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">npm i --save @fortawesome/fontawesome-svg-core</font></div>
+<div><font color="#000000" face="Verdana">npm i --save </font>@awesome.me/kit-KIT_CODE/icons</div>
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+<hr noshade size=1 color="#000000">
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><a href="https://fontawesome.com/search?o=r&amp;m=free"><font color="#0000ff" face="Verdana"><u>https://fontawesome.com/search?o=r&amp;m=free</u></font></a></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">npm i --save @fortawesome/react-fontawesome@latest</font></div>
+<div><font color="#000000" face="Verdana">npm i --save @fortawesome/free-solid-svg-icons</font></div>
+<div><font color="#000000" face="Verdana">npm i --save @fortawesome/free-regular-svg-icons</font></div>
+<div><font color="#000000" face="Verdana">npm i --save @fortawesome/free-brands-svg-icons</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>import React from 'react'</div>
+<div>import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'</div>
+<div>import {faAt, faMobileScreenButton,faThumbsUp,faGlobe, faThumbTack } from '@fortawesome/free-solid-svg-icons'</div>
+<div><br></div>
+<div>const FontAwesome = () =&gt; {</div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;FontAwesomeIcon icon={faThumbsUp} size='2x' /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;FontAwesomeIcon icon={faMobileScreenButton} className='text-green-600' /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;FontAwesomeIcon icon={faAt} className='text-green-600' /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;FontAwesomeIcon icon={faGlobe} className='text-green-600' /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;p&gt;this is an example of using a FontAwesome icon&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;/&gt;</div>
+<div>&nbsp; )</div>
+<div>}</div>
+<div><br></div>
+<div>export default FontAwesome</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

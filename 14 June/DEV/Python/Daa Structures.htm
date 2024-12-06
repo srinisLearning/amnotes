@@ -1,0 +1,288 @@
+<html><head><title>Daa Structures</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td colspan=2 bgcolor="#969696"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#000000" face="Verdana"><b>List</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">List: A list is an ordered collection of items that can be of different data types. Lists are mutable, which means that their elements can be modified after they are created. Here's an example of a list:</font></div>
+<div><font face="Verdana">A list is a built-in data structure that is used to store an ordered collection of items or elements of any data type. Here are some methods that are commonly used with lists in Python:</font></div>
+<ol>
+<li value=1><font face="Verdana"><b>append()</b></font><font face="Verdana">: Adds an item to the end of the list.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=2><font face="Verdana"><b>extend():</b></font><font face="Verdana">&nbsp;Adds all items from an iterable (e.g. another list) to the end of the list.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=3><font face="Verdana"><b>insert():</b></font><font face="Verdana">&nbsp;Inserts an item at a specified position in the list.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=4><font face="Verdana"><b>remove():</b></font><font face="Verdana">&nbsp;Removes the first occurrence of an item from the list.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=5><font face="Verdana"><b>pop():</b></font><font face="Verdana">&nbsp;Removes and returns the item at a specified index in the list.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=6><font face="Verdana"><b>index(): </b></font><font face="Verdana">Returns the index of the first occurrence of an item in the list.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=7><font face="Verdana"><b>count():</b></font><font face="Verdana">&nbsp;Returns the number of times an item appears in the list.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=8><font face="Verdana"><b>sort():</b></font><font face="Verdana">&nbsp;Sorts the items in the list in ascending order.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=9><font face="Verdana"><b>reverse():</b></font><font face="Verdana">&nbsp;Reverses the order of the items in the list.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=10><font face="Verdana"><b>copy():</b></font><font face="Verdana">&nbsp;Returns a shallow copy of the list.</font></li>
+</ol>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana"><br></font></div>
+<ol>
+<li value=11><font face="Verdana"><b>clear():</b></font><font face="Verdana">&nbsp;Removes all items from the list.</font></li>
+</ol>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">my_list = [1, 2, 3, 4, 5]</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">my_list.append(6)</font></div>
+<div><font color="#000000" face="Verdana">print(my_list) &nbsp;# Output: [1, 2, 3, 4, 5, 6]</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">my_list.extend([7, 8, 9])</font></div>
+<div><font color="#000000" face="Verdana">print(my_list) &nbsp;# Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">my_list.insert(0, 0)</font></div>
+<div><font color="#000000" face="Verdana">print(my_list) &nbsp;# Output: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">my_list.remove(0)</font></div>
+<div><font color="#000000" face="Verdana">print(my_list) &nbsp;# Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">popped_item = my_list.pop(3)</font></div>
+<div><font color="#000000" face="Verdana">print(popped_item) &nbsp;# Output: 4</font></div>
+<div><font color="#000000" face="Verdana">print(my_list) &nbsp;# Output: [1, 2, 3, 5, 6, 7, 8, 9]</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">index_of_5 = my_list.index(5)</font></div>
+<div><font color="#000000" face="Verdana">print(index_of_5) &nbsp;# Output: 3</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">num_of_5s = my_list.count(5)</font></div>
+<div><font color="#000000" face="Verdana">print(num_of_5s) &nbsp;# Output: 1</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">my_list.sort()</font></div>
+<div><font color="#000000" face="Verdana">print(my_list) &nbsp;# Output: [1, 2, 3, 5, 6, 7, 8, 9]</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">my_list.reverse()</font></div>
+<div><font color="#000000" face="Verdana">print(my_list) &nbsp;# Output: [9, 8, 7, 6, 5, 3, 2, 1]</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">my_list_copy = my_list.copy()</font></div>
+<div><font color="#000000" face="Verdana">print(my_list_copy) &nbsp;# Output: [9, 8, 7, 6, 5, 3, 2, 1]</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">my_list.clear()</font></div>
+<div><font color="#000000" face="Verdana">print(my_list) &nbsp;# Output: []</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#c0c0c0"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#000000" face="Verdana"><b>Dictionary</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

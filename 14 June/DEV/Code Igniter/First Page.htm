@@ -1,0 +1,472 @@
+<html><head><title>First Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table border=0 cellpadding=1 cellspacing=-1 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><br></div>
+<div>&lt;a href="&lt;?= print url_to('getAllCategories', $category['category'] ) ?&gt;"&gt;&lt;strong&gt; &lt;?= $category['category'] ?&gt;</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+</font>
+</td>
+<td width=795><br>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><b>Codeigniter Docs</b></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>Migration</div>
+<div>&nbsp;https://codeigniter4.github.io/userguide/dbmgmt/migration.html</div>
+<div><br></div>
+<div>&nbsp;Database</div>
+<div>&nbsp;https://codeigniter.com/user_guide/database/examples.html</div>
+<div><br></div>
+<div>&nbsp;Table</div>
+<div>&nbsp;https://codeigniter.com/user_guide/outgoing/table.html</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp;Installation</div>
+<div><br></div>
+<div>&nbsp;download-&gt;extract-&gt;copy to server location</div>
+<div><b><br></b></div>
+<div><b>composer create-project codeigniter4/appstarter &lt;project-folder-name&gt;</b></div>
+<div><br></div>
+<div>php spark&nbsp; serve</div>
+<div><br></div>
+<div>&nbsp;&nbsp;</div>
+<div>Controllers</div>
+<div><br></div>
+<div>&nbsp;.&lt;?php</div>
+<div><br></div>
+<div>namespace App\Models;</div>
+<div>use CodeIgniter\Model;</div>
+<div><br></div>
+<div>class UserModel extends Model{</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public $db;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;db = \Config\Database::connect();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function getAllUsers(){</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div><br></div>
+<div>}</div>
+<div><br></div>
+<div><br></div>
+<div>?&gt;</div>
+<div><br></div>
+<div>&nbsp;&lt;?php&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;namespace App\Controllers;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;Use CodeIgniter\Controller;</div>
+<div><br></div>
+<div>Class Helloworld extends Controller {</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;public function index(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print “hello world’</div>
+<div>&nbsp;}</div>
+<div><br></div>
+<div>}</div>
+<div><br></div>
+<div>?&gt;</div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp;remap method</div>
+<div><br></div>
+<div>&nbsp;&nbsp; public function _remap($method,$param1=null,$param2=null) {</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(method_exists($this, $method)){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return $this-&gt;$method($param1, $param2);&nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();</div>
+<div>&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;namespace App\Controllers;</div>
+<div>&nbsp;class Blog extends BaseController{</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp; public function index(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print view('blog_header');</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print view('blog_view');</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; print view('blog_footer');</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp; }</div>
+<div>&nbsp;}</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp;</div>
+<div><br></div>
+<div>&nbsp;composer create-project codeigniter4/appstarter [project name]</div>
+<div><br></div>
+<div>Change the env file to .env</div>
+<div><br></div>
+<div>CI_ENVIRONMENT = development</div>
+<div><br></div>
+<div>php spark serve</div>
+<div><br></div>
+<div>http://localhost:8080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div>Codeigniter urls</div>
+<div><br></div>
+<div>The first segment controller</div>
+<div>The second segment method</div>
+<div>The third and any additional segments should be ID and any other variables that should be passed to the controller.</div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div>Controllers</div>
+<div><br></div>
+<div>namespace Controllers/app</div>
+<div>Use Codeigniter\Controller</div>
+<hr noshade size=1 color="#000000">
+<div>public function _remap($method $param1=null,$param2=null){</div>
+<div>if(method_exists($this,$method)</div>
+<div>&nbsp;&nbsp;{</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $this-&gt;method($param1, $param2)</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;}</div>
+<div>else</div>
+<div>&nbsp;&nbsp;{</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;index();</div>
+<div>&nbsp;&nbsp;&nbsp;}</div>
+<div>}</div>
+<div><br></div>
+<div>Layouts</div>
+<div><br></div>
+<div>&nbsp;https://codeigniter.com/user_guide/outgoing/view_layouts.html</div>
+<div><br></div>
+<div>&nbsp;&lt;?=&nbsp; $this-&gt;extend(‘base_layout’) ?&gt;</div>
+<div>&lt;?= &nbsp; $this-&gt;section(‘content’) ?&gt;</div>
+<div>&lt;?= &nbsp; $this-&gt;endSection()&nbsp; ?&gt;&nbsp;</div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div><br></div>
+<div>&lt;?= &nbsp; $this-&gt;renderSection(‘content’) ?&gt;</div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div>&lt;?=&nbsp; $this-&gt;include(‘partials/features’) ?&gt;</div>
+<div><br></div>
+<div>&lt;?= base_url();&nbsp; ?&gt;</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp;</div>
+<div><br></div>
+<div>&nbsp;Routes</div>
+<div><br></div>
+<div>&nbsp;$routes-&gt;add(‘codeigniter-4-training’,’Home::training’)</div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp;$routes-&gt;group(‘api’,function($routes){</div>
+<div><br></div>
+<div>$routes-&gt;get(‘create-user’,’Site::createMethod’);</div>
+<div>$routes-&gt;get(‘list-user’,Site::listMethod);</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>});</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp;Databases</div>
+<div><br></div>
+<div>&nbsp;&lt;?php</div>
+<div><br></div>
+<div>namespace App\Controllers;</div>
+<div>use \Config\Database;</div>
+<div><br></div>
+<div>class Data extends BaseController</div>
+<div>{</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function index()</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;{</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return view('dataview');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function checkConn(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$db = Database::connect();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_r($db);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function fetchUsers(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$db = Database::connect("usersdb");</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$query = $db-&gt;query("select name,email,mobile from users");</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = $query-&gt;getResult();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "&lt;pre&gt;";</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_r($result);</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function fetchMobiles(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$db = Database::connect("mobilesdb");</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$query = $db-&gt;query("select name,price from models");</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = $query-&gt;getResult();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "&lt;pre&gt;";</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_r($result);</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div>}</div>
+<div><br></div>
+<div>&nbsp;public function __construct(){</div>
+<div><br></div>
+<div>$this-&gt;db = db_connect();</div>
+<div>$this-&gt;table= $this-&gt;db-&gt;table(“TABLE_NAME”);</div>
+<div><br></div>
+<div>}</div>
+<div>&nbsp;insertBatch() to insert multiple records</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp;Code Snippet</div>
+<div><br></div>
+<div>&nbsp;TestLibrary.php</div>
+<div>&lt;?php</div>
+<div><br></div>
+<div>namespace App\Libraries;</div>
+<div>use \Config\Database;</div>
+<div><br></div>
+<div>class TestLibrary{</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public $db;</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function __construct(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;db = Database::connect();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function getData(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print 'Welcome to the Custom Library';</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function getDames(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $this-&gt;db-&gt;query("select * from mydames")-&gt;getResultArray();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div>}</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>UserModel.php</div>
+<div>&lt;?php</div>
+<div>namespace App\Models;</div>
+<div>use CodeIgniter\Model;</div>
+<div>use \Config\Database;</div>
+<div><br></div>
+<div>class UserModel extends Model{</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public $db;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;db =&nbsp; Database::connect();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function getAllUsers(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$query = $this-&gt;db-&gt;query("SELECT * FROM myusers");</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = $query-&gt;getResult();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(count($result) &gt; 0){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $result;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>}</div>
+<div><br></div>
+<div>?&gt;</div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>StudentModel.php</div>
+<div>&lt;?php</div>
+<div>&nbsp;namespace App\Models;</div>
+<div>&nbsp;use CodeIgniter\Model;</div>
+<div>&nbsp;&nbsp;&nbsp;class SubjectModel extends Model {&nbsp;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function getAllSubjects(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$subjects = [</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['subject'=&gt;'HTML','abbr' =&gt;'Hyper Text Markup Language'],</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['subject'=&gt;'CSS','abbr' =&gt;'Cascading Style Sheets'],</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['subject'=&gt;'JSON','abbr' =&gt;'JavaScript Object Notation'],</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['subject'=&gt;'AJAX','abbr' =&gt;'Asynchronous JavaScript and XML'],</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['subject'=&gt;'PHP','abbr' =&gt;'Hypertext Preprocessor'],</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;];</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $subjects;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;}</div>
+<div><br></div>
+<div>?&gt;</div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div><br></div>
+<div>DataDemo.php</div>
+<div><br></div>
+<div>&nbsp;&lt;?php</div>
+<div>namespace App\Controllers;</div>
+<div>use App\Libraries\TestLibrary;</div>
+<div>use App\Models\SubjectModel;</div>
+<div>use App\Models\UserModel;</div>
+<div><br></div>
+<div>class DataDemo extends BaseController</div>
+<div>{</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public $mytest;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public $sm;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public $um;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function __construct() {</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;mytest&nbsp; = new TestLibrary();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;sm = new SubjectModel();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;um = new UserModel();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function index()</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;{</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp; 'datademo';</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function addNums($num1, $num2){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$sum = $num1 + $num2;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "The sum is " .$sum;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;public function displayTestData(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;mytest-&gt;getData();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function displayDames(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data = $this-&gt;mytest-&gt;getDames();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_r($data);</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function getAllSubjects(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data['subjects'] = $this-&gt;sm-&gt;getAllSubjects();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return view('subjectsview',$data);</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;public function getAllUsers(){</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data['users'] = $this-&gt;um-&gt;getAllUsers();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp; print_r($data['users']);</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return view('usersview',$data);</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div>}</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>subjectview.php</div>
+<div>&lt;!DOCTYPE html&gt;</div>
+<div>&lt;html lang="en"&gt;</div>
+<div>&lt;head&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Subject list&lt;/title&gt;</div>
+<div>&lt;/head&gt;</div>
+<div>&lt;body&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;All Subjects&lt;/h3&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php foreach($subjects as $sub): ?&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?= $sub['subject'] ?&gt; : &lt;?= $sub['abbr'] ?&gt;&lt;br /&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php endforeach; ?&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div>&lt;/body&gt;</div>
+<div>&lt;/html&gt;</div>
+<div>&nbsp;userview.php</div>
+<div>&lt;!DOCTYPE html&gt;</div>
+<div>&lt;html lang="en"&gt;</div>
+<div>&lt;head&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Users List&lt;/title&gt;</div>
+<div>&lt;/head&gt;</div>
+<div>&lt;body&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Users List &lt;/h3&gt;</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;table&gt;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;E - Mail &lt;/th&gt;&lt;th&gt;Mobile &lt;/th&gt;&lt;th&gt;City&lt;/th&gt;&lt;th&gt; Profession&lt;/th&gt;&lt;/tr&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php foreach($users as $user): ?&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;?= $user-&gt;name&nbsp; ?&gt;&lt;/td&gt;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;?= $user-&gt;email&nbsp; ?&gt;&lt;/td&gt;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;?=&nbsp; $user-&gt;mobile ?&gt;&lt;/td&gt;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;?=&nbsp; $user-&gt;city?&gt;&lt;/td&gt;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;?= $user-&gt;profession&nbsp; ?&gt;&lt;/td&gt;&nbsp;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;</div>
+<div><br></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php endforeach; ?&gt;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/table&gt;</div>
+<div>&lt;/body&gt;</div>
+<div>&lt;/html&gt;</div>
+<div><br></div>
+<div><br></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div>&nbsp;Failed to download codeigniter4/appstarter from dist: The zip extension and unzip/7z commands are both missing, skipping.<img width=769 height=353 src="First Page1.jpg"></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<h3><font size=2 color="#000000" face="Arial"><font size=3>https://www.hostinger.in/tutorials/codeigniter-tutorial</font></font></h3>
+<h3><font size=2 color="#000000" face="Arial"><font size=3><br></font></font></h3>
+<h3><font size=2 color="#000000" face="Arial"><font size=3>Step 2. Configuring CodeIgniter</font></font></h3>
+<div>After installing CodeIgniter, it’s crucial to configure it so it works correctly. We recommend starting by&nbsp;<a href="https://www.hostinger.in/tutorials/locate-and-create-htaccess"><font color="#0000ff"><u>creating a&nbsp;</u></font></a><a href="https://www.hostinger.in/tutorials/locate-and-create-htaccess"><b>.htaccess</b></a>&nbsp;file and pasting this snippet into it:</div>
+<div><font face="Courier New">RewriteEngine on
+R</font></div>
+<div><font face="Courier New">RewriteCond %{REQUEST_URI} !^public
+R</font></div>
+<div><font face="Courier New">RewriteRule ^(.*)$ public/$1 [L]</font></div>
+<div>These&nbsp;<b>.htaccess</b>&nbsp;rules will make the CodeIgniter website URL look like this:</div>
+<div><font face="Courier New">https://yourdomain.com </font></div>
+<div>Instead of:</div>
+<div><font face="Courier New">https://yourdomain.com/public</font></div>
+<div>After that, proceed with the advanced configuration.</div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

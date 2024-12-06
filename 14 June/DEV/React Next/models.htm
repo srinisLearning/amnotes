@@ -1,0 +1,255 @@
+<html><head><title>models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=3 face="Verdana">import mongoose, { Schema } from "mongoose";</font></div>
+<div><font size=3 face="Verdana"><br></font></div>
+<div><font size=3 face="Verdana">const itemSchema = new Schema(</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; {</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp;name: {</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: String,</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; required: true</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; },</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; description: {</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: String,</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; required: true</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; },</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; price: {</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: String,</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; required: true</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; },</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; rating: {</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: String,</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; required: true</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; },</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; },</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; {</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; timestamps: true</font></div>
+<div><font size=3 face="Verdana">&nbsp; &nbsp; }</font></div>
+<div><font size=3 face="Verdana">);</font></div>
+<div><font size=3 face="Verdana"><br></font></div>
+<div><font size=3 face="Verdana">const Item = mongoose.models.Item || mongoose.model("Item", itemSchema);</font></div>
+<div><font size=3 face="Verdana">export default Item;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=3 face="Verdana">&nbsp;</font><font face="Verdana">MONGODB_URI = mongodb://127.0.0.1:27017/fullstack_blog</font></div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Verdana">import mongoose from 'mongoose';</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">const dbConnection = () =&gt;{</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; try {</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp;mongoose.connect(process.env.MONGODB_URI)</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; //mongoose.connect('mongodb://localhost:27017/fullstack_blog');</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; console.log( 'Connected to MongoDB!');</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; } catch (error) {</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; console.log(error);</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; }</font></div>
+<div><font face="Verdana">}</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">export default dbConnection;</font></div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

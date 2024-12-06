@@ -1,0 +1,482 @@
+<html><head><title>V</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><b>&nbsp;&lt;View</b></font><font color="#000000" face="Verdana">&nbsp;style={{ flex: 1, backgroundColor: "plum", padding: 60 }}&gt;</font></div>
+<div><font color="#000000" face="Verdana"><b>&lt;/View&gt;</b></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp; </font><font color="#000000" face="Verdana"><b>&lt;Text&gt;</b></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; condimentum, nisl eu ultricies ultricies, nunc nisl aliquam &nbsp;nunc, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font color="#000000" face="Verdana">&nbsp; </font><font color="#000000" face="Verdana"><b>&lt;/Text&gt;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b>&nbsp; &lt;Text </b></font><font color="#000000" face="Verdana">style={{ color: "white" }}&gt;Hello&lt;/Text&gt; World!</font></div>
+<div><font color="#000000" face="Verdana"><b>&nbsp; &lt;/Text&gt;</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">const logoImg = require("./assets/adaptive-icon.png");</font></div>
+<div><font color="#000000" face="Verdana"><b>&lt;Image</b></font><font color="#000000" face="Verdana">&nbsp;source={logoImg} style={{ width: 300, height: 300 }} </font><font color="#000000" face="Verdana"><b>/&gt;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const logoImg = require("./assets/adaptive-icon.png");</font></div>
+<div><font color="#000000" face="Verdana"><b>&nbsp;&lt;Pressable</b></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onPress={() =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log("Image pressed");</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Image source={logoImg} style={{ width: 300, height: 300 }} /&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp;</font><font color="#000000" face="Verdana"><b>&nbsp;&lt;/Pressable&gt;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b>on</b></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><b>&lt;Button</b></font><font color="#000000" face="Verdana">&nbsp;title="Press" onPress={() =&gt; Alert.alert("Invalid data!")}</font><font color="#000000" face="Verdana"><b>&nbsp;/&gt;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b>&lt;Button</b></font></div>
+<div><font color="#000000" face="Verdana"><b>&nbsp; &nbsp; &nbsp; &nbsp;</b></font><font color="#000000" face="Verdana">&nbsp;title="Press"</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp;onPress={() =&gt; Alert.alert("Invalid data!", "dob incorrect!")}</font></div>
+<div><font color="#000000" face="Verdana"><b>&nbsp; /&gt;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b>&lt;Button</b></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; title="Press"</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; onPress={() =&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Alert.alert("Invalid data!", "dob incorrect!", [</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text: "Cancel",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onPress: () =&gt; console.log("Cancel Pressed"),</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; style: "destructive",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { text: "OK", onPress: () =&gt; console.log("OK Pressed") },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ])</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana"><b>&nbsp;/&gt;</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><b>&lt;Image</b></font></div>
+<div><font color="#000000" face="Verdana"><b>&nbsp; &nbsp; &nbsp; &nbsp; </b></font><font color="#000000" face="Verdana">source={{ uri: "https://picsum.photos/200" }}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; style={{ width: 200, height: 200 }}</font></div>
+<div><font color="#000000" face="Verdana"><b>/&gt;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b>&lt;ImageBackground </b></font><font color="#000000" face="Verdana">source={logoImg} style={{ flex: 1 }}</font><font color="#000000" face="Verdana"><b>&gt;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b>&lt;/ImageBackground&gt;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+<div><font face="Courier New">npm install --save react-native-blank-spacer</font></div>
+<div><font face="Courier New"><br></font></div>
+<div><font face="Courier New">import</font>&nbsp;<font color="#008000"><b>BlankSpacer</b></font>&nbsp;from "react-native-blank-spacer";</div>
+<div><br></div>
+<div><font face="Courier New">&nbsp;&lt;</font>BlankSpacer height={16} /&gt;</div>
+<div><br></div>
+<h4><font size=2 color="#000000" face="Arial"><font size=3>height?: number</font></font></h4>
+<div>Height of the blank spacer</div>
+<h4><font size=2 color="#000000" face="Arial"><font size=3>width?: number</font></font></h4>
+<div>Width of the blank spacer ﹣ used to apply space when&nbsp;flexDirection: row</div>
+<h4><font size=2 color="#000000" face="Arial"><font size=3>color?: color string</font></font></h4>
+<div>Color of the blank spacer</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">const [isModalVisible, setIsModalVisible] = useState(false);</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp;{</font></div>
+<div><font color="#000000" face="Verdana">/* </font><font color="#000000" face="Verdana"><b>&lt;Modal</b></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; visible={isModalVisible}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; onRequestClose={() =&gt; setIsModalVisible(false)}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; animationType="slide"</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; presentationStyle="formSheet"</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;View style={{ flex: 1, backgroundColor: "lightblue", padding: 60 }}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Text&gt;Modal content&lt;/Text&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Button</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title="Close"</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onPress={() =&gt; setIsModalVisible(false)}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color="midnightblue"</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/View&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; </font><font color="#000000" face="Verdana"><b>&lt;/Modal&gt;</b></font><font color="#000000" face="Verdana">&nbsp;</font></div>
+<div><font color="#000000" face="Verdana">*/</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><b>&lt;StatusBar </b></font><font color="#000000" face="Verdana">barStyle="dark-content" backgroundColor="midnightblue" </font><font color="#000000" face="Verdana"><b>/&gt;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b>&nbsp;</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b>&lt;ActivityIndicator&nbsp;</b></font><font color="#000000" face="Verdana">&nbsp;size='large' color='lightgreen' animating = {false} hidden </font><font color="#000000" face="Verdana"><b>/&gt;</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><br>
+</td>
+<td><br>
+</td>
+</tr>
+<tr valign=top>
+<td><br>
+</td>
+<td><br>
+</td>
+</tr>
+<tr valign=top>
+<td><br>
+</td>
+<td><br>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">import { </font><font color="#000000" face="Verdana"><b>StyleSheet</b></font><font color="#000000" face="Verdana">, Text, View } from "react-native";</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default function App() {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return (</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;View style={styles.container}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;View style={[styles.box, styles.lightblueBg, styles.boxShadow]}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;Text style={{ borderRadius: 5, backgroundColor: "red" }}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Lightblue box</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/Text&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;/View&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;View style={[styles.box, styles.lightgreenBg, styles.androidShadow]}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;Text&gt;Lightgreen box&lt;/Text&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;/View&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;View style={styles.darkMode}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;Text style={styles.darkModeText}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Style inheritance &lt;Text style={styles.boldText}&gt;in bold&lt;/Text&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/Text&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;/View&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/View&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; );</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const styles = StyleSheet.create({</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; container: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; flex: 1,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; backgroundColor: "plum",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; padding: 60,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; box: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; width: 250,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; height: 250,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; // padding: 10,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; paddingHorizontal: 10,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; paddingVertical: 20,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; marginVertical: 10,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; borderWidth: 2,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; borderColor: "purple",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; lightblueBg: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; backgroundColor: "lightblue",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; lightgreenBg: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; backgroundColor: "lightgreen",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; boxShadow: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; shadowColor: "#333333",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; shadowOffset: { width: 6, height: 6 },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; shadowOpacity: 0.6,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; shadowRadius: 4,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; androidShadow: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; elevation: 10,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; darkMode: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; backgroundColor: "black",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; darkModeText: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; color: "white",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; boldText: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; fontWeight: "bold",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">});</font></div>
+<div><font color="#000000" face="Verdana">v</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>/* &nbsp;eslint-disable &nbsp;*/</div>
+<div><br></div>
+<div>import {</div>
+<div>&nbsp; View,</div>
+<div>&nbsp; Text,</div>
+<div>&nbsp; Image,</div>
+<div>&nbsp; ImageBackground,</div>
+<div>&nbsp; ScrollView,</div>
+<div>&nbsp; Button,</div>
+<div>&nbsp; Pressable,</div>
+<div>&nbsp; Modal,</div>
+<div>&nbsp; StatusBar,</div>
+<div>&nbsp; ActivityIndicator,</div>
+<div>&nbsp; Alert,</div>
+<div>} from 'react-native';</div>
+<div><br></div>
+<div>import {useState} from 'react';</div>
+<div><br></div>
+<div>const logoImg = require('./assets/adaptive-icon.png');</div>
+<div><br></div>
+<div>export default function App() {</div>
+<div>&nbsp; const [isModalVisible, setIsModalVisible] = useState(false);</div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;View style={{flex: 1, backgroundColor: 'plum', padding: 60}}&gt;</div>
+<div>&nbsp; &nbsp; &lt;Button title="Press" onPress={() =&gt; Alert.alert('Invalid data!')} /&gt;</div>
+<div>&nbsp; &nbsp; &lt;Button</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; title="Press"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; onPress={() =&gt; Alert.alert('Invalid data!', 'dob incorrect!')}</div>
+<div>&nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;Button</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; title="Press"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; onPress={() =&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Alert.alert('Invalid data!', 'dob incorrect!', [</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text: 'Cancel',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onPress: () =&gt; console.log('Cancel Pressed'),</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; style: 'destructive',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {text: 'OK', onPress: () =&gt; console.log('OK Pressed')},</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ])</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;ActivityIndicator size="large" color="midnightblue" /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;StatusBar barStyle="dark-content" backgroundColor="lightblue" /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;ScrollView&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;Button</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title="Press"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // onPress={() =&gt; setIsModalVisible(true)}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onPress={() =&gt; console.log('Button pressed')}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color="midnightblue"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;Pressable</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onPress={() =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('Image pressed');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Image source={logoImg} style={{width: 300, height: 300}} /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/Pressable&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;Pressable</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onPress={() =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('Text pressed');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Text&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Text&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/Pressable&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;Image source={logoImg} style={{width: 300, height: 300}} /&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {/* &lt;Image source={logoImg} style={{ width: 300, height: 300 }} /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;Image</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; source={{ uri: "https://picsum.photos/200" }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; style={{ width: 200, height: 200 }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt; */}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {/* &lt;ImageBackground source={logoImg} style={{ flex: 1 }}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Text&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Text style={{ color: "white" }}&gt;Hello&lt;/Text&gt; World!</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Text&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/ImageBackground&gt; */}</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/ScrollView&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; {/* &lt;Modal</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; visible={isModalVisible}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onRequestClose={() =&gt; setIsModalVisible(false)}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; animationType="slide"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; presentationStyle="formSheet"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;View style={{ flex: 1, backgroundColor: "lightblue", padding: 60 }}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Text&gt;Modal content&lt;/Text&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Button</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title="Close"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onPress={() =&gt; setIsModalVisible(false)}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color="midnightblue"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/View&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/Modal&gt; */}</div>
+<div>&nbsp; &nbsp; &lt;/View&gt;</div>
+<div>&nbsp; );</div>
+<div>}</div>
+<div><br></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

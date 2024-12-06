@@ -1,0 +1,259 @@
+<html><head><title>Clerk Auth</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#008000" face="Verdana"><b>Getting User Info &nbsp;</b></font></div>
+<div align=justify>&nbsp; let email = ''</div>
+<div align=justify>&nbsp; let name = ''</div>
+<div align=justify>&nbsp; let myname = ''</div>
+<div align=justify>&nbsp; const user = await currentUser()</div>
+<div align=justify>&nbsp; console.log(user)</div>
+<div align=justify>&nbsp; if(user){</div>
+<div align=justify>&nbsp; &nbsp; &nbsp;</div>
+<div align=justify>&nbsp; &nbsp;name = user.username as string</div>
+<div align=justify>&nbsp; &nbsp;myname = user?.firstName as string + user?.lastName as string</div>
+<div align=justify>&nbsp;&nbsp; email &nbsp;= user.emailAddresses[0].emailAddress as string</div>
+<div align=justify>&nbsp; }</div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#000000" face="Verdana">Sign In Sign Up Pages</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">https://clerk.com/docs/references/nextjs/custom-signup-signin-pages</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>app/sign-up/[[...sign-up]]/page.tsx</div>
+<div>app/sign-in/[[...sign-in]]/page.tsx</div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">import { SignUp } from '@clerk/nextjs'</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default function Page() {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return &lt;SignUp /&gt;</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<hr noshade size=1 color="#000000">
+<div><font color="#000000" face="Verdana">import { SignIn } from '@clerk/nextjs'</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default function Page() {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return &lt;SignIn /&gt;</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#008000" face="Verdana"><b>Middleware.js</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const isProtectedRoute = createRouteMatcher(['/dashboard(.*)', '/forum(.*)'])</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default clerkMiddleware((auth, req) =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; if (isProtectedRoute(req)) auth().protect()</font></div>
+<div><font color="#000000" face="Verdana">})</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export const config = {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; matcher: [</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; // Skip Next.js internals and all static files, unless found in search params</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; // Always run for API routes</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; '/(api|trpc)(.*)',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; ],</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)']);</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default clerkMiddleware((auth, request) =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; if(!isPublicRoute(request)) {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; auth().protect();</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">});</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export const config = {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; matcher: [</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; // Skip Next.js internals and all static files, unless found in search params</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; // Always run for API routes</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; '/(api|trpc)(.*)',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; ],</font></div>
+<div><font color="#000000" face="Verdana">};</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

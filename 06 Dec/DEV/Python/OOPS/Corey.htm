@@ -1,0 +1,613 @@
+<html><head><title>Corey</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">class Employee:
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __init__(self, first, last, pay):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.first = first
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.last = last
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.email = first + '.' + last + '@email.com'
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.pay = pay
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def fullname(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return '{} {}'.format(self.first, self.last)
+
+</font></div>
+<div><font face="Verdana">
+e</font></div>
+<div><font face="Verdana">emp_1 = Employee('Corey', 'Schafer', 50000)
+e</font></div>
+<div><font face="Verdana">emp_2 = Employee('Test', 'Employee', 60000)</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">class Employee: </font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">def __init__(self, first, last, pay): </font></div>
+<div><font face="Verdana">self.first = first</font></div>
+<div><font face="Verdana">&nbsp;self.last = last</font></div>
+<div><font face="Verdana">&nbsp;self.email = first + '.' + last + '@email.com'</font></div>
+<div><font face="Verdana">&nbsp;self.pay = pay</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp;def fullname(self): </font></div>
+<div><font face="Verdana">return '{} {}'.format(self.first, self.last) </font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">emp_1 = Employee('Corey', 'Schafer', 50000) </font></div>
+<div><font face="Verdana">emp_2 = Employee('Test', 'Employee', 60000) </font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=3 color="#008000" face="Verdana"><b>STATIC &amp; CLASS METHODS</b></font></div>
+<div align=center><font size=3 color="#008000" face="Verdana"><b><br></b></font></div>
+<div><font face="Verdana">
+class Employee:
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; num_of_emps = 0
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; raise_amt = 1.04
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __init__(self, first, last, pay):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.first = first
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.last = last
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.email = first + '.' + last + '@email.com'
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.pay = pay
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; Employee.num_of_emps += 1
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def fullname(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return '{} {}'.format(self.first, self.last)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def apply_raise(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.pay = int(self.pay * self.raise_amt)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp;</font><font color="#008000" face="Verdana">&nbsp;</font><font color="#008000" face="Verdana"><b>@classmethod
+ </b></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def set_raise_amt(cls, amount):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; cls.raise_amt = amount
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; </font><font color="#008000" face="Verdana"><b>@classmethod
+ </b></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def from_string(cls, emp_str):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; first, last, pay = emp_str.split('-')
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return cls(first, last, pay)
+
+</font></div>
+<div><font color="#008000" face="Verdana"><br></font></div>
+<div><font color="#008000" face="Verdana">&nbsp; &nbsp;</font><font color="#008000" face="Verdana"><b>&nbsp;@staticmethod
+ </b></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def is_workday(day):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; if day.weekday() == 5 or day.weekday() == 6:
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return False
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return True
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">emp_1 = Employee('Corey', 'Schafer', 50000)
+e</font></div>
+<div><font face="Verdana">emp_2 = Employee('Test', 'Employee', 60000)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">Employee.set_raise_amt(1.05)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">print(Employee.raise_amt)
+</font></div>
+<div><font face="Verdana">print(emp_1.raise_amt)
+</font></div>
+<div><font face="Verdana">print(emp_2.raise_amt)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">emp_str_1 = 'John-Doe-70000'
+e</font></div>
+<div><font face="Verdana">emp_str_2 = 'Steve-Smith-30000'
+</font></div>
+<div><font face="Verdana">emp_str_3 = 'Jane-Doe-90000'
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">first, last, pay = emp_str_1.split('-')
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">#new_emp_1 = Employee(first, last, pay)
+n</font></div>
+<div><font face="Verdana">new_emp_1 = Employee.from_string(emp_str_1)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">print(new_emp_1.email)
+</font></div>
+<div><font face="Verdana">print(new_emp_1.pay)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">import datetime
+</font></div>
+<div><font face="Verdana">my_date = datetime.date(2016, 7, 11)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">print(Employee.is_workday(my_date))</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=3 color="#008000" face="Verdana"><b>&nbsp;INHERITANCE</b></font></div>
+<div align=center><font size=3 color="#008000" face="Verdana"><b><br></b></font></div>
+<div><font face="Verdana">class Employee:
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; raise_amt = 1.04
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __init__(self, first, last, pay):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.first = first
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.last = last
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.email = first + '.' + last + '@email.com'
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.pay = pay
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def fullname(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return '{} {}'.format(self.first, self.last)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def apply_raise(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.pay = int(self.pay * self.raise_amt)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">class Developer(Employee):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; raise_amt = 1.10
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __init__(self, first, last, pay, prog_lang):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; super().__init__(first, last, pay)
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.prog_lang = prog_lang
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">class Manager(Employee):
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __init__(self, first, last, pay, employees=None):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; super().__init__(first, last, pay)
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; if employees is None:
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self.employees = []
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; else:
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self.employees = employees
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def add_emp(self, emp):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; if emp not in self.employees:
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self.employees.append(emp)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def remove_emp(self, emp):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; if emp in self.employees:
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self.employees.remove(emp)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def print_emps(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; for emp in self.employees:
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; print('--&gt;', emp.fullname())
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">dev_1 = Developer('Corey', 'Schafer', 50000, 'Python')
+d</font></div>
+<div><font face="Verdana">dev_2 = Developer('Test', 'Employee', 60000, 'Java')
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">mgr_1 = Manager('Sue', 'Smith', 90000, [dev_1])
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">print(mgr_1.email)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">mgr_1.add_emp(dev_2)
+m</font></div>
+<div><font face="Verdana">mgr_1.remove_emp(dev_2)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">mgr_1.print_emps()</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=3 color="#008000" face="Verdana"><b>MAGIC METHODS</b></font></div>
+<div align=center><font size=3 color="#008000" face="Verdana"><b><br></b></font></div>
+<div><font face="Verdana">class Employee:
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; raise_amt = 1.04
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __init__(self, first, last, pay):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.first = first
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.last = last
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.email = first + '.' + last + '@email.com'
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.pay = pay
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def fullname(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return '{} {}'.format(self.first, self.last)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def apply_raise(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.pay = int(self.pay * self.raise_amt)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __repr__(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return "Employee('{}', '{}', {})".format(self.first, self.last, self.pay)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __str__(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return '{} - {}'.format(self.fullname(), self.email)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __add__(self, other):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return self.pay + other.pay
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __len__(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return len(self.fullname())
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">emp_1 = Employee('Corey', 'Schafer', 50000)
+e</font></div>
+<div><font face="Verdana">emp_2 = Employee('Test', 'Employee', 60000)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana"># print(emp_1 + emp_2)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">print(len(emp_1))</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">
+</font></div>
+<div><font face="Verdana">class Employee:
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def __init__(self, first, last):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.first = first
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.last = last
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; @property
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def email(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return '{}.{}@email.com'.format(self.first, self.last)
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; @property
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def fullname(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return '{} {}'.format(self.first, self.last)
+ </font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; @fullname.setter
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def fullname(self, name):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; first, last = name.split(' ')
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.first = first
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.last = last
+ </font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; &nbsp; @fullname.deleter
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; def fullname(self):
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; print('Delete Name!')
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.first = None
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; self.last = None
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">emp_1 = Employee('John', 'Smith')
+</font></div>
+<div><font face="Verdana">emp_1.fullname = "Corey Schafer"
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">print(emp_1.first)
+p</font></div>
+<div><font face="Verdana">print(emp_1.email)
+p</font></div>
+<div><font face="Verdana">print(emp_1.fullname)
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">del emp_1.fullname</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

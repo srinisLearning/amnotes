@@ -1,0 +1,292 @@
+<html><head><title>TS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=16 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Verdana">"use client";
+i</font></div>
+<div><font face="Verdana">import React, { useState } from "react";
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">type UserType = {
+ </font></div>
+<div><font face="Verdana">&nbsp; sessionId: number;
+ </font></div>
+<div><font face="Verdana">&nbsp; name: string;
+}</font></div>
+<div><font face="Verdana">};
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">const UseStateExample = () =&gt; {
+ </font></div>
+<div><font face="Verdana">&nbsp; const [username, setUsername] = useState("");
+ </font></div>
+<div><font face="Verdana">&nbsp; const [user, setUser] = useState</font><font face="Verdana"><b>&lt;UserType | null&gt;</b></font><font face="Verdana">(null);
+ </font></div>
+<div><font face="Verdana">&nbsp; // OR
+ </font></div>
+<div><font face="Verdana">&nbsp; // const [user, setUser] = useState&lt;UserType&gt;();
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; const handleChange = (</font><font face="Verdana"><b>e: React.ChangeEvent&lt;HTMLInputElement&gt;</b></font><font face="Verdana">) =&gt; {
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; setUsername(e.target.value);
+ </font></div>
+<div><font face="Verdana">&nbsp; };
+
+</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; const handleClick = (</font><font face="Verdana"><b>e: React.MouseEvent&lt;HTMLButtonElement&gt;</b></font><font face="Verdana">) =&gt; {
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; e.preventDefault();
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; setUser({
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; name: username,
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; sessionId: Math.random(),
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; });
+ </font></div>
+<div><font face="Verdana">&nbsp; };
+ </font></div>
+<div><font face="Verdana">&nbsp; return (
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;div className="useStateExample"&gt;
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; {user ? (
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; `${user.name} logged in`
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; ) : (
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;form&gt;
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" placeholder="Username" onChange={handleChange} /&gt;
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onClick={handleClick}&gt;Login&lt;/button&gt;
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/form&gt;
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; )}
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; {/* BE AWARE */}
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &nbsp; {user?.name}
+ </font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;/div&gt;
+ </font></div>
+<div><font face="Verdana">&nbsp; );
+}</font></div>
+<div><font face="Verdana">};
+
+</font></div>
+<div><font face="Verdana">&nbsp;</font></div>
+<div><font face="Verdana">export default UseStateExample;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

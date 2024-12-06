@@ -1,0 +1,552 @@
+<html><head><title>Uplatz_tu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas"><b>Install Python</b></font></div>
+<div><font face="Consolas">&nbsp;➢ Django is a python web framework, thus requiring python to be installed on your machine.</font></div>
+<div><font face="Consolas">&nbsp;➢ After installation, open the command prompt and check that the python version matches the version you installed by executing following command </font></div>
+<div><font face="Consolas">❖ py - -version PIP </font></div>
+<div><font face="Consolas">➢ pip is a package manager for python and is included by default with the python installer. It helps to install and uninstall python packages (such as Django!). </font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas">from pathlib import Path</font></div>
+<div><font face="Consolas"><b>import os</b></font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas"># Build paths inside the project like this: BASE_DIR / 'subdir'.</font></div>
+<div><font face="Consolas">BASE_DIR = Path(__file__).resolve().parent.parent</font></div>
+<div><font face="Consolas"><b>TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')</b></font></div>
+<div><font face="Consolas"><b>STATIC_DIR = os.path.join(BASE_DIR,'static')</b></font></div>
+<div><font face="Consolas"><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Consolas">TEMPLATES = [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; {</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; 'BACKEND': 'django.template.backends.django.DjangoTemplates',</font></div>
+<div><font face="Consolas">&nbsp; &nbsp;&nbsp;</font><font face="Consolas"><b>&nbsp; &nbsp; 'DIRS': [TEMPLATE_DIR],</b></font></div>
+<div><font face="Consolas"><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></font><font color="#969696" face="Consolas"><b>'DIRS': ['templates'],</b></font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; 'APP_DIRS': True,</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; 'OPTIONS': {</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'context_processors': [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'django.template.context_processors.debug',</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'django.template.context_processors.request',</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'django.contrib.auth.context_processors.auth',</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'django.contrib.messages.context_processors.messages',</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ],</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; },</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; },</font></div>
+<div><font face="Consolas">]</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas"><b>STATICFILES_DIRS = [STATIC_DIR]</b></font></div>
+<div><font color="#969696" face="Consolas"><b>STATICFILES_DIRS = ['static']</b></font></div>
+<div><font color="#c0c0c0" face="Consolas"><b><br></b></font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Consolas"><b><br></b></font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font face="Consolas">&nbsp;</font><font size=4 color="#ff0000" face="Consolas"><b>settings.py</b></font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">from pathlib import Path</font></div>
+<div><font color="#008000" face="Consolas">import os</font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas">BASE_DIR = Path(__file__).resolve().parent.parent</font></div>
+<div><font color="#008000" face="Consolas">TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')</font></div>
+<div><font color="#008000" face="Consolas">STATIC_DIR = os.path.join(BASE_DIR,'static')</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas">SECRET_KEY = 'django-insecure-2%9817p$5@5k_q7cx#%8nf41*c-4z2x3v)*0%ai#new37u7*wx'</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas">DEBUG = True</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">ALLOWED_HOSTS = []</font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font color="#008000" face="Consolas"><br></font></div>
+<div><font color="#008000" face="Consolas">INSTALLED_APPS = [</font></div>
+<div><font color="#008000" face="Consolas">&nbsp; &nbsp; </font></div>
+<div><font color="#008000" face="Consolas">&nbsp; &nbsp; 'admindemo',</font></div>
+<div><font color="#008000" face="Consolas">&nbsp; &nbsp; 'adminemp'</font></div>
+<div><font color="#008000" face="Consolas">]</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">MIDDLEWARE = [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp;</font></div>
+<div><font face="Consolas">]</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">ROOT_URLCONF = 'admindemo.urls'</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">TEMPLATES = [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; {</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; </font><font color="#008000" face="Consolas">&nbsp; 'DIRS': [TEMPLATE_DIR],</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font face="Consolas">&nbsp; &nbsp; },</font></div>
+<div><font face="Consolas">]</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">WSGI_APPLICATION = 'admindemo.wsgi.application'</font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">DATABASES = {</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; 'default': {</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; 'ENGINE': 'django.db.backends.sqlite3',</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; 'NAME': BASE_DIR / 'db.sqlite3',</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; }</font></div>
+<div><font face="Consolas">}</font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">AUTH_PASSWORD_VALIDATORS = [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; </font></div>
+<div><font face="Consolas">]</font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">LANGUAGE_CODE = 'en-us'</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">TIME_ZONE = 'UTC'</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">USE_I18N = True</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">USE_TZ = True</font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">STATIC_URL = 'static/'</font></div>
+<div><font color="#008000" face="Consolas">STATICFILES_DIRS = [STATIC_DIR]</font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'</font></div>
+<div><font face="Consolas"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas">python -m venv env</font></div>
+<div><font face="Consolas">env\Scripts\activate</font></div>
+</font>
+</td>
+<td rowspan=4><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas"><b><br></b></font></div>
+<div><font face="Consolas"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas">➢ Open windows command prompt and type the following command</font></div>
+<div><font face="Consolas">&nbsp;• </font><font face="Consolas"><b>django-admin startproject project_name </b></font></div>
+<div><font face="Consolas">➢ The above command will create new django project with project folder structure</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas">➢ Open windows command prompt and type the following command </font></div>
+<div><font face="Consolas"><b>• py manage.py runserver [port : 8000]</b></font></div>
+<div><font face="Consolas">➢ The above command will run django server on port 8000</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas">➢ Once we are done with django project use the following command to create applications </font></div>
+<div><font face="Consolas"><b>&nbsp; py manage.py startapp application_name </b></font></div>
+<div><font face="Consolas">➢ Based on our requirement we can create any number of applications </font></div>
+<div><font face="Consolas">➢ Every application contains different types of files</font></div>
+<hr noshade size=1 color="#000000">
+<ul type="disc">
+<li><font face="Consolas">Create Template and Static folder</font></li>
+</ul>
+<div><font face="Consolas"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#ffcc00"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#ffffff" face="Consolas"><b>ADMIN</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas">add the apps to Installed Apps</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp;py manage.py migrate to enable admin mode</font></div>
+<div><font face="Consolas"><b><br></b></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas"><b><br></b></font></div>
+<div><font face="Consolas">&nbsp;py manage.ppy createsuperuser</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#666699"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#ffffff" face="Consolas">Views &nbsp;</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas">from django.contrib import admin;</font></div>
+<div><font face="Consolas">from django.urls import path;</font></div>
+<div><font face="Consolas">from AppOne import views as v1;</font></div>
+<div><font face="Consolas">from AppTwo import views as v2;</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">urlpatterns = [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('admin/', admin.site.urls),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('home/', v1.homePageView),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('about/', v1.aboutPageView),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('contact/',v1.contactPageView),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('services/',v1.servicePageView),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('home2/',v2.app2HomePageView)</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; </font></div>
+<div><font face="Consolas">]</font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">from django.contrib import admin;</font></div>
+<div><font face="Consolas">from django.urls import path,include;</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">urlpatterns = [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('admin/', admin.site.urls),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('AppOne/',include('AppOne.urls')) &nbsp; &nbsp;</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; </font></div>
+<div><font face="Consolas">]</font></div>
+<div><font face="Consolas"><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Consolas">&nbsp;</font></div>
+<div><font face="Consolas">from django.urls import path;</font></div>
+<div><font face="Consolas">from . import views;&nbsp;</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">urlpatterns = [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; </font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('home/', views.homePageView, name='home'),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('about/', views.aboutPageView, name='about'),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('contact/',views.contactPageView, name='contact'),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; path('services/',views.servicePageView, name='services'),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; </font></div>
+<div><font face="Consolas">&nbsp; &nbsp; </font></div>
+<div><font face="Consolas">]&nbsp;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas">from django.shortcuts import render, HttpResponse</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">def homePageView(request):</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; msg ="&lt;h1&gt;Welcome to Wasan World&lt;/h1&gt;";</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; return HttpResponse(msg);</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">def aboutPageView(request):</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp;</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; aboutMsg ="&lt;h1&gt;Welcome to About View&lt;/h1&gt;";</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; return HttpResponse(aboutMsg)</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">def servicePageView(request):</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; </font></div>
+<div><font face="Consolas">&nbsp; &nbsp; serviceMessage='&lt;h1&gt; We offer the following services &lt;/h1&gt;'</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; return HttpResponse(serviceMessage);</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">def contactPageView(request):</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; </font></div>
+<div><font face="Consolas">&nbsp; &nbsp; contactMessage = '&lt;h1&gt; Below is our contact information &lt;/h1&gt;'</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; return HttpResponse(contactMessage);</font></div>
+<div><font face="Consolas"><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp;from django.shortcuts import render,HttpResponse</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp;def homePageView(request):</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; msg= 'Welcome to Wasan World'</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; colors = ['red','green','blue','yellow']</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; loggedIn = False</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; data = {'msg':msg,'colors':colors,'loggedIn':loggedIn}</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; return render(request,'templateappone/home.html',data)</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#333300"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#ffffff" face="Consolas">TEMPLATES</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas">https://github.com/prosoftwaredevelopment/Learn-Django</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Consolas"><b><br></b></font></div>
+<div><font color="#000000" face="Consolas">{% load static %}</font></div>
+<div><font color="#000000" face="Consolas"><br></font></div>
+<div><font color="#000000" face="Consolas">&lt;link rel='stylesheet' &nbsp;href= ' {% static, css/mystyles.css %}' /&gt;</font></div>
+<div><font color="#000000" face="Consolas"><br></font></div>
+<div><font color="#000000" face="Consolas">&lt;img src= '{% &nbsp;static , images/htree.jpg %}' /&gt;</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#008000" face="Consolas"><b>base.html</b></font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&lt;!DOCTYPE html&gt;</font></div>
+<div><font face="Consolas">&lt;html lang="en"&gt;</font></div>
+<div><font face="Consolas">&lt;head&gt;</font></div>
+<div><font face="Consolas">&nbsp; &lt;meta charset="UTF-8"&gt;</font></div>
+<div><font face="Consolas">&nbsp; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</font></div>
+<div><font face="Consolas">&nbsp; &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"&gt;</font></div>
+<div><font face="Consolas">&nbsp; &lt;title&gt;{% block pageTitle %} {% endblock %} &lt;/title&gt;</font></div>
+<div><font face="Consolas">&lt;/head&gt;</font></div>
+<div><font face="Consolas">&lt;body&gt;</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp; &nbsp; {% block pageContent %}</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp; &nbsp; {% endblock %}</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp; &lt;!-- Your page content goes here --&gt;</font></div>
+<div><font face="Consolas">&nbsp; &lt;script src="https://code.jquery.com/jquery-3.6.0.min.js"&gt;&lt;/script&gt;</font></div>
+<div><font face="Consolas">&nbsp; &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</font></div>
+<div><font face="Consolas">&lt;/body&gt;</font></div>
+<div><font face="Consolas">&lt;/html&gt;</font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#008000" face="Consolas"><b>images.html</b></font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">{% extends 'index.html' %} </font></div>
+<div><font face="Consolas"><b>{% load static %} </b></font></div>
+<div><font face="Consolas">{% block title %}Image Page{% endblock %} </font></div>
+<div><font face="Consolas">{% block content %} </font></div>
+<div><font face="Consolas">&lt;div class="container-fluid"&gt;</font></div>
+<div><font face="Consolas">&nbsp;&lt;div class="row"&gt;</font></div>
+<div><font face="Consolas">&nbsp;&lt;div class="col-md-6"&gt;</font></div>
+<div><font face="Consolas"><b>&nbsp;&lt;img src="{% static 'django.png' %}" class="img-fluid" alt="Responsive image"&gt;</b></font></div>
+<div><font face="Consolas">&nbsp;&lt;/div&gt;</font></div>
+<div><font face="Consolas">&nbsp;&lt;/div&gt;</font></div>
+<div><font face="Consolas">&nbsp;&lt;/div&gt;</font></div>
+<div><font face="Consolas">&nbsp;{% endblock %} </font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#dbff6f"><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#000000" face="Consolas"><b>MODELS</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas">py manage.py makemigrations</font></div>
+<div><font color="#000000" face="Consolas"><br></font></div>
+<div><font color="#000000" face="Consolas">py manage.py sqlmigrate&lt;appname&gt; 0001</font></div>
+<div><font color="#000000" face="Consolas"><br></font></div>
+<div><font color="#000000" face="Consolas">CREATE TABLE "adminemp_employee" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "eid" integer NOT NULL, "ename" varchar(50) NOT NULL, "emobile" integer NOT NULL, "eemail" varchar(100) NOT NULL, "ecity" varchar(50) NOT NULL, "esalary" real NOT NULL);</font></div>
+<div><font color="#000000" face="Consolas">COMMIT;</font></div>
+<div><font color="#000000" face="Consolas"><br></font></div>
+<div><font color="#000000" face="Consolas"><br></font></div>
+<div><font color="#000000" face="Consolas">py manage.py migrate</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas">from django.contrib.auth.models import Group</font></div>
+<div><font color="#000000" face="Consolas">admin.site.unregister(Group)</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas">create table employee(id int primarykey auto_increment, enam varchar(50), esalary real)</font></div>
+<div><font color="#000000" face="Consolas">models.py</font></div>
+<div><font color="#000000" face="Consolas">class Employee(models.Model):</font></div>
+<div><font color="#000000" face="Consolas">&nbsp; &nbsp; &nbsp; ename=models.CharField(max_length=60)</font></div>
+<div><font color="#000000" face="Consolas">&nbsp; &nbsp; &nbsp; esalary=models.FloatField()</font></div>
+<div><font color="#000000" face="Consolas">admin.py</font></div>
+<div><font color="#000000" face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp;adminsite.register(Employee)</font></div>
+<div><font color="#000000" face="Consolas"><br></font></div>
+<div><font color="#000000" face="Consolas">py manage.py makemigrations</font></div>
+<div><font color="#000000" face="Consolas"><br></font></div>
+<div><font color="#000000" face="Consolas">py manage.py sqlmigrate app_name id</font></div>
+<div><font color="#000000" face="Consolas"><br></font></div>
+<div><font color="#000000" face="Consolas">py manage.py migrate</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas">all()</font></div>
+<div><font color="#000000" face="Consolas">save()</font></div>
+<div><font color="#000000" face="Consolas">delete()</font></div>
+<div><font color="#000000" face="Consolas">get()</font></div>
+<div><font color="#000000" face="Consolas">count()</font></div>
+<div><font color="#000000" face="Consolas">filter():[contains,icontains,startswith,istartswith,endswith,iendswith,exact,gt,ge,lt,le]</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#ff0000" face="Consolas"><b>admin.py</b></font></div>
+<div><font face="Consolas">from django.contrib import admin</font></div>
+<div><font face="Consolas">from django.contrib.auth.models import User,Group</font></div>
+<div><font face="Consolas">from .models import Employee</font></div>
+<div><font face="Consolas">from .models import Patients</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">admin.site.site_header ="Wasan World Welcomes You"</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">class EmployeeAdmin(admin.ModelAdmin):</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; list_display=['eid','ename','emobile','eemail','ecity','esalary']</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">class PatientsAdmin(admin.ModelAdmin):</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; list_display=['uid','name','height','weight','martial_status']</font></div>
+<div><font face="Consolas"># Register your models here.</font></div>
+<div><font face="Consolas">admin.site.register(Employee,EmployeeAdmin)</font></div>
+<div><font face="Consolas">admin.site.register(Patients,PatientsAdmin)</font></div>
+<div><font face="Consolas">#admin.site.unregister(Employee)</font></div>
+<div><font face="Consolas">#admin.site.unregister(Group)</font></div>
+<div><font face="Consolas">#admin.site.unregister(User)</font></div>
+<div><font face="Consolas"><br></font></div>
+<hr noshade size=1 color="#000000">
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas"># Generated by Django 4.2.1 on 2023-05-19 07:28</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">from django.db import migrations, models</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">class Migration(migrations.Migration):</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp; &nbsp; initial = True</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp; &nbsp; dependencies = [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; ]</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">&nbsp; &nbsp; operations = [</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; migrations.CreateModel(</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name='Employee',</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fields=[</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ('eid', models.IntegerField()),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ('ename', models.CharField(max_length=50)),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ('emobile', models.IntegerField()),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ('eemail', models.CharField(max_length=100)),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ('ecity', models.CharField(max_length=50)),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ('esalary', models.FloatField()),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ],</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; &nbsp; &nbsp; ),</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; ]</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#ff0000" face="Consolas"><b>models.py</b></font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">from django.db import models</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas"># Create your models here.</font></div>
+<div><font face="Consolas">class Employee(models.Model):</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; eid=models.IntegerField()</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; ename=models.CharField(max_length=50)</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; emobile=models.IntegerField()</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; eemail=models.CharField(max_length=100)</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; ecity=models.CharField(max_length=50)</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; esalary=models.FloatField()</font></div>
+<div><font face="Consolas"><br></font></div>
+<div><font face="Consolas">class Patients(models.Model):</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; uid=models.IntegerField()</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; name=models.CharField(max_length=50)</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; height=models.FloatField()</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; weight=models.IntegerField()</font></div>
+<div><font face="Consolas">&nbsp; &nbsp; martial_status = models.BooleanField()</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#000000" face="Consolas"><b>TEMPLATE DEMO</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#000000" face="Consolas"><b>ADMIN DEMO</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#ff0000" face="Consolas"><b><br></b></font></div>
+<div><font face="Consolas">&nbsp;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font size=4 color="#ff0000" face="Consolas"><b><br></b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font face="Consolas"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Consolas"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

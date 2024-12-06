@@ -1,0 +1,897 @@
+<html><head><title>Forms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=1 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td rowspan=2><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&lt;form method="POST" action="{{ route('form.submit') }}"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; @csrf</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;div class="form-group"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;label for="name"&gt;Name&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; @error('name')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;div class="invalid-feedback"&gt;{{ $message }}&lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;div class="form-group"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;label for="gender"&gt;Gender&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;input type="radio" name="gender" id="male" value="male" {{ old('gender') == 'male' ? 'checked' : '' }}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;label for="male"&gt;Male&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;input type="radio" name="gender" id="female" value="female" {{ old('gender') == 'female' ? 'checked' : '' }}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;label for="female"&gt;Female&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; @error('gender')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;div class="invalid-feedback"&gt;{{ $message }}&lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;div class="form-group"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;label for="fruit"&gt;Favorite Fruit&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;select name="fruit" id="fruit" class="form-control @error('fruit') is-invalid @enderror" required&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;option value=""&gt;Select a fruit&lt;/option&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;option value="apple" {{ old('fruit') == 'apple' ? 'selected' : '' }}&gt;Apple&lt;/option&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;option value="banana" {{ old('fruit') == 'banana' ? 'selected' : '' }}&gt;Banana&lt;/option&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;option value="orange" {{ old('fruit') == 'orange' ? 'selected' : '' }}&gt;Orange&lt;/option&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/select&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; @error('fruit')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;div class="invalid-feedback"&gt;{{ $message }}&lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;div class="form-group"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;input type="checkbox" name="agree" id="agree" value="1" {{ old('agree') ? 'checked' : '' }} required&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;label for="agree"&gt;I agree to the terms and conditions&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; @error('agree')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;div class="invalid-feedback"&gt;{{ $message }}&lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;</font></div>
+<div><font color="#000000" face="Verdana">&lt;/form&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&lt;!-- Validation rules --&gt;</font></div>
+<div><font color="#000000" face="Verdana">@push('scripts')</font></div>
+<div><font color="#000000" face="Verdana">&lt;script&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; $('form').validate({</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; rules: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; name: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; required: true,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; minlength: 3,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; maxlength: 255,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; gender: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; required: true,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; fruit: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; required: true,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; agree: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; required: true,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; messages: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; name: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; required: "Please enter your name.",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; minlength: "Your name must be at least 3 characters.",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; maxlength: "Your name must not exceed 255 characters.",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; gender: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; required: "Please select your gender.",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; fruit: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; required: "Please select your favorite fruit.",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; agree: {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; required: "Please agree to the terms and conditions.",</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; },</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; });</font></div>
+<div><font color="#000000" face="Verdana">&lt;/script&gt;</font></div>
+<div><font color="#000000" face="Verdana">@endpush</font></div>
+<div><font color="#000000" face="Verdana">``</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td height=1448><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&lt;?php</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">namespace App\Http\Controllers;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">use Illuminate\Http\Request;</font></div>
+<div><font color="#000000" face="Verdana">use App\Models\FormData;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">class FormController extends Controller</font></div>
+<div><font color="#000000" face="Verdana">{</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; /**</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;* Show the form.</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;*</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;* @return \Illuminate\View\View</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;*/</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; public function showForm()</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return view('form');</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; }</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; /**</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;* Handle the form submission.</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;*</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;* @param &nbsp;\Illuminate\Http\Request &nbsp;$request</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;* @return \Illuminate\Http\RedirectResponse</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp;*/</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; public function submitForm(Request $request)</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; // Validate the form data</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $validatedData = $request-&gt;validate([</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name' =&gt; 'required|string|min:3|max:255',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'gender' =&gt; 'required|string|in:male,female',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'fruit' =&gt; 'required|string|in:apple,banana,orange',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'agree' =&gt; 'required|boolean',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; ]);</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; // Create a new FormData object and set the properties</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData = new FormData();</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData-&gt;name = $validatedData['name'];</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData-&gt;gender = $validatedData['gender'];</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData-&gt;fruit = $validatedData['fruit'];</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData-&gt;agree = $validatedData['agree'];</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; // Save the FormData object to the database</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData-&gt;save();</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; // Redirect back to the form with a success message</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return redirect()-&gt;back()-&gt;with('success', 'Form submitted successfully!');</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+<div><font color="#000000" face="Verdana">&lt;?php</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">namespace App\Http\Controllers;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">use Illuminate\Http\Request;</font></div>
+<div><font color="#000000" face="Verdana">use App\Models\FormData;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">class FormController extends Controller</font></div>
+<div><font color="#000000" face="Verdana">{</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; public function submit(Request $request)</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $validatedData = $request-&gt;validate([</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name' =&gt; 'required|min:3|max:255',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'gender' =&gt; 'required|in:male,female',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'fruit' =&gt; 'required|in:apple,banana,orange',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'agree' =&gt; 'required|in:1',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; ]);</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData = new FormData();</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData-&gt;name = $request-&gt;name;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData-&gt;gender = $request-&gt;gender;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData-&gt;fruit = $request-&gt;fruit;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $formData-&gt;save();</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return redirect()-&gt;back()-&gt;with('success', 'Form data has been submitted successfully!');</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#ccffcc"><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td rowspan=2><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#000000"><b>CustSesLoginController.php</b></font></div>
+<div>&lt;?php</div>
+<div><br></div>
+<div>namespace App\Http\Controllers;</div>
+<div><br></div>
+<div>use Illuminate\Http\Request;</div>
+<div>use Illuminate\Support\Facades\Session;</div>
+<div>use App\Models\User;</div>
+<div>use Hash;</div>
+<div><br></div>
+<div>class CustomSesLoginController extends Controller</div>
+<div>{</div>
+<div>&nbsp; &nbsp; public function showLogin()</div>
+<div>&nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return view('auth.login');</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function showRegister()</div>
+<div>&nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return view('auth.register');</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function registerUser(Request $request)</div>
+<div>&nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $request-&gt;validate([</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name' =&gt; 'required',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'email' =&gt; 'required | email | unique:users',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'password' =&gt; 'required',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'mobile' =&gt; 'required'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; ]);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /*</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user = &nbsp;User::create([</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name' =&gt; request('name'),</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'email' =&gt; request('email'),</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'mobile' =&gt; request('mobile'),</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'password' =&gt; request('password')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; ]);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; */</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user = new User();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;name = $request-&gt;name;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;email = $request-&gt;email;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;password = Hash::make($request-&gt;password);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;mobile = $request-&gt;mobile;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $res = $user-&gt;save();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if ($res) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return redirect()-&gt;route('showLogin')-&gt;with('success', 'Registartion successfull.Pls Login');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return back()-&gt;with('error', 'Registration failed');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function loginUser(Request $request)</div>
+<div>&nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $request-&gt;validate([</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'email' =&gt; 'required | email &nbsp;',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'password' =&gt; 'required:min:5|max:12'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; ]);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user = User::where('email', '=', $request-&gt;email)-&gt;first();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if ($user) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (Hash::check($request-&gt;password, $user-&gt;password)) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $request-&gt;session()-&gt;put('loginId', $user-&gt;id);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return redirect('dashboard');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return back()-&gt;with('error', 'Password do not match');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; } else {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return back()-&gt;with('error', 'This email is not registered');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function dashboard()</div>
+<div>&nbsp; &nbsp; {</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; //dd(session()-&gt;get('loginId'));</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $data = array();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if (Session::has('loginId')) {</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $data = User::where('id', '=', session()-&gt;get('loginId'))-&gt;first();</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return view('dashboard',compact('data'));</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp; &nbsp; public function logout(){</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if(Session::has('loginId')){</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Session::pull('loginId');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return &nbsp;redirect('login');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; </div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#000000" face="Verdana"><b>register.blade.php</b></font></div>
+<div align=center><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div>&lt;!DOCTYPE html&gt;</div>
+<div>&lt;html lang="en"&gt;</div>
+<div><br></div>
+<div>&lt;head&gt;</div>
+<div>&nbsp; &nbsp; &lt;meta charset="UTF-8"&gt;</div>
+<div>&nbsp; &nbsp; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+<div>&nbsp; &nbsp; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;</div>
+<div>&nbsp; &nbsp; &lt;!-- CSS only --&gt;</div>
+<div>&nbsp; &nbsp; &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</div>
+<div>&nbsp; &nbsp; &lt;!-- JavaScript Bundle with Popper --&gt;</div>
+<div>&nbsp; &nbsp; &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</div>
+<div>&nbsp; &nbsp; &lt;title&gt;Register&lt;/title&gt;</div>
+<div>&lt;/head&gt;</div>
+<div><br></div>
+<div>&lt;body&gt;</div>
+<div>&nbsp; &nbsp; &lt;div class="container"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="col-md-4 col-md-offset-6" style='margin-top:20px'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h4 class='text-primary mx-auto d-block'&gt;Registration Form&lt;/h4&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;hr /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @if (Session::has('error'))</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="alert alert-success"&gt;{{ Session::get('success') }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @endif</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;form action="{{ route('register-user') }}" method='POST'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @csrf</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Full name&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" class="form-control" name='name' id='name'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Enter Full Name' value='{{ old('name') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('name')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="mobile"&gt;Mobile&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" class="form-control" name='mobile' id='mobile'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Enter Mobile Number' value='{{ old('mobile') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('mobile')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="email"&gt;E-Mail&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="email" class="form-control" name='email' id='email'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Enter Email' value='{{ old('email') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('email')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="password"&gt;Password&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="password" class="form-control" name='password' id='password'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Enter Password' value='{{ old('password') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('password')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="cpassword"&gt;Confirm Password&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="password" class="form-control" name='cpassword' id='cpassword'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder='Confirm Password' value='{{ old('cpassword') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class="btn btn-primary btn-block m-2 d-block mx-auto" type='submit'&gt;Register&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;a href='login'&gt; Already Registered !!! Login Here&lt;/a&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/form&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&lt;/body&gt;</div>
+<div><br></div>
+<div>&lt;/html&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#000000"><b>login.blade.php</b></font></div>
+<div align=center><font color="#000000"><b><br></b></font></div>
+<div>&nbsp;&lt;!DOCTYPE html&gt;</div>
+<div>&nbsp;&lt;html lang="en"&gt;</div>
+<div><br></div>
+<div>&nbsp;&lt;head&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;meta charset="UTF-8"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;!-- CSS only --&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;!-- JavaScript Bundle with Popper --&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;title&gt;Login&lt;/title&gt;</div>
+<div>&nbsp;&lt;/head&gt;</div>
+<div><br></div>
+<div>&nbsp;&lt;body&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;div class="container"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="row"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="col-md-4 col-md-offset-4" style='margin-top:20px'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;h4 class='text-primary mx-auto d-block'&gt;Login Form&lt;/h4&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;hr /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@if (Session::has('success'))</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="alert alert-success"&gt;{{ Session::get('success') }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@endif</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@if (Session::has('error'))</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="alert alert-danger"&gt;{{ Session::get('error') }}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@endif</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;form action="{{ route('login-user') }}" method='post'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@csrf</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;label for="email"&gt;E-Mail&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;input type="email" class="form-control" name='email' id='email'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;placeholder='Enter Email' value='{{ old('email') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('email')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;label for="password"&gt;Password&lt;/label&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&lt;input type="password" class="form-control" name='password' id='password'</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;placeholder='Enter Password' value='{{ old('password') }}'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;span class="text-danger"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @error('email')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $message }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;div class="form-group"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;button class="btn btn-primary btn-block m-2 d-block mx-auto" type='submit'&gt;Login&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;a href='register'&gt; New User ?? Register Here&lt;/a&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/form&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;/div&gt;</div>
+<div>&nbsp;&lt;/body&gt;</div>
+<div><br></div>
+<div>&nbsp;&lt;/html&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">https://www.softwaretestinghelp.com/laravel-forms-and-validation/</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#ccffcc"><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&lt;form method="POST" action="{{ route('register') }}" enctype="multipart/form-data"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; @csrf</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; </font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;{{ __('Name') }}&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @error('name')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-red-500"&gt;{{ $message }}&lt;/span&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="email"&gt;{{ __('Email') }}&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @error('email')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-red-500"&gt;{{ $message }}&lt;/span&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="mobile"&gt;{{ __('Mobile') }}&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="mobile" type="text" name="mobile" value="{{ old('mobile') }}" required&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @error('mobile')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-red-500"&gt;{{ $message }}&lt;/span&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="city"&gt;{{ __('City') }}&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="city" type="text" name="city" value="{{ old('city') }}" required&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @error('city')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-red-500"&gt;{{ $message }}&lt;/span&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="password"&gt;{{ __('Password') }}&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="password" type="password" name="password" required autocomplete="new-password"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @error('password')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-red-500"&gt;{{ $message }}&lt;/span&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="password-confirm"&gt;{{ __('Confirm Password') }}&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="image"&gt;{{ __('Image') }}&lt;/label&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="image" type="file" name="image" required accept="image/*"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @error('image')</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-red-500"&gt;{{ $message }}&lt;/span&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; @enderror</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;button type="submit"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ __('Register') }}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&lt;/form&gt;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&lt;?php</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">namespace App\Http\Controllers;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">use Illuminate\Http\Request;</font></div>
+<div><font color="#000000" face="Verdana">use Illuminate\Support\Facades\Hash;</font></div>
+<div><font color="#000000" face="Verdana">use App\Models\User;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">class UserController extends Controller</font></div>
+<div><font color="#000000" face="Verdana">{</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; public function store(Request $request)</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; // Validate the form data</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $request-&gt;validate([</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name' =&gt; ['required', 'string', 'max:255'],</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'email' =&gt; ['required', 'email', 'max:255', 'unique:users'],</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'mobile' =&gt; ['required', 'numeric'],</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'city' =&gt; ['required', 'string', 'max:255'],</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'password' =&gt; ['required', 'string', 'min:8', 'confirmed'],</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'image' =&gt; ['required', 'file', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; ]);</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; // Handle image upload</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $image = $request-&gt;file('image');</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $image_name = time() . '_' . $image-&gt;getClientOriginalName();</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $image-&gt;move(public_path('images'), $image_name);</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; </font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; // Create and store a new user</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user = new User;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;name = $request-&gt;name;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;email = $request-&gt;email;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;mobile = $request-&gt;mobile;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;city = $request-&gt;city;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;password = Hash::make($request-&gt;password);</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;image = $image</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$user-&gt;save();</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return redirect()-&gt;route('home');</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#ccffcc"><br>
+</td>
+</tr>
+<tr valign=top>
+<td rowspan=2><font size=2 color="#000000" face="Arial">
+<div><font face="Courier New">&nbsp;</font></div>
+<div>&nbsp;&lt;form method="POST" action="{{ route('register') }}"&gt;</div>
+<div>&nbsp; &nbsp; @csrf</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="name"&gt;Name&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @error('name')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;{{ $message }}&lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="email"&gt;Email&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="email" type="email" name="email" value="{{ old('email') }}" required&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @error('email')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;{{ $message }}&lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="mobile"&gt;Mobile&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="mobile" type="tel" name="mobile" value="{{ old('mobile') }}" required&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @error('mobile')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;{{ $message }}&lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="city"&gt;City&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="city" type="text" name="city" value="{{ old('city') }}" required&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @error('city')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;{{ $message }}&lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="password"&gt;Password&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="password" type="password" name="password" required&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @error('password')</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;{{ $message }}&lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; @enderror</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="password_confirmation"&gt;Confirm Password&lt;/label&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input id="password_confirmation" type="password" name="password_confirmation" required&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;button type="submit"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Register</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&lt;/form&gt;</div>
+<div><br></div>
+<div><br></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&lt;?php</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">namespace App\Http\Controllers;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">use App\Models\User;</font></div>
+<div><font color="#000000" face="Verdana">use Illuminate\Http\Request;</font></div>
+<div><font color="#000000" face="Verdana">use Illuminate\Support\Facades\Hash;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">class RegistrationController extends Controller</font></div>
+<div><font color="#000000" face="Verdana">{</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; public function store(Request $request)</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $request-&gt;validate([</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name' =&gt; 'required|string|max:255',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'email' =&gt; 'required|string|email|max:255|unique:users',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'mobile' =&gt; 'required|string|max:255|unique:users',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'city' =&gt; 'required|string|max:255',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'password' =&gt; 'required|string|min:8|confirmed',</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; ]);</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user = new User();</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;name = $request-&gt;input('name');</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;email = $request-&gt;input('email');</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;mobile = $request-&gt;input('mobile');</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;city = $request-&gt;input('city');</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;password = Hash::make($request-&gt;input('password'));</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;save();</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; return redirect()-&gt;route('home');</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Courier New">namespace</font>&nbsp;App\Http\Controllers;
+
+</div>
+<div><br></div>
+<div>use Illuminate\Http\Request;
+</div>
+<div>use Illuminate\Support\Facades\Hash;
+</div>
+<div>use App\Models\User;
+
+</div>
+<div><br></div>
+<div>class RegisterController extends Controller</div>
+<div>{
+ </div>
+<div>&nbsp; &nbsp; public function store(Request $request)
+ </div>
+<div>&nbsp; &nbsp; {
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $validatedData = $request-&gt;validate([
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name' =&gt; 'required|string|max:255',
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'email' =&gt; 'required|string|email|max:255|unique:users',
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'mobile' =&gt; 'required|string|max:255|unique:users',
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'city' =&gt; 'required|string|max:255',
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'password' =&gt; 'required|string|min:8|confirmed',
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; ]);
+
+</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user = new User();
+
+</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;name = $validatedData['name'];
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;email = $validatedData['email'];
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;mobile = $validatedData['mobile'];
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;city = $validatedData['city'];
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;password = Hash::make($validatedData['password']);
+
+</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; $user-&gt;save();
+
+</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return redirect()-&gt;route('home');
+ </div>
+<div>&nbsp; &nbsp; }
+}</div>
+<div>}
+</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 bgcolor="#ccffcc"><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

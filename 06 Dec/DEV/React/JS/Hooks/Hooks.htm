@@ -1,0 +1,599 @@
+<html><head><title>Hooks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td colspan=2 width=414><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#008000" face="Verdana">https://beta.reactjs.org/reference/react</font></div>
+</font>
+</td>
+<td width=726><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">useState</font></div>
+<div><font color="#000000" face="Verdana">useEffect</font></div>
+<div><font color="#000000" face="Verdana">useContext</font></div>
+<div><font color="#000000" face="Verdana">useReducer</font></div>
+<div><font color="#000000" face="Verdana">useCallback</font></div>
+<div><font color="#000000" face="Verdana">useMemo</font></div>
+<div><font color="#000000" face="Verdana">useRef</font></div>
+<div><font color="#000000" face="Verdana">useImperativeHandle</font></div>
+<div><font color="#000000" face="Verdana">useLayoutEffect</font></div>
+<div><font color="#000000" face="Verdana">useEffect</font></div>
+<div><font color="#000000" face="Verdana">useId</font></div>
+<div><font color="#000000" face="Verdana">useSyncExternalStore</font></div>
+<div><font color="#000000" face="Verdana">useTransition</font></div>
+<div><font color="#000000" face="Verdana">useInsertionEffect</font></div>
+<div><font color="#000000" face="Verdana">useDefferedValue</font></div>
+<div><font color="#000000" face="Verdana">useDebugValue</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=992><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b>useState</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=590><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">const [quantity,setQuantity] = useState(0)</font></div>
+<div><font color="#000000" face="Verdana">const[name,setName]=useState('');</font></div>
+</font>
+</td>
+<td colspan=2 width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=590><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td colspan=2 width=494><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=992><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b>useReducer</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=590><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">https://medium.com/swlh/usereducer-form-example-16675fa60229</font></div>
+</font>
+</td>
+<td colspan=2 width=432><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=590><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td colspan=2 width=432><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=590><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+</font>
+</td>
+<td colspan=2 width=432><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div>import React from "react";</div>
+<div>import { UserContext, ChannelContext } from "./ContextApp2";</div>
+<div><br></div>
+<div>function ComponentF() {</div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;h3&gt; ComponentF Welcomes You&lt;/h3&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;UserContext.Consumer&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {(user) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return (</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;ChannelContext.Consumer&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {(channel) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return (</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; User Context Value {user},{channel}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/ChannelContext.Consumer&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }}</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/UserContext.Consumer&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; );</div>
+<div>}</div>
+<div><br></div>
+<div>export default ComponentF;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b>useRef</b></font><font size=6 color="#008000" face="Verdana"><b> &nbsp; &nbsp; &nbsp; &nbsp;</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=590><font size=2 color="#000000" face="Arial">
+<div>In React, a ref is a way to access the properties of a DOM element. Refs are created using React's useRef hook and attached to React elements via the ref attribute.</div>
+<div>Here is an example of how to use useRef hook in React:</div>
+<div><br></div>
+<div>import React, { useRef } from 'react';</div>
+<div><br></div>
+<div>function Example() {</div>
+<div>&nbsp; const inputRef = useRef(null);</div>
+<div><br></div>
+<div>&nbsp; function handleClick() {</div>
+<div>&nbsp; &nbsp; inputRef.current.focus();</div>
+<div>&nbsp; }</div>
+<div><br></div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;input type="text" ref={inputRef} /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;button onClick={handleClick}&gt;Focus the input&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; );</div>
+<div>}</div>
+<div>In this example, we use useRef to create a ref that we assign to the input element. The handleClick function uses the current property of the ref to access the input element and call its focus method.</div>
+</font>
+</td>
+<td width=295><br>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div>useMemo and useCallback are both React hooks that can help optimize your React application's performance by avoiding unnecessary re-renders.</div>
+<div><br></div>
+<div>useMemo is used to memoize a value. It takes two arguments: a function that returns the value to be memoized, and a list of dependencies. The value will be recalculated only if one of the dependencies has changed. This hook is useful when you have expensive calculations that don't need to be performed on every render.</div>
+<div><br></div>
+<div>useCallback is used to return a memoized version of a callback function. It takes two arguments: the callback function and a list of dependencies. The memoized callback will only change if one of the dependencies has changed. This hook is useful when you want to pass a callback to a child component and want to avoid re-creating the callback on every render.</div>
+<div><br></div>
+<div>In summary:</div>
+<ul type="disc">
+<li>useMemo is used to memoize a value, while useCallback is used to memoize a function.</li>
+<li>useMemo is used to optimize expensive calculations, while useCallback is used to avoid re-creating functions on every render.</li>
+</ul>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b>use Memo</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div align=center><table width="100%" border=0 cellpadding=5 cellspacing=-1 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=3>The useMemo hook is a way to optimize the performance of your React components by memoizing (or caching) the result of a function that is expensive to compute. This means that the function will only run when one of its dependencies changes, and otherwise it will return the same value as before.</font></div>
+<div><font size=3><br></font></div>
+<div><font size=3 color="#000000" face="Verdana">const memoizedValue = useMemo(() =&gt; {</font></div>
+<div><font size=3 color="#000000" face="Verdana">&nbsp; // some expensive calculation</font></div>
+<div><font size=3 color="#000000" face="Verdana">&nbsp; return result;</font></div>
+<div><font size=3 color="#000000" face="Verdana">}, [dependencies]);</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">const memoizedValue = useMemo(() =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; // some expensive calculation</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return result;</font></div>
+<div><font color="#000000" face="Verdana">}, [dependencies]);</font></div>
+<div>The first argument is a function that returns the value you want to memoize. The second argument is an array of dependencies that determine when the function should run again. If the dependencies are the same as the previous render, the function will not run and the memoized value will be returned. If any of the dependencies change, the function will run and return a new value, which will be memoized for the next render.</div>
+<div>The useMemo hook can help you avoid unnecessary re-rendering of components or re-calculating of values that depend on props or state. For example, if you have a component that renders a list of items based on a filter, you can use useMemo to memoize the filtered list and only update it when the filter or the original list changes. This way, you can avoid re-filtering the list on every render, which can be costly if the list is large or the filter is complex.</div>
+<div>Here is a simple example of using useMemo to memoize a filtered list:</div>
+<div><font size=6 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>The&nbsp;useRef&nbsp;Hook allows you to persist values between renders.</div>
+<div>It can be used to store a mutable value that does not cause a re-render when updated.</div>
+<div>It can be used to access a DOM element directly.</div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font face="Courier New">import</font>&nbsp;{ useState, useMemo } from "react";
+
+</div>
+<div><br></div>
+<div>function TodoList({ todos }) {
+ </div>
+<div>&nbsp; const [filter, setFilter] = useState("");
+
+</div>
+<div><br></div>
+<div>&nbsp; // useMemo returns a memoized value</div>
+<div>&nbsp; const filteredTodos = useMemo(() =&gt; {
+ </div>
+<div>&nbsp; &nbsp; // filter the todos based on the filter state</div>
+<div>&nbsp; &nbsp; return todos.filter((todo) =&gt; todo.text.includes(filter));
+ </div>
+<div>&nbsp; }, [filter, todos]); // only re-run the filter function if filter or todos change</div>
+<div><br></div>
+<div>&nbsp; return (
+ </div>
+<div>&nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; value={filter}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; onChange={(e) =&gt; setFilter(e.target.value)}
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; placeholder="Search todos"
+ </div>
+<div>&nbsp; &nbsp; &nbsp; /&gt;
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &lt;ul&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {filteredTodos.map((todo) =&gt; (
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;li key={todo.id}&gt;{todo.text}&lt;/li&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; ))}
+ </div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/ul&gt;</div>
+<div>&nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; );
+}</div>
+<div>}</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=6 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=6 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=6 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=6 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=6 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font size=6 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b>useCallback</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=414><font size=2 color="#000000" face="Arial">
+<div>useCallback is a React hook that returns a memoized version of a given callback function. It helps improve the performance of your React components by preventing unnecessary re-renders.</div>
+<div>Here is an example of how to use useCallback in React:</div>
+<div><b>import React, { useCallback } from 'react';</b></div>
+<div><b><br></b></div>
+<div><b>function Example({ data }) {</b></div>
+<div><b>&nbsp; const memoizedCallback = useCallback(</b></div>
+<div><b>&nbsp; &nbsp; () =&gt; {</b></div>
+<div><b>&nbsp; &nbsp; &nbsp; // Expensive calculation</b></div>
+<div><b>&nbsp; &nbsp; &nbsp; console.log('Callback function called');</b></div>
+<div><b>&nbsp; &nbsp; },</b></div>
+<div><b>&nbsp; &nbsp; [data],</b></div>
+<div><b>&nbsp; );</b></div>
+<div><b><br></b></div>
+<div><b>&nbsp; return &lt;button onClick={memoizedCallback}&gt;Click me&lt;/button&gt;;</b></div>
+<div><b>}</b></div>
+<div><b><br></b></div>
+<div>In this example, useCallback returns a memoized version of the callback function that will only be re-created when data changes. This means that the expensive calculation inside the callback will only be performed when data changes, improving the performance of your component.</div>
+<div>It is important to note that the second argument to useCallback, which is an array of dependencies, should only include values that are directly used inside the callback. Including values that are not used directly can cause unnecessary re-renders.</div>
+<div><b><br></b></div>
+</font>
+</td>
+<td width=726><br>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000"><b>useHref</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b><br></b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div align=center><font size=6 color="#008000" face="Verdana"><b> &nbsp; &nbsp; &nbsp; &nbsp;</b></font><font size=6 color="#008000" face="Verdana"><b>useContext</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=590><font size=2 color="#000000" face="Arial">
+<div><font size=5 color="#008000"><b><u>contextApp2.js</u></b></font></div>
+<div><font size=5><b><br></b></font></div>
+<div><font size=3 face="Calibri">import React from 'react';</font></div>
+<div><font size=3 face="Calibri">import ComponenC from './ComponenC';</font></div>
+<div><font size=3 face="Calibri">export const UserContext = React.createContext();</font></div>
+<div><font size=3 face="Calibri">export const ChannelContext = React.createContext();</font></div>
+<div><font size=3 face="Calibri">function ContextApp2() {</font></div>
+<div><font size=3 face="Calibri"><br></font></div>
+<div><font size=3 face="Calibri">&nbsp; return (</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &lt;div&gt; &lt;h2&gt;ContextApp 2 Demo&lt;/h2&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &lt;UserContext.Provider value={'Vishwas'}&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &lt;ChannelContext.Provider value={'Code Evolution'}&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &lt;ComponenC /&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &lt;/ChannelContext.Provider&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &lt;/UserContext.Provider&gt;</font></div>
+<div><font size=3 face="Calibri"><br></font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp;&lt;/div&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; )</font></div>
+<div><font size=3 face="Calibri">}</font></div>
+<div><font size=3 face="Calibri"><br></font></div>
+<div><font size=3 face="Calibri">export default ContextApp2;</font></div>
+<hr noshade size=1 color="#000000">
+<div><font size=5 color="#008000"><b><u>&nbsp;componentA.js</u></b></font></div>
+<div><font size=5><b><br></b></font></div>
+<div><font size=3 face="Calibri">import React from 'react'</font></div>
+<div><font size=3 face="Calibri"><br></font></div>
+<div><font size=3 face="Calibri">function ComponentA() {</font></div>
+<div><font size=3 face="Calibri">&nbsp; return (</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &lt;div&gt;ComponentA Welcomes You&lt;/div&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; )</font></div>
+<div><font size=3 face="Calibri">}</font></div>
+<div><font size=3 face="Calibri"><br></font></div>
+<div><font size=3 face="Calibri">export default ComponentA</font></div>
+<hr noshade size=1 color="#000000">
+<div><font size=5 color="#008000"><b><u>componentE.js</u></b></font></div>
+<div><font size=5 color="#008000"><b><br></b></font></div>
+<div><font size=3 face="Calibri">import React, {useContext} from 'react'</font></div>
+<div><font size=3 face="Calibri">import ComponentF from './ComponentF'</font></div>
+<div><font size=3 face="Calibri">&nbsp;import { UserContext,ChannelContext } from './ContextApp2';</font></div>
+<div><font size=3 face="Calibri"><br></font></div>
+<div><font size=3 face="Calibri">function ComponentE() {</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; const user = useContext(UserContext);</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; const channel = useContext(ChannelContext);</font></div>
+<div><font size=3 face="Calibri">&nbsp; return (</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &lt;div&gt;ComponentE Welcomes You</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; { user } { channel }</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; )</font></div>
+<div><font size=3 face="Calibri">}</font></div>
+<div><font size=3 face="Calibri"><br></font></div>
+<div><font size=3 face="Calibri">export default ComponentE</font></div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div><font size=5 color="#008000"><b><u>componentF.js</u></b></font></div>
+<div><font size=5 color="#008000"><b><br></b></font></div>
+<div><font size=3 face="Calibri">import React from "react";</font></div>
+<div><font size=3 face="Calibri">import { UserContext, ChannelContext } from "./ContextApp2";</font></div>
+<div><font size=3 face="Calibri"><br></font></div>
+<div><font size=3 face="Calibri">function ComponentF() {</font></div>
+<div><font size=3 face="Calibri">&nbsp; return (</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &lt;h3&gt; ComponentF Welcomes You&lt;/h3&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &lt;UserContext.Consumer&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; {(user) =&gt; {</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return (</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;ChannelContext.Consumer&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {(channel) =&gt; {</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return (</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; User Context Value {user},{channel}</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }}</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/ChannelContext.Consumer&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &nbsp; }}</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &nbsp; &lt;/UserContext.Consumer&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font size=3 face="Calibri">&nbsp; );</font></div>
+<div><font size=3 face="Calibri">}</font></div>
+<div><font size=3 face="Calibri"><br></font></div>
+<div><font size=3 face="Calibri">export default ComponentF;</font></div>
+<div><br></div>
+</font>
+</td>
+<td colspan=2 width=432><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=885><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#008000" face="Verdana"><b>useContext - Counter Context</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=590><font size=2 color="#000000" face="Arial">
+<div><font color="#0000ff"><b>appcontext3.js</b></font></div>
+<div><br></div>
+<div>import React from "react";</div>
+<div>import ComponentA from "./components/ComponentA";</div>
+<div>import ComponentB from "./components/ComponentB";</div>
+<div>import MyCounter from "./components/MyCounter";</div>
+<div>import CounterContextProvider from "./context/CounterContextProvider";</div>
+<div><br></div>
+<div>function AppContext3() {</div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;CounterContextProvider&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;h2&gt;Counter Context&lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;MyCounter /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;ComponentB /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/CounterContextProvider&gt;</div>
+<div>&nbsp; &nbsp; &lt;/&gt;</div>
+<div>&nbsp; );</div>
+<div>}</div>
+<div><br></div>
+<div>export default AppContext3;</div>
+<hr noshade size=1 color="#000000">
+<div><font color="#0000ff"><b>counterContextProvider.js</b></font></div>
+<div><br></div>
+<div>import React, { useState, createContext } from "react";</div>
+<div><br></div>
+<div>const CounterContext = createContext();</div>
+<div><br></div>
+<div>function CounterContextProvider(props) {</div>
+<div>&nbsp; const [count, setCount] = useState(0);</div>
+<div><br></div>
+<div>&nbsp; function increment() {</div>
+<div>&nbsp; &nbsp; setCount(count + 1);</div>
+<div>&nbsp; }</div>
+<div><br></div>
+<div>&nbsp; function decrement() {</div>
+<div>&nbsp; &nbsp; setCount(count - 1);</div>
+<div>&nbsp; }</div>
+<div>&nbsp; const values = { count, increment, decrement };</div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;CounterContext.Provider value={values}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; {props.children}</div>
+<div>&nbsp; &nbsp; &lt;/CounterContext.Provider&gt;</div>
+<div>&nbsp; );</div>
+<div>}</div>
+<div><br></div>
+<div>export default CounterContextProvider;</div>
+<div>export { CounterContext };</div>
+<div><br></div>
+</font>
+</td>
+<td colspan=2 width=432><font size=2 color="#000000" face="Arial">
+<div><font color="#0000ff"><b>MyCounter.js</b></font></div>
+<div>import React, { useState, useContext } from "react";</div>
+<div>import { CounterContext } from "../context/CounterContextProvider";</div>
+<div><br></div>
+<div>function MyCounter() {</div>
+<div>&nbsp; const { count, increment, decrement } = useContext(CounterContext);</div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div&gt;MyCounter&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;strong&gt; {count} &lt;/strong&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;button onClick={increment}&gt;Increment&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;button onClick={decrement}&gt;Decrement&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/&gt;</div>
+<div>&nbsp; );</div>
+<div>}</div>
+<div><br></div>
+<div>export default MyCounter;</div>
+<hr noshade size=1 color="#000000">
+<div><font color="#0000ff"><b>Component A</b></font></div>
+<div><font color="#0000ff"><b><br></b></font></div>
+<div>import React, { useContext } from "react";</div>
+<div>import { CounterContext } from "../context/CounterContextProvider";</div>
+<div><br></div>
+<div>function ComponentA() {</div>
+<div>&nbsp; const { count } = useContext(CounterContext);</div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div style={{ backgroundColor: "wheat" }}&gt;ComponentA : {count}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/&gt;</div>
+<div>&nbsp; );</div>
+<div>}</div>
+<div><br></div>
+<div>export default ComponentA;</div>
+<hr noshade size=1 color="#000000">
+<div><font color="#0000ff"><b>Component B</b></font></div>
+<div><font color="#0000ff"><b><br></b></font></div>
+<div>import React, { useContext } from "react";</div>
+<div>import { CounterContext } from "../context/CounterContextProvider";</div>
+<div><br></div>
+<div>function ComponentB() {</div>
+<div>&nbsp; const { count, increment, decrement } = useContext(CounterContext);</div>
+<div><br></div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div style={{ backgroundColor: "lightblue" }}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;h2&gt;Component B&lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;{count}&lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onClick={increment}&gt;Increment&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onClick={decrement}&gt;Decrement&lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/&gt;</div>
+<div>&nbsp; );</div>
+<div>}</div>
+<div><br></div>
+<div>export default ComponentB;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=1022><font size=2 color="#000000" face="Arial">
+<div align=center><font size=5 color="#008000" face="Verdana"><b>useReducer UseContext - MovieList Example</b></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=590><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td colspan=2 width=432><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=590><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td colspan=2 width=432><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

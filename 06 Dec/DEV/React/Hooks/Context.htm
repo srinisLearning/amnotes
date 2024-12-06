@@ -1,0 +1,348 @@
+<html><head><title>Context</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=6 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td width=396><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">import React, { useContext } from 'react'</font></div>
+<div><font color="#000000" face="Verdana">import ComponentF from './ComponentF'</font></div>
+<div><font color="#000000" face="Verdana">import { UserContext, ChannelContext } from '../App'</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">function ComponentE() {</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const user = useContext(UserContext)</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const channel = useContext(ChannelContext)</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return &lt;div&gt; User is {user} and channel is {channel}&lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default ComponentE</font></div>
+</font>
+</td>
+<td width=401><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">import React from 'react'</font></div>
+<div><font color="#000000" face="Verdana">import './App.css'</font></div>
+<div><font color="#000000" face="Verdana">import ComponentC from './components/ComponentC'</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export const UserContext = React.createContext()</font></div>
+<div><font color="#000000" face="Verdana">export const ChannelContext = React.createContext()</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">function App() {</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">return (</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">&lt;div className="App"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp;&lt;UserContext.Provider value={'Vishwas'}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;ChannelContext.Provider value={'Codevolution'}&gt;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;ComponentC /&gt;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">&lt;/ChannelContext.Provider&gt;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">&lt;/UserContext.Provider&gt;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">&lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana"></font><font color="#000000" face="Verdana"> &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#000000" face="Verdana">)</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default App</font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">The useContext hook in React is a way to share data between components without passing props down manually.</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">Imagine you have a big tree of components, and you want to share some data (like a theme or a user's name) between them. You could pass props down from parent to child, but that gets messy and hard to manage.</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">Instead, you can use useContext to create a "context" that holds the shared data. Then, any component can use the useContext hook to access that data.</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">Here's a simple example:</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"><b>Step 1: Create a context</b></font></div>
+<div><font color="#000000" face="Verdana"><b>&nbsp;</b></font></div>
+<div><font color="#000000" face="Verdana">import { createContext, useState } from 'react';</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const ThemeContext = createContext();</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const ThemeProvider = ({ children }) =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const [theme, setTheme] = useState('light');</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return (</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;ThemeContext.Provider value={{ theme, setTheme }}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; {children}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/ThemeContext.Provider&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; );</font></div>
+<div><font color="#000000" face="Verdana">};</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"><b>Step 2: Wrap your app with the context provider</b></font></div>
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+<div><font color="#000000" face="Verdana">import React from 'react';</font></div>
+<div><font color="#000000" face="Verdana">import ReactDOM from 'react-dom';</font></div>
+<div><font color="#000000" face="Verdana">import { ThemeProvider } from './ThemeContext';</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const App = () =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; // ...</font></div>
+<div><font color="#000000" face="Verdana">};</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">ReactDOM.render(</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;ThemeProvider&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;App /&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &lt;/ThemeProvider&gt;,</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; document.getElementById('root')</font></div>
+<div><font color="#000000" face="Verdana">);</font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana"><b>Step 3: Use the context in a component</b></font></div>
+<div><font color="#000000" face="Verdana"><b><br></b></font></div>
+<div><font color="#000000" face="Verdana">&nbsp;</font></div>
+<div><font color="#000000" face="Verdana">import React from 'react';</font></div>
+<div><font color="#000000" face="Verdana">import { useContext } from 'react';</font></div>
+<div><font color="#000000" face="Verdana">import { ThemeContext } from './ThemeContext';</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const Button = () =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const { theme } = useContext(ThemeContext);</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return (</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;button style={{ backgroundColor: theme === 'light' ? '#fff' : '#333' }}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; Click me!</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/button&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; );</font></div>
+<div><font color="#000000" face="Verdana">};</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">import React, { createContext, useContext, useState } from 'react';</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">// Step 1: Create a Context</font></div>
+<div><font color="#000000" face="Verdana">const ThemeContext = createContext();</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">// Step 2: Create a Context Provider Component</font></div>
+<div><font color="#000000" face="Verdana">const ThemeProvider = ({ children }) =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; // This state will hold the current theme</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const [theme, setTheme] = useState('light');</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; // Toggle theme between 'light' and 'dark'</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const toggleTheme = () =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; setTheme((prevTheme) =&gt; (prevTheme === 'light' ? 'dark' : 'light'));</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; };</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; // Provide the context value and a function to toggle the theme</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return (</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;ThemeContext.Provider value={{ theme, toggleTheme }}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; {children}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/ThemeContext.Provider&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; );</font></div>
+<div><font color="#000000" face="Verdana">};</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">// Step 3: Create a Component that Consumes the Context</font></div>
+<div><font color="#000000" face="Verdana">const ThemedComponent = () =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; // Access the context value using useContext</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const { theme, toggleTheme } = useContext(ThemeContext);</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return (</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;div style={{ background: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff', padding: '20px' }}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;p&gt;The current theme is {theme}.&lt;/p&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;button onClick={toggleTheme}&gt;Toggle Theme&lt;/button&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; );</font></div>
+<div><font color="#000000" face="Verdana">};</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">// Step 4: Use the ThemeProvider to Wrap the Component Tree</font></div>
+<div><font color="#000000" face="Verdana">const App = () =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return (</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;ThemeProvider&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &lt;ThemedComponent /&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/ThemeProvider&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; );</font></div>
+<div><font color="#000000" face="Verdana">};</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default App;</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=825><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td width=760><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

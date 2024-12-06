@@ -1,0 +1,943 @@
+<html><head><title>Restaurant Project 1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#008000"><b>APP.VUE</b></font></div>
+<div><br></div>
+<div><font face="Verdana">/* eslint-disable */</font></div>
+<div><font face="Verdana">&lt;template&gt;</font></div>
+<div><font face="Verdana">&nbsp; &lt;div class="container"&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;h3&gt;Restaurant Listing&lt;/h3&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;hr /&gt;</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; &lt;router-view /&gt;</font></div>
+<div><font face="Verdana">&nbsp; &lt;/div&gt;</font></div>
+<div><font face="Verdana">&lt;/template&gt;</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&lt;script&gt;</font></div>
+<div><font face="Verdana">export default {</font></div>
+<div><font face="Verdana">&nbsp; name: "App",</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&nbsp; data() {</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; return {};</font></div>
+<div><font face="Verdana">&nbsp; },</font></div>
+<div><font face="Verdana">};</font></div>
+<div><font face="Verdana">&lt;/script&gt;</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">&lt;style&gt;</font></div>
+<div><font face="Verdana">#app {</font></div>
+<div><font face="Verdana">&nbsp; font-family: Avenir, Helvetica, Arial, sans-serif;</font></div>
+<div><font face="Verdana">&nbsp; -webkit-font-smoothing: antialiased;</font></div>
+<div><font face="Verdana">&nbsp; -moz-osx-font-smoothing: grayscale;</font></div>
+<div><font face="Verdana">&nbsp; text-align: center;</font></div>
+<div><font face="Verdana">&nbsp; color: #2c3e50;</font></div>
+<div><font face="Verdana">&nbsp; margin-top: 60px;</font></div>
+<div><font face="Verdana">&nbsp; cursor: pointer;</font></div>
+<div><font face="Verdana">}</font></div>
+<div><font face="Verdana">.container {</font></div>
+<div><font face="Verdana">&nbsp; margin: auto;</font></div>
+<div><font face="Verdana">&nbsp; width: 700px;</font></div>
+<div><font face="Verdana">&nbsp; border: 1px solid #2c3e50;</font></div>
+<div><font face="Verdana">&nbsp; padding: 20px;</font></div>
+<div><font face="Verdana">&nbsp; /* background-color: beige;*/</font></div>
+<div><font face="Verdana">}</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">.routerLink {</font></div>
+<div><font face="Verdana">&nbsp; text-decoration: none;</font></div>
+<div><font face="Verdana">&nbsp; color: black;</font></div>
+<div><font face="Verdana">&nbsp; font-family: Verdana, Geneva, Tahoma, sans-serif;</font></div>
+<div><font face="Verdana">&nbsp; font-size: 12px;</font></div>
+<div><font face="Verdana">}</font></div>
+<div><font face="Verdana">&lt;/style&gt;</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#008000"><b>ROUTES.JS</b></font></div>
+<div><br></div>
+<div><font face="Verdana">import HomePage from "./components/HomePage";</font></div>
+<div><font face="Verdana">import SignUp from "./components/SignUp";</font></div>
+<div><font face="Verdana">import Login from "./components/Login";</font></div>
+<div><font face="Verdana">import AddPage from "./components/AddPage";</font></div>
+<div><font face="Verdana">import UpdatePage from "./components/UpdatePage";</font></div>
+<div><font face="Verdana">import { createRouter, createWebHistory } from "vue-router";</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">const routes = [</font></div>
+<div><font face="Verdana">&nbsp; {</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; name: "HomePage",</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; component: HomePage,</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path: "/",</font></div>
+<div><font face="Verdana">&nbsp; },</font></div>
+<div><font face="Verdana">&nbsp; {</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; name: "SignUp",</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; component: SignUp,</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path: "/sign-up",</font></div>
+<div><font face="Verdana">&nbsp; },</font></div>
+<div><font face="Verdana">&nbsp; {</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; name: "Login",</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; component: Login,</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path: "/login",</font></div>
+<div><font face="Verdana">&nbsp; },</font></div>
+<div><font face="Verdana">&nbsp; {</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; name: "AddPage",</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; component: AddPage,</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path: "/add",</font></div>
+<div><font face="Verdana">&nbsp; },</font></div>
+<div><font face="Verdana">&nbsp; {</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; name: "UpdatePage",</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; component: UpdatePage,</font></div>
+<div><font face="Verdana">&nbsp; &nbsp; path: "/update/:id",</font></div>
+<div><font face="Verdana">&nbsp; },</font></div>
+<div><font face="Verdana">];</font></div>
+<div><font face="Verdana">const router = createRouter({</font></div>
+<div><font face="Verdana">&nbsp; history: createWebHistory(),</font></div>
+<div><font face="Verdana">&nbsp; routes,</font></div>
+<div><font face="Verdana">});</font></div>
+<div><font face="Verdana"><br></font></div>
+<div><font face="Verdana">export default router;</font></div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center>&nbsp;<font color="#008000"><b>MAIN.JS</b></font></div>
+<div><br></div>
+<div>import { createApp } from 'vue'</div>
+<div>import App from './App.vue'</div>
+<div>import router from './routes';</div>
+<div><br></div>
+<div><font color="#ff0000">createApp(App).use(router).mount('#app')</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#008000"><b>SIGNUP.VUE</b></font></div>
+<div><br></div>
+<div>/* eslint-disable */</div>
+<div>&lt;template&gt;</div>
+<div>&lt;img class='logo' &nbsp;src='../assets/logo.png'/&gt;</div>
+<div>&nbsp; &lt;h2&gt; New User! Sign Up &nbsp;&lt;/h2&gt;</div>
+<div>&nbsp; &nbsp;&lt;p v-if="errors.length"&gt;</div>
+<div>&nbsp; &nbsp; &lt;b&gt;Please correct the following error(s):&lt;/b&gt;</div>
+<div>&nbsp; &nbsp; &lt;ul&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;li v-for="error in errors" :key='error' class="error"&gt;{{ error }}&lt;/li&gt;</div>
+<div>&nbsp; &nbsp; &lt;/ul&gt;</div>
+<div>&nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &lt;div class="register"&gt;</div>
+<div>&nbsp; &nbsp; &lt;input type="text" v-model='name' required placeholder="Enter Name"&gt;</div>
+<div>&nbsp; &nbsp; &lt;input type="text" v-model='email' required placeholder="Enter EMail"&gt;</div>
+<div>&nbsp; &nbsp; &lt;input type="text" v-model='mobile' required placeholder="Enter Mobile"&gt;</div>
+<div>&nbsp; &nbsp; &lt;input type="password" v-model='password' required placeholder="Enter Password"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;input type="password" v-model='cpassword' @blur="checkPassword" required placeholder="Confirm Password"&gt;</div>
+<div>&nbsp; &nbsp; &lt;button @click='handleSignUp'&gt;New User Sign Up &lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &lt;p&gt;</div>
+<div>&nbsp; &nbsp; &lt;router-link to='/login' class="routerLink"&gt; Login In&lt;/router-link&gt;</div>
+<div>&nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>import { v4 as uuidv4 } from "uuid";</div>
+<div>import axios &nbsp;from 'axios';</div>
+<div>export default {</div>
+<div>&nbsp; name:'SignUp',</div>
+<div>&nbsp; data(){</div>
+<div>&nbsp; &nbsp; return{</div>
+<div>&nbsp; &nbsp; &nbsp; errors:[],</div>
+<div>&nbsp; &nbsp; &nbsp; name:'',</div>
+<div>&nbsp; &nbsp; &nbsp; email:'',</div>
+<div>&nbsp; &nbsp; &nbsp; password:'',</div>
+<div>&nbsp; &nbsp; &nbsp; cpassword:'',</div>
+<div>&nbsp; &nbsp; &nbsp; mobile:'',</div>
+<div>&nbsp; &nbsp; &nbsp; id:uuidv4().substring(5,14)</div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; },</div>
+<div>&nbsp; methods:{</div>
+<div><br></div>
+<div>&nbsp; &nbsp; checkPassword(){</div>
+<div>&nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; validateForm(){</div>
+<div>&nbsp; &nbsp; &nbsp; this.errors = []; &nbsp; &nbsp; &nbsp;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; if (!this.name) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.errors.push("Name required.");</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return false;</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; if (!this.email) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.errors.push('Email required.');</div>
+<div>&nbsp; &nbsp; &nbsp; } &nbsp;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; if (!this.mobile) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.errors.push("Mobile No required.");</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; if (!this.password) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.errors.push('Password required.');</div>
+<div>&nbsp; &nbsp; &nbsp; } </div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; if (!this.errors.length) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return true;</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; &nbsp;async &nbsp;handleSignUp(e){</div>
+<div>&nbsp; &nbsp; &nbsp; e.preventDefault();</div>
+<div>&nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; if(this.validateForm())</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp;// alert('button clicked');</div>
+<div>&nbsp; &nbsp; &nbsp; console.log(this.name,this.email,this.password, this.mobile, this.id);</div>
+<div>&nbsp; &nbsp; &nbsp; let result &nbsp;= &nbsp;await axios.post("http://localhost:3000/users",{</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;id:this.id,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;name:this.name,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;email:this.email,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;password:this.password,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;mobile:this.mobile</div>
+<div>&nbsp; &nbsp; &nbsp; });</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; console.warn("result",result);</div>
+<div>&nbsp; &nbsp; &nbsp; if(result.status == 201)</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;{</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; //alert("Success");</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.$router.push({name:'Login'});</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;}</div>
+<div><br></div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp;}</div>
+<div>&nbsp; &nbsp; } &nbsp;,</div>
+<div>&nbsp; &nbsp; &nbsp;mounted:function() {</div>
+<div>&nbsp; &nbsp;// alert('mounted');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;let user = localStorage.getItem('userInfo');</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;if(user){</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.$router.push({name:'HomePage'});</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;}</div>
+<div><br></div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp;</div>
+<div><br></div>
+<div>&nbsp; </div>
+<div>}</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;</div>
+<div>.logo {</div>
+<div>&nbsp; width:150px;</div>
+<div>&nbsp; height:150px;</div>
+<div>&nbsp; border:1px solid #2c3e50;</div>
+<div>}</div>
+<div><br></div>
+<div>.register input {</div>
+<div>&nbsp; width:300px;</div>
+<div>&nbsp; height:40px;</div>
+<div>&nbsp; padding-left:20px;</div>
+<div>&nbsp; display:block;</div>
+<div>&nbsp; margin:0 auto 30px auto;</div>
+<div>&nbsp; border:1px solid skyblue;</div>
+<div><br></div>
+<div>}</div>
+<div><br></div>
+<div>.register button {</div>
+<div>&nbsp; width:300px;</div>
+<div>&nbsp; height:40px;</div>
+<div>&nbsp; background-color: skyblue;</div>
+<div>&nbsp; border:1px solid skyblue;</div>
+<div>&nbsp; color:darkblue;</div>
+<div>}</div>
+<div><br></div>
+<div>.error{</div>
+<div>&nbsp; color:brown;</div>
+<div>&nbsp; font-size: 10px;</div>
+<div>&nbsp; list-style-type:none;</div>
+<div><br></div>
+<div>}</div>
+<div><br></div>
+<div>&nbsp;</div>
+<div>&lt;/style&gt;</div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#008000"><b>LOGIN.VUE</b></font></div>
+<div><br></div>
+<div>/* eslint-disable */</div>
+<div>&lt;template&gt;</div>
+<div>&lt;img class='logo' &nbsp;src='../assets/logo.png'/&gt;</div>
+<div>&nbsp; &lt;h2&gt; Login &lt;/h2&gt;</div>
+<div>&nbsp; &nbsp;&lt;p v-if="errors.length"&gt;</div>
+<div>&nbsp; &nbsp; &lt;b&gt;Please correct the following error(s):&lt;/b&gt;</div>
+<div>&nbsp; &nbsp; &lt;ul&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;li v-for="error in errors" :key='error'&gt;{{ error }}&lt;/li&gt;</div>
+<div>&nbsp; &nbsp; &lt;/ul&gt;</div>
+<div>&nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &lt;div class="login"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &lt;input type="text" v-model='email' required placeholder="Enter E-Mail"&gt;</div>
+<div>&nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &lt;input type="password" v-model='password' required placeholder="Ener Password"&gt;</div>
+<div>&nbsp; &nbsp; &lt;button @click='login'&gt;Login &lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &lt;p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;router-link class= 'routerLink' to='/sign-up'&gt; Sign Up&lt;/router-link&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;/p&gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>&nbsp;import axios &nbsp;from 'axios';</div>
+<div>&nbsp;</div>
+<div>export default {</div>
+<div>&nbsp; name:'SignUp',</div>
+<div>&nbsp; data(){</div>
+<div>&nbsp; &nbsp; return{</div>
+<div>&nbsp; &nbsp; &nbsp; errors:[],</div>
+<div>&nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp; email:'',</div>
+<div>&nbsp; &nbsp; &nbsp; password:'',</div>
+<div>&nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; },</div>
+<div>&nbsp; methods:{</div>
+<div>&nbsp; &nbsp; &nbsp;async &nbsp;login(){</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp; &nbsp;// &nbsp;alert('button clicked');</div>
+<div>&nbsp; &nbsp; &nbsp; console.log( this.email,this.password );</div>
+<div>&nbsp; &nbsp; &nbsp; let query = `http://localhost:3000/users?email=${this.email}&amp;password=${this.password}`</div>
+<div>&nbsp; &nbsp; &nbsp; // alert(query);</div>
+<div>&nbsp; &nbsp; &nbsp; let result = await axios.get(query);</div>
+<div>&nbsp; &nbsp; &nbsp; console.log(result); &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;if(result.status == 200 &amp;&amp; result.data.length &gt; 0) { </div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;localStorage.setItem("userInfo",JSON.stringify(result.data));</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.$router.push({name:'HomePage'});</div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; else{</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; alert('Invalid Login');</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp;}</div>
+<div>&nbsp; &nbsp; } </div>
+<div>&nbsp; &nbsp; &nbsp; </div>
+<div>&nbsp; &nbsp;</div>
+<div><br></div>
+<div>&nbsp; </div>
+<div>}</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;</div>
+<div>.logo {</div>
+<div>&nbsp; width:150px;</div>
+<div>&nbsp; height:150px;</div>
+<div>}</div>
+<div><br></div>
+<div>.login input {</div>
+<div>&nbsp; width:300px;</div>
+<div>&nbsp; height:40px;</div>
+<div>&nbsp; padding-left:20px;</div>
+<div>&nbsp; display:block;</div>
+<div>&nbsp; margin:0 auto 30px auto;</div>
+<div>&nbsp; border:1px solid skyblue;</div>
+<div><br></div>
+<div>}</div>
+<div><br></div>
+<div>.login button {</div>
+<div>&nbsp; width:300px;</div>
+<div>&nbsp; height:40px;</div>
+<div>&nbsp; background-color: skyblue;</div>
+<div>&nbsp; &nbsp;border:1px solid #2c3e50;</div>
+<div>&nbsp; color:darkblue;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#008000" face="Verdana"><b>ADDPAGE.VUE</b></font></div>
+<div align=center><font color="#008000" face="Verdana"><b><br></b></font></div>
+<div>/* eslint-disable */</div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;Header /&gt;</div>
+<div>&nbsp; &lt;h3&gt;ADD Restaurant&lt;/h3&gt;</div>
+<div>&nbsp; &lt;form class="add"&gt;</div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.name"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Name"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.location"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Location"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.email"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter EMail"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Mobile"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.website"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Website"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.map"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Map"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &lt;button type="button" @click="addRestaurant"&gt;Add Restaurant&lt;/button&gt;</div>
+<div>&nbsp; &lt;/form&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>import Header from "./Header";</div>
+<div>import axios from "axios";</div>
+<div>import { v4 as uuidv4 } from "uuid";</div>
+<div>export default {</div>
+<div>&nbsp; name: "HomePage",</div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; restaurant: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; location: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; website: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; map: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; id: uuidv4().substring(5, 14),</div>
+<div>&nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; components: { Header },</div>
+<div><br></div>
+<div>&nbsp; methods: {</div>
+<div>&nbsp; &nbsp; async addRestaurant() {</div>
+<div>&nbsp; &nbsp; &nbsp; console.log(this.restaurant);</div>
+<div>&nbsp; &nbsp; &nbsp; let result = await axios.post("http://localhost:3000/restaurants", {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; id: this.restaurant.id,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: this.restaurant.name,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: this.restaurant.email,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; location: this.restaurant.location,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: this.restaurant.mobile,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; website: this.restaurant.website,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; map: this.restaurant.map,</div>
+<div>&nbsp; &nbsp; &nbsp; });</div>
+<div>&nbsp; &nbsp; &nbsp; // console.warn(result);</div>
+<div>&nbsp; &nbsp; &nbsp; if (result.status == 201) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; //alert("Success");</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.$router.push({ name: "HomePage" });</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div><br></div>
+<div>&nbsp; mounted: async function () {</div>
+<div>&nbsp; &nbsp; let result = await axios.get("http://localhost:3000/restaurants");</div>
+<div>&nbsp; &nbsp; // console.log(result);</div>
+<div>&nbsp; &nbsp; this.restaurants = result.data;</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;</div>
+<div>.add {</div>
+<div>&nbsp; padding: 15px;</div>
+<div>}</div>
+<div><br></div>
+<div>.add input {</div>
+<div>&nbsp; width: 300px;</div>
+<div>&nbsp; height: 40px;</div>
+<div>&nbsp; padding-left: 20px;</div>
+<div>&nbsp; display: block;</div>
+<div>&nbsp; margin: 0 auto 30px auto;</div>
+<div>&nbsp; border: 1px solid skyblue;</div>
+<div>}</div>
+<div><br></div>
+<div>.add select {</div>
+<div>&nbsp; width: 300px;</div>
+<div>&nbsp; height: 40px;</div>
+<div>&nbsp; padding-left: 20px;</div>
+<div>&nbsp; display: block;</div>
+<div>&nbsp; margin: 0 auto 30px auto;</div>
+<div>&nbsp; border: 1px solid skyblue;</div>
+<div>}</div>
+<div><br></div>
+<div>.add button {</div>
+<div>&nbsp; width: 300px;</div>
+<div>&nbsp; height: 40px;</div>
+<div>&nbsp; background-color: skyblue;</div>
+<div>&nbsp; border: 1px solid skyblue;</div>
+<div>&nbsp; color: darkblue;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#008000" face="Verdana"><b>HOMEPAGE.VUE</b></font></div>
+<div align=center><font color="#008000" face="Verdana"><b><br></b></font></div>
+<div>/* eslint-disable */</div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;Header /&gt;</div>
+<div><br></div>
+<div>&nbsp; &lt;h3&gt;Restaurant List&lt;/h3&gt;</div>
+<div><br></div>
+<div>&nbsp; &lt;table cellspacing="5" cellpadding="5" width="100%"&gt;</div>
+<div>&nbsp; &nbsp; &lt;tr v-for="item in restaurants" :key="item.id"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;td&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;iframe</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31099.627260886693!2d80.24177582761205!3d13.006773278079361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267ed15c41681%3A0x6569ce967a249e83!2sAdyar%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1678757837423!5m2!1sen!2sin"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width="200"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height="150"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;&lt;/iframe</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;"</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/td&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;td&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {{ item.name }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;strong&gt; {{ item.location }} &lt;/strong&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {{ item.email }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {{ item.mobile }}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {{ item.website }}</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/td&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;td&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;router-link :to="'/update/' + item.id" class="routerLink"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UPDATE</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/router-link&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button @click="deleteRestaurant(item.id)" type="button"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DELETE</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/td&gt;</div>
+<div>&nbsp; &nbsp; &lt;/tr&gt;</div>
+<div>&nbsp; &lt;/table&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>import Header from "./Header";</div>
+<div>import axios from "axios";</div>
+<div>export default {</div>
+<div>&nbsp; name: "HomePage",</div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; restaurants: [],</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; components: { Header },</div>
+<div><br></div>
+<div>&nbsp; methods: {</div>
+<div>&nbsp; &nbsp; async deleteRestaurant(id) {</div>
+<div>&nbsp; &nbsp; &nbsp; //alert(id);</div>
+<div>&nbsp; &nbsp; &nbsp; let result = await axios.delete(</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; "http://localhost:3000/restaurants/" + id</div>
+<div>&nbsp; &nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; &nbsp; if (result.status == 200) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; location.reload();</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div><br></div>
+<div>&nbsp; mounted: async function () {</div>
+<div>&nbsp; &nbsp; let result = await axios.get("http://localhost:3000/restaurants");</div>
+<div>&nbsp; &nbsp; // &nbsp;console.log(result);</div>
+<div>&nbsp; &nbsp; this.restaurants = result.data;</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;</div>
+<div>table {</div>
+<div>&nbsp; margin: auto;</div>
+<div>}</div>
+<div>tr {</div>
+<div>&nbsp; height: 30px;</div>
+<div>}</div>
+<div>table tr td {</div>
+<div>&nbsp; font-size: 15px;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#008000" face="Verdana"><b>HEADER.VUE</b></font></div>
+<div align=center><font color="#008000" face="Verdana"><b><br></b></font></div>
+<div>/* eslint-disable */</div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;div class="nav"&gt;</div>
+<div>&nbsp; &nbsp; &lt;router-link to="/" class="routerLink"&gt;Home&lt;/router-link&gt;</div>
+<div>&nbsp; &nbsp; &lt;router-link to="add" class="routerLink"&gt;Add Restaurant&lt;/router-link&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;a href="#" @click="logout" class="routerLink" style="float: right"</div>
+<div>&nbsp; &nbsp; &nbsp; &gt;Logout&lt;/a</div>
+<div>&nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &lt;/div&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>export default {</div>
+<div>&nbsp; name: "Header",</div>
+<div>&nbsp; methods: {</div>
+<div>&nbsp; &nbsp; logout() {</div>
+<div>&nbsp; &nbsp; &nbsp; localStorage.clear();</div>
+<div>&nbsp; &nbsp; &nbsp; this.$router.push({ name: "Login" });</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;</div>
+<div>.nav {</div>
+<div>&nbsp; background-color: #000000;</div>
+<div>&nbsp; overflow: hidden;</div>
+<div>&nbsp; margin: auto;</div>
+<div>&nbsp; text-align: center;</div>
+<div>}</div>
+<div><br></div>
+<div>.nav a {</div>
+<div>&nbsp; float: left;</div>
+<div>&nbsp; color: #f2f2f2;</div>
+<div>&nbsp; text-align: center;</div>
+<div>&nbsp; padding: 16px 14px;</div>
+<div>&nbsp; text-decoration: none;</div>
+<div>&nbsp; font-size: 16px;</div>
+<div>&nbsp; margin-right: 4px;</div>
+<div>}</div>
+<div><br></div>
+<div>.nav a:hover {</div>
+<div>&nbsp; background-color: #ddd;</div>
+<div>&nbsp; color: #222;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div align=center><font color="#008000" face="Verdana"><b>UPDATEPAGE.VUE</b></font></div>
+<div>/* eslint-disable */</div>
+<div>&lt;template&gt;</div>
+<div>&nbsp; &lt;h3&gt;Update Restaurant&lt;/h3&gt;</div>
+<div>&nbsp; &lt;Header /&gt;</div>
+<div>&nbsp; &lt;form class="add"&gt;</div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.name"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Name"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.location"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Location"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.email"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter EMail"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.mobile"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Mobile"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.website"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Website"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;input</div>
+<div>&nbsp; &nbsp; &nbsp; type="text"</div>
+<div>&nbsp; &nbsp; &nbsp; v-model="restaurant.map"</div>
+<div>&nbsp; &nbsp; &nbsp; required</div>
+<div>&nbsp; &nbsp; &nbsp; placeholder="Enter Map"</div>
+<div>&nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &lt;button type="button" @click="updateRestaurant"&gt;Update Restaurant&lt;/button&gt;</div>
+<div>&nbsp; &lt;/form&gt;</div>
+<div>&lt;/template&gt;</div>
+<div><br></div>
+<div>&lt;script&gt;</div>
+<div>import Header from "./Header";</div>
+<div>import axios from "axios";</div>
+<div>//import { v4 as uuidv4 } from "uuid";</div>
+<div>export default {</div>
+<div>&nbsp; name: "HomePage",</div>
+<div>&nbsp; data() {</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; restaurant: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; name: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; location: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; email: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; mobile: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; website: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; map: "",</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; id: "",</div>
+<div>&nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; },</div>
+<div>&nbsp; components: { Header },</div>
+<div><br></div>
+<div>&nbsp; methods: {</div>
+<div>&nbsp; &nbsp; async updateRestaurant() {</div>
+<div>&nbsp; &nbsp; &nbsp; // console.log(this.restaurant);</div>
+<div>&nbsp; &nbsp; &nbsp; let result = await axios.put(</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; "http://localhost:3000/restaurants/" + this.restaurant.id,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: this.restaurant.name,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; email: this.restaurant.email,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location: this.restaurant.location,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mobile: this.restaurant.mobile,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; website: this.restaurant.website,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; map: this.restaurant.map,</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; &nbsp; // console.warn(result);</div>
+<div>&nbsp; &nbsp; &nbsp; if (result.status == 200) {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; //alert("Success");</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; this.$router.push({ name: "HomePage" });</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; },</div>
+<div>&nbsp; },</div>
+<div><br></div>
+<div>&nbsp; mounted: async function () {</div>
+<div>&nbsp; &nbsp; // alert(this.$route.params.id);</div>
+<div>&nbsp; &nbsp; this.restaurant.id = this.$route.params.id;</div>
+<div>&nbsp; &nbsp; let result = await axios.get(</div>
+<div>&nbsp; &nbsp; &nbsp; "http://localhost:3000/restaurants/" + this.$route.params.id</div>
+<div>&nbsp; &nbsp; );</div>
+<div>&nbsp; &nbsp; // console.log(result);</div>
+<div>&nbsp; &nbsp; this.restaurant = result.data;</div>
+<div>&nbsp; },</div>
+<div>};</div>
+<div>&lt;/script&gt;</div>
+<div><br></div>
+<div>&lt;style&gt;</div>
+<div>.add {</div>
+<div>&nbsp; padding: 15px;</div>
+<div>}</div>
+<div><br></div>
+<div>.add input {</div>
+<div>&nbsp; width: 300px;</div>
+<div>&nbsp; height: 40px;</div>
+<div>&nbsp; padding-left: 20px;</div>
+<div>&nbsp; display: block;</div>
+<div>&nbsp; margin: 0 auto 30px auto;</div>
+<div>&nbsp; border: 1px solid skyblue;</div>
+<div>}</div>
+<div><br></div>
+<div>.add select {</div>
+<div>&nbsp; width: 300px;</div>
+<div>&nbsp; height: 40px;</div>
+<div>&nbsp; padding-left: 20px;</div>
+<div>&nbsp; display: block;</div>
+<div>&nbsp; margin: 0 auto 30px auto;</div>
+<div>&nbsp; border: 1px solid skyblue;</div>
+<div>}</div>
+<div><br></div>
+<div>.add button {</div>
+<div>&nbsp; width: 300px;</div>
+<div>&nbsp; height: 40px;</div>
+<div>&nbsp; background-color: skyblue;</div>
+<div>&nbsp; border: 1px solid skyblue;</div>
+<div>&nbsp; color: darkblue;</div>
+<div>}</div>
+<div>&lt;/style&gt;</div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

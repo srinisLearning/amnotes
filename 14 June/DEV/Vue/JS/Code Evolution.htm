@@ -1,0 +1,652 @@
+<html><head><title>Code Evolution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=15 cellspacing=-1 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div>&nbsp;</div>
+<div>&lt;!-- Binding Text --&gt;</div>
+<div>&nbsp;&lt;div&gt;{{ greet }} {{ name }}&lt;/div&gt; </div>
+<hr noshade size=1 color="#000000">
+<div><font color="#008000"><b>&nbsp;</b></font></div>
+<div><font color="#008000"><b>Binding HTML &nbsp;</b></font></div>
+<div><font color="#008000"><b><br></b></font></div>
+<div>&nbsp;&lt;div v-html="channel"&gt;&lt;/div&gt; </div>
+<div>&lt;div v-html="hack"&gt;&lt;/div&gt; </div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div><font color="#008000"><b>&nbsp;Bidning Attributes </b></font></div>
+<div><font color="#008000"><b><br></b></font></div>
+<div>&nbsp;&lt;h2 :id="headingId"&gt;Heading&lt;/h2&gt; </div>
+<div>&lt;button :disabled="isDisabled"&gt;Bind&lt;/button&gt; </div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div><font color="#008000"><b>&nbsp;Binding Classes &nbsp;</b></font></div>
+<div><font color="#008000"><b><br></b></font></div>
+<div>&nbsp;&lt;h2 class="underline"&gt;Underlined Text&lt;/h2&gt; </div>
+<div>&lt;h2 :class="status"&gt;Status&lt;/h2&gt; </div>
+<div>&lt;h2 class="underline" :class="status"&gt;Static Dynamic&lt;/h2&gt; </div>
+<div>&lt;h2 :class="isPromoted &amp;&amp; 'promoted'"&gt;Promoted Movie&lt;/h2&gt; </div>
+<div>&lt;h2 :class="isSoldOut ? 'sold-out' : 'new'"&gt;Soldout? Movie&lt;/h2&gt; </div>
+<div>&lt;h2 :class="['new', 'promoted']"&gt;Newly Promoted Movie&lt;/h2&gt; </div>
+<div>&lt;h2 :class="[isPromoted &amp;&amp; 'promoted', isSoldOut ? 'sold-out' : 'new']"&gt; </div>
+<div>Array Conditional Movie </div>
+<div>&lt;/h2&gt; </div>
+<div>&lt;h2</div>
+<div>&nbsp;:class="{</div>
+<div>&nbsp;promoted: isPromoted,</div>
+<div>&nbsp;new: !isSoldOut,</div>
+<div>&nbsp;'sold-out': isSoldOut,</div>
+<div>&nbsp;}"</div>
+<div>&nbsp;&gt; </div>
+<div>Object Conditional Movie </div>
+<div>&lt;/h2&gt; </div>
+<div><br></div>
+<div>&lt;!-- Binding Inline Styles --&gt;</div>
+<div>&nbsp;&lt;h2</div>
+<div>&nbsp;:style="{</div>
+<div>&nbsp;color: highlightColor,</div>
+<div>&nbsp;fontSize: headerSize + 'px',</div>
+<div>&nbsp;padding: '20px',</div>
+<div>&nbsp;}"</div>
+<div>&nbsp;&gt; </div>
+<div>&nbsp;</div>
+<hr noshade size=1 color="#000000">
+<div><font color="#008000"><b><br></b></font></div>
+<div><font color="#008000"><b>Inline Style </b></font></div>
+<div>&nbsp;</div>
+<div>&lt;h2 :style="headerStyleObject"&gt;Style Object&lt;/h2&gt; </div>
+<div>&lt;div :style="[baseStyleObject, successStyleObject]"&gt;Success Style&lt;/div&gt; </div>
+<div>&lt;div :style="[baseStyleObject, dangerStyleObject]"&gt;Danger Style&lt;/div&gt; </div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+<div><font color="#008000"><b>&nbsp;Conditional Rendering </b></font></div>
+<div><font color="#000000"><b><br></b></font></div>
+<div>&nbsp;&lt;h1 v-if="num === 0"&gt;The number is zero&lt;/h1&gt; </div>
+<div>&lt;h2 v-else-if="num &lt; 0"&gt;The number is negative&lt;/h2&gt; </div>
+<div>&lt;h2 v-else-if="num &gt; 0"&gt;The number is positive&lt;/h2&gt; </div>
+<div>&lt;h2 v-else&gt;Not a number&lt;/h2&gt; </div>
+<div><br></div>
+<div>&lt;template v-if="showElement"&gt; </div>
+<div>&lt;h2&gt;Vishwas&lt;/h2&gt; </div>
+<div>&lt;h2&gt;Codevolution&lt;/h2&gt; </div>
+<div>&lt;h2&gt;Vue 3&lt;/h2&gt; </div>
+<div>&lt;/template&gt; </div>
+<div><br></div>
+<div>&lt;h2 v-show="showElement"&gt;Using v-show&lt;/h2&gt; </div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div><b>&nbsp;</b></div>
+<div><font color="#008000"><b>List Rendering &nbsp;</b></font></div>
+<div><br></div>
+<div>&nbsp;&lt;h2 v-for="(name, index) in names" :key="name"&gt;{{ index }} {{ name }}&lt;/h2&gt; </div>
+<div>&lt;h2 v-for="name in fullNames" :key="name.first"&gt; </div>
+<div>{{ name.first }} {{ name.last }} </div>
+<div>&lt;/h2&gt; </div>
+<div>&lt;div v-for="actor in actors" :key="actor.name"&gt; </div>
+<div>&lt;h2&gt;{{ actor.name }}&lt;/h2&gt; </div>
+<div>&lt;h3 v-for="movie in actor.movies" :key="movie"&gt;{{ movie }}&lt;/h3&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;h2 v-for="(value, key, index) in myInfo" :key="value"&gt; </div>
+<div>{{ index }} {{ key }} {{ value }} </div>
+<div>&lt;/h2&gt; </div>
+<div>&lt;template v-for="name in names" :key="name"&gt; </div>
+<div>&lt;h2&gt;{{ name }}&lt;/h2&gt; </div>
+<div>&lt;hr /&gt; </div>
+<div>&lt;/template&gt; </div>
+<div>&lt;template v-for="name in names" :key="name"&gt; </div>
+<div>&lt;h2 v-if="name === 'Bruce'"&gt;{{ name }}&lt;/h2&gt; </div>
+<div>&lt;/template&gt; </div>
+<hr noshade size=1 color="#000000">
+<div><font color="#008000"><b><br></b></font></div>
+<div><font color="#008000"><b>&nbsp; Methods </b></font></div>
+<div><font color="#008000"><b><br></b></font></div>
+<div>&nbsp;&lt;h2&gt;{{ 2 + 3 + 5 }}&lt;/h2&gt; </div>
+<div>&lt;h2&gt;{{ 5 + 10 + 15 }}&lt;/h2&gt; </div>
+<div>&lt;h2&gt;Add method - {{ add(2, 3, 5) }}&lt;/h2&gt; </div>
+<div>&lt;h2&gt;Add method - {{ add(5, 10, 15) }}&lt;/h2&gt; </div>
+<div>&lt;h2&gt;Multiply method - {{ multiply(10) }}&lt;/h2&gt; </div>
+<div>&lt;h2&gt;Multiply method - {{ multiply(baseValue) }}&lt;/h2&gt; </div>
+<hr noshade size=1 color="#000000">
+<div><font color="#008000"><b><br></b></font></div>
+<div><font color="#008000"><b>&nbsp;Event Handling </b></font></div>
+<div><font color="#008000"><b><br></b></font></div>
+<div>&nbsp;&lt;h2&gt;{{ name }}&lt;/h2&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;button @click="changeName($event), increment(1, $event)"&gt; </div>
+<div>Change name </div>
+<div>&lt;/button&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;h2&gt;{{ count }}&lt;/h2&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;button @click="increment(1, $event)"&gt;Increment&lt;/button&gt; </div>
+<div>&lt;button @click="decrement(1)"&gt;Decrement&lt;/button&gt; </div>
+<div>&lt;button @click="increment(5)"&gt;Increment 5&lt;/button&gt; </div>
+<div>&lt;button @click="decrement(5)"&gt;Decrement 5&lt;/button&gt; </div>
+<div>&lt;/div&gt; </div>
+<hr noshade size=1 color="#000000">
+<div><font color="#008000"><b>&nbsp;</b></font></div>
+<div><font color="#008000"><b>Form Handling &nbsp;</b></font></div>
+<div><font color="#008000"><b><br></b></font></div>
+<div>&nbsp;&lt;div&gt; </div>
+<div>&lt;pre&gt; </div>
+<div>{{ JSON.stringify(formValues, null, 2) }} </div>
+<div>&lt;/pre&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;form @submit.prevent="submitForm"&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;label for="name"&gt;Name&lt;/label&gt; </div>
+<div>&lt;input type="text" id="name" v-model.trim="formValues.name" /&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;label for="profile"&gt;Profile Summary&lt;/label&gt; </div>
+<div>&lt;textarea id="profile" v-model="formValues.profileSummary" /&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;label for="country"&gt;Country&lt;/label&gt; </div>
+<div>&lt;select id="country" v-model="formValues.country"&gt; </div>
+<div>&lt;option value=""&gt;Select a country&lt;/option&gt; </div>
+<div>&lt;option value="india"&gt;India&lt;/option&gt; </div>
+<div>&lt;option value="vietnam"&gt;Vietnam&lt;/option&gt; </div>
+<div>&lt;option value="singapore"&gt;Singapore&lt;/option&gt; </div>
+<div>&lt;/select&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;label for="job-location"&gt;Job location&lt;/label&gt; </div>
+<div>&lt;select id="job-location" v-model="formValues.jobLocation" multiple&gt; </div>
+<div>&lt;option value="india"&gt;India&lt;/option&gt; </div>
+<div>&lt;option value="vietnam"&gt;Vietnam&lt;/option&gt; </div>
+<div>&lt;option value="singapore"&gt;Singapore&lt;/option&gt; </div>
+<div>&lt;/select&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;input</div>
+<div>&nbsp;id="remoteWork"</div>
+<div>&nbsp;type="checkbox"</div>
+<div>&nbsp;v-model="formValues.remoteWork"</div>
+<div>&nbsp;true-value="yes"</div>
+<div>&nbsp;false-value="no"</div>
+<div>&nbsp;/&gt; </div>
+<div>&lt;label for="remoteWork"&gt;Open to remote work?&lt;/label&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;label&gt;Skill set&lt;/label&gt; </div>
+<div>&lt;input</div>
+<div>&nbsp;type="checkbox"</div>
+<div>&nbsp;id="html"</div>
+<div>&nbsp;value="html"</div>
+<div>&nbsp;v-model="formValues.skillSet"</div>
+<div>&nbsp;/&gt; </div>
+<div>&lt;label for="html"&gt;HTML&lt;/label&gt; </div>
+<div>&lt;input</div>
+<div>&nbsp;type="checkbox"</div>
+<div>&nbsp;id="css"</div>
+<div>&nbsp;value="css"</div>
+<div>&nbsp;v-model="formValues.skillSet"</div>
+<div>&nbsp;/&gt; </div>
+<div>&lt;label for="css"&gt;CSS&lt;/label&gt; </div>
+<div>&lt;input</div>
+<div>&nbsp;type="checkbox"</div>
+<div>&nbsp;id="javascript"</div>
+<div>&nbsp;value="javascript"</div>
+<div>&nbsp;v-model="formValues.skillSet"</div>
+<div>&nbsp;/&gt; </div>
+<div>&lt;label for="javascript"&gt;JavaScript&lt;/label&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;label&gt;Years of Experience&lt;/label&gt; </div>
+<div>&lt;input</div>
+<div>&nbsp;type="radio"</div>
+<div>&nbsp;id="0-2"</div>
+<div>&nbsp;value="0-2"</div>
+<div>&nbsp;v-model="formValues.yearsOfExperience"</div>
+<div>&nbsp;/&gt; </div>
+<div>&lt;label for="0-2"&gt;0-2&lt;/label&gt; </div>
+<div>&lt;input</div>
+<div>&nbsp;type="radio"</div>
+<div>&nbsp;id="3-5"</div>
+<div>&nbsp;value="3-5"</div>
+<div>&nbsp;v-model="formValues.yearsOfExperience"</div>
+<div>&nbsp;/&gt; </div>
+<div>&lt;label for="3-5"&gt;3-5&lt;/label&gt; </div>
+<div>&lt;input</div>
+<div>&nbsp;type="radio"</div>
+<div>&nbsp;id="6-10"</div>
+<div>&nbsp;value="6-10"</div>
+<div>&nbsp;v-model="formValues.yearsOfExperience"</div>
+<div>&nbsp;/&gt; </div>
+<div>&lt;label for="6-10"&gt;5-10&lt;/label&gt; </div>
+<div>&lt;input</div>
+<div>&nbsp;type="radio"</div>
+<div>&nbsp;id="10+"</div>
+<div>&nbsp;value="10+"</div>
+<div>&nbsp;v-model="formValues.yearsOfExperience"</div>
+<div>&nbsp;/&gt; </div>
+<div>&lt;label for="10+"&gt;10+&lt;/label&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;label for="age"&gt;Age&lt;/label&gt; </div>
+<div>&lt;input type="number" id="age" v-model.number="formValues.age" /&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;button&gt;Submit&lt;/button&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;/form&gt; </div>
+<hr noshade size=1 color="#000000">
+<div><font color="#008000"><b>&nbsp;</b></font></div>
+<div><font color="#008000"><b>Bonus Directives &nbsp;</b></font></div>
+<div><font color="#008000"><b><br></b></font></div>
+<div>&nbsp;&lt;h2 v-once&gt;{{ name }}&lt;/h2&gt; </div>
+<div>&lt;button @click="name = 'Batman'"&gt;Change name&lt;/button&gt; </div>
+<div>&lt;h2 v-pre&gt;{{ name }}&lt;/h2&gt; </div>
+<div><br></div>
+<div>&lt;!-- Computed Properties --&gt;</div>
+<div>&nbsp;&lt;h2&gt;Fullname - {{ firstName }} {{ lastName }}&lt;/h2&gt; </div>
+<div>&lt;h2&gt;Fullname - {{ fullName }}&lt;/h2&gt; </div>
+<div>&lt;h2&gt; </div>
+<div>Total - {{ items.reduce((total, curr) =&gt; (total = total + curr.price), 0) }} </div>
+<div>&lt;/h2&gt; </div>
+<div>&lt;h2&gt;Computed Total - {{ total }}&lt;/h2&gt; </div>
+<div>&lt;h2&gt;Method Total - {{ getTotal() }}&lt;/h2&gt; </div>
+<div>&lt;button @click="items.push({ id: 4, title: 'Keyboard', price: 50 })"&gt; </div>
+<div>Add item </div>
+<div>&lt;/button&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;input type="text" v-model="country" /&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;template v-for="item in items" :key="item.id"&gt; </div>
+<div>&lt;h2 v-if="item.id === 1"&gt;{{ item.title }} - {{ item.price }}&lt;/h2&gt; </div>
+<div>&lt;/template&gt; </div>
+<div>&lt;h2 v-for="item in expensiveItems" :key="item.id"&gt; </div>
+<div>{{ item.title }} - {{ item.price }} </div>
+<div>&lt;/h2&gt; </div>
+<div>&lt;button @click="changeFullName"&gt;Change fullname&lt;/button&gt; </div>
+<hr noshade size=1 color="#000000">
+<div><font color="#008000"><b>&lt;!-- Watchers --&gt;</b></font></div>
+<div>&nbsp;&lt;h2&gt;Volume Tracker (0-20)&lt;/h2&gt; </div>
+<div>&lt;h3&gt;Current Volume - {{ volume }}&lt;/h3&gt; </div>
+<div>&lt;div&gt; </div>
+<div>&lt;button @click="volume += 2"&gt;Increase&lt;/button&gt; </div>
+<div>&lt;button @click="volume -= 2"&gt;Decrease&lt;/button&gt; </div>
+<div>&lt;/div&gt; </div>
+<div>&lt;input type="text" v-model="movie" /&gt; </div>
+<div>&lt;input type="text" v-model="movieInfo.title" /&gt; </div>
+<div>&lt;input type="text" v-model="movieInfo.actor" /&gt; </div>
+<div>&lt;button @click="movieList = movieList.concat(['Wonder Woman'])"&gt; </div>
+<div>Add movie </div>
+<div>&lt;/button&gt; </div>
+<div>&nbsp;</div>
+<hr noshade size=1 color="#000000">
+<div><br></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div>&lt;script&gt;</div>
+<div>&nbsp;export default {</div>
+<div>&nbsp;name: 'App',</div>
+<div>&nbsp;data() {</div>
+<div>&nbsp;return {</div>
+<div>&nbsp;name: 'Vishwas',</div>
+<div>&nbsp;greet: 'Hello',</div>
+<div>&nbsp;channel: '&lt;b&gt;Codevolution&lt;/b&gt;',</div>
+<div>&nbsp;hack: `&lt;a href="#" onclick="alert('You have been hacked!')"&gt;Win a prize!&lt;a/&gt;`,</div>
+<div>&nbsp;headingId: 'heading',</div>
+<div>&nbsp;isDisabled: true,</div>
+<div>&nbsp;status: 'danger',</div>
+<div>&nbsp;isPromoted: false,</div>
+<div>&nbsp;isSoldOut: true,</div>
+<div>&nbsp;highlightColor: 'orange',</div>
+<div>&nbsp;headerSize: 50,</div>
+<div>&nbsp;headerStyleObject: {</div>
+<div>&nbsp;color: 'orange',</div>
+<div>&nbsp;fontSize: '50px',</div>
+<div>&nbsp;padding: '20px',</div>
+<div>&nbsp;},</div>
+<div>&nbsp;baseStyleObject: {</div>
+<div>&nbsp;fontSize: '50px',</div>
+<div>&nbsp;padding: '10px',</div>
+<div>&nbsp;},</div>
+<div>&nbsp;successStyleObject: {</div>
+<div>&nbsp;color: 'green',</div>
+<div>&nbsp;backgroundColor: 'lightgreen',</div>
+<div>&nbsp;border: '1px solid green',</div>
+<div>&nbsp;},</div>
+<div>&nbsp;dangerStyleObject: {</div>
+<div>&nbsp;color: 'darkred',</div>
+<div>&nbsp;backgroundColor: 'red',</div>
+<div>&nbsp;border: '1px solid darkred',</div>
+<div>&nbsp;},</div>
+<div>&nbsp;num: 1,</div>
+<div>&nbsp;showElement: false,</div>
+<div><br></div>
+<div>&nbsp;names: ['Bruce', 'Clark', 'Diana'],</div>
+<div><br></div>
+<div>&nbsp;fullNames: [</div>
+<div>&nbsp;{ first: 'Bruce', last: 'Wayne' },</div>
+<div>&nbsp;{ first: 'Clark', last: 'Kent' },</div>
+<div>&nbsp;{ first: 'Princess', last: 'Diana' },</div>
+<div>&nbsp;],</div>
+<div><br></div>
+<div>&nbsp;actors: [</div>
+<div>&nbsp;{</div>
+<div>&nbsp;name: 'Christian Bale',</div>
+<div>&nbsp;movies: ['Batman', 'American Psycho'],</div>
+<div>&nbsp;},</div>
+<div>&nbsp;{</div>
+<div>&nbsp;name: 'Di Caprio',</div>
+<div>&nbsp;movies: ['Titanic', 'Inception'],</div>
+<div>&nbsp;},</div>
+<div>&nbsp;],</div>
+<hr noshade size=1 color="#000000">
+<div>&nbsp;myInfo: {</div>
+<div>&nbsp;name: 'Vishwas',</div>
+<div>&nbsp;channel: 'Codevolution',</div>
+<div>&nbsp;course: 'Vue 3',</div>
+<div>&nbsp;},</div>
+<div><br></div>
+<div><br></div>
+<hr noshade size=1 color="#000000">
+<div>&nbsp;baseMultiplier: 5,</div>
+<div>&nbsp;baseValue: 2,</div>
+<div>&nbsp;count: 0,</div>
+<div>&nbsp;formValues: {</div>
+<div>&nbsp;name: '',</div>
+<div>&nbsp;profileSummary: '',</div>
+<div>&nbsp;country: '',</div>
+<div>&nbsp;jobLocation: [],</div>
+<div>&nbsp;remoteWork: 'no',</div>
+<div>&nbsp;skillSet: [],</div>
+<div>&nbsp;yearsOfExperience: '',</div>
+<div>&nbsp;age: null,</div>
+<div>&nbsp;},</div>
+<div>&nbsp;firstName: 'Bruce',</div>
+<div>&nbsp;lastName: 'Wayne',</div>
+<div>&nbsp;items: [</div>
+<div>&nbsp;{</div>
+<div>&nbsp;id: 1,</div>
+<div>&nbsp;title: 'TV',</div>
+<div>&nbsp;price: 100,</div>
+<div>&nbsp;},</div>
+<div>&nbsp;{</div>
+<div>&nbsp;id: 2,</div>
+<div>&nbsp;title: 'Phone',</div>
+<div>&nbsp;price: 200,</div>
+<div>&nbsp;},</div>
+<div>&nbsp;{</div>
+<div>&nbsp;id: 3,</div>
+<div>&nbsp;title: 'Laptop',</div>
+<div>&nbsp;price: 300,</div>
+<div>&nbsp;},</div>
+<div>&nbsp;],</div>
+<div>&nbsp;country: '',</div>
+<div>&nbsp;volume: 16,</div>
+<div>&nbsp;movie: 'batman',</div>
+<div>&nbsp;movieInfo: {</div>
+<div>&nbsp;title: '',</div>
+<div>&nbsp;actor: '',</div>
+<div>&nbsp;},</div>
+<div>&nbsp;movieList: ['Batman', 'Superman'],</div>
+<div>&nbsp;}</div>
+<div>&nbsp;},</div>
+<div>&nbsp;methods: {</div>
+<div>&nbsp;add(a, b, c) {</div>
+<div>&nbsp;return a + b + c</div>
+<div>&nbsp;},</div>
+<div>&nbsp;multiply(num) {</div>
+<div>&nbsp;return num * this.baseMultiplier</div>
+<div>&nbsp;},</div>
+<div>&nbsp;increment(num, event) {</div>
+<div>&nbsp;this.count += num</div>
+<div>&nbsp;console.log(event)</div>
+<div>&nbsp;},</div>
+<div>&nbsp;decrement(num) {</div>
+<div>&nbsp;this.count -= num</div>
+<div>&nbsp;},</div>
+<div>&nbsp;changeName(event) {</div>
+<div>&nbsp;this.name = 'Batman'</div>
+<div>&nbsp;console.log('Event', event)</div>
+<div>&nbsp;},</div>
+<div>&nbsp;submitForm() {</div>
+<div>&nbsp;console.log('form values', this.formValues)</div>
+<div>&nbsp;},</div>
+<div>&nbsp;getTotal() {</div>
+<div>&nbsp;console.log('getTotal method')</div>
+<div>&nbsp;return this.items.reduce((total, curr) =&gt; (total = total + curr.price), 0)</div>
+<div>&nbsp;},</div>
+<div>&nbsp;changeFullName() {</div>
+<div>&nbsp;this.fullName = 'Clark Kent'</div>
+<div>&nbsp;},</div>
+<div>&nbsp;},</div>
+<div>&nbsp;computed: {</div>
+<div>&nbsp;fullName: {</div>
+<div>&nbsp;get() {</div>
+<div>&nbsp;return `${this.firstName} ${this.lastName}`</div>
+<div>&nbsp;},</div>
+<div>&nbsp;set(value) {</div>
+<div>&nbsp;const names = value.split(' ')</div>
+<div>&nbsp;this.firstName = names[0]</div>
+<div>&nbsp;this.lastName = names[1]</div>
+<div>&nbsp;},</div>
+<div>&nbsp;},</div>
+<div>&nbsp;total() {</div>
+<div>&nbsp;console.log('total computed property')</div>
+<div>&nbsp;return this.items.reduce((total, curr) =&gt; (total = total + curr.price), 0)</div>
+<div>&nbsp;},</div>
+<div>&nbsp;expensiveItems() {</div>
+<div>&nbsp;return this.items.filter((item) =&gt; item.price &gt; 100)</div>
+<div>&nbsp;},</div>
+<div>&nbsp;},</div>
+<div>&nbsp;watch: {</div>
+<div>&nbsp;volume: {</div>
+<div>&nbsp;handler(newValue, oldValue) {</div>
+<div>&nbsp;if (newValue &gt; oldValue &amp;&amp; newValue === 16) {</div>
+<div>&nbsp;alert(</div>
+<div>&nbsp;'Listening to a high volumne for a long time may damage your hearing'</div>
+<div>&nbsp;)</div>
+<div>&nbsp;}</div>
+<div>&nbsp;},</div>
+<div>&nbsp;immediate: true,</div>
+<div>&nbsp;},</div>
+<div>&nbsp;movie: {</div>
+<div>&nbsp;handler(newValue) {</div>
+<div>&nbsp;console.log(`Calling API with movie name = ${newValue}`)</div>
+<div>&nbsp;},</div>
+<div>&nbsp;immediate: true,</div>
+<div>&nbsp;},</div>
+<div>&nbsp;movieInfo: {</div>
+<div>&nbsp;handler(newValue) {</div>
+<div>&nbsp;console.log(</div>
+<div>&nbsp;`Calling API with movie title = ${newValue.title} and actor = ${newValue.actor}`</div>
+<div>&nbsp;)</div>
+<div>&nbsp;},</div>
+<div>&nbsp;deep: true,</div>
+<div>&nbsp;},</div>
+<div>&nbsp;movieList: {</div>
+<div>&nbsp;handler(newValue) {</div>
+<div>&nbsp;console.log(`Updated list ${newValue}`)</div>
+<div>&nbsp;},</div>
+<div>&nbsp;// deep: true,</div>
+<div>&nbsp;},</div>
+<div>&nbsp;},</div>
+<div>&nbsp;}</div>
+<div>&nbsp;&lt;/script&gt;</div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div>&nbsp;&lt;style&gt;</div>
+<div>&nbsp;#app {</div>
+<div>&nbsp;font-family: Avenir, Helvetica, Arial, sans-serif;</div>
+<div>&nbsp;-webkit-font-smoothing: antialiased;</div>
+<div>&nbsp;-moz-osx-font-smoothing: grayscale;</div>
+<div>&nbsp;/* text-align: center; */</div>
+<div>&nbsp;color: #2c3e50;</div>
+<div>&nbsp;margin-top: 60px;</div>
+<div>&nbsp;}</div>
+<div>&nbsp;.underline {</div>
+<div>&nbsp;text-decoration: underline;</div>
+<div>&nbsp;}</div>
+<div>&nbsp;.promoted {</div>
+<div>&nbsp;font-style: italic;</div>
+<div>&nbsp;}</div>
+<div>&nbsp;.new {</div>
+<div>&nbsp;color: olivedrab;</div>
+<div>&nbsp;}</div>
+<div>&nbsp;.sold-out {</div>
+<div>&nbsp;color: red;</div>
+<div>&nbsp;}</div>
+<div>&nbsp;label {</div>
+<div>&nbsp;font-weight: bold;</div>
+<div>&nbsp;display: flex;</div>
+<div>&nbsp;margin-bottom: 5px;</div>
+<div>&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;input + label {</div>
+<div>&nbsp;font-weight: bold;</div>
+<div>&nbsp;display: inline-flex;</div>
+<div>&nbsp;margin-right: 20px;</div>
+<div>&nbsp;}</div>
+<div><br></div>
+<div>&nbsp;input[type='text'],</div>
+<div>&nbsp;textarea,</div>
+<div>&nbsp;select {</div>
+<div>&nbsp;display: block;</div>
+<div>&nbsp;width: 400px;</div>
+<div>&nbsp;padding: 6px 12px;</div>
+<div>&nbsp;font-size: 14px;</div>
+<div>&nbsp;line-height: 1.42857143;</div>
+<div>&nbsp;color: #555;</div>
+<div>&nbsp;background-color: #fff;</div>
+<div>&nbsp;background-image: none;</div>
+<div>&nbsp;border: 1px solid #ccc;</div>
+<div>&nbsp;border-radius: 4px;</div>
+<div>&nbsp;}</div>
+<div>&nbsp;&lt;/style&gt;</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><br>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><br>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><br>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><br>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#008000"><b>&lt;!-- Child Components --&gt;</b></font></div>
+<div><font color="#008000"><b><br></b></font></div>
+<div><font color="#000000">&lt;template&gt;</font></div>
+<div><font color="#000000">&nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000">&nbsp; &nbsp; {{ message }}</font></div>
+<div><font color="#000000">&nbsp; &nbsp; &lt;child-component :message="message" @updateMessage="updateMessage"&gt;&lt;/child-component&gt;</font></div>
+<div><font color="#000000">&nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000">&lt;/template&gt;</font></div>
+<div><font color="#000000"><br></font></div>
+<div><font color="#000000">&lt;script&gt;</font></div>
+<div><font color="#000000">import ChildComponent from './ChildComponent.vue';</font></div>
+<div><font color="#000000"><br></font></div>
+<div><font color="#000000">export default {</font></div>
+<div><font color="#000000">&nbsp; components: {</font></div>
+<div><font color="#000000">&nbsp; &nbsp; ChildComponent</font></div>
+<div><font color="#000000">&nbsp; },</font></div>
+<div><font color="#000000">&nbsp; props: {</font></div>
+<div><font color="#000000">&nbsp; &nbsp; message: String</font></div>
+<div><font color="#000000">&nbsp; },</font></div>
+<div><font color="#000000">&nbsp; methods: {</font></div>
+<div><font color="#000000">&nbsp; &nbsp; updateMessage(newMessage) {</font></div>
+<div><font color="#000000">&nbsp; &nbsp; &nbsp; this.message = newMessage;</font></div>
+<div><font color="#000000">&nbsp; &nbsp; }</font></div>
+<div><font color="#000000">&nbsp; }</font></div>
+<div><font color="#000000">}</font></div>
+<div><font color="#000000">&lt;/script&gt;</font></div>
+<hr noshade size=1 color="#000000">
+<div><font color="#000000"><br></font></div>
+<div><font color="#000000">&lt;!-- ChildComponent.vue --&gt;</font></div>
+<div><font color="#000000">&lt;template&gt;</font></div>
+<div><font color="#000000">&nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000">&nbsp; &nbsp; {{ message }}</font></div>
+<div><font color="#000000">&nbsp; &nbsp; &lt;button @click="updateParentMessage"&gt;Update Message&lt;/button&gt;</font></div>
+<div><font color="#000000">&nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000">&lt;/template&gt;</font></div>
+<div><font color="#000000"><br></font></div>
+<div><font color="#000000">&lt;script&gt;</font></div>
+<div><font color="#000000">export default {</font></div>
+<div><font color="#000000">&nbsp; props: {</font></div>
+<div><font color="#000000">&nbsp; &nbsp; message: String</font></div>
+<div><font color="#000000">&nbsp; },</font></div>
+<div><font color="#000000">&nbsp; methods: {</font></div>
+<div><font color="#000000">&nbsp; &nbsp; updateParentMessage() {</font></div>
+<div><font color="#000000">&nbsp; &nbsp; &nbsp; this.$emit('updateMessage', 'Message updated from ChildComponent.');</font></div>
+<div><font color="#000000">&nbsp; &nbsp; }</font></div>
+<div><font color="#000000">&nbsp; }</font></div>
+<div><font color="#000000">}</font></div>
+<div><font color="#000000">&lt;/script&gt;</font></div>
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><br>
+</td>
+</tr>
+<tr valign=top>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><font size=2 color="#000000" face="Arial">
+<div><font color="#000000"><br></font></div>
+</font>
+</td>
+<td width=795><br>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

@@ -1,0 +1,265 @@
+<html><head><title>ClerkAuth</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=1 cellspacing=-1 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>'use server'</div>
+<div><br></div>
+<div>import { currentUser } from "@clerk/nextjs"</div>
+<div>import prisma from "../db/dbConfig"</div>
+<div><br></div>
+<div>&nbsp; &nbsp; const clerkUser = await currentUser();</div>
+<div>&nbsp; let username = clerkUser?.username;</div>
+<div>&nbsp; &nbsp; if (!username) {</div>
+<div>&nbsp; &nbsp; &nbsp; username = clerkUser?.firstName + " " + clerkUser?.lastName;</div>
+<div>&nbsp; &nbsp; }</div>
+<div><br></div>
+<div>&nbsp;const userEmail = clerkUser?.emailAddresses[0].emailAddress</div>
+<div><br></div>
+<div>&nbsp;const profilePic = &nbsp;clerkUser?.imageUrl,</div>
+<div><br></div>
+<div>export const getCurrentUserFromMongoDb = async () =&gt; {</div>
+<div><br></div>
+<div>&nbsp; try {</div>
+<div><br></div>
+<div>&nbsp; &nbsp; let mongoUser = null</div>
+<div>&nbsp; &nbsp; mongoUser = await prisma.user.findUnique({</div>
+<div>&nbsp; &nbsp; &nbsp; where: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; clerkUserId: clerkUser?.id</div>
+<div>&nbsp; &nbsp; &nbsp; }</div>
+<div>&nbsp; &nbsp; });</div>
+<div>&nbsp; &nbsp; if (mongoUser) {</div>
+<div>&nbsp; &nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; data: mongoUser</div>
+<div>&nbsp; &nbsp; &nbsp; } &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; </div>
+<div><br></div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; </div>
+<div><br></div>
+<div>&nbsp; &nbsp; username = username.replace("null", "");</div>
+<div>&nbsp; &nbsp; const newUser: any = {</div>
+<div>&nbsp; &nbsp; &nbsp; clerkUserId: clerkUser?.id,</div>
+<div>&nbsp; &nbsp; &nbsp; username,</div>
+<div>&nbsp; &nbsp; &nbsp; email: clerkUser?.emailAddresses[0].emailAddress,</div>
+<div>&nbsp; &nbsp; &nbsp; profilePic: clerkUser?.imageUrl,</div>
+<div>&nbsp; &nbsp; };</div>
+<div>&nbsp; &nbsp; const result = await prisma.user.create({</div>
+<div>&nbsp; &nbsp; &nbsp; data: newUser,</div>
+<div>&nbsp; &nbsp; });</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; data: result,</div>
+<div>&nbsp; &nbsp; };</div>
+<div><br></div>
+<div>&nbsp; } catch (error: any) {</div>
+<div><br></div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; error: error.message</div>
+<div>&nbsp; &nbsp; }</div>
+<div>&nbsp; }</div>
+<div>}</div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>import { UserButton,currentUser } from "@clerk/nextjs";</div>
+<div>&nbsp;&lt;UserButton afterSignOutUrl="/sign-in"/&gt;</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>

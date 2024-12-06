@@ -1,0 +1,591 @@
+<html><head><title>1irst Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body bgcolor="#ffffff" leftmargin=5 topmargin=5 rightmargin=5 bottommargin=5>
+<font size=2 color="#000000" face="Arial">
+<div><table width="100%" border=0 cellpadding=15 cellspacing=6 bordercolor="#000000" bgcolor="#ffffff">
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">Comment in Next js</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font size=5>&nbsp; {/* &nbsp;</font></div>
+<div><font size=5>&nbsp; &nbsp; &nbsp; &nbsp;</font></div>
+<div><font size=5>&nbsp;</font></div>
+<div><font size=5>&nbsp; &nbsp; &nbsp; &nbsp;*/}</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><a href="https://learn.coderslang.com/0023-eslint-disable-for-specific-lines-files-and-folders/"><font color="#0000ff" face="Verdana"><u>https://learn.coderslang.com/0023-eslint-disable-for-specific-lines-files-and-folders/</u></font></a></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">import {notFound } from 'next/navigation'</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">if(parseInt(params.reviewId)&gt;1000){</font></div>
+<div><font color="#000000" face="Verdana">&nbsp;notFound()</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>next.config.js</div>
+<div><br></div>
+<div>module.exports = </div>
+<div>{ </div>
+<div>eslint:</div>
+<div>&nbsp;{ </div>
+<div>.</div>
+<div>&nbsp;ignoreDuringBuilds: true, </div>
+<div><br></div>
+<div>},</div>
+<div>}</div>
+<div><br></div>
+<div>// Warning: This allows production builds to successfully complete even if // your project has ESLint errors</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td height=928><font size=2 color="#000000" face="Arial">
+<div>import React from 'react'</div>
+<div><br></div>
+<div>const BlogParams = ({params}) =&gt; {</div>
+<div>&nbsp; if(!params.blogParams) return &lt;h1&gt;Blog Page&lt;/h1&gt;</div>
+<div>&nbsp; return (</div>
+<div>&nbsp; &nbsp; &lt;&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &lt;div&gt;BlogParams&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;h2&gt;This is catch all routes&lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; {params.blogParams.map((blogParam, index) =&gt; {</div>
+<div>&nbsp; &nbsp; &nbsp; return &lt;div key={index}&gt;{index +1} - {blogParam}&lt;/div&gt;</div>
+<div>&nbsp; &nbsp; })}</div>
+<div>&nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;No. of Params = {params.blogParams.length}</div>
+<div>&nbsp; &nbsp;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &lt;/&gt;</div>
+<div>&nbsp; )</div>
+<div>}</div>
+<div><br></div>
+<div>export default BlogParams</div>
+</font>
+</td>
+<td height=928><font size=2 color="#000000" face="Arial">
+<div>&nbsp;&lt;div className='bg-blue-500 h-full'&gt;</div>
+<div>&nbsp; &nbsp; &nbsp;&lt;h1 className='text-white-500 items-center justify-center'&gt;Home Page&lt;/h1&gt;</div>
+<div>&lt;div&gt;</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">nps create-next-app - e with-tailwindcss</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">npx </font><a href="mailto:craete-next-app@13.1.6"><font color="#0000ff" face="Verdana"><u>craete-next-app@13.1.6</u></font></a></div>
+<div><font color="#000000" face="Verdana">npx create-next-app@13.2.3</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">layout, page , loading, error,template,head,not found,</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">Server Side rendering</font></div>
+<div><font color="#000000" face="Verdana">Static Site Generation</font></div>
+<div><font color="#000000" face="Verdana">Incremental Site Generation </font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>typings.d.ts</div>
+<div><br></div>
+<div>export type Todo = {</div>
+<div>&nbsp; &nbsp; userId:number,</div>
+<div>&nbsp; &nbsp; id:number,</div>
+<div>&nbsp; &nbsp; title:string,</div>
+<div>&nbsp; &nbsp; completed:boolean</div>
+<div>}</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>import Link from "next/link";</div>
+<div>import React from "react";</div>
+<div><br></div>
+<div><br></div>
+<div>&nbsp; &nbsp; const UsersPage = async () =&gt; {</div>
+<div>&nbsp; &nbsp; const res = await fetch("https://jsonplaceholder.typicode.com/users");</div>
+<div>&nbsp; &nbsp; const users: User[] = await res.json();</div>
+<div><br></div>
+<div>&nbsp; &nbsp; return (</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h1&gt;User List&lt;/h1&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;ul&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {users.map((user) =&gt; (</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;li key={user.id}&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {user.name}--- {user.email} --- {user.phone}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/li&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ))}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/ul&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/&gt;</div>
+<div>&nbsp; &nbsp; );</div>
+<div>};</div>
+<div><br></div>
+<div>export default UsersPage;</div>
+<div><br></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div>{cache:'no-store'}</div>
+<div><br></div>
+<div>{next:{revalidate:10}}</div>
+<div><br></div>
+<div>type User = {</div>
+<div>&nbsp; &nbsp; id: number;</div>
+<div>&nbsp; &nbsp; name: string;</div>
+<div>&nbsp; &nbsp; email: string;</div>
+<div>&nbsp; &nbsp; phone: string;</div>
+<div>};</div>
+<div><br></div>
+<div>&nbsp;</div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp;import Link from "next/link"</font></div>
+<div><font color="#000000" face="Verdana">import DeleteButton from "./DeleteButton"</font></div>
+<div><font color="#000000" face="Verdana">import {HiPencilAlt} from "react-icons/hi"</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const getAllItems = async ()=&gt;{</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; try {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; const response = await fetch(`${process.env.API_BASE_URL}/api/items`, {cache: "no-store"});</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; if(!response.ok){</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; throw new Error("Error occured while fetching all items");</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; return response.json();</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; } catch (error) {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; console.log("Error while fetching items: ", error);</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const ItemList = async () =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const{items} = await getAllItems();</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return (</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; items.map((item)=&gt;(</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div key={item._id} className="p-4 border border-orange-500 my-2 </font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; flex justify-between items-start"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 className="font-bold text-xl"&gt;{item.title}&lt;/h2&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;{item.description}&lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div className="flex gap-2"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;DeleteButton id={item._id} /&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Link href={`/editItem/${item._id}`}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;HiPencilAlt size={24} /&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Link&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; ))</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; );</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default ItemList</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">import Link from "next/link";</font></div>
+<div><font color="#000000" face="Verdana">import DeleteButton from "./DeleteButton";</font></div>
+<div><font color="#000000" face="Verdana">import { HiPencilAlt } from "react-icons/hi";</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">interface Item {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; _id: string;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; title: string;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; description: string;</font></div>
+<div><font color="#000000" face="Verdana">}</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const getAllItems = async (): Promise&lt;Item[]&gt; =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; try {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; const response = await fetch(`${process.env.API_BASE_URL}/api/items`, { cache: "no-store" });</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; if (!response.ok) {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; throw new Error("Error occurred while fetching all items");</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; return response.json();</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; } catch (error) {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; console.error("Error while fetching items: ", error);</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; return [];</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; }</font></div>
+<div><font color="#000000" face="Verdana">};</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">const ItemList: React.FC = async () =&gt; {</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; const items = await getAllItems();</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; return (</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; {items.map((item) =&gt; (</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;div key={item._id} className="p-4 border border-orange-500 my-2 flex justify-between items-start"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 className="font-bold text-xl"&gt;{item.title}&lt;/h2&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;{item.description}&lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div className="flex gap-2"&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;DeleteButton id={item._id} /&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Link href={`/editItem/${item._id}`}&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;a&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;HiPencilAlt size={24} /&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/a&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Link&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &nbsp; ))}</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; &nbsp; &lt;/&gt;</font></div>
+<div><font color="#000000" face="Verdana">&nbsp; );</font></div>
+<div><font color="#000000" face="Verdana">};</font></div>
+<div><font color="#000000" face="Verdana"><br></font></div>
+<div><font color="#000000" face="Verdana">export default ItemList;</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">&nbsp;import {revalidatePath) form "next/cache"</font></div>
+<div><font color="#000000" face="Verdana">revalidatePath("/expense-tracker")</font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">getStaticPaths</font></div>
+</font>
+</td>
+<td rowspan=2><font size=2 color="#000000" face="Arial">
+<h3><font size=2 color="#000000" face="Arial"><font size=5><b>What are Server Actions?</b></font></font></h3>
+<div>In Next.js 14, Server Actions are a feature introduced to handle side-effects and perform server-side logic during the server rendering phase. They are primarily used for performing tasks that need to be executed on the server before sending the initial HTML to the client. This can include fetching data from an API, accessing a database, processing cookies, and other server-specific operations.</div>
+<div><br></div>
+<h3><font size=2 color="#000000" face="Arial"><font size=3><b>Detailing Next.js 14 Server Actions:</b></font></font></h3>
+<div><br></div>
+<ol>
+<li value=1><b>Handling Dynamic Data</b>: Server Actions are useful when you need to fetch dynamic data during server-side rendering. For example, if you have a blog, you might want to fetch the list of blog posts from a database before rendering the page.</li>
+</ol>
+<div><br></div>
+<ol>
+<li value=2><b>Executing Code on the Server</b>: Server Actions allow you to execute code directly on the server before the page is sent to the client. This can be helpful for tasks like authentication, authorization, or any server-specific logic.</li>
+</ol>
+<div><br></div>
+<ol>
+<li value=3><b>Usage Syntax</b>: Server Actions are defined within a special getServerActions function exported from a page or an API route in Next.js. This function returns an object containing the server actions to be executed.</li>
+</ol>
+<div><br></div>
+<div>export async function getServerActions(context) {</div>
+<div>&nbsp; &nbsp; // Perform server-side logic here</div>
+<div>&nbsp; &nbsp; return {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; props: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Data to be passed to the component</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; redirect: {</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; destination: '/redirect-url',</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; permanent: false // Set to true for permanent &nbsp; &nbsp; &nbsp; &nbsp; redirects</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; },</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; notFound: true // Set to true if the page should &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return a 404</div>
+<div>&nbsp; &nbsp; };</div>
+<div>}</div>
+<div><br></div>
+<ol>
+<li value=1>Here, context provides information about the request such as request parameters, headers, cookies, etc.</li>
+</ol>
+<div><br></div>
+<ol>
+<li value=2><b>Returning Data</b>: Server actions can return several options:</li>
+<ul type="circle">
+<li>props: This is the most common option. It returns data that will be passed as props to the component rendered by the page.</li>
+<li>redirect: If the server action determines a redirect is necessary, it can return a redirect object specifying the destination and whether it's permanent or temporary.</li>
+<li>notFound: If the server action determines that the requested resource doesn't exist, it can return notFound: true, and Next.js will render a 404 page.</li>
+</ul></ol>
+<div><br></div>
+<ol>
+<li value=3><b>Async/Await Support</b>: Server actions can be asynchronous, allowing you to perform asynchronous tasks like fetching data from an external API or querying a database.</li>
+</ol>
+<div><br></div>
+<ol>
+<li value=4><b>Error Handling</b>: You can also handle errors within server actions using try-catch blocks or returning an error response.</li>
+</ol>
+<div><br></div>
+<ol>
+<li value=5><b>Integration with Page Components</b>: The data returned by server actions can be accessed within the page component via props, just like with regular Next.js data fetching methods.</li>
+</ol>
+<h3><font size=2 color="#000000" face="Arial"><font size=5><b>Summary:</b></font></font></h3>
+<div>Next.js 14 Server Actions provide a mechanism for executing server-side logic and handling side-effects during the server rendering phase. They enable fetching dynamic data, executing code on the server, and handling redirects and errors before the initial HTML is sent to the client. With Server Actions, Next.js further enhances its capabilities for building server-rendered React applications with ease.</div>
+<div><br></div>
+<div><br></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana">getServerSideProps</font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+<tr valign=top>
+<td><font size=2 color="#000000" face="Arial">
+<div>&lt;main className="flex min-h-screen flex-col items-center justify-between p-24"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto &nbsp;lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Get started by editing&amp;nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;code className="font-mono font-bold"&gt;src/app/page.tsx&lt;/code&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;a</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; href="https://vercel.com?utm_source=create-next-app&amp;utm_medium=appdir-template&amp;utm_campaign=create-next-app"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; target="_blank"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rel="noopener noreferrer"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; By{' '}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Image</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="/vercel.svg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alt="Vercel Logo"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; className="dark:invert"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width={100}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height={24}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; priority</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/a&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;Image</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="/next.svg"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alt="Next.js Logo"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width={180}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height={37}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; priority</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; /&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &lt;div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;a</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; href="https://nextjs.org/docs?utm_source=create-next-app&amp;utm_medium=appdir-template&amp;utm_campaign=create-next-app"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; target="_blank"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rel="noopener noreferrer"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 className={`mb-3 text-2xl font-semibold`}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Docs{' '}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&amp;gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p className={`m-0 max-w-[30ch] text-sm opacity-50`}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Find in-depth information about Next.js features and API.</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/a&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;a</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; href="https://nextjs.org/learn?utm_source=create-next-app&amp;utm_medium=appdir-template-tw&amp;utm_campaign=create-next-app"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; target="_blank"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rel="noopener noreferrer"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 className={`mb-3 text-2xl font-semibold`}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Learn{' '}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&amp;gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p className={`m-0 max-w-[30ch] text-sm opacity-50`}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Learn about Next.js in an interactive course with&amp;nbsp;quizzes!</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/a&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;a</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; href="https://vercel.com/templates?framework=next.js&amp;utm_source=create-next-app&amp;utm_medium=appdir-template&amp;utm_campaign=create-next-app"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; target="_blank"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rel="noopener noreferrer"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 className={`mb-3 text-2xl font-semibold`}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Templates{' '}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&amp;gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p className={`m-0 max-w-[30ch] text-sm opacity-50`}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Explore starter templates for Next.js.</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/a&gt;</div>
+<div><br></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;a</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; href="https://vercel.com/new?utm_source=create-next-app&amp;utm_medium=appdir-template&amp;utm_campaign=create-next-app"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; target="_blank"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rel="noopener noreferrer"</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 className={`mb-3 text-2xl font-semibold`}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Deploy{' '}</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&amp;gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/h2&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p className={`m-0 max-w-[30ch] text-sm opacity-50`}&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Instantly deploy your Next.js site to a shareable URL with Vercel.</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/a&gt;</div>
+<div>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+<div>&nbsp; &nbsp; &lt;/main&gt;</div>
+</font>
+</td>
+<td><font size=2 color="#000000" face="Arial">
+<div><font color="#000000" face="Verdana"><br></font></div>
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</body></html>
