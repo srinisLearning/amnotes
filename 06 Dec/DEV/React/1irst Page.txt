@@ -1,0 +1,46 @@
+npm create vite@latest
+
+npx create-next-app@latest HelloWorld
+
+<template> <MyComponent/> <button @click="greet">{{btnText}}</button> </template> <script setup> import {ref} from "vue" import MyComponent from "./MyComponent.vue" const btnText = ref("Greet Awesome Dev") const greet = ()=> alert("Hello!") </script>
+<template> <MyComponent/> <button @click="greet">{{btnText}}</button> </template> <script> import {ref} from "vue" import MyComponent from "./MyComponent.vue" export default{ components:{ MyComponent }, setup(){ const btnText = ref("Greet Awesome Dev") const greet = ()=> alert("Hello!") return { btnText, greet } } } </script>
+God 
+
+var testRouter = require('./routes/testRouter');
+app.use('/', testRouter);
+
+var testRouter = require('./routes/testRouter');
+app.use('/', testRouter);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,122 @@
+Promise in Java Script
+
+In JavaScript, a Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises were introduced to handle asynchronous operations in a more organized and straightforward manner, making it easier to write and reason about asynchronous code.
+Let's break it down step by step:
+
+Asynchronous Operations: In JavaScript, some tasks take time to complete, like fetching data from a server, reading a file, or waiting for a user input. During this time, the program continues to execute other tasks without waiting for the asynchronous operation to finish. As a result, the order of execution may not be sequential, and handling the result of asynchronous operations can be challenging.
+
+What Promises Solve: Promises provide a way to manage asynchronous operations and their results in a more structured manner. They ensure that code execution waits for the completion of an asynchronous task before proceeding further.
+
+Promise States: A Promise can be in one of three states:
+o Pending: The initial state. The asynchronous operation is still ongoing, and the Promise has not been fulfilled or rejected yet.
+o Fulfilled: The asynchronous operation completed successfully, and the Promise has a resulting value.
+o Rejected: The asynchronous operation encountered an error, and the Promise has a reason for the failure.
+
+Creating a Promise: You can create a Promise using the Promise constructor, which takes a function as an argument. This function, known as the "executor," has two parameters: resolve and reject. Inside the executor, you perform your asynchronous operation, and when it's done, you call either resolve(value) if it's successful or reject(reason) if it fails.
+  
+const myPromise = new Promise((resolve, reject) => {
+ 
+  // Perform some asynchronous operation here
+  // If successful, call resolve with the resulting value
+  // If there's an error, call reject with the reason
+}
+});
+
+
+
+Handling Promise Results: To handle the result of a Promise, you use the .then() method. It allows you to define a callback function that will be executed when the Promise is fulfilled (i.e., successful).
+Example:
+javascriptCopy code
+myPromise.then((result) => {
+ 
+  console.log("Promise fulfilled with result:", result);
+}
+});
+
+
+
+Handling Promise Errors: To handle errors in a Promise, you use the .catch() method. It allows you to define a callback function that will be executed when the Promise is rejected (i.e., an error occurred).
+Example:
+ 
+myPromise.catch((error) => {
+ 
+  console.error("Promise rejected with error:", error);
+}
+});
+
+
+
+Chaining Promises: Promises can be chained together using multiple .then() calls. This allows you to sequence asynchronous operations or transform the result of a Promise and pass it to the next then() callback.
+Example:
+ 
+myPromise
+ 
+  .then((result) => {
+ 
+    // Do something with the result
+    return transformedResult;
+ 
+  })
+ 
+  .then((transformedResult) => {
+ 
+    // Do something with the transformed result
+  })
+ 
+  .catch((error) => {
+ 
+    console.error("Something went wrong:", error);
+ 
+  });
+  How to convert a string to a number in TypeScript?
+
+
+
+-
+Describe ‘as’ syntax in TypeScript.
+In TypeScript, the 'as' syntax is used for Type assertion. It was created because the original syntax was incompatible with JSX. Only as-style assertions can be used with JSX and TypeScript.
+Example:
+let stdid: any=007
+let stdid= id as number;
+
+-
+
+How to create objects in Typescript?
+Objects are collections of keys and values that resemble a dictionary. The keys must be one-of-a-kind. They resemble arrays and are sometimes referred to as associative arrays. An array, on the other hand, employs numbers to index the values, whereas an object lets you use any type as the key.
+An Object type in TypeScript refers to any value with properties. It can be defined simply by specifying the properties and the kinds of those properties. As an example,
+let pt: { x: number; y: number } = {
+  x: 10,
+  y: 20
+};
+-
+Define Lambda function.
+For defining function expressions, TypeScript provides a shortcut syntax. A lambda function is an unnamed anonymous function. 
+Example:
+let sum=(a: num, b: num): num=>{ return a+b;}
+console.log(sum(5,10)); //returns 15
+Here, ?=>? is a lambda operator.
+-
+Explain Tuples in Typescript With Example
+Tuples are a collection of values that are diverse. It allows for the storage of many fields of various sorts. Tuples can also be used as function parameters.
+There are instances when it is necessary to save a collection of values of various types. Arrays will not suffice in this situation. TypeScript provides a data type called tuple that aids in this endeavor.
+Syntax:
+var tuple_name = [value c,value b,value c,…value n]
+For Example:
+var yourtuple = [12,"Hi"];
+
+Mission Accomplished Thank You
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

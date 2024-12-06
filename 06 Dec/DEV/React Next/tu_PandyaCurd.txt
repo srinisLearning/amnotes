@@ -1,0 +1,533 @@
+https://github.com/ranjanpandeysbp/nextjs-fullstack
+https://github.com/ranjanpandeysbp/nextjs-fullstack
+APP
+
+addItem/page.tsx
+
+"use client"
+
+
+ 
+import { useState } from "react"
+i
+import { useRouter } from "next/navigation";
+
+
+ 
+const AddItem = () => {
+ 
+  const[title, setTitle] =  useState("");
+ 
+  const[description, setDescription] =  useState("");
+ 
+  const router = useRouter();
+
+
+
+  const handleSubmit = async (event)=>{
+ 
+    event.preventDefault();
+ 
+    if(!title){
+ 
+      alert("Title is required");
+ 
+      return;
+ 
+    }
+ 
+    if(!description){
+ 
+      alert("Description is required");
+ 
+      return;
+ 
+    }
+ 
+    try {
+ 
+      const response = await fetch(`http://localhost:3000/api/items`,{
+ 
+        method: "POST",
+ 
+        headers: {
+ 
+          "Content-Type": "application/json"
+ 
+        },
+ 
+        body: JSON.stringify({title, description})
+ 
+      });
+ 
+      if(response.ok){
+ 
+        router.push("/");
+ 
+      }else{
+ 
+        throw new Error("Error occurred while creating new item");
+ 
+      }
+ 
+    } catch (error) {
+ 
+      console.log("Error occurred while creating new item: ", error);
+ 
+    }
+ 
+  }
+
+
+
+  return (
+ 
+    <div>
+ 
+        <form onSubmit={handleSubmit} className="flex flex-col mt-2 gap-3">
+ 
+            <input type="text" 
+ 
+            onChange={(event)=>setTitle(event.target.value)}
+ 
+            value={title}
+ 
+            className="border border-orange-500 px-7 py-2"
+ 
+            placeholder="Enter item title" />
+ 
+            <input type="text"
+ 
+            onChange={(event)=>setDescription(event.target.value)}
+ 
+            value={description}
+ 
+            className="border border-orange-500 px-7 py-2"
+ 
+            placeholder="Enter item description" />
+ 
+            <button type="submit" className="bg-slate-700 font-bold text-white px-7 py-2 w-fit">
+ 
+                Submit
+ 
+            </button>
+ 
+        </form>
+ 
+    </div>
+ 
+  )
+}
+}
+
+
+ 
+export default AddItem
+editItem/[id]/page.tsx
+
+import EditItemComponent from '@/components/EditItemComponent'
+i
+import React from 'react';
+
+
+
+/
+//get details of an item
+c
+const getItemDetails = async (id)=>{
+ 
+  try {
+ 
+    const response = await fetch(`${process.env.API_BASE_URL}/api/items/${id}`, {cache: "no-store"});
+ 
+    if(!response.ok){
+ 
+      throw new Error("Error occurred while getting Item Detail");
+ 
+    }
+ 
+    return response.json();
+ 
+  } catch (error) {
+ 
+    console.log("Error occurred while getting Item Detail: ", error);
+ 
+  }
+}
+}
+
+
+
+/
+//context.params.id
+c
+const EditItem = async ({params}) => {
+ 
+  const {id} = params;
+ 
+  const {item} = await getItemDetails(id);
+ 
+  const {title, description} = item;
+ 
+  return (
+ 
+    <EditItemComponent id={id} title={title} description={description}/>
+ 
+  )
+}
+}
+
+
+ 
+export default EditItem
+
+-
+
+api/items/route.ts
+import dbConnection from "@/db/mongodb";
+i
+import Item from "@/models/item";
+i
+import { NextResponse } from "next/server";
+/
+//create new item
+e
+export async function POST(request){
+ 
+    const {title, description} = await request.json();
+ 
+    await dbConnection();
+ 
+    await Item.create({title, description});
+ 
+    return NextResponse.json({msg: "Item created successfully"}, {status :201})
+}
+}
+/
+//get all items
+e
+export async function GET(){
+ 
+    await dbConnection();
+ 
+    const items = await Item.find();
+ 
+    return NextResponse.json({items});
+}
+}
+/
+//delete an item with provided id, http://localhost:3000/api/items?id=658b42c5c7ea15792d9b9f7f
+e
+export async function DELETE(request){
+ 
+    const id = request.nextUrl.searchParams.get('id');
+ 
+    await dbConnection();
+ 
+    await Item.findByIdAndDelete(id);
+ 
+    return NextResponse.json({msg: `Item with id ${id} was deleted successfully`}, {status :200})
+}
+}
+
+-
+api/items/[id]/route.ts
+
+//http://localhost:3000/api/items/658b42c5c7ea15792d9b9f7f
+import { NextResponse } from "next/server";
+import dbConnection from "@/db/mongodb";
+import Item from "@/models/item";
+
+//update an item
+//context.params.id
+export async function PUT(request, {params}){
+    const {id} = params;
+    const {newTitle: title, newDescription: description} = await request.json();
+    await dbConnection();
+    await Item.findByIdAndUpdate(id, {title, description});
+    return NextResponse.json({msg: `Item with id ${id} was updated successfully`}, {status :200});
+}
+
+//get details of an item with provided id
+export async function GET(request, {params}){
+    const {id} = params;
+    await dbConnection();
+    const item = await Item.findOne({_id: id});
+    return NextResponse.json({item}, {status :200});
+}
+
+COMPONENTS
+
+import Link from "next/link"
+import DeleteButton from "./DeleteButton"
+import {HiPencilAlt} from "react-icons/hi"
+
+const getAllItems = async ()=>{
+    try {
+      const response = await fetch(`${process.env.API_BASE_URL}/api/items`, {cache: "no-store"});
+      if(!response.ok){
+        throw new Error("Error occured while fetching all items");
+      }
+      return response.json();
+    } catch (error) {
+      console.log("Error while fetching items: ", error);
+    }
+}
+
+const ItemList = async () => {
+  const{items} = await getAllItems();
+  return (
+    <>
+      {
+        items.map((item)=>(
+          <div key={item._id} className="p-4 border border-orange-500 my-2 
+          flex justify-between items-start">
+              <div>
+                  <h2 className="font-bold text-xl">{item.title}</h2>
+                  <div>{item.description}</div>
+              </div>
+              <div className="flex gap-2">
+                  <DeleteButton id={item._id} />
+                  <Link href={`/editItem/${item._id}`}>
+                      <HiPencilAlt size={24} />
+                  </Link>
+              </div>
+          </div>
+        ))
+      }
+    </>
+  );
+}
+
+export default ItemList
+
+
+
+-
+
+
+import React, { FC } from 'react';
+import Link from "next/link";
+import DeleteButton from "./DeleteButton";
+import { HiPencilAlt } from "react-icons/hi";
+
+interface Item {
+  _id: string;
+  title: string;
+  description: string;
+}
+
+const getAllItems = async (): Promise<Item[]> => {
+  try {
+    const response = await fetch(`${process.env.API_BASE_URL}/api/items`, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error("Error occurred while fetching all items");
+    }
+    return response.json();
+  } catch (error) {
+    console.log("Error while fetching items: ", error);
+    return [];
+  }
+}
+
+const ItemList: FC = () => {
+  const fetchItems = async () => {
+    const items: Item[] = await getAllItems();
+    return items;
+  }
+
+  const renderItems = async () => {
+    const items = await fetchItems();
+    return (
+      <>
+        {
+          items.map((item: Item) => (
+            <div key={item._id} className="p-4 border border-orange-500 my-2 
+            flex justify-between items-start">
+              <div>
+                <h2 className="font-bold text-xl">{item.title}</h2>
+                <div>{item.description}</div>
+              </div>
+              <div className="flex gap-2">
+                <DeleteButton id={item._id} />
+                <Link href={`/editItem/${item._id}`}>
+                  <HiPencilAlt size={24} />
+                </Link>
+              </div>
+            </div>
+          ))
+        }
+      </>
+    );
+  }
+
+  return (
+    <>
+      {renderItems()}
+    </>
+  );
+}
+
+export default ItemList;
+import Link from "next/link";
+import DeleteButton from "./DeleteButton";
+import { HiPencilAlt } from "react-icons/hi";
+
+interface Item {
+  _id: string;
+  title: string;
+  description: string;
+}
+
+const getAllItems = async (): Promise<Item[]> => {
+  try {
+    const response = await fetch(`${process.env.API_BASE_URL}/api/items`, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error("Error occurred while fetching all items");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error while fetching items: ", error);
+    return [];
+  }
+};
+
+const ItemList: React.FC = async () => {
+  const items = await getAllItems();
+  return (
+    <>
+      {items.map((item) => (
+        <div key={item._id} className="p-4 border border-orange-500 my-2 flex justify-between items-start">
+          <div>
+            <h2 className="font-bold text-xl">{item.title}</h2>
+            <div>{item.description}</div>
+          </div>
+          <div className="flex gap-2">
+            <DeleteButton id={item._id} />
+            <Link href={`/editItem/${item._id}`}>
+              <a>
+                <HiPencilAlt size={24} />
+              </a>
+            </Link>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+};
+
+export default ItemList;
+
+
+
+
+
+
+ Item List Basic Code
+
+ ===============================================================================
+
+
+ const ItemList = () => {
+  return (
+    <div className="p-4 border border-orange-500 my-2 
+            flex justify-between items-start gap-10">
+              <div className='flex-col gap-6'>
+                <h2 className="font-semi-bold text-xl">Item Title</h2>
+                <div>Item Description </div>
+              </div>
+              <div className="flex gap-2">
+                   
+                  <HiPencilAlt size={18} className='text-orange-600' />
+                  <HiTrash size={18} className='text-red-600' />
+              </div>
+            </div>
+  )
+}
+
+
+===================================================================================
+
+
+import React from 'react'
+import { HiOutlineTrash } from 'react-icons/hi'
+ 
+
+const DeleteButton = () => {
+  return (
+     <button>
+        <HiOutlineTrash size={18} className='text-red-500'/>
+     </button>
+  )
+}
+
+export default DeleteButton
+
+===============================================================================================
+
+import React from 'react'
+
+const AddItem = () => {
+  return (
+    <div> 
+        <form className='flex flex-col mt-2 gap-3 h-screen'>
+            <input type='text'
+            className ='border border-orange-500 p-3'
+            placeholder='Enter Item Title'
+            />
+             <input type='text'
+            className ='border border-orange-500 p-3'
+            placeholder='Enter Item Description'
+            />
+            <button className='bg-orange-500 font-bold p-2 w-fit'>Add Item</button>
+        </form>
+    </div>
+  )
+}
+
+export default AddItem
+
+
+================================================================================================================================
+
+import React from 'react'
+
+const EditItemComponent = () => {
+    return (
+        <div> 
+            <form className='flex flex-col mt-2 gap-3'>
+                <input type='text'
+                className ='border border-orange-500 p-3'
+                placeholder='Enter Item Title'
+                />
+                 <input type='text'
+                className ='border border-orange-500 p-3'
+                placeholder='Enter Item Description'
+                />
+                <button className='bg-orange-500 font-bold p-2 w-fit'>Edit Item</button>
+            </form>
+        </div>
+      )
+}
+
+export default EditItemComponent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

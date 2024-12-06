@@ -1,0 +1,66 @@
+Cerebro and Magnet are both keyword research tools designed specifically for Amazon sellers. However, there are some key differences between the two.
+Cerebro is a keyword research tool that allows you to find the most relevant keywords for your product on Amazon. It provides data on keyword search volume, competitor keyword ranking, and estimated sales for each keyword. Additionally, it includes a reverse ASIN search feature that allows you to see which keywords your competitors are ranking for. Cerebro also provides a keyword tracking feature that allows you to monitor the performance of your keywords over time.
+Magnet, on the other hand, is a keyword generation tool that generates a list of related keywords based on a single seed keyword. It also provides data on search volume, competitor keyword ranking, and estimated sales for each keyword. Magnet includes a "word frequency" feature, which allows you to see which words appear most frequently in the titles and descriptions of top-ranking products for a given keyword.
+
+In summary, Cerebro is more focused on finding the most relevant keywords for your product and monitoring their performance, while Magnet is more focused on generating a list of related keywords based on a single seed keyword.
+
+Cerebro is a powerful tool to help you catch the best keywords on Amazon.
+As you begin doing some product research, use Cerebro’s reverse ASIN look-up will let you see competitors’ listings and keywords.
+That way, it’s easy to see which keywords are being underutilized within the listing – and how you can use those same keywords better in your own listing.
+For example, here’s a watermelon slicer seller who ranks for the keyword “windmill” and “windmill watermelon slicer cutter.” However, the seller doesn’t use the term “windmill” anywhere in their listing!
+How easy would it be, as a competitor to this watermelon slicer seller, to update your own listing for that keyword? Using Cerebro, it’s easy to tell that this additional keyword adds strong buyer intent, so it’s a desirable keyword that’s actively being used by buyers. It’s just not one that’s obvious – unless you dig into the data using Cerebro.
+
+Once your listing has incorporated the keywords found with Cerebro, it’s time to catch the keywords that are missed by everyone else. It’s time to get out the Helium 10 Magnet and attract more keywords – and more sales.
+Here’s what Magnet does: it takes your keyword and adds other words to it, coming up with an amazing list of keyword possibilities. While some of these may or may not have a large search volume, these are still solid possibilities that need to be considered as adding into the listing.
+This is something you wouldn’t use in a product launch, but to fill out the keywords of an existing product so it will rank higher.
+In other words, Magnet will help you catch more keywords, some of which may have been missed by Cerebro. As any of these could come up in a board campaign, they’re amazing to have on hand.
+Cerebro and Magnet are both keyword research tools used for Amazon product listings, but there are some differences between the two.
+One of the main differences is that Magnet is a free tool offered by Helium 10, while Cerebro is a paid tool offered by Helium 10. This means that Cerebro offers more advanced features and functionality compared to Magnet.
+Cerebro also provides more detailed and accurate data for keyword research, including search volume, estimated revenue, and competition level. It also offers additional features such as reverse ASIN lookup, allowing you to see what keywords your competitors are ranking for.
+On the other hand, Magnet is a more user-friendly tool that is easy to use and navigate, making it a good choice for beginners. It provides basic data on search volume and relevancy, but may not offer the same level of detailed data as Cerebro.
+Ultimately, the choice between Cerebro and Magnet depends on your specific needs and budget. If you require more advanced features and accurate data, Cerebro may be the better option for you. If you are just starting out with Amazon keyword research and are on a budget, Magnet may be a good choice to get started.
+
+ Cerebro allows Amazon sellers to perform keyword research to find high-performing keywords to use in their product listings. It offers various features such as reverse ASIN lookup, competitor analysis, and the ability to track keyword rankings.
+One of the main advantages of Cerebro is the accuracy and depth of its data. It provides more detailed information on search volume, estimated revenue, and competition level compared to Magnet. This allows sellers to make more informed decisions on which keywords to target in their listings.
+Cerebro also offers a feature called "Keyword IQ," which provides a score for each keyword indicating its potential for generating sales. This feature can be useful in identifying high-potential keywords and prioritizing which keywords to focus on.
+Magnet, on the other hand, is a free keyword research tool also offered by Helium 10. It offers basic features such as keyword search volume, relevancy, and competition level.
+
+ Magnet is a more beginner-friendly tool and is designed to be easy to use and navigate.
+One of the benefits of Magnet is that it offers a wider range of filters to help sellers find the best keywords for their products. These filters include filters for search volume, relevancy, and competitiveness, which can help sellers identify high-performing keywords.
+Another advantage of Magnet is that it is a free tool, making it a good option for sellers who are just starting out or are on a budget. However, the free version of Magnet has limited functionality compared to Cerebro.
+In summary, while both Cerebro and Magnet are keyword research tools for Amazon sellers, Cerebro offers more advanced features and deeper data for more experienced sellers. Magnet, on the other hand, is a more beginner-friendly tool that is free and offers basic features. The choice between the two ultimately depends on the needs and budget of the individual seller.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

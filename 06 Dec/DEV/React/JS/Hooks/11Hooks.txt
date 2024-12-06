@@ -1,0 +1,9 @@
+npm install --global yarn
+yarn --version
+redux
+react tables
+formix
+hooks
+next
+
+

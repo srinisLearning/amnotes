@@ -1,0 +1,95 @@
+DESIGN ENDPOINTS Type of Request Endpoint Description 
+
+
+GET 
+/
+ Loads the home page of the application. Links to all the blogs should be listed here 
+
+GET 
+/about 
+This should load the ‘about’ page of our application GET /register Loads a form to register a user 
+
+POST
+ /register
+ Validates the form details and creates a new user in the database Type of Request Endpoint Description 
+
+ GET 
+/login 
+Loads a form for user login 
+
+POST
+ /login
+ Validates the credentials entered and logs in the user 
+
+GET
+ /write-blog
+ Loads a form using which the user can write a blogpost
+
+ POST
+ /write-blog 
+Creates a new blog in the database 
+
+ GET
+ /login 
+Loads a form for user login POST /login Validates the credentials entered and logs in the user
+
+ GET
+ /write-blog 
+Loads a form using which the user can write a blogpost 
+
+POST
+ /write-blog 
+Creates a new blog in the database
+
+ GET
+ /blogs/
+ Loads the blogpost with the given id 
+
+GET
+ /my-blogs 
+Lists all the links of blogs written by the logged in user
+
+GET 
+/edit-blog/ 
+Loads a form with contents from the blogpost of the id mentioned
+
+ POST
+ /edit-blog/
+ Updates the blogpost with the given id 
+
+ GET
+ /blogs/ 
+Loads the blogpost with the given id
+
+ GET
+ /my-blogs
+ Lists all the links of blogs written by the logged in user 
+
+GET
+ /edit-blog/ 
+Loads a form with contents from the blogpost of the id mentioned 
+
+POST 
+/edit-blog/ 
+Updates the blogpost with the given id 
+
+ POST
+ /delete-blog/ 
+Deletes the blogpost with the given id 
+
+GET
+ /logout 
+Logs out the current user 
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+ 

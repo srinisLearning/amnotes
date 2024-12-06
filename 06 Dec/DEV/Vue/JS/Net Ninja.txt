@@ -1,0 +1,390 @@
+
+Sl. No.
+
+HTML
+
+
+TITLE
+1
+
+<html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Learning Vue</title>
+ <script src="https://unpkg.com/vue@3.0.0"></script>
+ </head>
+ <body>
+ <h1>Hello, Vue :)</h1>
+
+ <script src="app.js"></script>
+ </body>
+ </html>
+
+
+<script>
+console.log('hello, Vue');
+
+</script>
+2
+<html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Learning Vue</title>
+ <script src="https://unpkg.com/vue@3.0.0"></script>
+ </head>
+ <body>
+ <h1>Hello, Vue :)</h1>
+
+ <div id="app">
+ <p>I am the template, now!</p>
+ </div>
+
+ <script src="app.js"></script>
+ </body>
+ </html>
+
+<script>
+const app = Vue.createApp({
+ // data, functions etc
+ // template: '<h2>I am the template</h2>',
+ })
+
+ app.mount('#app')
+
+</script>
+
+template:`
+   <p>
+   <h2>I am the template</h2>
+   <p>
+   <h3>This is second line</h3>
+   <button>Click Me </button>
+   
+   `,
+3
+<html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Learning Vue</title>
+ <script src="https://unpkg.com/vue@3.0.0"></script>
+ </head>
+ <body>
+ <h1>Hello, Vue :)</h1>
+
+ <div id="app">
+ <p>{{ title }} - by {{ author }}, {{ age }} years old</p>
+
+ <button v-on:click="age++">Increase age</button>
+ <button @click="age--">Decrease age</button>
+ <div @click="changeTitle('Oathbringer')">Change book title</div>
+ </div>
+
+
+ <script src="app.js"></script>
+ </body>
+ </html>
+const app = Vue.createApp({
+ data() {
+ return {
+ title: 'The Way of Kings',
+ author: 'Brandon Sanderson',
+ age: 45
+ }
+ },
+ methods: {
+ changeTitle(title) {
+ // this.title = 'Words of Radiance'
+ this.title = title
+ }
+ }
+ })
+
+ app.mount('#app')
+4
+<html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Learning Vue</title>
+ <script src="https://unpkg.com/vue@3.0.0"></script>
+ </head>
+ <body>
+ <h1>Hello, Vue :)</h1>
+
+ <div id="app">
+ <div v-if="showBooks">
+ <p>{{ title }} - by {{ author }}, {{ age }} years old</p>
+ </div>
+ <div v-else>
+ <p>Click the button below to show books</p>
+ </div>
+
+ <button @click="toggleShowBooks">
+ <!-- Toggle books -->
+ <span v-if="showBooks">Hide books</span>
+ <span v-else>Show books</span>
+ </button>
+
+ <div v-show="showBooks">currently showing books</div>
+ </div>
+
+
+ <script src="app.js"></script>
+ </body>
+ </html>
+const app = Vue.createApp({
+ data() {
+ return {
+ showBooks: true,
+ title: 'The Way of Kings',
+ author: 'Brandon Sanderson',
+ age: 45
+ }
+ },
+ methods: {
+ toggleShowBooks() {
+ this.showBooks = !this.showBooks
+ }
+ }
+ })
+
+ app.mount('#app')
+11.
+<html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Learning Vue</title>
+ <script src="https://unpkg.com/vue@3.0.0"></script>
+ <style>
+ .box { 
+padding: 100px 0; 
+width: 400px; 
+text-align: center; 
+background: #ddd; 
+margin: 20px; 
+display: inline-block; 
+} 
+</style>
+ </head>
+ <body>
+ <h1>Hello, Vue :)</h1>
+
+ <div id="app">
+ <div v-if="showBooks">
+ <p>{{ title }} - by {{ author }}, {{ age }} years old</p>
+ </div>
+ <div v-else>
+ <p>Click the button below to show books</p>
+ </div>
+
+ <button @click="toggleShowBooks">
+ <span v-if="showBooks">Hide books</span>
+ <span v-else>Show books</span>
+ </button>
+
+ <br>
+ <!-- mouse events -->
+ <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+ <div class="box" @mouseleave="handleEvent">mouseleave</div>
+ <div class="box" @dblclick="handleEvent">double click me</div>
+ <div class="box" @mousemove="handleMousemove">position {{ x }} {{ y }}</div>
+
+ </div>
+
+
+ <script src="app.js"></script>
+ </body>
+ </html>
+const app = Vue.createApp({
+ data() {
+ return {
+ showBooks: true,
+ title: 'The Way of Kings',
+ author: 'Brandon Sanderson',
+ age: 45,
+ x: 0,
+ y: 0,
+ }
+ },
+ methods: {
+ toggleShowBooks() {
+ this.showBooks = !this.showBooks
+ },
+ handleEvent(e, data) {
+ console.log(e.type, e)
+ if (data) {
+ console.log(data)
+ }
+ },
+ handleMousemove(e) {
+ this.x = e.offsetX
+ this.y = e.offsetY
+ }
+ }
+ })
+
+ app.mount('#app')
+12
+<html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Learning Vue</title>
+ <script src="https://unpkg.com/vue@3.0.0"></script>
+ <style>
+ .box { 
+padding: 100px 0; 
+width: 400px; 
+text-align: center; 
+background: #ddd; 
+margin: 20px; 
+display: inline-block; 
+} 
+</style>
+ </head>
+ <body>
+ <h1>Hello, Vue :)</h1>
+
+ <div id="app">
+ <div v-if="showBooks">
+ <ul>
+ <li v-for="book in books">
+ <h3>{{ book.title }}</h3>
+ <p>{{ book.author }}</p>
+ </li>
+ </ul>
+ </div>
+ <div v-else>
+ <p>Click the button below to show books</p>
+ </div>
+
+ <button @click="toggleShowBooks">
+ <span v-if="showBooks">Hide books</span>
+ <span v-else>Show books</span>
+ </button>
+ </div>
+
+
+ <script src="app.js"></script>
+ </body>
+ </html>
+const app = Vue.createApp({
+ data() {
+ return {
+ showBooks: true,
+ books: [
+ { title: 'name of the wind', author: 'patrick rothfuss' },
+ { title: 'the way of kings', author: 'brandon sanderson' },
+ { title: 'the final empire', author: 'brandon sanderson' },
+ ],
+ }
+ },
+ methods: {
+ toggleShowBooks() {
+ this.showBooks = !this.showBooks
+ },
+ }
+ })
+
+ app.mount('#app')
+13
+<html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Learning Vue</title>
+ <script src="https://unpkg.com/vue@3.0.0"></script>
+ <style>
+ .box { 
+padding: 100px 0; 
+width: 400px; 
+text-align: center; 
+background: #ddd; 
+margin: 20px; 
+display: inline-block; 
+} 
+</style>
+ </head>
+ <body>
+ <h1>Hello, Vue :)</h1>
+
+ <div id="app">
+ <!-- attribute binding -->
+ <!-- <a v-bind:href="url">Best website ever!</a> -->
+ <a :href="url">Best website ever!</a>
+
+ <div v-if="showBooks">
+ <ul>
+ <li v-for="book in books">
+ <img :src="book.img" :alt="book.title">
+ <h3>{{ book.title }}</h3>
+ <p>{{ book.author }}</p>
+ </li>
+ </ul>
+ </div>
+ <div v-else>
+ <p>Click the button below to show books</p>
+ </div>
+
+ <button @click="toggleShowBooks">
+ <span v-if="showBooks">Hide books</span>
+ <span v-else>Show books</span>
+ </button>
+ </div>
+
+
+ <script src="app.js"></script>
+ </body>
+ </html>
+<script>
+    const app = Vue.createApp({
+        
+        data () {
+            return {
+                name: "srini",
+                email:'srini01@gmail.com',
+                mobile:'9381003591',
+                age:56,
+                showData:true,
+                buttonText:"Hide Data",
+                students:[
+                    {name:'kadir',email:'kadir@gmail.com',mobile:'8764512345',age:36},
+                    {name:'vishwas',email:'vishwas@gmail.com',mobile:'3140523456',age:42},
+                    {name:'ajit',email:'ajit@gmail.com',mobile:'9873456123',age:23},
+                    {name:'virat',email:'virat@gmail.com',mobile:'987343567123',age:43},
+                ]
+
+            }
+        },
+
+        methods:{ 
+            changeEmail(myEmail){
+            this.email = myEmail;
+         },
+         toggleShowHide(){
+            this.showData = !this.showData;
+            if(showData){
+                this.buttonText = "Hide Data";
+            }
+            else{   
+                this.buttonText = "Show Data";
+            }
+         }
+
+        }
+        
+ });
+ app.mount('#app')
+</script>
+14
+
+
+
+
+
+
+

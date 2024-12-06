@@ -1,0 +1,433 @@
+MaterialApp(
+  title: 'My App',
+  theme: ThemeData(
+    primaryColor: Colors.blue,
+    accentColor: Colors.red,
+    fontFamily: 'Roboto',
+    textTheme: TextTheme(
+      headline1: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+      bodyText1: TextStyle(fontSize: 16.0),
+    ),
+  ),
+  home: MyHomePage(),
+  initialRoute: '/',
+  routes: {
+    '/': (context) => MyHomePage(),
+    '/settings': (context) => SettingsPage(),
+    '/profile': (context) => ProfilePage(),
+  },
+  onGenerateRoute: (settings) {
+    if (settings.name == '/product') {
+      return MaterialPageRoute(builder: (context) => ProductPage());
+    }
+    return null;
+  },
+  onUnknownRoute: (settings) {
+    return MaterialPageRoute(builder: (context) => NotFoundPage());
+  },
+);
+
+
+
+Container(
+  alignment: Alignment.center, // Sets the alignment of child widget within the container
+  padding: EdgeInsets.all(16.0), // Sets the padding around the child widget
+  margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Sets the margin around the container
+  width: 200.0, // Sets the width of the container
+  height: 100.0, // Sets the height of the container
+  decoration: BoxDecoration(
+    color: Colors.grey[200], // Sets the background color of the container
+    border: Border.all(
+      color: Colors.grey[400], // Sets the border color of the container
+      width: 2.0, // Sets the width of the border
+    ),
+    borderRadius: BorderRadius.circular(12.0), // Sets the border radius of the container
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey.withOpacity(0.5), // Sets the color of the shadow
+        spreadRadius: 2, // Sets the spread radius of the shadow
+        blurRadius: 4, // Sets the blur radius of the shadow
+        offset: Offset(0, 3), // Sets the offset of the shadow
+      ),
+    ],
+  ),
+  child: Text('Hello, world!'), // Sets the child widget inside the container
+),
+
+
+
+
+
+Center(
+  widthFactor: 2.0, // Sets the width factor of the center widget
+  heightFactor: 2.0, // Sets the height factor of the center widget
+  child: Text('Hello, world!'), // Sets the child widget of the center widget
+),
+
+
+
+  SizedBox( 
+       width: 200.0,
+       height: 300.0,
+       child: Card(child: Text('Hello World!')),
+ )
+
+Spacer()
+Spacer(flex:3)
+Spacer(flex:9)
+
+
+
+Column(
+  mainAxisAlignment: MainAxisAlignment.center,  
+  crossAxisAlignment: CrossAxisAlignment.start,  
+  mainAxisSize: MainAxisSize.min,  
+  verticalDirection: VerticalDirection.down, 
+  children: [
+    Text('First item'), // Child widget 1
+    SizedBox(height: 16.0), // Child widget 2: A box with height of 16 pixels
+    Container(
+      width: 200.0,
+      height: 100.0,
+      color: Colors.grey[200],
+      child: Text('Second item'),
+    ), // Child widget 3: A container with a text child widget
+    Expanded(
+      child: Container(
+        width: 200.0,
+        height: 100.0,
+        color: Colors.grey[400],
+        child: Text('Third item'),
+      ),
+    ), // Child widget 4: An expanded container with a text child widget
+  ],
+),
+
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,  
+  crossAxisAlignment: CrossAxisAlignment.center,  
+  mainAxisSize: MainAxisSize.max,  
+  textDirection: TextDirection.ltr, // Sets the direction of the row's text
+  children: [
+    Text('First item'), // Child widget 1
+    SizedBox(width: 16.0), // Child widget 2: A box with width of 16 pixels
+    Container(
+      width: 100.0,
+      height: 50.0,
+      color: Colors.grey[200],
+      child: Text('Second item'),
+    ), // Child widget 3: A container with a text child widget
+    Expanded(
+      child: Container(
+        width: 100.0,
+        height: 50.0,
+        color: Colors.grey[400],
+        child: Text('Third item'),
+      ),
+    ), // Child widget 4: An expanded container with a text child widget
+  ],
+),
+
+
+AppBar(
+  backgroundColor: Colors.blue, // Sets the background color of the app bar
+  title: Text('My App'), // Sets the title of the app bar
+  centerTitle: true, // Centers the title of the app bar
+  elevation: 4.0, // Sets the elevation of the app bar
+  leading: IconButton( // Sets the leading widget of the app bar
+    icon: Icon(Icons.menu),
+    onPressed: () => print('Menu button pressed'),
+  ),
+  actions: [
+    IconButton( // Sets the action widget(s) of the app bar
+      icon: Icon(Icons.search),
+      onPressed: () => print('Search button pressed'),
+    ),
+    IconButton(
+      icon: Icon(Icons.more_vert),
+      onPressed: () => print('More button pressed'),
+    ),
+  ],
+),
+
+
+Scaffold(
+  appBar: AppBar(
+    title: Text('My App'),
+  ),
+  body: Center(
+    child: Text('Hello, world!'),
+  ),
+  floatingActionButton: FloatingActionButton(
+    child: Icon(Icons.add),
+    onPressed: () => print('Add button pressed'),
+  ),
+  drawer: Drawer(
+    child: ListView(
+      children: [
+        DrawerHeader(
+          child: Text('Drawer Header'),
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
+        ),
+        ListTile(
+          title: Text('Item 1'),
+          onTap: () => print('Item 1 pressed'),
+        ),
+        ListTile(
+          title: Text('Item 2'),
+          onTap: () => print('Item 2 pressed'),
+        ),
+      ],
+    ),
+  ),
+  bottomNavigationBar: BottomNavigationBar(
+    items: [
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'Home',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.settings),
+        label: 'Settings',
+      ),
+    ],
+    onTap: (index) => print('Tab $index pressed'),
+  ),
+),
+
+
+Column(
+ 
+      children: <Widget>[
+ 
+        SizedBox(
+ 
+          height: 30,
+ 
+        ),
+ 
+        Placeholder(
+ 
+          color: Colors.red,
+ 
+          strokeWidth: 4,
+ 
+          fallbackWidth: 100,
+ 
+          fallbackHeight: 100,
+ 
+        ),
+ 
+        SizedBox(
+ 
+          height: 20,
+ 
+        ),
+ 
+        Container(
+ 
+          constraints: BoxConstraints.expand(
+ 
+            height: 100,
+ 
+            width: 100,
+ 
+          ),
+ 
+          child: Placeholder(
+ 
+            color: Colors.blueAccent,
+ 
+            strokeWidth: 4,
+ 
+            fallbackWidth: 10,
+ 
+            fallbackHeight: 100,
+ 
+          ),
+ 
+        ),
+ 
+      ],
+ 
+    );
+
+
+
+ TextButton(
+  style: 
+  onPressed: () { },
+  child: Text('Text Button"),
+)
+ElevatedButton(
+  style: 
+  onPressed: () { },
+  child: Text('ElevatedButton"),
+)
+ OutlinedButton
+ ( onPressed: () {}, 
+  child:   Text("OutlinedButton"),
+   )
+IconButton( 
+      icon: Icon(Icons.search),
+      onPressed: () => print('Search button pressed'),
+    )
+https://codewithflutter.com/create-outlined-button-in-flutter-outlinedbutton-widget/
+
+
+
+
+
+
+
+InkWell(
+          onTap: () {
+            print('InkWell tapped!');
+          },
+          child: Container(
+            padding: EdgeInsets.all(12.0),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Text(
+              'Tap me!',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        )
+
+ 
+
+ Text(
+              'Tap me!',
+              style: TextStyle(color: Colors.white),
+            )
+
+        TextField(
+          decoration: InputDecoration
+         (  
+          border: OutlineInputBorder(),  
+          labelText: 'User Name',  
+          hintText: 'Enter Your Name',  
+          )     
+          )    )
+
+         Padding(  
+                  padding: EdgeInsets.all(15), 
+                       )
+
+
+
+
+
+
+
+import 'package:flutter/material.dart';
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'SnackBar Example',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('SnackBar Example'),
+        ),
+        body: Center(
+          child: ElevatedButton(
+            child: Text('Show SnackBar'),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Hello, SnackBar!'),
+                  duration: Duration(seconds: 3),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+import 'package:flutter/material.dart';
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'AlertDialog Example',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('AlertDialog Example'),
+        ),
+        body: Center(
+          child: ElevatedButton(
+            child: Text('Show AlertDialog'),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Alert!'),
+                    content: Text('This is an example of an AlertDialog.'),
+                    actions: [
+                      TextButton(
+                        child: Text('OK'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

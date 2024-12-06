@@ -1,0 +1,95 @@
+
+
+npm install @nextui-org/react framer-motion
+@clerk/nextjs
+axios
+dayjs
+mongoose
+react-hot-toast
+
+
+interfaces
+helpers
+providers
+database
+components
+models
+use client";
+import React from "react";
+import { NextUIProvider } from "@nextui-org/react";
+
+type UIThemeProviderProps = {
+  children: React.ReactNode;
+};
+
+const UIThemeProvider = ({ children }: UIThemeProviderProps) => {
+  return <NextUIProvider>{children}</NextUIProvider>;
+};
+
+export default UIThemeProvider;
+
+import { Button } from '@nextui-org/button'
+
+export default function Home() {
+  return (
+    <>
+    <div className="flex items-center justify-center h-screen">
+      <h2 className="font-bold text-4xl text-green-500">
+        Welcome Now to Wasan Events </h2>
+        <div className='p-10'>
+        <Button color='primary' variant='ghost'>Primary Button</Button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button color='success' variant="ghost" size='lg'>Success Button</Button>
+        </div>
+      
+    </div>
+    </>
+  )
+     
+        
+  
+}
+import { authMiddleware } from "@clerk/nextjs";
+ 
+// This example protects all routes including api/trpc routes
+// Please edit this to allow other routes to be public as needed.
+// See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your Middleware
+export default authMiddleware({
+publicRoutes : ['/']
+});
+ 
+export const config = {
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

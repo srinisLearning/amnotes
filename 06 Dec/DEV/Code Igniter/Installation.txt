@@ -1,0 +1,59 @@
+Download the Code Igniter and extract it and place it htdocs of xampp
+rename  env file to .env
+change environment to development
+Create a database
+add databae details to .env file
+in app.php 
+  1) change the url of  public string $baseURL = 'http://localhost:8080/' to http://localhost/<project_url>
+  2) change  public string $indexPage = 'index.php'; to  public string $indexPage = ' '
+   3) change   public string $uriProtocol  to  'PATH_INFO'; 
+
+copy index.php
+
+change FCPATH
+
+
+npm install -D tailwindcss
+npx tailwindcss init
+
+-
+@tailwind base;
+@tailwind components; 
+@tailwind utilities;
+
+-
+/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./app/Views/**/*.{html,js,php}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+
+
+composer create-project codeigniter4/appstarter <project-folder-name>
+
+rename env file
+
+change the return type of Home Controller
+
+php spark  serve
+
+composer require codeigniter4/shield
+php spark shield:setup
+
+After installing CI using composer do the following to remove public from the url
+
+1) app->config->app.php
+change $baseUrl to   = 'http://localhost/project_root';
+
+2) move htaccess and index.php from public folder to root
+
+3) in index.php change FCPATH to
+require FCPATH . 'app/Config/Paths.php';
+
+
+https://www.youtube.com/watch?v=96vDcjh3a9w

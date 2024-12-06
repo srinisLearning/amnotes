@@ -1,0 +1,85 @@
+https://www.shopify.com/partners/shopify-cheat-sheet?shpxid=f7a26226-6157-472C-096F-F47DBE6BC8DD
+
+https://shopify.dev/docs/api/liquid
+
+
+
+
+
+
+
+Objects. Tags, Filters 
+Oblects {{ }} used to output pieces of data, 
+Tags {% %} are the programing logic that tells the template what to do,
+Control , Iteration, Theme , Variable
+Theme 
+Variable
+{% assign %}
+{% capture %}
+...............
+{% endcapture %}
+Filers  are methods that modify the value or output of an object
+{{ product.title | filter }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

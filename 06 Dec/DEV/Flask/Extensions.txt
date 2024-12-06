@@ -1,0 +1,51 @@
+Flask Mails : Provides SMTP interface to flask applications
+Flask SQLAlchemy adds SQLAlchemy support to Flask application
+Flask WTF : Adds rendering and validation for WTForms
+Flask Sijax Interface for Sijax -Python /jQuery Library that makes AJAX easy to use in web applciations
+
+
+1. Flask-RESTful: This extension provides an easy way to create RESTful APIs with Flask.
+
+2. Flask-WTF: This extension provides integration with the WTForms library, which simplifies form creation and validation.
+
+3. Flask-SQLAlchemy: This extension provides an easy way to use the SQLAlchemy ORM with Flask to work with relational databases.
+
+4. Flask-Login: This extension provides user authentication and session management for Flask applications.
+
+5. Flask-Admin: This extension provides a simple and easy-to-use interface for managing data in the backend of Flask applications.
+
+6. Flask-Caching: This extension provides caching functionality for Flask applications to improve performance.
+
+7. Flask-Mail: This extension provides an easy way to send emails from Flask applications.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

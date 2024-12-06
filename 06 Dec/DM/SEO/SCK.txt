@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+
+
+
+
+
+ Hreflang tag is an HTML attribute used to tell search engines which language and country your content is intended for. 
+
+It helps search engines show the right version of your website to the right audience in different regions, thereby improving your website's visibility and search engine rankings.
+
+For instance, if you have a website that targets users in the United States and also users in France, you can use hreflang tags to indicate the relevant content for each audience.
+
+Here’s an example - 
+
+<link rel="alternate" hreflang="en-us" href="https://www.example.com/us/" />
+
+<link rel="alternate" hreflang="fr-fr" href="https://www.example.com/fr/" />
+In the above example, the first line indicates that the content on the page is intended for users in the United States, and the second line indicates that the content on the page is intended for users in France.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

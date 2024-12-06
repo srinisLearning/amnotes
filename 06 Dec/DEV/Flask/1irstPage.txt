@@ -1,0 +1,47 @@
+python -m venv env
+env\Scripts\activate
+deactivate
+flask run
+ pip3 install pyyaml==5.4.1
+pip3 install pyyaml
+pip3 install flask-mysqldb
+
+abort(401)
+
+from flask import Falsk,escape, request
+@app.route('/')
+def hello():
+ name = request.args.get("name","World");
+return f"Hello,(escape(name))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

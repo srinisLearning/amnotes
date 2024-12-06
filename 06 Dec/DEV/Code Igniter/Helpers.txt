@@ -1,0 +1,376 @@
+Url Helper
+// Load the URL helper
+helper('url');
+
+// Example usage of the base_url() function
+echo base_url(); // Outputs the base URL of your CodeIgniter application
+
+
+
+$url = site_url('controller/method'); echo $url;
+
+
+ Form Helper 
+// Load the Form helper
+helper('form');
+
+// Example usage of form_open() function
+echo form_open('controller/method'); // Outputs an opening form tag with appropriate action attribute
+
+
+echo form_input('username', '', 'placeholder="Username"');
+
+
+Array Helper
+// Load the Array helper
+helper('array');
+
+// Example usage of the element() function
+$data = array('name' => 'John', 'age' => 30);
+echo element('name', $data); // Outputs 'John'
+
+
+
+$array = ['name' => 'John', 'age' => 30]; if (array_key_exists('name', $array)) { echo 'Key "name" exists in the array.'; }
+
+
+String Helper
+// Load the String helper
+helper('string');
+
+// Example usage of the random_string() function
+echo random_string('alnum', 8); // Outputs a random alphanumeric string of length 8
+
+
+
+
+$uppercaseString = strtoupper('hello'); 
+echo $uppercaseString; // Output: HELLO
+
+
+File Helper
+// Load the File helper
+helper('file');
+
+// Example usage of the read_file() function
+$file_content = read_file('/path/to/file.txt');
+echo $file_content; // Outputs the contents of the file.txt
+
+
+// Load the File Helper
+helper('file');
+
+// Example: Read contents of a file
+$fileContent = read_file('/path/to/file.txt');
+echo $fileContent;
+
+
+
+
+// Load the Security helper
+helper('security');
+
+// Example usage of the xss_clean() function
+$data = $this->request->getPost('input_field');
+$data_cleaned = xss_clean($data); // Cleans the data to prevent XSS attacks
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    
+    <?php
+    // Load form helper
+    echo form_open('register/submit'); // 'register/submit' is the form action URL
+    ?>
+
+    <!-- Name Field -->
+    <p>
+        <?php 
+        echo form_label('Name:', 'name'); 
+        echo form_input([
+            'name' => 'name', 
+            'id' => 'name', 
+            'value' => set_value('name'), 
+            'required' => 'required'
+        ]);
+        echo form_error('name');
+        ?>
+    </p>
+
+    <!-- Email Field -->
+    <p>
+        <?php 
+        echo form_label('Email:', 'email'); 
+        echo form_input([
+            'type' => 'email',
+            'name' => 'email', 
+            'id' => 'email', 
+            'value' => set_value('email'), 
+            'required' => 'required'
+        ]);
+        echo form_error('email');
+        ?>
+    </p>
+
+    <!-- Mobile Field -->
+    <p>
+        <?php 
+        echo form_label('Mobile:', 'mobile'); 
+        echo form_input([
+            'type' => 'tel',
+            'name' => 'mobile', 
+            'id' => 'mobile', 
+            'pattern' => '[0-9]{10}', 
+            'value' => set_value('mobile'), 
+            'required' => 'required',
+            'title' => 'Mobile number must be 10 digits'
+        ]);
+        echo form_error('mobile');
+        ?>
+    </p>
+
+    <!-- Password Field -->
+    <p>
+        <?php 
+        echo form_label('Password:', 'password'); 
+        echo form_password([
+            'name' => 'password', 
+            'id' => 'password', 
+            'required' => 'required',
+            'minlength' => 8,
+            'title' => 'Password must be at least 8 characters long'
+        ]);
+        echo form_error('password');
+        ?>
+    </p>
+
+    <!-- Confirm Password Field -->
+    <p>
+        <?php 
+        echo form_label('Confirm Password:', 'cpassword'); 
+        echo form_password([
+            'name' => 'cpassword', 
+            'id' => 'cpassword', 
+            'required' => 'required'
+        ]);
+        echo form_error('cpassword');
+        ?>
+    </p>
+
+    <!-- Submit Button -->
+    <p>
+        <?php echo form_submit('submit', 'Register'); ?>
+    </p>
+
+    <?php echo form_close(); ?>
+</body>
+</html>
+
+public function submit() {
+    $this->load->library('form_validation');
+    
+    // Set validation rules
+    $this->form_validation->set_rules('name', 'Name', 'required');
+    $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+    $this->form_validation->set_rules('mobile', 'Mobile', 'required|numeric|exact_length[10]');
+    $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
+    $this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|matches[password]');
+
+    if ($this->form_validation->run() == FALSE) {
+        // Reload the form with validation errors
+        $this->load->view('registration_form');
+    } else {
+        // Process the form data
+        // For example, insert into the database or send to another controller
+        echo "Form submitted successfully!";
+    }
+}
+
+
+
+
+Form Helper 
+
+
+form_open(): Generates an opening form tag with the specified attributes.
+echo form_open('controller/method', 'class="form-class"');
+
+
+form_close(): Generates a closing form tag.
+echo form_close();
+
+
+form_input(): Generates an input field.
+echo form_input('username', '', 'placeholder="Username"');
+
+
+form_password(): Generates a password input field.
+echo form_password('password', '', 'placeholder="Password"');
+
+
+form_hidden(): Generates a hidden input field.
+echo form_hidden('user_id', '123');
+
+
+form_textarea(): Generates a textarea.
+echo form_textarea('description', '', 'placeholder="Description"');
+
+
+form_dropdown(): Generates a dropdown menu.
+$options = array('small' => 'Small', 'medium' => 'Medium', 'large' => 'Large');
+echo form_dropdown('size', $options, 'medium');
+
+
+form_checkbox(): Generates a checkbox input field.
+echo form_checkbox('agree', 'yes', true);
+
+
+form_radio(): Generates a radio button input field.
+echo form_radio('gender', 'male', true);
+
+
+form_submit(): Generates a submit button.
+echo form_submit('submit', 'Submit', 'class="submit-button"');
+
+
+form_reset(): Generates a reset button.
+echo form_reset('reset', 'Reset', 'class="reset-button"');
+
+
+form_button(): Generates a generic button.
+echo form_button('button', 'Click Me', 'class="custom-button"');
+
+form_label(): Generates a label.
+echo form_label('Username', 'username');
+
+set_value(): Retrieves the value from a form field after a failed validation attempt.
+echo set_value('username');
+
+
+set_select(): Sets the selected value in a dropdown menu.
+echo set_select('size', 'medium');
+
+
+set_checkbox(): Sets the checked state of a checkbox or radio button.
+echo set_checkbox('agree', 'yes', true);
+
+set_radio(): Sets the checked state of a radio button.
+echo set_radio('gender', 'male', true);
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    
+    <?php
+    // Load form helper
+    echo form_open('register/submit'); // 'register/submit' is the form action URL
+    ?>
+
+    <!-- Name Field -->
+    <p>
+        <?php 
+        echo form_label('Name:', 'name'); 
+        echo form_input([
+            'name' => 'name', 
+            'id' => 'name', 
+            'value' => set_value('name'), 
+            'required' => 'required'
+        ]);
+        echo form_error('name');
+        ?>
+    </p>
+
+    <!-- Email Field -->
+    <p>
+        <?php 
+        echo form_label('Email:', 'email'); 
+        echo form_input([
+            'type' => 'email',
+            'name' => 'email', 
+            'id' => 'email', 
+            'value' => set_value('email'), 
+            'required' => 'required'
+        ]);
+        echo form_error('email');
+        ?>
+    </p>
+
+    <!-- Mobile Field -->
+    <p>
+        <?php 
+        echo form_label('Mobile:', 'mobile'); 
+        echo form_input([
+            'type' => 'tel',
+            'name' => 'mobile', 
+            'id' => 'mobile', 
+            'pattern' => '[0-9]{10}', 
+            'value' => set_value('mobile'), 
+            'required' => 'required',
+            'title' => 'Mobile number must be 10 digits'
+        ]);
+        echo form_error('mobile');
+        ?>
+    </p>
+
+    <!-- Password Field -->
+    <p>
+        <?php 
+        echo form_label('Password:', 'password'); 
+        echo form_password([
+            'name' => 'password', 
+            'id' => 'password', 
+            'required' => 'required',
+            'minlength' => 8,
+            'title' => 'Password must be at least 8 characters long'
+        ]);
+        echo form_error('password');
+        ?>
+    </p>
+
+    <!-- Confirm Password Field -->
+    <p>
+        <?php 
+        echo form_label('Confirm Password:', 'cpassword'); 
+        echo form_password([
+            'name' => 'cpassword', 
+            'id' => 'cpassword', 
+            'required' => 'required'
+        ]);
+        echo form_error('cpassword');
+        ?>
+    </p>
+
+    <!-- Submit Button -->
+    <p>
+        <?php echo form_submit('submit', 'Register'); ?>
+    </p>
+
+    <?php echo form_close(); ?>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

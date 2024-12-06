@@ -1,0 +1,13 @@
+ $(document).ready(function () {
+  
+            $('#div-1').click(function () {
+  
+                $(this).load('div-1.html');
+            });
+  
+            $('#div-2').click(function () {
+                $(this).load('div-2.html');
+            });
+        });
+
+

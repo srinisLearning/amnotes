@@ -1,0 +1,103 @@
+
+
+
+
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+ <title><?= $this->renderSection("title") ?></title>
+ </head>
+ <body>
+
+ <?= $this->renderSection("content") ?>
+
+ </body>
+ </html>
+-
+<?= $this->extend("layouts/default") ?>
+
+ <?= $this->section("title") ?>Tasks<?= $this->endSection() ?>
+
+ <?= $this->section("content") ?>
+
+ <h1>Tasks</h1>
+
+ <?= $this->endSection() ?>
+
+-
+
+?= $this->extend('default') ?>
+
+<?= $this->section('content') ?>
+    <h1>Hello World!</h1>
+
+    <?= $this->include('sidebar') ?>
+<?= $this->endSection() ?>
+
+
+
+TABLE
+
+<?php
+
+namespace App\Controllers;
+use CodeIgniter\View\Table;
+
+class TableController extends BaseController
+{
+    public function index()
+    {
+        $table = new Table();
+        $table->setHeading('Name','City','State');
+        $template = [
+            'table_open' => '<table border="1" cellpadding="5" cellspacing="5">',
+        
+            'thead_open'  => '<thead>',
+            'thead_close' => '</thead>',
+        
+            'heading_row_start'  => '<tr>',
+            'heading_row_end'    => '</tr>',
+            'heading_cell_start' => '<th>',
+            'heading_cell_end'   => '</th>',
+        
+            'tfoot_open'  => '<tfoot>',
+            'tfoot_close' => '</tfoot>',
+        
+            'footing_row_start'  => '<tr>',
+            'footing_row_end'    => '</tr>',
+            'footing_cell_start' => '<td>',
+            'footing_cell_end'   => '</td>',
+        
+            'tbody_open'  => '<tbody>',
+            'tbody_close' => '</tbody>',
+        
+            'row_start'  => '<tr>',
+            'row_end'    => '</tr>',
+            'cell_start' => '<td>',
+            'cell_end'   => '</td>',
+        
+            'row_alt_start'  => '<tr>',
+            'row_alt_end'    => '</tr>',
+            'cell_alt_start' => '<td>',
+            'cell_alt_end'   => '</td>',
+        
+            'table_close' => '</table>',
+        ];
+        
+        $table->setTemplate($template);
+        $data = [
+
+         //   ['Name', 'City','State'],
+            ['Fred','Hyderabad','TS'],
+            ['Mary','Kolkata','WS'],
+            ['Jhon','Mumbai','GS']
+        ];   
+        $table->addRow(['Srini','Chennai','TN']);
+        print $table->generate($data);
+    }
+}
+
+  <img src="<?= base_url('public/assets/images/hero_bg_1.jpg') ?>" alt="Image" class="img-fluid rounded mb-4">
+if composer
+ <img src="<?= base_url('assets/images/hero_bg_1.jpg') ?>" alt="Image" class="img-fluid rounded mb-4">

@@ -1,0 +1,95 @@
+
+
+
+
+
+
+
+
+
+
+
+
+ <?php if(isset(auth()->user()->username)) : ?>
+
+                  <li class="has-children">
+                    <a href=""><?= auth()->user()->username; ?></a>
+                    <ul class="dropdown arrow-top">
+                      <li><a href="#">Condo</a></li>
+                      <li><a href="#">Property Land</a></li>
+                      <li><a href="<?= base_url('logout') ?>">Logout</a></li>                     
+                    </ul>
+                  </li>
+                  
+<?php else : ?>
+                   
+                 
+                  <li><a href="<?= base_url('login')?>">Login</a></li>
+                  <li><a href="<?= base_url('register')?>">Register</a></li>
+
+ <?php endif; ?>
+
+
+npm install -D tailwindcss
+npx tailwindcss init
+
+-
+@tailwind base;
+@tailwind components; 
+@tailwind utilities;
+
+-
+/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./app/Views/**/*.{html,js,php}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

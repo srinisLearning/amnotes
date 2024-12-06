@@ -1,0 +1,93 @@
+
+ numArray = [56,89,,2,7,9,6,6,2,3,1,4,5,6,8,9,9,9,95,54,56,89,7,1,2]
+ mydictionary = dict()
+ for num in numArray:
+     if num not in mydictionary:
+         mydictionary[num] += 1
+     else:
+         mydictionary[num] += 1
+
+Remainder - I
+Dear Sir
+I have still not heard from you on copies of the sale deed. Pls note that the deeds are urgently required for my capltal gains computation . 
+Pls send them immediately
+Python Data Types 
+Number - int float
+String
+List 
+Tuple
+Dictonary
+*Shopify Development*
+
+Development Cost : Rs. 25,000
+Lead time for development :3/4  weeks from receipt of content in full 
+ once the order is confirmed on me I will send the details required 
+
+Refrence Sites:
+i) https://srinis.co.in/niba2/
+ii) https://srinis.co.in/vasan/
+
+*Note: I can take up the work only in the Week beginning July  8 as i am travelling next week*.
+
+Lambda Functions
+
+def myFunc(a,b,c):
+    return a*b+c/2
+print(myFunc(3,4,5))      
+
+myLambdaFunction = lambda a,b,c : a+b-c*2
+
+print(myLambdaFunction(5,6,7))
+
+Map Functions
+
+#map(function, iretrables)
+
+l1 = [2,3,4]
+l2 = [5,6,7]
+ 
+xyz = lambda n,m :n*m
+ 
+l3 = map(xyz,l1,l2)
+ 
+print(list(l3))
+
+#filter(function,iterables)
+numbers = [4,7,3,9,8,0,1]
+def xyz(n):
+    if n%2==0:
+        return True
+    else:
+        return False
+evenNumbers = filter(xyz,numbers)   
+print(list(evenNumbers))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

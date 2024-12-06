@@ -1,0 +1,31 @@
+What does the 'readonly' access modifier do for an array variable assignment like: `const codeNames: readonly string[] = ['Coding', 'God']`?
+Allows no changes and is there simply to be read from and not modified  
+Allows no changes and is there simply to be read from and not modified  
+False
+You can disable implicit variable type assignment by enabling the compiler option:
+noImplicitAny  
+You can enable 'undefined' and 'null' types to be accounted for by enabling the compiler property:
+strictNullChecks  
+What does the 'readonly' access modifier do for an array variable assignment like: `const codeNames: readonly string[] = ['Coding', 'God']`?
+Allows no changes and is there simply to be read from and not modified  
+TypeScript will always correctly infer the type of an array.
+False
+Interfaces are similar to type aliases, but only for object types
+True
+Numeric enums first value is defaulted to what?
+0
+True or False: Generics can not be assigned default values.
+False
+What is the type of the parameter: `function ex(param1?: string){}`?
+string | undefined  
+protected modifiers only are allowed in the inherited class.
+True
+
+
+
+
+
+
+
+
+

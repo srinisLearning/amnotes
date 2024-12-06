@@ -1,0 +1,472 @@
+
+
+-
+https://www.hostinger.in/tutorials/codeigniter-tutorial
+
+ 
+After installing CodeIgniter, it’s crucial to configure it so it works correctly. We recommend starting by creating a .htaccess file and pasting this snippet into it:
+RewriteEngine on
+R
+RewriteCond %{REQUEST_URI} !^public
+R
+RewriteRule ^(.*)$ public/$1 [L]
+These .htaccess rules will make the CodeIgniter website URL look like this:
+https://yourdomain.com 
+Instead of:
+https://yourdomain.com/public
+After that, proceed with the advanced configuration.
+
+<a href="<?= print url_to('getAllCategories', $category['category'] ) ?>"><strong> <?= $category['category'] ?>
+
+
+
+
+
+
+xampp mysql error
+https://www.youtube.com/watch?v=EPNWxjriRuI
+
+https://www.youtube.com/watch?v=C8oRof2Zbag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Codeigniter Docs
+
+Cheat Sheets
+Migration :  https://codeigniter4.github.io/userguide/dbmgmt/migration.html
+https://cheatography.com/tinhvy/cheat-sheets/codeigniter4-for-beginners/
+Database :  https://codeigniter.com/user_guide/database/examples.html
+
+Table :  https://codeigniter.com/user_guide/outgoing/table.html
+
+
+
+
+
+
+
+
+
+I have put vacating the Thiruvanmiyur residance  on hold for now.
+The house owner allowed me to bring my plumber and carry out the reapair of the tap  and requested  me not to vacate.I have also indicated to  him i will vacate as soon as my flat is ready.
+I also talked to CG and they said they would do their best to hand over the appartment by End Februay / Early March. The Structure and Block work is over . Only inner/outer  plastering, tiling,painting, electicals and plumbing is left which i feel can be completed in 3/4 months time
+
+
+
+
+
+
+
+
+
+ Installation
+
+ download->extract->copy to server location
+
+
+  
+Controllers
+
+ .<?php
+
+namespace App\Models;
+use CodeIgniter\Model;
+
+class UserModel extends Model{
+    public $db;
+    public function __construct(){
+        $this->db = \Config\Database::connect();
+    }
+
+     public function getAllUsers(){
+
+     }
+
+
+}
+
+
+?>
+
+ <?php 
+    namespace App\Controllers;
+    Use CodeIgniter\Controller;
+
+Class Helloworld extends Controller {
+
+   public function index(){
+     print “hello world’
+ }
+
+}
+
+?>
+
+
+ remap method
+
+   public function _remap($method,$param1=null,$param2=null) {
+
+             if(method_exists($this, $method)){
+                  return $this->$method($param1, $param2);   
+             }
+             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+ }
+
+ namespace App\Controllers;
+ class Blog extends BaseController{
+
+     public function index(){
+             
+                print view('blog_header');
+                print view('blog_view');
+                            print view('blog_footer');
+     }
+ }
+
+
+
+
+
+ 
+
+ composer create-project codeigniter4/appstarter [project name]
+
+Change the env file to .env
+
+CI_ENVIRONMENT = development
+
+php spark serve
+
+http://localhost:8080                             
+
+-
+
+Codeigniter urls
+
+The first segment controller
+The second segment method
+The third and any additional segments should be ID and any other variables that should be passed to the controller.
+-
+
+Controllers
+
+namespace Controllers/app
+Use Codeigniter\Controller
+-
+public function _remap($method $param1=null,$param2=null){
+if(method_exists($this,$method)
+  {
+     return $this->method($param1, $param2)
+
+   }
+else
+  {
+     $this->index();
+   }
+}
+
+Layouts
+
+ https://codeigniter.com/user_guide/outgoing/view_layouts.html
+
+ <?=  $this->extend(‘base_layout’) ?>
+<?=   $this->section(‘content’) ?>
+<?=   $this->endSection()  ?> 
+-
+
+
+<?=   $this->renderSection(‘content’) ?>
+
+-
+
+<?=  $this->include(‘partials/features’) ?>
+
+<?= base_url();  ?>
+
+
+
+
+ 
+
+ Routes
+
+ $routes->add(‘codeigniter-4-training’,’Home::training’)
+
+
+ $routes->group(‘api’,function($routes){
+
+$routes->get(‘create-user’,’Site::createMethod’);
+$routes->get(‘list-user’,Site::listMethod);
+
+
+
+});
+
+
+
+
+
+
+
+
+ Databases
+
+ <?php
+
+namespace App\Controllers;
+use \Config\Database;
+
+class Data extends BaseController
+{
+    public function index()
+    {
+           return view('dataview');       
+         
+    }
+    public function checkConn(){
+        $db = Database::connect();
+        print_r($db);        
+    }
+
+
+
+    public function fetchUsers(){
+         $db = Database::connect("usersdb");
+         $query = $db->query("select name,email,mobile from users");
+         $result = $query->getResult();
+         print "<pre>";
+         print_r($result);
+     }
+
+     public function fetchMobiles(){
+        $db = Database::connect("mobilesdb");
+        $query = $db->query("select name,price from models");
+        $result = $query->getResult();
+        print "<pre>";
+        print_r($result);
+    }
+}
+
+ public function __construct(){
+
+$this->db = db_connect();
+$this->table= $this->db->table(“TABLE_NAME”);
+
+}
+ insertBatch() to insert multiple records
+
+
+
+
+
+ Code Snippet
+
+ TestLibrary.php
+<?php
+
+namespace App\Libraries;
+use \Config\Database;
+
+class TestLibrary{
+    public $db;
+
+     public function __construct(){
+        $this->db = Database::connect();
+     }
+    public function getData(){
+        print 'Welcome to the Custom Library';
+    }
+
+    public function getDames(){
+        return $this->db->query("select * from mydames")->getResultArray();
+    }
+}
+
+
+
+
+
+
+
+
+UserModel.php
+<?php
+namespace App\Models;
+use CodeIgniter\Model;
+use \Config\Database;
+
+class UserModel extends Model{
+    public $db;
+    public function __construct(){
+        $this->db =  Database::connect();
+    }
+
+    public function getAllUsers(){
+        $query = $this->db->query("SELECT * FROM myusers");
+        $result = $query->getResult();
+        if(count($result) > 0){
+            return $result;
+        }
+        else{
+            return false;
+        }
+    }
+
+}
+
+?>
+
+-
+
+
+
+
+
+
+StudentModel.php
+<?php
+ namespace App\Models;
+ use CodeIgniter\Model;
+   class SubjectModel extends Model {  
+    public function getAllSubjects(){
+        $subjects = [
+           ['subject'=>'HTML','abbr' =>'Hyper Text Markup Language'],
+           ['subject'=>'CSS','abbr' =>'Cascading Style Sheets'],
+           ['subject'=>'JSON','abbr' =>'JavaScript Object Notation'],
+           ['subject'=>'AJAX','abbr' =>'Asynchronous JavaScript and XML'],
+           ['subject'=>'PHP','abbr' =>'Hypertext Preprocessor'],
+
+        ];
+        return $subjects;
+    } 
+     
+ }
+
+?>
+
+-
+
+
+DataDemo.php
+
+ <?php
+namespace App\Controllers;
+use App\Libraries\TestLibrary;
+use App\Models\SubjectModel;
+use App\Models\UserModel;
+
+class DataDemo extends BaseController
+{
+
+     public $mytest;
+     public $sm;
+     public $um;
+     public function __construct() {
+         $this->mytest  = new TestLibrary();
+         $this->sm = new SubjectModel();
+         $this->um = new UserModel();       
+         
+     }
+    public function index()
+    {
+        return  'datademo';
+    }
+
+    public function addNums($num1, $num2){
+        $sum = $num1 + $num2;
+        print "The sum is " .$sum;
+    }
+
+    
+ public function displayTestData(){
+        
+       $this->mytest->getData();
+    }
+
+    public function displayDames(){
+        $data = $this->mytest->getDames();
+        print_r($data);
+    }
+
+    public function getAllSubjects(){
+        $data['subjects'] = $this->sm->getAllSubjects();
+         return view('subjectsview',$data);
+    }
+
+    public function getAllUsers(){
+        $data['users'] = $this->um->getAllUsers();
+      //  print_r($data['users']);
+        return view('usersview',$data);
+    }
+}
+
+
+
+
+subjectview.php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject list</title>
+</head>
+<body>
+    <h3>All Subjects</h3>
+     <?php foreach($subjects as $sub): ?>
+        <?= $sub['subject'] ?> : <?= $sub['abbr'] ?><br />
+        
+
+
+    <?php endforeach; ?>
+    
+</body>
+</html>
+ userview.php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users List</title>
+</head>
+<body>
+    <h3>Users List </h3>
+
+    <table> 
+        <tr><th>Name</th><th>E - Mail </th><th>Mobile </th><th>City</th><th> Profession</th></tr>
+        <?php foreach($users as $user): ?>
+            <tr> 
+             <td><?= $user->name  ?></td> 
+             <td><?= $user->email  ?></td> 
+             <td><?=  $user->mobile ?></td> 
+             <td><?=  $user->city?></td> 
+             <td><?= $user->profession  ?></td> 
+            </tr>
+
+        <?php endforeach; ?>
+    </table>
+</body>
+</html>
+
+
+  
+

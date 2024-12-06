@@ -1,0 +1,1709 @@
+ADD RESTAURANT
+
+
+/* eslint-disable */
+
+<template>
+  <Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" />
+  <div>
+    <h3 class="text-success text-center m-3">ADD RESTAURANT</h3>
+    <form id="addrest">
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+            <label for="name">Restaurant Name</label>
+            <input
+              type="text"
+              id="name"
+              v-model.trim="name"
+              :class="{ invalid: nameError }"
+            />
+            <p v-if="nameError" class="error">Name is required</p>
+          </div>
+          <div>
+            <label for="name">Contact Person</label>
+            <input
+              type="text"
+              id="Contact Person"
+              v-model.trim="contactPerson"
+              :class="{ invalid: contactPersonError }"
+            />
+            <p v-if="contactPersonError" class="error">
+              ContactPerson is required
+            </p>
+          </div>
+
+          <div>
+            <label for="mobile">Mobile</label>
+            <input
+              type="tel"
+              id="mobile"
+              v-model.trim="mobile"
+              :class="{ invalid: mobileError }"
+            />
+            <p v-if="mobileError" class="error">
+              Valid mobile number is required
+            </p>
+          </div>
+          <div>
+            <label for="landline">Landline</label>
+            <input
+              type="tel"
+              id="landline"
+              v-model.trim="landline"
+              :class="{ invalid: landlineError }"
+            />
+            <p v-if="landlineError" class="error">
+              Valid landline number is required
+            </p>
+          </div>
+          <div>
+            <label for="email">E-Mail</label>
+            <input
+              type="email"
+              id="email"
+              v-model.trim="email"
+              :class="{ invalid: emailError }"
+            />
+            <p v-if="emailError" class="error">Valid email is required</p>
+          </div>
+          <div>
+            <label for="website">Website</label>
+            <input
+              type="text"
+              id="website"
+              v-model="website"
+              placeholder="Optional Parameter"
+              :class="{ invalid: websiteError }"
+            />
+
+            <p v-if="websiteError" class="error">Website type is required</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div>
+            <label for="city">City</label>
+
+            <select v-model="city" name="city" class="m-2" style="width: 50%">
+              <option value="none">None</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Bangalore">Bangalore</option>
+            </select>
+
+            <p v-if="cusineTypeError" class="error">Cuisine type is required</p>
+          </div>
+          <div>
+            <label for="location">Location</label>
+
+            <input
+              type="text"
+              name="loocation"
+              id="location"
+              v-model.trim="location"
+            />
+
+            <p v-if="locationError" class="error">Location is required</p>
+          </div>
+          <div>
+            <label for="food-type">Food Type</label>
+            <div id="food-type">
+              <div>
+                <input
+                  type="radio"
+                  id="veg"
+                  name="food-type"
+                  value="Vegetarian"
+                  v-model="foodType"
+                />
+                Vegetarian
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="non-veg"
+                  name="food-type"
+                  value="Non Vegetarian"
+                  v-model="foodType"
+                />
+                Non-Vegetarian
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="both"
+                  name="food-type"
+                  value="Veg & Non Veg"
+                  v-model="foodType"
+                />
+                Veg & Non Veg
+              </div>
+            </div>
+            <p v-if="foodTypeError" class="error">Food type is required</p>
+          </div>
+          <div id="cusine_type">
+            <label for="cusine-type">Cusine Type</label>
+
+            <select
+              v-model="cusineType"
+              name="cusineType"
+              class="m-2"
+              style="width: 50%"
+            >
+              <option value="none">None</option>
+              <option value="Indian">Indian</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Korean">Korean</option>
+              <option value="Thai">Thai</option>
+            </select>
+
+            <p v-if="cusineTypeError" class="error">Cuisine type is required</p>
+          </div>
+          <div>
+            <label for="image">Image:</label>
+            <input
+              type="file"
+              size="15"
+              id="image"
+              @change="onImageChange"
+            /><br />
+            <small
+              >Note: After uploading the file manually copy the uploaded files
+              to src/assets/uploads</small
+            >
+            <p v-if="imageError" class="error">
+              Image is required and must be a valid image file
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center m-3">
+          <button
+            type="button"
+            @click="submitForm"
+            class="btn btn-success mt-3"
+          >
+            Add Restaurant
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <Footer />
+</template>
+
+<script>
+import { reactive, toRefs } from "vue";
+import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
+import Header from "./Header";
+import Footer from "./Footer";
+
+export default {
+  name: "RestaurantAddForm",
+  components: {
+    Header,
+    Footer,
+  },
+  setup() {
+    const state = reactive({
+      id: uuidv4().substring(5, 14),
+      name: "",
+      contactPerson: "",
+      email: "",
+      mobile: "",
+      landline: "",
+      website: "",
+      city: "",
+      foodType: "",
+      cusineType: "",
+      image: null,
+      selectedImage: null,
+      location: "",
+
+      approved: false,
+      nameError: false,
+      contactPersonError: false,
+      emailError: false,
+      mobileError: false,
+      landlineError: false,
+      foodTypeError: false,
+      cusineTypeError: false,
+      imageError: false,
+      locationError: false,
+      websiteError: "",
+      formValid: false,
+    });
+
+    const validateName = () => {
+      state.nameError = state.name.trim() === "";
+    };
+    const validateContactPerson = () => {
+      state.contactPersonError = state.contactPerson.trim() === "";
+    };
+
+    const validateEmail = () => {
+      state.emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email.trim());
+    };
+
+    const validateMobile = () => {
+      state.mobileError = !/^(\+\d{1,3}[- ]?)?\d{10}$/.test(
+        state.mobile.trim()
+      );
+    };
+
+    const validateLandline = () => {
+      state.landlineError = state.landline.trim() < 8;
+    };
+
+    const validateFoodType = () => {
+      state.foodTypeError = state.foodType === "";
+    };
+
+    const validateCusineType = () => {
+      state.cusineTypeError = state.cusineType === "none";
+    };
+
+    const validateCity = () => {
+      state.cityError = state.city === "";
+    };
+
+    const validateImage = () => {
+      state.imageError =
+        state.image === null || !/^\w+\.(jpg|jpeg|gif|png)$/.test(state.image);
+    };
+
+    const validateLocation = () => {
+      state.locationError = state.location === "";
+    };
+
+    const onImageChange = (event) => {
+      state.image = event.target.files[0].name;
+
+      validateImage();
+    };
+    // eslint-disable-next-line no-unused-vars
+    const validateForm = () => {
+      console.log("Submit");
+      validateName();
+      if (state.nameError) {
+        alert("Error in Name");
+      }
+      validateContactPerson();
+      if (state.contactPersonError) {
+        alert("Contact Person Error");
+      }
+
+      validateEmail();
+      if (state.emailError) {
+        alert("Email Error");
+      }
+      validateMobile();
+      if (state.mobileError) {
+        alert("Mobile Error");
+      }
+      validateLandline();
+      if (state.landlineError) {
+        alert("Landline Error");
+      }
+      validateFoodType();
+      if (state.foodTypeError) {
+        alert("Food Error");
+      }
+      validateCusineType();
+      if (state.cusineTypeError) {
+        alert("Cusine Error");
+      }
+      validateCity();
+      if (state.cityError) {
+        alert("City Error");
+      }
+      validateImage();
+      if (state.imageError) {
+        alert("Image Error");
+      }
+      validateLocation();
+      if (state.locationError) {
+        alert("Location Error");
+      }
+      return (
+        !state.nameError &&
+        !state.contactPersonError &&
+        !state.emailError &&
+        !state.mobileError &&
+        !state.landlineError &&
+        !state.foodTypeError &&
+        !state.cusineTypeError &&
+        !state.cityError &&
+        !state.imageError &&
+        !state.locationError
+      );
+    };
+
+    const submitForm = async () => {
+      //   alert("validate Form" + validateForm());
+
+      if (validateForm()) {
+        try {
+          var result = await axios.post("http://localhost:3000/restaurants", {
+            id: state.id,
+            name: state.name,
+            contactPerson: state.contactPerson,
+            email: state.email,
+            mobile: state.mobile,
+            landline: state.landline,
+            website: state.website,
+            city: state.city,
+            foodType: state.foodType,
+            cusineType: state.cusineType,
+            image: state.image.name,
+            location: state.location,
+            approved: state.approved,
+          });
+        } catch (e) {
+          console.error(e);
+        }
+
+        console.warn("result", result);
+        if (result.status == 201) {
+          alert("Restaurant Successfully Added");
+        }
+      } else {
+        alert("Error submitting Form");
+      }
+      // Reset form state
+      state.id = "";
+      state.name = "";
+      (state.contactPerson = ""), (state.email = "");
+      state.mobile = "";
+      state.landline = "";
+      state.website = "";
+      state.city = "";
+      state.foodType = "";
+      state.cusineType = "";
+      state.image = null;
+      state.location = "";
+
+      state.nameError = false;
+      state.contactPresonError = false;
+      state.emailError = false;
+      state.mobileError = false;
+      state.landlineError = false;
+      state.websiteError = false;
+      state.cityError = false;
+      state.foodTypeError = false;
+      state.cusineTypeError = false;
+      state.imageError = false;
+      state.locationError = false;
+      state.approved = 0;
+
+      this.$router.push({ name: "Home" });
+    };
+
+    return {
+      ...toRefs(state),
+      onImageChange,
+      submitForm,
+    };
+  },
+};
+</script>
+<style scoped>
+form {
+  max-width: 600px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  margin: 5px;
+  padding: 0;
+}
+.invalid {
+  border: 1px solid red;
+}
+
+input[type="file"] {
+  margin: 10px auto !important;
+  width: 200px !important;
+  margin: auto;
+  font-size: 15px;
+  border: 0 !important;
+}
+</style>
+
+DETAIL RESTAURANT
+
+<template>
+ 
+<Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" />
+  <div>
+    <p class="text-center">
+      <router-link to="/" class="text-small router-link class='router-link"
+        >Back to Restaurant List</router-link
+      >
+    </p>
+    <h2 class="text-center text-success">Details Page</h2>
+    <div class="rest-detail">
+      
+      <div class="row m-2">
+        <div class="col-md-6">
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Name</div>
+            <div class="col-md-6 ">{{ restaurant.name }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Contact</div>
+            <div class="col-md-6 ">{{ restaurant.contactPerson }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Mobile</div>
+            <div class="col-md-6 ">{{ restaurant.mobile }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Landline</div>
+            <div class="col-md-6 ">{{ restaurant.landline }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">E-Mail</div>
+            <div class="col-md-6 ">{{ restaurant.email }}</div>
+          </div>
+          
+        </div>
+        <div class="col-md-6">
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Website</div>
+            <div class="col-md-6 ">{{ restaurant.website }}</div>
+          </div>
+
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">City</div>
+            <div class="col-md-6 ">{{ restaurant.city }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Location</div>
+            <div class="col-md-6  ">{{ restaurant.location }}</div>
+          </div>
+
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Food Type</div>
+            <div class="col-md-6  ">{{ restaurant.foodType }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Cusine Type</div>
+            <div class="col-md-6  ">{{ restaurant.cusineType }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div v-if="restaurant.image">
+            <img
+              :src="require(`../assets/uploads/${restaurant.image}`)"
+              class="detailImage"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</template>
+<script>
+import Header from "./Header";
+import Footer from "./Footer";
+import axios from "axios";
+export default {
+  
+  name: "Restaurant Details",
+  props: {},
+  components: {
+    Header, Footer
+  },
+  data() {
+    return {
+      restaurant: {
+        id: "",
+        name: "",
+        contactPerson: "",
+        city: "",
+        email: "",
+        landline: "",
+        website: "",
+        mobile: "",
+        foodType: "",
+        cusineType: "",
+        image: "",
+        location: "",
+      },
+    };
+  },
+  mounted: async function () {
+    this.restaurant.id = this.$route.params.id;
+    let result = await axios.get(
+      "http://localhost:3000/restaurants/" + this.$route.params.id
+    );
+    console.log(result);
+    this.restaurant = result.data;
+  },
+};
+</script>
+
+<style>
+.rest-detail {
+  width: 800px;
+  margin: 10px auto;
+  background-color: rgb(97, 202, 97);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
+  font-size:16px!important;
+  padding: 5px;
+}
+.detailImage {
+  width: 100%;
+  height: 50%!important;
+  border: 1px solid black;
+}
+</style>
+
+
+EDIT REST
+
+<template>
+  <Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" />
+  <div>
+    <p class="text-center">
+      <router-link to="/" class="text-small router-link class='router-link"
+        >Back to Restaurant List</router-link
+      >
+    </p>
+    <h3 class="text-success text-center m-3">UPDATE RESTAURANT</h3>
+    <div>
+      <form id="updaterest">
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                v-model.trim="restaurant.name"
+                :class="{ invalid: nameError }"
+              />
+            </div>
+            <div>
+              <label for="name">Contact Person:</label>
+              <input
+                type="text"
+                id="Contact Person"
+                v-model.trim="restaurant.contactPerson"
+                :class="{ invalid: contactPersonError }"
+              />
+            </div>
+
+            <div>
+              <label for="mobile">Mobile:</label>
+              <input
+                type="tel"
+                id="mobile"
+                v-model.trim="restaurant.mobile"
+                :class="{ invalid: mobileError }"
+              />
+            </div>
+            <div>
+              <label for="restaurant.landline">Landline:</label>
+              <input
+                type="tel"
+                id="landline"
+                v-model.trim="restaurant.landline"
+                :class="{ invalid: landlineError }"
+              />
+            </div>
+            <div>
+              <label for="email">E-Mail:</label>
+              <input
+                type="email"
+                id="email"
+                v-model.trim="restaurant.email"
+                :class="{ invalid: emailError }"
+              />
+            </div>
+            <div>
+              <label for="website">Website:</label>
+              <input
+                type="text"
+                id="website"
+                v-model="restaurant.website"
+                placeholder="Optional Parameter"
+                :class="{ invalid: websiteError }"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <label for="restaurant.city">City:</label>
+
+              <select
+                v-model="restaurant.city"
+                name="city"
+                class="m-2"
+                style="width: 50%"
+              >
+                <option value="none">None</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Hyderabad" selected>Hyderabad</option>
+                <option value="Bangalore">Bangalore</option>
+              </select>
+            </div>
+            <div>
+              <label for="food-type">Food Type:</label>
+              <div id="food-type">
+                <input
+                  type="radio"
+                  id="veg"
+                  name="food-type"
+                  value="Vegtarian"
+                  v-model="restaurant.foodType"
+                />
+                Vegetarian
+                <br />
+
+                <input
+                  type="radio"
+                  id="non-veg"
+                  name="food-type"
+                  value="Non Vegetarian"
+                  v-model="restaurant.foodType"
+                />
+                Non Vegetatian
+                <br />
+                <input
+                  type="radio"
+                  id="both"
+                  name="food-type"
+                  value="Veg & Non Veg"
+                  v-model="restaurant.foodType"
+                />
+                Veg & Non Veg
+              </div>
+            </div>
+            <div id="cusineType">
+              <label for="cusineType">Cusine Type:</label>
+
+              <select
+                v-model="restaurant.cusineType"
+                name="cusineType"
+                class="m-2"
+                style="width: 50%"
+              >
+                <option value="none">None</option>
+                <option value="Thai">Thai</option>
+                <option value="Indian">Indian</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Korean">Korean</option>
+              </select>
+            </div>
+            <div>
+              <label for="image">Image:</label>
+              <input
+                type="file"
+                width="15"
+                id="image"
+                @change="onImageChange"
+              />
+            </div>
+            <div>
+              <label for="location">Location:</label>
+
+              <input type="text" id="location" v-model="restaurant.location" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-center m-3">
+            <button
+              type="button"
+              @click="updateRest"
+              class="btn btn-success mt-3"
+            >
+              Update Restaurant
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <Footer />
+</template>
+
+<script>
+import axios from "axios";
+import Header from "./Header";
+import Footer from "./Footer";
+
+export default {
+  name: "RestaurantAddForm",
+  components: {
+    Header,
+    Footer,
+  },
+
+  data() {
+    return {
+      restaurant: {
+        id: "",
+        name: "",
+        contactPerson: "",
+        email: "",
+        mobile: "",
+        landline: "",
+        website: "",
+        city: "",
+        location: null,
+        foodType: "",
+        cusineType: "",
+        image: null,
+        approved: true,
+      },
+    };
+  },
+  methods: {
+    async updateRest() {
+      this.id = this.restaurant.id;
+      let result = await axios.put(
+        "http://localhost:3000/restaurants/" + this.restaurant.id,
+        {
+          name: this.restaurant.name,
+          contactPerson: this.restaurant.contactPerson,
+          mobile: this.restaurant.mobile,
+          landline: this.restaurant.landline,
+          email: this.restaurant.email,
+          website: this.restaurant.website,
+          city: this.restaurant.city,
+          location: this.restaurant.location,
+          foodType: this.restaurant.foodType,
+          cusineType: this.restaurant.cusineType,
+          image: this.restaurant.image,
+          approved: this.restaurant.approved,
+        }
+      );
+
+      // console.warn(result);
+      if (result.status == 200) {
+        alert("Updation Successfull");
+        this.$router.push({ name: "Home" });
+      } else {
+        alert("Updation Failure");
+      }
+    },
+    onImageChange(event) {
+      this.restaurant.image = event.target.files[0].name;
+    },
+  },
+
+  mounted: async function () {
+    this.restaurant.id = this.$route.params.id;
+
+    let result = await axios.get(
+      "http://localhost:3000/restaurants/" + this.$route.params.id
+    );
+    console.log(result);
+    this.restaurant = result.data;
+  },
+};
+</script>
+<style scoped>
+form {
+  max-width: 600px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+input[type="file"] {
+  margin: 10px auto !important;
+  width: 200px !important;
+  margin: auto;
+  font-size: 15px;
+  border: 0 !important;
+}
+</style>
+
+FOOTER
+
+<template>
+  <hr />
+  <div v-html="footerText" class="text-center"></div>
+  <p class="text-center">{{ footerText2 }}</p>
+</template>
+
+<script>
+export default {
+  name: "Footer",
+  data() {
+    return {
+      footerText: " <b> &#169 2023 <i>Wasan Services<i></b>",
+      footerText2: "All Rights Reserved",
+    };
+  },
+};
+</script>
+
+<style></style>
+
+HEADER
+<template>
+  <div class="row align-items-center">
+    <div class="col-md-8">
+      <h2 class="project-header-text text-center">{{ projectTitle }}</h2>
+    </div>
+    <div class="col-md-4">
+      <img :src="require(`../assets/${logo_url}`)" class="logoStyle" />
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <ul>
+      <li><router-link class="routerLink" to="/">HOME</router-link></li>
+      <!--
+     <li><router-link class="routerLink"  v-if="!isLoggedIn" to="/login">Login</router-link></li>
+     -->
+      <a
+        :href="$router.resolve({ name: 'Login' }).href"
+        class="routerLink"
+        v-if="!isLoggedIn"
+        >Login
+      </a>
+
+      <!--    
+    <li><router-link class="routerLink" v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
+      -->
+      <a
+        :href="$router.resolve({ name: 'SignUp' }).href"
+        class="routerLink"
+        v-if="!isLoggedIn"
+        >SignUp
+      </a>
+
+      <li>
+        <a href="#" v-if="isLoggedIn" class="routerLink" @click="logoutUser"
+          >Logout</a
+        >
+      </li>
+
+      <li>
+        <router-link class="routerLink" v-if="isLoggedIn" to="/addrest"
+          >Add Restaurant</router-link
+        >
+      </li>
+    </ul>
+  </nav>
+</template>
+
+<script>
+export default {
+  name: "Header",
+  props: ["projectTitle", "logo_url"],
+
+  data() {
+    return {
+      isLoggedIn: false,
+    };
+  },
+  methods: {
+    logoutUser() {
+      // alert("logoutUser");
+      localStorage.clear();
+      this.isLoggedIn = "false";
+
+      this.$router.push({ name: "Login" });
+    },
+  },
+  mounted: function () {
+    var userString = localStorage.getItem("myUser");
+    let user = JSON.parse(userString);
+    if (user) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
+  },
+};
+</script>
+
+<style>
+logoStyle {
+  width: 100px;
+  height: 100px;
+}
+
+.project-header-text {
+  color: #545454;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.navbar {
+  background-color: rgb(97, 202, 97);
+  overflow: hidden;
+  text-align: right !important;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.navbar li {
+  display: inline-block;
+}
+
+.navbar li a {
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #555;
+}
+</style>
+
+LOGIN
+<template>
+  <Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" />
+  <div id="signuppage">
+    <h3 class="text-center text-wasan-green mt-3">LOGIN</h3>
+    <form @submit.prevent="submitForm" id="login">
+      <div>
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          v-model="email"
+          :class="{ invalid: !emailValid && email.length > 0 }"
+        />
+        <p v-if="!emailValid && email.length > 0" class="error">
+          Valid domain is of format name@domain.com
+        </p>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          v-model="password"
+          :class="{ invalid: !passwordValid && password.length > 0 }"
+        />
+        <p v-if="!passwordValid && password.length > 0" class="error">
+          Valid Paaswod must be 8 characters long.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <button
+          type="submit"
+          :disabled="!formValid"
+          class="btn btn-success mt-3"
+        >
+          Login
+        </button>
+        <p v-if="!loginStatus" class="error">Invalid User Credientials</p>
+      </div>
+    </form>
+    <div class="text-center">
+      Not a User Yet!!!
+      <span>
+        <router-link class="routerLink" to="/signup">SIGN UP</router-link>
+      </span>
+    </div>
+  </div>
+  <Footer />
+</template>
+
+<script>
+import axios from "axios";
+import Header from "./Header";
+import Footer from "./Footer";
+
+export default {
+  name: "Login",
+  components: {
+    Header,
+    Footer,
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+      loginStatus: true,
+    };
+  },
+  computed: {
+    emailValid() {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+    },
+
+    passwordValid() {
+      return this.password.length >= 8;
+    },
+    formValid() {
+      return this.emailValid && this.passwordValid;
+    },
+  },
+  methods: {
+    async submitForm() {
+      if (this.formValid) {
+        try {
+          var query = `http://localhost:3000/users?email=${this.email}&password=${this.password}`;
+          var result = await axios.get(query);
+          // console.log(result);
+          if (result.status == 200 && result.data.length > 0) {
+            localStorage.setItem("myUser", JSON.stringify(result.data));
+            this.$router.push({ name: "Home" });
+          } else {
+            this.loginStatus = false;
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
+.error {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  margin: 5px;
+  padding: 0;
+}
+.invalid {
+  border: 1px solid red;
+}
+</style>
+
+
+DETAIL
+
+<template>
+ 
+<Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" />
+  <div>
+    <p class="text-center">
+      <router-link to="/" class="text-small router-link class='router-link"
+        >Back to Restaurant List</router-link
+      >
+    </p>
+    <h2 class="text-center text-success">Details Page</h2>
+    <div class="rest-detail">
+      
+      <div class="row m-2">
+        <div class="col-md-6">
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Name</div>
+            <div class="col-md-6 ">{{ restaurant.name }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Contact</div>
+            <div class="col-md-6 ">{{ restaurant.contactPerson }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Mobile</div>
+            <div class="col-md-6 ">{{ restaurant.mobile }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Landline</div>
+            <div class="col-md-6 ">{{ restaurant.landline }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">E-Mail</div>
+            <div class="col-md-6 ">{{ restaurant.email }}</div>
+          </div>
+          
+        </div>
+        <div class="col-md-6">
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Website</div>
+            <div class="col-md-6 ">{{ restaurant.website }}</div>
+          </div>
+
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">City</div>
+            <div class="col-md-6 ">{{ restaurant.city }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Location</div>
+            <div class="col-md-6  ">{{ restaurant.location }}</div>
+          </div>
+
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Food Type</div>
+            <div class="col-md-6  ">{{ restaurant.foodType }}</div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6 text-white text-bolder">Cusine Type</div>
+            <div class="col-md-6  ">{{ restaurant.cusineType }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div v-if="restaurant.image">
+            <img
+              :src="require(`../assets/uploads/${restaurant.image}`)"
+              class="detailImage"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</template>
+<script>
+import Header from "./Header";
+import Footer from "./Footer";
+import axios from "axios";
+export default {
+  
+  name: "Restaurant Details",
+  props: {},
+  components: {
+    Header, Footer
+  },
+  data() {
+    return {
+      restaurant: {
+        id: "",
+        name: "",
+        contactPerson: "",
+        city: "",
+        email: "",
+        landline: "",
+        website: "",
+        mobile: "",
+        foodType: "",
+        cusineType: "",
+        image: "",
+        location: "",
+      },
+    };
+  },
+  mounted: async function () {
+    this.restaurant.id = this.$route.params.id;
+    let result = await axios.get(
+      "http://localhost:3000/restaurants/" + this.$route.params.id
+    );
+    console.log(result);
+    this.restaurant = result.data;
+  },
+};
+</script>
+
+<style>
+.rest-detail {
+  width: 800px;
+  margin: 10px auto;
+  background-color: rgb(97, 202, 97);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
+  font-size:16px!important;
+  padding: 5px;
+}
+.detailImage {
+  width: 100%;
+  height: 50%!important;
+  border: 1px solid black;
+}
+</style>
+
+SIGN UP
+
+<template>
+  <Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" />
+  <div id="signuppage">
+    <h3 class="text-center text-wasan-green mt-3">SIGN UP</h3>
+
+    <form @submit.prevent="submitForm" id="signup">
+      <div>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          v-model="name"
+          :class="{ invalid: !nameValid && name.length > 0 }"
+        />
+        <p v-if="!nameValid && name.length > 0" class="error">
+          Valid Name must be atleast 3 characters long...
+        </p>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          v-model="email"
+          :class="{ invalid: !emailValid && email.length > 0 }"
+        />
+        <p v-if="!emailValid && email.length > 0" class="error">
+          Valid domain is of format name@domain.com
+        </p>
+      </div>
+      <div>
+        <label for="mobile">Mobile:</label>
+        <input
+          type="tel"
+          id="mobile"
+          v-model="mobile"
+          :class="{ invalid: !mobileValid && mobile.length > 9 }"
+        />
+        <p v-if="!mobileValid && mobile.length > 0" class="error">
+          Mobile Numbers should be only numbers and should be aleast 10 digits
+        </p>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          v-model="password"
+          :class="{ invalid: !passwordValid && password.length > 0 }"
+        />
+        <p v-if="!passwordValid && password.length > 0" class="error">
+          Valid Paaswod must be 8 characters long.
+        </p>
+      </div>
+      <div>
+        <label for="confirm-password">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirm-password"
+          v-model="confirmPassword"
+          :class="{ invalid: !passwordsMatch && confirmPassword.length > 0 }"
+        />
+        <p v-if="!passwordsMatch && confirmPassword.length > 0" class="error">
+          Passwords do not match.
+        </p>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success mt-3">Sign Up</button>
+      </div>
+    </form>
+
+    <div class="text-center">
+      Already an User !!!! Pls
+      <span>
+        <router-link class="routerLink" to="./login">LOGIN </router-link>
+      </span>
+    </div>
+  </div>
+  <Footer />
+</template>
+
+<script>
+import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
+import Header from "./Header";
+import Footer from "./Footer";
+export default {
+  data() {
+    return {
+      name: "",
+      email: "",
+      mobile: "",
+      password: "",
+      confirmPassword: "",
+      id: uuidv4().substring(5, 14),
+      isAdmin: 0,
+    };
+  },
+  components: {
+    Header,
+    Footer,
+  },
+  computed: {
+    nameValid() {
+      return this.name.length >= 3;
+    },
+    emailValid() {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+    },
+    mobileValid() {
+      return /^\d{10}$/.test(this.mobile);
+    },
+    passwordValid() {
+      return this.password.length >= 8;
+    },
+    passwordsMatch() {
+      return this.password === this.confirmPassword;
+    },
+    formValid() {
+      return (
+        this.nameValid &&
+        this.emailValid &&
+        this.mobileValid &&
+        this.passwordValid &&
+        this.passwordsMatch
+      );
+    },
+  },
+  methods: {
+    async submitForm() {
+      if (this.formValid) {
+        try {
+          var result = await axios.post("http://localhost:3000/users", {
+            id: this.id,
+            name: this.name,
+            email: this.email,
+            password: this.password,
+            mobile: this.mobile,
+            isAdmin: this.isAdmin,
+          });
+        } catch (e) {
+          console.log(e);
+          alert("Error Inserting Data");
+        }
+
+        console.warn("result", result);
+        if (result.status == 201) {
+          alert("User Sucessfull Registered");
+          this.$router.push({ name: "Login" });
+        } else {
+          alert("Error in Form Submission");
+        }
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
+.error {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  margin: 5px;
+  padding: 0;
+}
+.invalid {
+  border: 1px solid red;
+}
+</style>
+
+HOME 
+
+<template>
+  <Header projectTitle="Wasan Restaurant Listing" logo_url="logo.png" />
+  <div>
+    <p class="text-center">
+      <router-link to="/" class="text-small router-link class='router-link"
+        >Back to Restaurant List</router-link
+      >
+    </p>
+    <h3 class="text-success text-center m-3">UPDATE RESTAURANT</h3>
+    <div>
+      <form id="updaterest">
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                v-model.trim="restaurant.name"
+                :class="{ invalid: nameError }"
+              />
+            </div>
+            <div>
+              <label for="name">Contact Person:</label>
+              <input
+                type="text"
+                id="Contact Person"
+                v-model.trim="restaurant.contactPerson"
+                :class="{ invalid: contactPersonError }"
+              />
+            </div>
+
+            <div>
+              <label for="mobile">Mobile:</label>
+              <input
+                type="tel"
+                id="mobile"
+                v-model.trim="restaurant.mobile"
+                :class="{ invalid: mobileError }"
+              />
+            </div>
+            <div>
+              <label for="restaurant.landline">Landline:</label>
+              <input
+                type="tel"
+                id="landline"
+                v-model.trim="restaurant.landline"
+                :class="{ invalid: landlineError }"
+              />
+            </div>
+            <div>
+              <label for="email">E-Mail:</label>
+              <input
+                type="email"
+                id="email"
+                v-model.trim="restaurant.email"
+                :class="{ invalid: emailError }"
+              />
+            </div>
+            <div>
+              <label for="website">Website:</label>
+              <input
+                type="text"
+                id="website"
+                v-model="restaurant.website"
+                placeholder="Optional Parameter"
+                :class="{ invalid: websiteError }"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <label for="restaurant.city">City:</label>
+
+              <select
+                v-model="restaurant.city"
+                name="city"
+                class="m-2"
+                style="width: 50%"
+              >
+                <option value="none">None</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Hyderabad" selected>Hyderabad</option>
+                <option value="Bangalore">Bangalore</option>
+              </select>
+            </div>
+            <div>
+              <label for="food-type">Food Type:</label>
+              <div id="food-type">
+                <input
+                  type="radio"
+                  id="veg"
+                  name="food-type"
+                  value="Vegtarian"
+                  v-model="restaurant.foodType"
+                />
+                Vegetarian
+                <br />
+
+                <input
+                  type="radio"
+                  id="non-veg"
+                  name="food-type"
+                  value="Non Vegetarian"
+                  v-model="restaurant.foodType"
+                />
+                Non Vegetatian
+                <br />
+                <input
+                  type="radio"
+                  id="both"
+                  name="food-type"
+                  value="Veg & Non Veg"
+                  v-model="restaurant.foodType"
+                />
+                Veg & Non Veg
+              </div>
+            </div>
+            <div id="cusineType">
+              <label for="cusineType">Cusine Type:</label>
+
+              <select
+                v-model="restaurant.cusineType"
+                name="cusineType"
+                class="m-2"
+                style="width: 50%"
+              >
+                <option value="none">None</option>
+                <option value="Thai">Thai</option>
+                <option value="Indian">Indian</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Korean">Korean</option>
+              </select>
+            </div>
+            <div>
+              <label for="image">Image:</label>
+              <input
+                type="file"
+                width="15"
+                id="image"
+                @change="onImageChange"
+              />
+            </div>
+            <div>
+              <label for="location">Location:</label>
+
+              <input type="text" id="location" v-model="restaurant.location" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-center m-3">
+            <button
+              type="button"
+              @click="updateRest"
+              class="btn btn-success mt-3"
+            >
+              Update Restaurant
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <Footer />
+</template>
+
+<script>
+import axios from "axios";
+import Header from "./Header";
+import Footer from "./Footer";
+
+export default {
+  name: "RestaurantAddForm",
+  components: {
+    Header,
+    Footer,
+  },
+
+  data() {
+    return {
+      restaurant: {
+        id: "",
+        name: "",
+        contactPerson: "",
+        email: "",
+        mobile: "",
+        landline: "",
+        website: "",
+        city: "",
+        location: null,
+        foodType: "",
+        cusineType: "",
+        image: null,
+        approved: true,
+      },
+    };
+  },
+  methods: {
+    async updateRest() {
+      this.id = this.restaurant.id;
+      let result = await axios.put(
+        "http://localhost:3000/restaurants/" + this.restaurant.id,
+        {
+          name: this.restaurant.name,
+          contactPerson: this.restaurant.contactPerson,
+          mobile: this.restaurant.mobile,
+          landline: this.restaurant.landline,
+          email: this.restaurant.email,
+          website: this.restaurant.website,
+          city: this.restaurant.city,
+          location: this.restaurant.location,
+          foodType: this.restaurant.foodType,
+          cusineType: this.restaurant.cusineType,
+          image: this.restaurant.image,
+          approved: this.restaurant.approved,
+        }
+      );
+
+      // console.warn(result);
+      if (result.status == 200) {
+        alert("Updation Successfull");
+        this.$router.push({ name: "Home" });
+      } else {
+        alert("Updation Failure");
+      }
+    },
+    onImageChange(event) {
+      this.restaurant.image = event.target.files[0].name;
+    },
+  },
+
+  mounted: async function () {
+    this.restaurant.id = this.$route.params.id;
+
+    let result = await axios.get(
+      "http://localhost:3000/restaurants/" + this.$route.params.id
+    );
+    console.log(result);
+    this.restaurant = result.data;
+  },
+};
+</script>
+<style scoped>
+form {
+  max-width: 600px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+input[type="file"] {
+  margin: 10px auto !important;
+  width: 200px !important;
+  margin: auto;
+  font-size: 15px;
+  border: 0 !important;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

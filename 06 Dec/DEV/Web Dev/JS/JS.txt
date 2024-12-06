@@ -1,0 +1,39 @@
+
+
+
+
+
+
+https://www.w3schools.com/jsref/jsref_obj_array.asp
+var  myArray = [4,5,6.7]
+
+myArray.at(1) 
+5
+myArray.push(8)
+[4,5,6,7,8]
+
+	
+setTimeout(() => {
+  console.log("Delayed for 1 second.");
+}, "1000");
+
+fetch('https://api.example.com/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://api.example.com/data');
+xhr.onload = function() {
+  if (xhr.status === 200) {
+    console.log(xhr.responseText);
+  } else {
+    console.error(xhr.statusText);
+  }
+};
+xhr.send();

@@ -1,0 +1,772 @@
+APP.VUE
+
+/* eslint-disable */
+<template>
+  <div class="container">
+    <h3>Restaurant Listing</h3>
+    <hr />
+    <router-view />
+  </div>
+</template>
+
+<script>
+export default {
+  name: "App",
+
+  data() {
+    return {};
+  },
+};
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+  cursor: pointer;
+}
+.container {
+  margin: auto;
+  width: 700px;
+  border: 1px solid #2c3e50;
+  padding: 20px;
+  /* background-color: beige;*/
+}
+
+.routerLink {
+  text-decoration: none;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+}
+</style>
+ROUTES.JS
+
+import HomePage from "./components/HomePage";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import AddPage from "./components/AddPage";
+import UpdatePage from "./components/UpdatePage";
+import { createRouter, createWebHistory } from "vue-router";
+
+const routes = [
+  {
+    name: "HomePage",
+    component: HomePage,
+    path: "/",
+  },
+  {
+    name: "SignUp",
+    component: SignUp,
+    path: "/sign-up",
+  },
+  {
+    name: "Login",
+    component: Login,
+    path: "/login",
+  },
+  {
+    name: "AddPage",
+    component: AddPage,
+    path: "/add",
+  },
+  {
+    name: "UpdatePage",
+    component: UpdatePage,
+    path: "/update/:id",
+  },
+];
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+export default router;
+
+ MAIN.JS
+
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './routes';
+
+createApp(App).use(router).mount('#app')
+
+SIGNUP.VUE
+
+/* eslint-disable */
+<template>
+<img class='logo'  src='../assets/logo.png'/>
+  <h2> New User! Sign Up  </h2>
+   <p v-if="errors.length">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors" :key='error' class="error">{{ error }}</li>
+    </ul>
+  </p>
+  <div class="register">
+    <input type="text" v-model='name' required placeholder="Enter Name">
+    <input type="text" v-model='email' required placeholder="Enter EMail">
+    <input type="text" v-model='mobile' required placeholder="Enter Mobile">
+    <input type="password" v-model='password' required placeholder="Enter Password">
+     <input type="password" v-model='cpassword' @blur="checkPassword" required placeholder="Confirm Password">
+    <button @click='handleSignUp'>New User Sign Up </button>
+    <p>
+    <router-link to='/login' class="routerLink"> Login In</router-link>
+    </p>
+  </div>
+</template>
+
+<script>
+import { v4 as uuidv4 } from "uuid";
+import axios  from 'axios';
+export default {
+  name:'SignUp',
+  data(){
+    return{
+      errors:[],
+      name:'',
+      email:'',
+      password:'',
+      cpassword:'',
+      mobile:'',
+      id:uuidv4().substring(5,14)
+    }
+  },
+  methods:{
+
+    checkPassword(){
+      
+    },
+    validateForm(){
+      this.errors = [];      
+
+      if (!this.name) {
+        this.errors.push("Name required.");
+        return false;
+      }
+      if (!this.email) {
+        this.errors.push('Email required.');
+      }  
+
+      if (!this.mobile) {
+        this.errors.push("Mobile No required.");
+      }
+      if (!this.password) {
+        this.errors.push('Password required.');
+      } 
+
+      if (!this.errors.length) {
+        return true;
+      }
+
+
+
+    },
+     async  handleSignUp(e){
+      e.preventDefault();
+      
+        if(this.validateForm())
+        {
+     // alert('button clicked');
+      console.log(this.name,this.email,this.password, this.mobile, this.id);
+      let result  =  await axios.post("http://localhost:3000/users",{
+       id:this.id,
+       name:this.name,
+       email:this.email,
+       password:this.password,
+       mobile:this.mobile
+      });
+
+      console.warn("result",result);
+      if(result.status == 201)
+       {
+        //alert("Success");
+        
+        this.$router.push({name:'Login'});
+         
+       }
+
+    }
+     }
+    }  ,
+     mounted:function() {
+   // alert('mounted');
+       let user = localStorage.getItem('userInfo');
+       if(user){
+        this.$router.push({name:'HomePage'});
+       }
+
+    },
+   
+
+  
+}
+</script>
+
+<style>
+.logo {
+  width:150px;
+  height:150px;
+  border:1px solid #2c3e50;
+}
+
+.register input {
+  width:300px;
+  height:40px;
+  padding-left:20px;
+  display:block;
+  margin:0 auto 30px auto;
+  border:1px solid skyblue;
+
+}
+
+.register button {
+  width:300px;
+  height:40px;
+  background-color: skyblue;
+  border:1px solid skyblue;
+  color:darkblue;
+}
+
+.error{
+  color:brown;
+  font-size: 10px;
+  list-style-type:none;
+
+}
+
+ 
+</style>
+LOGIN.VUE
+
+/* eslint-disable */
+<template>
+<img class='logo'  src='../assets/logo.png'/>
+  <h2> Login </h2>
+   <p v-if="errors.length">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors" :key='error'>{{ error }}</li>
+    </ul>
+  </p>
+  <div class="login">
+     
+    <input type="text" v-model='email' required placeholder="Enter E-Mail">
+    
+    <input type="password" v-model='password' required placeholder="Ener Password">
+    <button @click='login'>Login </button>
+    <p>
+     <router-link class= 'routerLink' to='/sign-up'> Sign Up</router-link>
+     </p>
+  </div>
+</template>
+
+<script>
+ import axios  from 'axios';
+ 
+export default {
+  name:'SignUp',
+  data(){
+    return{
+      errors:[],
+      
+      email:'',
+      password:'',
+     
+      
+    }
+  },
+  methods:{
+     async  login(){
+          
+     //  alert('button clicked');
+      console.log( this.email,this.password );
+      let query = `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+      // alert(query);
+      let result = await axios.get(query);
+      console.log(result);  
+       if(result.status == 200 && result.data.length > 0) { 
+       
+           localStorage.setItem("userInfo",JSON.stringify(result.data));
+            this.$router.push({name:'HomePage'});
+    }
+      else{
+        alert('Invalid Login');
+      }
+     }
+    } 
+      
+   
+
+  
+}
+</script>
+
+<style>
+.logo {
+  width:150px;
+  height:150px;
+}
+
+.login input {
+  width:300px;
+  height:40px;
+  padding-left:20px;
+  display:block;
+  margin:0 auto 30px auto;
+  border:1px solid skyblue;
+
+}
+
+.login button {
+  width:300px;
+  height:40px;
+  background-color: skyblue;
+   border:1px solid #2c3e50;
+  color:darkblue;
+}
+</style>
+ADDPAGE.VUE
+
+/* eslint-disable */
+<template>
+  <Header />
+  <h3>ADD Restaurant</h3>
+  <form class="add">
+    <input
+      type="text"
+      v-model="restaurant.name"
+      required
+      placeholder="Enter Name"
+    />
+    <input
+      type="text"
+      v-model="restaurant.location"
+      required
+      placeholder="Enter Location"
+    />
+
+    <input
+      type="text"
+      v-model="restaurant.email"
+      required
+      placeholder="Enter EMail"
+    />
+    <input
+      type="text"
+      v-model="restaurant.mobile"
+      required
+      placeholder="Enter Mobile"
+    />
+    <input
+      type="text"
+      v-model="restaurant.website"
+      required
+      placeholder="Enter Website"
+    />
+
+    <input
+      type="text"
+      v-model="restaurant.map"
+      required
+      placeholder="Enter Map"
+    />
+    <button type="button" @click="addRestaurant">Add Restaurant</button>
+  </form>
+</template>
+
+<script>
+import Header from "./Header";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+export default {
+  name: "HomePage",
+  data() {
+    return {
+      name: "",
+      restaurant: {
+        name: "",
+        location: "",
+        email: "",
+        mobile: "",
+        website: "",
+        map: "",
+        id: uuidv4().substring(5, 14),
+      },
+    };
+  },
+  components: { Header },
+
+  methods: {
+    async addRestaurant() {
+      console.log(this.restaurant);
+      let result = await axios.post("http://localhost:3000/restaurants", {
+        id: this.restaurant.id,
+        name: this.restaurant.name,
+        email: this.restaurant.email,
+        location: this.restaurant.location,
+        mobile: this.restaurant.mobile,
+        website: this.restaurant.website,
+        map: this.restaurant.map,
+      });
+      // console.warn(result);
+      if (result.status == 201) {
+        //alert("Success");
+
+        this.$router.push({ name: "HomePage" });
+      }
+    },
+  },
+
+  mounted: async function () {
+    let result = await axios.get("http://localhost:3000/restaurants");
+    // console.log(result);
+    this.restaurants = result.data;
+  },
+};
+</script>
+
+<style>
+.add {
+  padding: 15px;
+}
+
+.add input {
+  width: 300px;
+  height: 40px;
+  padding-left: 20px;
+  display: block;
+  margin: 0 auto 30px auto;
+  border: 1px solid skyblue;
+}
+
+.add select {
+  width: 300px;
+  height: 40px;
+  padding-left: 20px;
+  display: block;
+  margin: 0 auto 30px auto;
+  border: 1px solid skyblue;
+}
+
+.add button {
+  width: 300px;
+  height: 40px;
+  background-color: skyblue;
+  border: 1px solid skyblue;
+  color: darkblue;
+}
+</style>
+
+HOMEPAGE.VUE
+
+/* eslint-disable */
+<template>
+  <Header />
+
+  <h3>Restaurant List</h3>
+
+  <table cellspacing="5" cellpadding="5" width="100%">
+    <tr v-for="item in restaurants" :key="item.id">
+      <td>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31099.627260886693!2d80.24177582761205!3d13.006773278079361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267ed15c41681%3A0x6569ce967a249e83!2sAdyar%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1678757837423!5m2!1sen!2sin"
+          width="200"
+          height="150"
+        ></iframe
+        >"
+      </td>
+      <td>
+        {{ item.name }}
+        <br />
+        <strong> {{ item.location }} </strong>
+        <br />
+        {{ item.email }}
+        <br />
+        {{ item.mobile }}
+        <br />
+        {{ item.website }}
+      </td>
+      <td>
+        <p>
+          <button>
+            <router-link :to="'/update/' + item.id" class="routerLink">
+              UPDATE
+            </router-link>
+          </button>
+        </p>
+        <p>
+          <button @click="deleteRestaurant(item.id)" type="button">
+            DELETE
+          </button>
+        </p>
+      </td>
+    </tr>
+  </table>
+</template>
+
+<script>
+import Header from "./Header";
+import axios from "axios";
+export default {
+  name: "HomePage",
+  data() {
+    return {
+      name: "",
+      restaurants: [],
+    };
+  },
+  components: { Header },
+
+  methods: {
+    async deleteRestaurant(id) {
+      //alert(id);
+      let result = await axios.delete(
+        "http://localhost:3000/restaurants/" + id
+      );
+      if (result.status == 200) {
+        location.reload();
+      }
+    },
+  },
+
+  mounted: async function () {
+    let result = await axios.get("http://localhost:3000/restaurants");
+    //  console.log(result);
+    this.restaurants = result.data;
+  },
+};
+</script>
+
+<style>
+table {
+  margin: auto;
+}
+tr {
+  height: 30px;
+}
+table tr td {
+  font-size: 15px;
+}
+</style>
+
+HEADER.VUE
+
+/* eslint-disable */
+<template>
+  <div class="nav">
+    <router-link to="/" class="routerLink">Home</router-link>
+    <router-link to="add" class="routerLink">Add Restaurant</router-link>
+
+    <a href="#" @click="logout" class="routerLink" style="float: right"
+      >Logout</a
+    >
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Header",
+  methods: {
+    logout() {
+      localStorage.clear();
+      this.$router.push({ name: "Login" });
+    },
+  },
+};
+</script>
+
+<style>
+.nav {
+  background-color: #000000;
+  overflow: hidden;
+  margin: auto;
+  text-align: center;
+}
+
+.nav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 16px 14px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.nav a:hover {
+  background-color: #ddd;
+  color: #222;
+}
+</style>
+
+UPDATEPAGE.VUE
+/* eslint-disable */
+<template>
+  <h3>Update Restaurant</h3>
+  <Header />
+  <form class="add">
+    <input
+      type="text"
+      v-model="restaurant.name"
+      required
+      placeholder="Enter Name"
+    />
+    <input
+      type="text"
+      v-model="restaurant.location"
+      required
+      placeholder="Enter Location"
+    />
+
+    <input
+      type="text"
+      v-model="restaurant.email"
+      required
+      placeholder="Enter EMail"
+    />
+    <input
+      type="text"
+      v-model="restaurant.mobile"
+      required
+      placeholder="Enter Mobile"
+    />
+    <input
+      type="text"
+      v-model="restaurant.website"
+      required
+      placeholder="Enter Website"
+    />
+
+    <input
+      type="text"
+      v-model="restaurant.map"
+      required
+      placeholder="Enter Map"
+    />
+    <button type="button" @click="updateRestaurant">Update Restaurant</button>
+  </form>
+</template>
+
+<script>
+import Header from "./Header";
+import axios from "axios";
+//import { v4 as uuidv4 } from "uuid";
+export default {
+  name: "HomePage",
+  data() {
+    return {
+      name: "",
+      restaurant: {
+        name: "",
+        location: "",
+        email: "",
+        mobile: "",
+        website: "",
+        map: "",
+        id: "",
+      },
+    };
+  },
+  components: { Header },
+
+  methods: {
+    async updateRestaurant() {
+      // console.log(this.restaurant);
+      let result = await axios.put(
+        "http://localhost:3000/restaurants/" + this.restaurant.id,
+        {
+          name: this.restaurant.name,
+          email: this.restaurant.email,
+          location: this.restaurant.location,
+          mobile: this.restaurant.mobile,
+          website: this.restaurant.website,
+          map: this.restaurant.map,
+        }
+      );
+      // console.warn(result);
+      if (result.status == 200) {
+        //alert("Success");
+
+        this.$router.push({ name: "HomePage" });
+      }
+    },
+  },
+
+  mounted: async function () {
+    // alert(this.$route.params.id);
+    this.restaurant.id = this.$route.params.id;
+    let result = await axios.get(
+      "http://localhost:3000/restaurants/" + this.$route.params.id
+    );
+    // console.log(result);
+    this.restaurant = result.data;
+  },
+};
+</script>
+
+<style>
+.add {
+  padding: 15px;
+}
+
+.add input {
+  width: 300px;
+  height: 40px;
+  padding-left: 20px;
+  display: block;
+  margin: 0 auto 30px auto;
+  border: 1px solid skyblue;
+}
+
+.add select {
+  width: 300px;
+  height: 40px;
+  padding-left: 20px;
+  display: block;
+  margin: 0 auto 30px auto;
+  border: 1px solid skyblue;
+}
+
+.add button {
+  width: 300px;
+  height: 40px;
+  background-color: skyblue;
+  border: 1px solid skyblue;
+  color: darkblue;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

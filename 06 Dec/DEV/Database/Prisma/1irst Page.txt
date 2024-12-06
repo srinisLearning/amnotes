@@ -1,0 +1,395 @@
+Prisma ORM is a database toolkit that simplifies database access in web applications. It allows developers to interact with databases using a type-safe and auto-generated API, making database operations easier and more secure.
+* Prisma server: A standalone infrastructure component sitting on top of your database.
+* Prisma client: An auto-generated library that connects to the Prisma server and lets you read, write and stream data in your database. It is used for data access in your applications.
+
+
+
+1) npm install prisma
+
+
+2) npm install @prisma/client
+
+3) npx prisma init
+
+configure the provider and the database url
+
+incase you want to provide the data source
+
+npx prisma init --datasource-provider sqlite
+
+
+
+
+.env file
+DATABASE_URL="file:./employeeDB.sqlite"
+
+
+schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+
+
+
+
+
+
+
+4) Create Model
+
+ model Employee {
+  id        Int      @id @default(autoincrement()) 
+  id       String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  mobile    String   @unique
+  sport     String
+  city      String
+  isActive  Boolean
+}
+ 
+model User {
+  id           String         @id @default(cuid()) @map("_id")
+  username     String
+  email        String         @unique
+  profilePic   String
+  isAdmin      Boolean        @default(false)
+  isActive     Boolean        @default(true)
+  clerkUserId  String         @unique
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+   
+}
+
+npm prisma db push
+
+5) npx prisma migrate dev or npx prisma generate for mongodb
+incase you want to provide the migration name
+npx prisma migrate dev --name <initialmigration>
+
+6) npx prisma studio
+
+primsa studio is up and running on port http://localhost:5555
+
+
+7) create api routes
+
+import { PrismaClient } from "@prisma/client";
+import { NextRequest, NextResponse } from "next/server";
+//create new item
+
+const prisma = new PrismaClient();
+export async function POST(request:NextRequest){
+        const {name,email,mobile} = await request.json();
+            await prisma.employee.create( { 
+                    data: {
+                        name: name,
+                        email: email,
+                        mobile: mobile
+                    }
+            }); 
+         
+        return NextResponse.json({msg: "Item created successfully"}, {status :201})
+}
+export async function GET(){
+     
+    const users = await prisma.employee.findMany(); 
+    console.log(users);
+    return NextResponse.json({users});
+}
+//delete an item with provided id, http://localhost:3000/api/items?id=658b42c5c7ea15792d9b9f7f
+export async function DELETE(request:NextRequest){
+    const id = request.nextUrl.searchParams.get('id');
+    await prisma.employee.delete({
+        where: {
+            id: id ?? undefined
+        }
+    });
+    
+    return NextResponse.json({msg: `Item with id ${id} was deleted successfully`}, {status :404})
+}
+
+
+8) create api dynamic routes
+dbConfig.ts
+
+import { PrismaClient } from '@prisma/client';
+
+const prismaClientSingleton = () => {
+  return new PrismaClient();
+};
+
+type PrismaClientSingleton = ReturnType<typeof prismaClientSingleton>;
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClientSingleton | undefined;
+};
+
+const prisma = globalForPrisma.prisma ?? prismaClientSingleton();
+
+export default prisma;
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+
+
+
+
+
+
+
+
+https://www.prisma.io/docs/concepts/components/prisma-client/crud
+
+https://pris.ly/d/getting-started
+https://www.traversymedia.com/blog/prisma-crash-course
+
+-
+
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+async function main() {
+
+    /* const user = await prisma.user.create({
+        data: {
+            name: 'Wasan',
+            email:'wasan@gmail.com'
+        }
+    }); */
+
+    const users = await prisma.user.findMany()
+    console.log(users)
+
+}
+
+main()
+.then (async () =>{
+    await prisma.$disconnect();
+})
+.catch (async (e) =>{
+    console.error(e)
+    await prisma.$disconnect();
+    process.exit(1);
+})
+npm install typescript ts-node @types/node
+
+npm install prisma
+
+
+npm install @prisma/client
+
+npx prisma init
+
+incase you want to provide the data source
+npx prisma init --datasource-provider sqlite
+
+"file:./employeedb.db"
+
+npx prisma migrate dev --name <initialmigration>
+
+npx prisma studio
+ generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+DATABASE_URL="file:./taskDB.sqlite"
+
+const task = await prisma.task.create({
+  data: {
+    content: 'some task',
+  },
+});
+
+---------------------------------------------------------------
+const tasks = await prisma.task.findMany();
+
+-------------------------------------------------------------
+
+// By unique identifier
+const user = await prisma.user.findUnique({
+  where: {
+    email: 'elsa@prisma.io',
+  },
+});
+
+// By ID
+const task = await prisma.task.findUnique({
+  where: {
+    id: id,
+  },
+});
+
+---------------------------------------------------------------------
+
+const updateTask = await prisma.task.update({
+  where: {
+    id: id,
+  },
+  data: {
+    content: 'updated task',
+  },
+});
+
+--------------------------------------------------------------------
+const deleteTask = await prisma.task.delete({
+  where: {
+    id: id,
+  },
+});
+model Task {
+  id String @id @default(uuid())
+  content String
+  createdAt DateTime @default(now())
+  completed Boolean @default(false)
+}
+
+model Employee {
+
+id String @id @default(uuid())
+email String @unique
+name String
+mobile String
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+}
+
+
+model Employee {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  mobileNo  String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+
+}
+
+import { PrismaClient } from '@prisma/client'; 
+
+const prisma = new PrismaClient();
+
+const user = await prisma.user.create({ data: { name: 'John Doe', email: 'john@gmail.com', }, }); 
+console.log(user);
+
+const users = await prisma.user.findMany(); 
+console.log(users);
+Prisma ORM is a database toolkit that simplifies database access in web applications. It allows developers to interact with databases using a type-safe and auto-generated API, making database operations easier and more secure.
+* Prisma server: A standalone infrastructure component sitting on top of your database.
+* Prisma client: An auto-generated library that connects to the Prisma server and lets you read, write and stream data in your database. It is used for data access in your applications.
+
+
+
+1) npm install prisma
+
+
+2) npm install @prisma/client
+
+3) npx prisma init
+
+configure the provider and the database url
+
+incase you want to provide the data source
+npx prisma init --datasource-provider sqlite
+
+4) model Employee {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  mobileNo  String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+5) npx prisma migrate
+incase you want to provide the migration name
+npx prisma migrate dev --name <initialmigration>
+
+6) npx prisma studio
+
+primsa studio is up and running on port http://localhost:5555
+
+
+7) create api routes
+
+import { PrismaClient } from "@prisma/client";
+import { NextRequest, NextResponse } from "next/server";
+//create new item
+
+const prisma = new PrismaClient();
+export async function POST(request:NextRequest){
+        const {name,email,mobile} = await request.json();
+            await prisma.employee.create( { 
+                    data: {
+                        name: name,
+                        email: email,
+                        mobile: mobile
+                    }
+            }); 
+         
+        return NextResponse.json({msg: "Item created successfully"}, {status :201})
+}
+export async function GET(){
+     
+    const users = await prisma.employee.findMany(); 
+    console.log(users);
+    return NextResponse.json({users});
+}
+//delete an item with provided id, http://localhost:3000/api/items?id=658b42c5c7ea15792d9b9f7f
+export async function DELETE(request:NextRequest){
+    const id = request.nextUrl.searchParams.get('id');
+    await prisma.employee.delete({
+        where: {
+            id: id ?? undefined
+        }
+    });
+    
+    return NextResponse.json({msg: `Item with id ${id} was deleted successfully`}, {status :404})
+}
+
+
+8) create api dynamic routes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

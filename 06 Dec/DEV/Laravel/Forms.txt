@@ -1,0 +1,716 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form method="POST" action="{{ route('form.submit') }}">
+  @csrf
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+    @error('name')
+      <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+  </div>
+
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <div>
+      <input type="radio" name="gender" id="male" value="male" {{ old('gender') == 'male' ? 'checked' : '' }}>
+      <label for="male">Male</label>
+    </div>
+    <div>
+      <input type="radio" name="gender" id="female" value="female" {{ old('gender') == 'female' ? 'checked' : '' }}>
+      <label for="female">Female</label>
+    </div>
+    @error('gender')
+      <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+  </div>
+
+  <div class="form-group">
+    <label for="fruit">Favorite Fruit</label>
+    <select name="fruit" id="fruit" class="form-control @error('fruit') is-invalid @enderror" required>
+      <option value="">Select a fruit</option>
+      <option value="apple" {{ old('fruit') == 'apple' ? 'selected' : '' }}>Apple</option>
+      <option value="banana" {{ old('fruit') == 'banana' ? 'selected' : '' }}>Banana</option>
+      <option value="orange" {{ old('fruit') == 'orange' ? 'selected' : '' }}>Orange</option>
+    </select>
+    @error('fruit')
+      <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+  </div>
+
+  <div class="form-group">
+    <div>
+      <input type="checkbox" name="agree" id="agree" value="1" {{ old('agree') ? 'checked' : '' }} required>
+      <label for="agree">I agree to the terms and conditions</label>
+    </div>
+    @error('agree')
+      <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!-- Validation rules -->
+@push('scripts')
+<script>
+  $('form').validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 3,
+        maxlength: 255,
+      },
+      gender: {
+        required: true,
+      },
+      fruit: {
+        required: true,
+      },
+      agree: {
+        required: true,
+      },
+    },
+    messages: {
+      name: {
+        required: "Please enter your name.",
+        minlength: "Your name must be at least 3 characters.",
+        maxlength: "Your name must not exceed 255 characters.",
+      },
+      gender: {
+        required: "Please select your gender.",
+      },
+      fruit: {
+        required: "Please select your favorite fruit.",
+      },
+      agree: {
+        required: "Please agree to the terms and conditions.",
+      },
+    },
+  });
+</script>
+@endpush
+``
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\FormData;
+
+class FormController extends Controller
+{
+    /**
+     * Show the form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showForm()
+    {
+        return view('form');
+    }
+
+    /**
+     * Handle the form submission.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function submitForm(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'name' => 'required|string|min:3|max:255',
+            'gender' => 'required|string|in:male,female',
+            'fruit' => 'required|string|in:apple,banana,orange',
+            'agree' => 'required|boolean',
+        ]);
+
+        // Create a new FormData object and set the properties
+        $formData = new FormData();
+        $formData->name = $validatedData['name'];
+        $formData->gender = $validatedData['gender'];
+        $formData->fruit = $validatedData['fruit'];
+        $formData->agree = $validatedData['agree'];
+
+        // Save the FormData object to the database
+        $formData->save();
+
+        // Redirect back to the form with a success message
+        return redirect()->back()->with('success', 'Form submitted successfully!');
+    }
+}
+
+ 
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\FormData;
+
+class FormController extends Controller
+{
+    public function submit(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|min:3|max:255',
+            'gender' => 'required|in:male,female',
+            'fruit' => 'required|in:apple,banana,orange',
+            'agree' => 'required|in:1',
+        ]);
+
+        $formData = new FormData();
+        $formData->name = $request->name;
+        $formData->gender = $request->gender;
+        $formData->fruit = $request->fruit;
+        $formData->save();
+
+        return redirect()->back()->with('success', 'Form data has been submitted successfully!');
+    }
+}
+
+
+
+CustSesLoginController.php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use App\Models\User;
+use Hash;
+
+class CustomSesLoginController extends Controller
+{
+    public function showLogin()
+    {
+        return view('auth.login');
+    }
+
+    public function showRegister()
+    {
+        return view('auth.register');
+    }
+
+    public function registerUser(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required | email | unique:users',
+            'password' => 'required',
+            'mobile' => 'required'
+        ]);
+        /*
+        $user =  User::create([
+            'name' => request('name'),
+            'email' => request('email'),
+            'mobile' => request('mobile'),
+            'password' => request('password')
+        ]);
+        */
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->mobile = $request->mobile;
+        $res = $user->save();
+        if ($res) {
+            return redirect()->route('showLogin')->with('success', 'Registartion successfull.Pls Login');
+        } else {
+            return back()->with('error', 'Registration failed');
+        }
+    }
+
+    public function loginUser(Request $request)
+    {
+        $request->validate([
+            'email' => 'required | email  ',
+            'password' => 'required:min:5|max:12'
+        ]);
+        $user = User::where('email', '=', $request->email)->first();
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) {
+                $request->session()->put('loginId', $user->id);
+                return redirect('dashboard');
+            } else {
+                return back()->with('error', 'Password do not match');
+            }
+        } else {
+            return back()->with('error', 'This email is not registered');
+        }
+    }
+
+    public function dashboard()
+    {
+
+        //dd(session()->get('loginId'));
+                                  
+        $data = array();
+        if (Session::has('loginId')) {
+
+            $data = User::where('id', '=', session()->get('loginId'))->first();
+        }
+
+        return view('dashboard',compact('data'));
+    }
+
+    public function logout(){
+        if(Session::has('loginId')){
+            Session::pull('loginId');
+            return  redirect('login');
+            }
+  
+register.blade.php
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-6" style='margin-top:20px'>
+                <h4 class='text-primary mx-auto d-block'>Registration Form</h4>
+                <hr />
+                @if (Session::has('error'))
+                    <div class="alert alert-success">{{ Session::get('success') }}</div>
+                @endif
+                <form action="{{ route('register-user') }}" method='POST'>
+                    <div class="form-group">
+                        @csrf
+                        <label for="name">Full name</label>
+                        <input type="text" class="form-control" name='name' id='name'
+                            placeholder='Enter Full Name' value='{{ old('name') }}'>
+                        <span class="text-danger">
+                            @error('name')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile</label>
+                        <input type="text" class="form-control" name='mobile' id='mobile'
+                            placeholder='Enter Mobile Number' value='{{ old('mobile') }}'>
+                        <span class="text-danger">
+                            @error('mobile')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" class="form-control" name='email' id='email'
+                            placeholder='Enter Email' value='{{ old('email') }}'>
+                        <span class="text-danger">
+                            @error('email')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name='password' id='password'
+                            placeholder='Enter Password' value='{{ old('password') }}'>
+                        <span class="text-danger">
+                            @error('password')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpassword">Confirm Password</label>
+                        <input type="password" class="form-control" name='cpassword' id='cpassword'
+                            placeholder='Confirm Password' value='{{ old('cpassword') }}'>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block m-2 d-block mx-auto" type='submit'>Register</button>
+                    </div>
+
+                    <a href='login'> Already Registered !!! Login Here</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+login.blade.php
+
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- CSS only -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- JavaScript Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+     <title>Login</title>
+ </head>
+
+ <body>
+     <div class="container">
+         <div class="row">
+             <div class="col-md-4 col-md-offset-4" style='margin-top:20px'>
+                 <h4 class='text-primary mx-auto d-block'>Login Form</h4>
+                 <hr />
+                 @if (Session::has('success'))
+                     <div class="alert alert-success">{{ Session::get('success') }}</div>
+                 @endif
+                 @if (Session::has('error'))
+                     <div class="alert alert-danger">{{ Session::get('error') }}</div>
+                 @endif
+                
+                 <form action="{{ route('login-user') }}" method='post'>
+                     @csrf
+
+                     <div class="form-group">
+                         <label for="email">E-Mail</label>
+                         <input type="email" class="form-control" name='email' id='email'
+                             placeholder='Enter Email' value='{{ old('email') }}'>
+                             <span class="text-danger">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                     </div>
+                     <div class="form-group">
+                         <label for="password">Password</label>
+                        <input type="password" class="form-control" name='password' id='password'
+                             placeholder='Enter Password' value='{{ old('password') }}'>
+                             <span class="text-danger">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                     </div>
+
+                     <div class="form-group">
+                         <button class="btn btn-primary btn-block m-2 d-block mx-auto" type='submit'>Login</button>
+                     </div>
+                     <a href='register'> New User ?? Register Here</a>
+
+                 </form>
+             </div>
+         </div>
+     </div>
+ </body>
+
+ </html>
+
+https://www.softwaretestinghelp.com/laravel-forms-and-validation/
+
+
+
+<form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+    @csrf
+    
+    <div>
+        <label for="name">{{ __('Name') }}</label>
+        <input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+        @error('name')
+            <span class="text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="email">{{ __('Email') }}</label>
+        <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
+        @error('email')
+            <span class="text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="mobile">{{ __('Mobile') }}</label>
+        <input id="mobile" type="text" name="mobile" value="{{ old('mobile') }}" required>
+        @error('mobile')
+            <span class="text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="city">{{ __('City') }}</label>
+        <input id="city" type="text" name="city" value="{{ old('city') }}" required>
+        @error('city')
+            <span class="text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="password">{{ __('Password') }}</label>
+        <input id="password" type="password" name="password" required autocomplete="new-password">
+        @error('password')
+            <span class="text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="password-confirm">{{ __('Confirm Password') }}</label>
+        <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
+    </div>
+
+    <div>
+        <label for="image">{{ __('Image') }}</label>
+        <input id="image" type="file" name="image" required accept="image/*">
+        @error('image')
+            <span class="text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <button type="submit">
+            {{ __('Register') }}
+        </button>
+    </div>
+</form>
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+
+class UserController extends Controller
+{
+    public function store(Request $request)
+    {
+        // Validate the form data
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:users'],
+            'mobile' => ['required', 'numeric'],
+            'city' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'image' => ['required', 'file', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+        ]);
+        
+        // Handle image upload
+        $image = $request->file('image');
+        $image_name = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('images'), $image_name);
+        
+        // Create and store a new user
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->mobile = $request->mobile;
+        $user->city = $request->city;
+        $user->password = Hash::make($request->password);
+        $user->image = $image
+           $user->save();
+
+        return redirect()->route('home');
+
+
+ 
+ <form method="POST" action="{{ route('register') }}">
+    @csrf
+
+    <div>
+        <label for="name">Name</label>
+
+        <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+
+        @error('name')
+            <span>{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="email">Email</label>
+
+        <input id="email" type="email" name="email" value="{{ old('email') }}" required>
+
+        @error('email')
+            <span>{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="mobile">Mobile</label>
+
+        <input id="mobile" type="tel" name="mobile" value="{{ old('mobile') }}" required>
+
+        @error('mobile')
+            <span>{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="city">City</label>
+
+        <input id="city" type="text" name="city" value="{{ old('city') }}" required>
+
+        @error('city')
+            <span>{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+
+        <input id="password" type="password" name="password" required>
+
+        @error('password')
+            <span>{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div>
+        <label for="password_confirmation">Confirm Password</label>
+
+        <input id="password_confirmation" type="password" name="password_confirmation" required>
+    </div>
+
+    <div>
+        <button type="submit">
+            Register
+        </button>
+    </div>
+</form>
+
+
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
+class RegistrationController extends Controller
+{
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'mobile' => 'required|string|max:255|unique:users',
+            'city' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = new User();
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->mobile = $request->input('mobile');
+        $user->city = $request->input('city');
+        $user->password = Hash::make($request->input('password'));
+
+        $user->save();
+
+        return redirect()->route('home');
+    }
+}
+
+
+namespace App\Http\Controllers;
+
+
+
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Hash;
+
+use App\Models\User;
+
+
+
+class RegisterController extends Controller
+{
+ 
+    public function store(Request $request)
+ 
+    {
+ 
+        $validatedData = $request->validate([
+ 
+            'name' => 'required|string|max:255',
+ 
+            'email' => 'required|string|email|max:255|unique:users',
+ 
+            'mobile' => 'required|string|max:255|unique:users',
+ 
+            'city' => 'required|string|max:255',
+ 
+            'password' => 'required|string|min:8|confirmed',
+ 
+        ]);
+
+
+
+        $user = new User();
+
+
+
+        $user->name = $validatedData['name'];
+ 
+        $user->email = $validatedData['email'];
+ 
+        $user->mobile = $validatedData['mobile'];
+ 
+        $user->city = $validatedData['city'];
+ 
+        $user->password = Hash::make($validatedData['password']);
+
+
+
+        $user->save();
+
+
+
+        return redirect()->route('home');
+ 
+    }
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

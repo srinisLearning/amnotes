@@ -1,0 +1,84 @@
+import mongoose, { Schema } from "mongoose";
+
+const itemSchema = new Schema(
+    {
+       name: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: true
+        },
+        price: {
+            type: String,
+            required: true
+        },
+        rating: {
+            type: String,
+            required: true
+        },
+    },
+    {
+        timestamps: true
+    }
+);
+
+const Item = mongoose.models.Item || mongoose.model("Item", itemSchema);
+export default Item;
+ MONGODB_URI = mongodb://127.0.0.1:27017/fullstack_blog
+
+-
+import mongoose from 'mongoose';
+
+const dbConnection = () =>{
+    try {
+       mongoose.connect(process.env.MONGODB_URI)
+        //mongoose.connect('mongodb://localhost:27017/fullstack_blog');
+        console.log( 'Connected to MongoDB!');
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export default dbConnection;
+
+-
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

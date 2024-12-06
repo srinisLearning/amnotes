@@ -1,0 +1,117 @@
+Vue Instance Options:
+
+* data: A function that returns the initial data object for the component.
+
+* computed: A set of functions that return computed properties based on the component's data.
+
+* methods: An object containing methods that can be called on the component.
+
+* watch: An object that contains functions that watch for changes in the component's data and perform actions when they occur.
+
+* props: An object containing the props that are passed down to the component from its parent.
+
+* components: An object containing the child components that can be used within the current component.
+Directives:
+* 
+* v-bind: Binds an HTML attribute to a Vue instance data property.
+* 
+* v-if: Conditionally renders an element based on a boolean value.
+* 
+* v-for: Renders a list of elements based on an array.
+* 
+* v-on: Attaches event listeners to the element.
+* 
+* v-model: Two-way data binding between a form input element and a Vue instance data property.
+Lifecycle Hooks:
+* 
+* beforeCreate: Called before the component is created.
+* 
+* created: Called after the component is created.
+* 
+* beforeMount: Called before the component is mounted to the DOM.
+* 
+* mounted: Called after the component is mounted to the DOM.
+* 
+* beforeUpdate: Called before the component is updated.
+* 
+* updated: Called after the component is updated.
+* 
+* beforeUnmount: Called before the component is unmounted from the DOM.
+* 
+* unmounted: Called after the component is unmounted from the DOM.
+Template Syntax:
+* 
+* {{ }}: Used to render data values in the template.
+* 
+* v-bind: Used to bind data to HTML attributes.
+* 
+* v-if: Used to conditionally render elements.
+* 
+* v-for: Used to render lists of elements.
+* 
+* v-on: Used to attach event listeners to elements.
+* 
+* v-model: Used to create two-way data binding between form input elements and Vue instance data properties.
+Component Communication:
+* 
+* props: Used to pass data from parent components to child components.
+* 
+* events: Used to emit events from child components to parent components.
+* 
+* $emit: A method used to emit events from child components.
+* 
+* v-on: Used to listen for events emitted by child components.
+Vuex:
+* 
+* store: A centralized store for managing state in a Vue application.
+* 
+* state: The initial state of the Vuex store.
+* 
+* getters: Functions that return computed values based on the store's state.
+* 
+* mutations: Functions that are used to modify the store's state.
+* 
+* actions: Functions that are used to perform asynchronous operations and commit mutations.
+* 
+* dispatch: A method used to dispatch actions to the Vuex store.
+* 
+* commit: A method used to commit mutations to the Vuex store.
+I hope you find this Vue 3 cheat sheet useful!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,459 @@
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+
+var app = express();
+
+
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+
+app.set('view engine', 'jade');
+
+app.use(logger('dev'));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+ 
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
+
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+module.exports = router;
+
+-
+
+var express = require('express');
+var router = express.Router();
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
+module.exports = router;
+
+
+
+
+
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+-
+extends layout
+
+block content
+  h1= message
+  h2= error.status
+  pre #{error.stack}
+
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+ 
+import axios from 'axios';
+import React, { useState } from'react';
+
+function App() {
+  const [message,setMessage] = useState('');
+  const getServerMessage = () => {
+      axios.get('/getMessage').then((response) => {
+       console.log(response)
+       setMessage(response.data)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+   const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const user = {email, password};
+    console.log(user);
+    axios.post('/login', user).then((response) => {
+      console.log(response)
+      alert(response.data )
+    }).catch((error) => {
+      console.log(error)
+    })
+    
+   }
+ 
+  
+ 
+  return (
+    <>
+    <div className="App">
+     <h2>React Client</h2>
+     <button onClick={getServerMessage}>Get Server Message</button>
+     <p>{
+       (message)? message: 'No Server Message'
+        }</p>
+     <hr />
+     </div>
+     <div>
+
+      {/* email password */}
+      <form>
+        <label htmlFor="email">Email:</label>
+        <input type="email" id="email" />
+        <br />
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" />
+        <br />
+        <button onClick={handleSubmit}>login</button>
+      </form>
+     
+    </div>
+    
+    </>
+  );
+  }
+  
+
+export default App;
+
+
+  {/* name email password mobile city  */}
+ 
+const express = require('express')
+const app = express()
+const cors = require('cors')
+
+const port = 6060
+
+const testRouter = require('./routes/testrouter')
+
+app.use('/test', testRouter)
+
+
+
+const corsOptions = {
+    origin: '*',
+    credentials: true,
+    optionSuccessStatus: 200
+}
+
+app.use(cors(corsOptions))
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.get('/', (req, res) => {
+    res.send('Hello from Wasan World World!')
+})
+app.get('/getMessage', (req, res) => {
+    res.send('This message is from the server')
+})
+app.post('/login', (req, res) => {
+    var email = req.body.email;
+    var password = req.body.password;
+    if (email === 'wasan@gmail.com' && password === '123456') {
+        res.send('Login successful');
+    } else {
+        res.send('Login failed');
+    }
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on the  port ${port}`)
+})
+
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.1.0"
+  },
+  "proxy": "http://localhost:6060"
+}
+
+const express = require('express')
+const app = express()
+const port = 6060
+app.listen(port, () => {
+    console.log(`Example app listening on the  port ${port}`)
+})
+
+
+
+app.set('view engine', 'ejs')
+
+
+
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+const products =
+    [
+        { id: 1, name: "mobile", price: 200, },
+        { id: 2, name: "laptop", price: 400, },
+        { id: 3, name: "smartwatch", price: 100, }
+    ]
+
+
+app.get('/products', (req, res) => {
+    res.json(products)
+
+})
+app.get('/products/:id', (req, res) => {
+    console.log(req.params.id)
+    let myProduct = products.find(product => product.id === parseInt(req.params.id))
+    if (!myProduct) {
+        res.status(404).send('Product not found')
+    }
+    res.send(myProduct)
+})
+
+app.post('/products', (req, res) => {
+    const product = {
+        id: products.length + 1,
+        name: req.body.name,
+        price: req.body.price,
+
+    }
+    products.push(product)
+    res.send(product)
+})
+
+app.get('/contact', (req, res) => {
+    res.render('contact.ejs', { name: 'John' })
+
+})
+
+
+app.get('/getqueryparam', (req, res) => {
+    res.send(req.query)
+})
+app.get('/getPage', (req, res) => {
+    res.sendFile(__dirname + '/getPage.html')
+})
+
+
+app.get('/calci', (req, res) => {
+    res.render('calci.ejs')
+})
+app.post('/calci', (req, res) => {
+    console.log(req.body)
+    let num1 = parseInt(req.body.num1)
+    let num2 = parseInt(req.body.num2)
+    res.send(num1 + num2)
+})
+
+
+const express = require('express')
+const mongoose = require('mongoose')
+const app = express()
+mongoose.connect("mongodb://localhost:27017/<databaseName>",
+{
+useNewUrlParser:true,
+useUnifiedTopology:true
+},(err) =>{
+   if(err)
+   {console.log(err)
+   }
+ else{
+console.log("successfully connected")
+  }
+    
+
+var path = require('path');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));node
+
+ 
+Schema defines what the structure of the data is like and 
+Model is the Schema in a format that you can use
+
+ const mongoose = require('mongoose');
+ const Person = require('./models/person');
+
+ mongoose.connect('mongodb://localhost:27017/personDB').then(() => {
+   console.log('Connected to MongoDB');
+ }).catch((err) => {
+   console.log('Error connecting to MongoDB', err);
+ });
+
+    const person= new Person({
+        name: 'Sachin',
+        email: 'abc@example.com',
+        mobile: '1234567890',
+        personCode: 123
+    });
+    person.save().then((doc) => {
+        console.log(doc);
+    }).catch((err) => {
+        console.log(err);
+    });
+
+const mongoose = require('mongoose');
+const personSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  mobile: String,
+  personCode:Number
+})
+module.exports = mongoose.model('Person', personSchema);
+const mongoose = require('mongoose');
+ const Person = require('./models/person');
+
+ mongoose.connect('mongodb://localhost:27017/personDB').then(() => {
+   console.log('Connected to MongoDB');
+ }).catch((err) => {
+   console.log('Error connecting to MongoDB', err);
+ });
+ 
+   /* const person= new Person({
+        name: 'Sachin',
+        email: 'abc@example.com',
+        mobile: '1234567890',
+         
+    });
+    person.save().then((doc) => {
+        console.log(doc);
+    }).catch((err) => {
+        console.log(err);
+    });
+
+*/
+
+    
+createPerson() 
+
+    async function createPerson() {
+    const person = new Person({
+        name: 'Raajkumar',
+        email: 'vinod@example.com',
+        mobile: '1234567890',
+        personCode: 123
+    });
+    await person.save();
+    console.log(person);
+}
+ /*
+createPerson();
+async function createPerson() {
+    try {
+        const person = await Person.create({
+            name: 'Saurav',
+            email: 'vinod@example.com',
+            mobile: '1234567890',
+            personCode: 234,
+            skills:['java','python','nodejs']
+
+        });
+        
+        console.log(person);
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getPersons() {
+    const persons = await Person.find();
+    console.log(persons);
+}
+
+async function getPersonById(id) {
+    const person = await Person.findById (id);   
+    console.log(person);                
+}
+
+async function getPersonByName(name) {
+    const person = await Person.find ({name:name});
+    console.log(person);
+}
+
+async function deletePerson(id) {
+    const result = await Person.delete  ({_id:id});
+    console.log(result);
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,385 @@
+import React, { useReducer } from 'react'
+
+
+ 
+const initialState = 0
+
+const reducer = (state, action) => {
+
+switch (action) {
+
+case 'increment':
+
+return state + 1
+
+case 'decrement':
+
+return state - 1
+
+case 'reset':
+
+return initialState
+
+default:
+
+return state
+
+}
+}
+}
+
+
+ 
+function CounterOne() {
+
+const [count, dispatch] = useReducer(reducer, initialState)
+
+
+
+return (
+ 
+    <div>
+ 
+      <div>Count = {count}</div>
+ 
+      <button onClick={() => dispatch('increment')}>Increment</button>
+
+      <button onClick={() => dispatch('decrement')}>Decrement</button>
+
+      <button onClick={() => dispatch('reset')}>Reset</button>
+
+</div>
+
+)
+}
+}
+
+
+ 
+export default CounterOne
+
+import React, { useReducer } from 'react'
+
+
+ 
+const initialState = {
+
+firstCounter: 0,
+
+secondCounter: 10
+}
+} 
+const reducer = (state, action) => {
+
+switch (action.type) {
+
+case 'increment':
+
+return { ...state, firstCounter: state.firstCounter + action.value }
+
+case 'decrement':
+
+return { ...state, firstCounter: state.firstCounter - action.value }
+
+case 'increment2':
+
+return { ...state, secondCounter: state.secondCounter + action.value }
+
+case 'decrement2':
+
+return { ...state, secondCounter: state.secondCounter - action.value }
+
+case 'reset':
+
+return initialState
+
+default:
+
+return state
+
+}
+}
+}
+
+
+ 
+function CounterTwo() {
+
+const [count, dispatch] = useReducer(reducer, initialState)
+
+
+
+return (
+
+<div>
+
+<div>Count = {count.firstCounter}</div>
+
+<button onClick={() => dispatch({ type: 'increment', value: 1 })}>
+
+Increment
+
+</button>
+
+<button onClick={() => dispatch({ type: 'decrement', value: 1 })}>
+
+Decrement
+
+</button>
+
+<button onClick={() => dispatch({ type: 'increment', value: 5 })}>
+
+Increment 5
+
+</button>
+
+<button onClick={() => dispatch({ type: 'decrement', value: 5 })}>
+
+Decrement 5
+
+</button>
+
+<button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+
+<div>Secound Counter = {count.secondCounter}</div>
+
+<div>
+
+<button onClick={() => dispatch({ type: 'increment2', value: 1 })}>
+
+Increment
+
+</button>
+
+<button onClick={() => dispatch({ type: 'decrement2', value: 1 })}>
+
+Decrement
+
+</button>
+
+</div>
+
+</div>
+
+)
+}
+}
+
+
+ 
+export default CounterTwo
+
+import React, {useState, useEffect} from 'react'
+i
+import axios from 'axios';
+
+
+ 
+function DataFetchingOne() {
+ 
+  const [loading, setLoading] = useState(true)
+ 
+  const [error, setError] = useState('')
+ 
+  const [post, setPost] = useState({})
+
+
+
+  useEffect(() => {
+ 
+    axios.get(`https://jsonplaceholder.typicode.com/posts/1`)
+ 
+      .then(response => {
+ 
+        setLoading(false)
+ 
+        setPost(response.data)
+ 
+        setError('')
+ 
+      })
+ 
+      .catch(error => {
+ 
+        setLoading(false)
+ 
+        setPost({})
+ 
+        setError('Something went wrong!')
+ 
+      })
+ 
+  }, [])
+
+
+
+  return (
+ 
+    <div>
+ 
+      {loading ? 'Loading' : post.title}
+ 
+      {error ? error : null}
+ 
+    </div>
+ 
+  )
+}
+}
+
+
+ 
+export default DataFetchingOne
+
+import React, { useReducer, useEffect } from 'react'
+i
+import axios from 'axios'
+
+ 
+const initialState = {
+
+loading: true,
+
+error: '',
+
+post: {}
+}
+}
+
+
+ 
+const reducer = (state, action) => {
+
+switch (action.type) {
+
+case 'FETCH_SUCCESS':
+
+return {
+
+loading: false,
+
+post: action.payload,
+
+error: ''
+
+}
+
+case 'FETCH_ERROR':
+
+return {
+
+loading: false,
+
+post: {},
+
+error: 'Something went wrong!'
+
+}
+
+default:
+
+return state
+
+}
+}
+}
+
+
+ 
+function DataFetchingTwo() {
+
+const [state, dispatch] = useReducer(reducer, initialState)
+
+
+
+useEffect(() => {
+
+axios
+
+.get(`https://jsonplaceholder.typicode.com/posts/1`)
+
+.then(response => {
+
+dispatch({ type: 'FETCH_SUCCESS', payload: response.data })
+
+})
+
+.catch(error => {
+
+dispatch({ type: 'FETCH_ERROR' })
+
+})
+
+}, [])
+
+return (
+
+<div>
+
+{state.loading ? 'Loading' : state.post.title}
+
+{state.error ? state.error : null}
+
+</div>
+
+)
+}
+}
+
+
+ 
+export default DataFetchingTwo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JavaScript Demo: Array.reduce()
+
+array.reduce(reducer,initialValue)
+
+const array1 = [1, 6, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 10;
+const sumWithInitial = array1.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue);
+
+console.log(sumWithInitial);
+// Expected output: 10
+
+useReducer(reducer,initialState)
+useReducer(reducer, initialState)
+
+const initialState = 0
+
+const reducer = (state,reducer) => {
+
+  return newState 
+
+}

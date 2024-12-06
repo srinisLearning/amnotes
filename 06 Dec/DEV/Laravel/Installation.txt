@@ -1,0 +1,40 @@
+ 
+
+
+
+
+
+
+install composer (get Composer.org)
+composer
+composer global require laravel/installer
+
+laravel --version
+
+composer create-project --prefer-dist laravel/laravel <projectname>  
+
+composer create-project laravel/laravel <project-name>
+
+composer require laravel/ui
+composer artisan ui bootstrap —auth
+
+composer require laravel/jetstream
+php artisan jetstream:install livewire
+
+composer require laravel/breeze  —dev
+php artisan breeze:install
+
+composer require livewire/livewire
+
+Adding Mobile
+[ blade,
+model,
+migration,
+controller ]
+
+
+
+
+composer require laravel/ui
+
+php artisan ui vue --auth

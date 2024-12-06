@@ -1,0 +1,41 @@
+npm install vue-router@next
+"rules": {
+      "vue/multi-word-component-names": 0
+    }
+GOLD@123
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

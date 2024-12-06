@@ -1,0 +1,80 @@
+npm install  -g  @vue/cli
+vue create <appName>
+
+npm init vue@latest
+
+ <template>
+    <div>
+ 
+    </div>
+ </template>
+ 
+ <script>
+ export default {
+    
+ }
+ </script>
+ 
+ <style lang="scss" scoped>
+ 
+ </style>
+ <script>
+ export default {
+
+  name:'project name',
+  components:{
+    },
+   props:['title','description'],
+  methods:{
+    },
+ data(){
+  return{
+
+
+     }
+
+
+}
+  
+    
+ }
+ </script>
+
+setTimeout(() => { }, 2000)
+
+Bootstrap in Vue
+
+https://www.c-sharpcorner.com/article/how-to-add-bootstrap-in-vue-js-app/
+GOLD@123
+
+
+ 
+So you need to parse the result of that key to get the array, then iterate over the array
+$("#list").click(function() {
+ 
+  var arr = JSON.parse(localStorage.getItem('114270311_estudiantes'));
+ 
+  arr.forEach(function(obj) {
+ 
+    console.log(obj.carnet);
+ 
+    console.log(obj.apellidos);
+ 
+    console.log(obj.nombre);
+ 
+  });
+}
+});
+
+
+
+this.$emit(''event_name',value-to-send)
+<router-view :key="$route.path" />
+
+
+
+
+
+ 
+
+

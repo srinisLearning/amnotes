@@ -1,0 +1,55 @@
+npx react-native init <project name> --version 0.70
+
+ npx @react-native-community/cli@latest init <projectname>
+As of react-scripts v4.0.2, you can now opt out of ESLint with an environment variable. You can do this by adding it to your .env file, or by prefixing your scripts in your package.json file.
+For example in .env:
+DISABLE_ESLINT_PLUGIN=true
+
+Or in your package.json:
+{
+  "scripts": {
+    "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
+    "test": "DISABLE_ESLINT_PLUGIN=true react-scripts test"
+  }
+}
+npx create-expo-app@latest CoreComponents --template blank@sdk-49
+emulator -avd avd_name [ {-option [value]} … ]
+emulator -list-avds
+npx react-native init newapp
+npx react-native run-android
+ Switch to npx @react-native-community/cli init for the identical behavior.
+- Refer to the documentation for information about alternative tools: https://reactnative.dev/docs/getting-started
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

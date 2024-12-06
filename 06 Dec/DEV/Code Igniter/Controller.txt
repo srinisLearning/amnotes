@@ -1,0 +1,58 @@
+Installation
+
+ download->extract->copy to server location
+
+composer create-project codeigniter4/appstarter <project-folder-name>
+
+php spark  serve
+php spark make:controller UserController
+$routes->get('/', 'Home::index');
+$routes->get('/about', 'AboutController::index');
+$routes->get('/contact', [AboutController::class, 'contact']);
+$routes->group('admin', static function ($routes) {
+   $routes->get('users', [UsersController::class, 'users']);
+   $routes->get('guest', [UsersController::class, 'guest']);
+   $routes->get('admin', [UsersController::class, 'admin']);
+
+
+});
+<?php
+
+namespace App\Controllers;
+
+class TaskController extends BaseController
+{
+    public function index()
+    {
+        
+
+        $data =[
+            ['id'=>'1','description'=>'First Blog'],
+            ['id'=>'2','description'=>'Second Blog'],
+            ['id'=>'3','description'=>'Third Blog'],
+        ];
+
+        return view('Task/index',['tasks'=>$data]);
+    }
+}
+
+
+
+ <?=  $this->extend('layout/default')  ?>
+
+ <?= $this->section('title') ?> Tasks   <?=  $this->endSection()  ?>
+
+
+ <?= $this->section('content') ?>
+ <ul>
+ <?php foreach($tasks as $task): ?>
+     <li> <?= $task['id'] ?> </li>
+
+     <li>  <?= $task['description'] ?>  </li>
+
+    <?php endforeach ?>
+
+ </ul>
+ <?= $this->endSection() ?>
+
+return view('home',compact('id','name'))

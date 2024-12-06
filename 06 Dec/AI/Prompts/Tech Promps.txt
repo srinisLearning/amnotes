@@ -1,0 +1,143 @@
+next js
+
+Top 5 Verbs to start with
+Create, List, Generate, Build, Explain,Describe,Discuss,Provide,Compare,
+Contrast,Analyze,Predict,Explore,Recommend, Challenge
+
+
+Build a user register bootstrap 5  form with the following fields Name, E-Mail, Mobile,
+Password, Confirm Password.the name and id of the fields should be the same as labels, Give placeholder attribute also, All fields are required. all give suitable validation rules for the form fields The submit should be blue in color and should be centered in the form.
+
+Develop  a botstrap5 Login Form with email and password fields .Provide necessary authentication for the same.The form should be centered on the page
+
+I want to learn python for django web development ,Can you create a roadmap to learn in 3 months with a weekly plan.Include Resorces, Files and You tube links.
+
+
+
+Write code for word press  contact form 7 form where form fields are stacked horizontally .The from should have three fields Name EMail and Mobile
+
+
+
+
+
+
+
+create a next js add employee form   having the following fields : name, email, phone,mobile, location,department, gender, isActive and Date of Birth
+All form fields should have relevant labels
+Use tailwind for styling
+Name,Email,Phone and Mobile should be text fields,
+The  location and deparment fields should be select dropdowns.
+The  gender and isActive fields should be radio buttons.
+Date of Birth should be Date Field
+ Each form filed should have the following attributes name, id,type, placeholder, required and value
+The form should also have a Submit button with onSubmit event handler.The value of the submit button should be Add Employee
+ The employee details should be a object and stored in a state variable 
+The Submit button on Click should console log the employee details
+ 
+ 
+1) create a next js add employee form   having the following fields : name, email, phone,mobile, 
+the form should be centered and maxium width should be xl
+All form fields should have relevant labels
+Use tailwind for styling
+Name,Email, and Mobile should be text fields,
+The  location and deparment fields should be select dropdowns.
+The  gender and isActive fields should be radio buttons.
+Date of Birth should be Date Field
+  
+ Each form filed should have the following attributes name, id,type, placeholder, required and value
+The form should also have a Submit button with onSubmit event handler.The value of the submit button should be Add Employee
+ The employee details should be a object and stored in a state variable 
+The Submit button on Click should console log the employee details
+
+2)update the handleSumbit function to send the form data to an api http://localhost:3000/api/employee
+
+3) create a react next js  server component using typescript  to list of employees. Get the list from and external api http://localhost/api/employee.Display the the list of employees using map function. Add Delete and Edit Button to each row.Delete should be DeleteButonComponent and should pass id as props and Edit Button should link to the releveant record using Link Tag.Use Tailwind Css for styling.
+Get the list from and external api http://localhost/employee
+
+3) create a list of employees with fields name, email and mobile. Add Delete and Edit Button to each row.Delete should be DeleteButonComponent and should pass id as props and Edit Button should link to the releveant record using Link Tag
+
+4) for the above list write code to fetch data from an external api http://localhost/employee
+
+
+-
+
+create  a next js add player from having the following fields name, email, mobile,  sport ,city and isActive
+All form fileds should have labels
+use tailwind for styling
+name email mobile should be text fields
+sport city should be dropdowns
+sport and city should have 6 options
+isActive should be a radio button
+isActive should have two options  Active  Retired Active should have value true and Retired should have value false
+
+ Each form filed should have the following attributes name, id,type, placeholder, required and value
+The form should also have a Button.The value of the submit button should be Add Employee
+
+create  code to display players list . The  list  should contain the following fileds name  email moibile city and sport. Add column for Edit and Delete
+
+
+
+create a prisma model for a Employee . the mobile no and email should be unique
+
+-
+
+create a prisma model for an Product having the following fields product_id int,iproduct_name string, product_description string, product_price float, product_rating string,product_image string
+
+add createdAt and updatedAt fields also
+
+
+-
+
+create a  primsa model for an monogodb Employees database having the following fields name email mobile  department location image 
+
+isActive is a boolean fields and the others are strings
+
+add createdAt and updatedAt fields also
+
+ 
+Create  a next js add product  form   having the following fields : product_name, product_description,product_price,product_rating and product_image
+the form should be centered and maxium width should be xl
+All form fields should have relevant labels
+Use tailwind for styling and the form background color should be green
+
+ product_name should be a text field
+ product_description should be text area
+ product_price should be number
+ product_rating should be select dropdowns with five option 1,2,3,4,5
+ product_image should be file
+
+provide necessary validation for each field
+ The product details should be a object and stored in a state variable 
+  
+ Each form filed should have the following attributes name, id,type, placeholder, required and value
+The form should also have a Submit button with onSubmit event handler.The value of the submit button should be Add Product
+ The employee details should be a object and stored in a state variable 
+The Submit button on Click should console log the product details
+
+
+Generate code for a list of employees with fields name, email and mobile. Also add Delete and Edit button to each row. Delete should be a button
+1) create a next js add employee form   having the following fields : name, email, phone,mobile, 
+the form should be centered and maxium width should be xl
+All form fields should have relevant labels
+Use tailwind for styling
+Add validation for all fields
+Name,Email, and Mobile should be text fields,
+The  location and deparment fields should be select dropdowns.
+The  gender and isActive fields should be radio buttons.
+Date of Birth should be Date Field
+  
+ Each form filed should have the following attributes name, id,type, placeholder, required and value
+The form should also have a Submit button with onSubmit event handler.The value of the submit button should be Add Employee
+ The employee details should be a object and stored in a state variable 
+The Submit button on Click should console log the employee details
+
+
+
+
+
+
+
+
+
+
+

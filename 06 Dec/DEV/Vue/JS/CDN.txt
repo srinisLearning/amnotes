@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h3>Student Data</h3>
+ <section id='app'>
+    <div v-if="showData">
+    Name: {{ name }}<br />
+    E-Mail: {{ email }}<br />
+    Phone : {{  phone }} <br />
+    Age : {{ age }}<br>
+    <button v-on:click=age++>Increase Age</button>
+    <button v-on:click=age-->Decrease Age</button><br />
+     <button @click ="changeEmail('abcd@gmail.com')">Change Email</button>
+    </div>
+    <div v-else>
+       Click Button To Show Data
+    </div>
+    <button @click="toggleShowHide">{{ buttonText }}</button>
+
+    <div v-for = 'student in students'>
+        <ul>
+            <li>
+      name:{{ student.name }},&nbsp; e-mail:{{ student.email }},&nbsp;phone:{{ student.phone }},&nbsp;age:{{ student.age }}
+    </li>
+      </ul>
+    </div>
+   <a v-bind:href="url">Visit SriniS Website</a>
+</section>    
+</body>
+<script src="https://unpkg.com/vue@latest"></script>
+
+<script>
+    const app = Vue.createApp({
+        
+        data () {
+            return {
+                name: "srini",
+                email:'srini01@gmail.com',
+                mobile:'9381003591',
+                age:56,
+                showData:true,
+                buttonText:"Hide Data",
+                students:[
+                    {name:'kadir',email:'kadir@gmail.com',mobile:'8764512345',age:36},
+                    {name:'vishwas',email:'vishwas@gmail.com',mobile:'3140523456',age:42},
+                    {name:'ajit',email:'ajit@gmail.com',mobile:'9873456123',age:23},
+                    {name:'virat',email:'virat@gmail.com',mobile:'987343567123',age:43},
+                ],
+                url:'https://srinis.com'
+
+            }
+        },
+
+        methods:{ 
+            changeEmail(myEmail){
+            this.email = myEmail;
+         },
+         toggleShowHide(){
+            this.showData = !this.showData;
+            if(showData){
+                this.buttonText = "Hide Data";
+            }
+            else{   
+                this.buttonText = "Show Data";
+            }
+         }
+
+        }
+        
+ });
+ app.mount('#app')
+</script>
+
+ 
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

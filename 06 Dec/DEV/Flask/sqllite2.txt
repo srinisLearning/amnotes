@@ -1,0 +1,60 @@
+from flask import Flask,render_template,request,flash,redirect,url_for;
+from flask_bootstrap import Bootstrap;
+import sqlite3;
+
+
+
+app = Flask(__name__);
+Bootstrap(app);
+
+con = sqlite3.connect('database1.sqlite');
+con.execute("CREATE TABLE IF NOT EXISTS data(pid INTEGER PRIMARY KEY,name TEXT,mobile INTEGER,email TEXT,city TEXT,state TEXT)");
+con.close();
+
+
+
+
+
+
+
+
+if __name__  == '__main__':
+    app.run(debug=True,port=5001);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

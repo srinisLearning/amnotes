@@ -1,0 +1,116 @@
+from flask import Flask
+app = Flask(__name__);
+@app.route('/')
+def helloWorld():
+    return "Hello from Wasan World!"
+
+if (__name__) == ('__main__'):
+    app.run(debug=True,port=5001)
+ <script type="text/javascript src="{{  url_for('static', filename-'hello.js') }}">
+</script>
+@app.route('/hello/<name>')    
+def hello(name):
+    return f"Hello from {name}"
+@app.route('/result',methods=['GET', 'POST'])
+def result():
+    if request.method == 'POST':    
+        result=request.form
+        return render_template('displayMarks.html', result=result);
+
+
+-
+
+
+
+  {%    for key,value in result.iteritems() %}
+
+           <tr>
+               <td>{{  key }}</td>
+               <td>{{ value }}</td>
+           </tr>
+
+
+        {% endfor %}
+@app.route('/admin')
+def hello_admin():
+    return "Hello from Admin!";
+
+@app.route('/guest/<name>')
+def hello_guest(name):
+    return f"Hello {name}"
+
+@app.route('/user/<name>')
+def hello_user(name):
+    if name == "admin":
+        return redirect(url_for('hello_admin'));
+    else:
+        return redirect(url_for('hello_guest',name=name))
+
+@app.route('/function', methods=['POST','GET])
+def function():
+   if request.method=='POST':
+         #statem ent 1
+         #statement 2
+  else:
+         #statement 1
+         #statement 2
+
+app.secret_key = 'abcd1234'
+
+@app.route('/flashMessages')
+ def flashMessages():
+      flash("Hello from Flash Messages")
+      return render_template('flashMessages.html');
+
+@app.route('/flashMessages2/<name>')
+ def flashMessages2(name):
+      flash(f"Hello {name} from Second Flash Messages")
+      return render_template('flashMessages.html');
+
+-
+
+
+{% with messages = get_flashed_messages() %}
+
+{% if messages %} 
+
+{% for message in messages %}
+{{  message }}
+{% endfor %} 
+
+{% endif %}
+
+{% endwith%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

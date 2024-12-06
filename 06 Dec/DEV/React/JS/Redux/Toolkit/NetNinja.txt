@@ -1,0 +1,97 @@
+Counter Example Net Ninja
+
+app.js
+
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment, incrementByAmount } from "./redux/counter";
+import "./styles.css";
+
+export default function App() {
+const { count } = useSelector((state) => state.counter);
+const dispatch = useDispatch();
+return (
+<div className="App">
+<h1> The count is: {count}</h1>
+<button onClick={() => dispatch(increment())}>increment</button>
+<button onClick={() => dispatch(decrement())}>decrement</button>
+<button onClick={() => dispatch(incrementByAmount(33))}>
+Increment by 33
+</button>
+</div>
+);
+store.js
+
+import { configureStore } from "@reduxjs/toolkit";
+import counterReducer from "./counter";
+
+export default configureStore({
+reducer: {
+counter: counterReducer
+}
+});
+-
+
+counter.js
+
+import { createSlice } from "@reduxjs/toolkit";
+
+export const counterSlice = createSlice({
+name: "counter",
+initialState: {
+count: 0
+},
+reducers: {
+increment: (state) => {
+state.count += 1;
+},
+decrement: (state) => {
+state.count -= 1;
+},
+incrementByAmount: (state, action) => {
+state.count += action.payload;
+}
+}
+});
+
+// Action creators are generated for each case reducer function
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+
+export default counterSlice.reducer;
+ Basic Example ChatGPT 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

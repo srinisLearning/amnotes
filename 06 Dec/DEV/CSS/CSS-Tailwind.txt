@@ -1,0 +1,338 @@
+<div className="grid  grid-cols-2 min-h-screen">
+      <div className="bg-primary h-full text-white flex items-center justify-center">
+        <h1 className="text-7xl text-bold text-red-500">Wasan</h1>
+
+        <h1 className="text-7xl text-bold text-green-500 ml-4">Shop</h1>
+      </div>
+      <div className="flex items-center justify-center"> Form fields</div>
+    </div>
+
+
+ <script src="https://cdn.tailwindcss.com"></script>
+
+<span class="wpcf7-form-control wpcf7-radio"><span class="wpcf7-list-item first"><span class="wpcf7-list-item-label">Property Buying</span><input type="radio" name="your-sports" value="Property Buying"></span><span class="wpcf7-list-item"><span class="wpcf7-list-item-label">Property Selling</span><input type="radio" name="your-sports" value="Property Selling"></span><span class="wpcf7-list-item last"><span class="wpcf7-list-item-label">Investment</span><input type="radio" name="your-sports" value="Investment"></span></span>
+
+
+https://tailwindcss.com/docs/customizing-colors
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+
+
+
+
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+
+
+
+https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css
+
+
+<p class="text-green-600  font-semibold  border-t-2  p-2  m-3  text-6xl w-50">Today is Thursday</p>
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">    
+<script src="https://cdn-tailwindcss.vercel.app/"></script>
+
+
+
+text-blue-600
+text-green-200
+
+bg-grey-200
+font-semibold
+border-2
+bolder-solid
+border-orange-500
+
+p-2
+m-3
+text-6xl
+text-sm,
+text-md
+,text-lg,
+text-xl
+
+w-50
+h-20
+w-screen
+w-full
+w-min
+w-max
+h-screen
+h-full
+h-min
+h-max
+
+
+font-sans
+font-serif
+font-mono
+
+flex  justify-end
+flex items-start
+
+rounded
+shadow
+ 
+
+sm:bg-red,
+md:bg-green,
+lg:bg-yellow 
+xl:bg-orange
+
+@apply()
+block
+flex
+table
+
+grid place-items-center
+
+
+
+
+flex,
+flex-col
+flex-reverse
+
+
+
+
+grid grid-cols-3  gap-10
+
+space-x-3
+space-y-2
+
+ <div class="h-15 p-6 m-5 bg-orange-200 text-cyan-600 w-50"> Hello from wasan world</div>
+ <div class="h-15 p-6 m-5 bg-orange-200 text-cyan-600 w-50">  This is second line</div>
+
+
+ <div 
+    class="leading-9 text-right
+    text-red-700
+    bg-red-500 w-1/2 h-1/3 p-5 my-10
+    border-t-2
+    border-solid
+    border-green-500
+    opacity-40
+    shadow-2xl">
+</div>
+
+
+
+<div class="h-15 p-6 m-5 bg-orange-200 text-cyan-600 w-50"> Hello from wasan world</div>
+ <div class="h-15 p-6 m-5 bg-orange-200 text-cyan-600 w-50">  This is second line</div>
+
+
+<div class="flex"> placing dive side by side
+<div class="bg-orange-400 text-blue-50 w-2/3 p-1 h-s">this is my line</div>
+<div class="bg-slate-500 w-1/3 text-yellow-500 text-justify pl-5">This is second line of </div>
+ </div>
+
+
+<div class="grid place-items-center">
+   <p class='text-indigo-200'>
+   This is a third line
+   </p>
+   </div>
+
+
+https://play.tailwindcss.com/GH2OQhJ6Nz
+https://play.tailwindcss.com/52BbQGhs0K
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GRID
+
+
+
+
+
+flex
+
+flex-row
+flex-row-reverse
+flex-col
+flex-col-reverse
+
+flex-wrap
+flex-wrap-reverse
+flex-nowrap
+
+
+no wrap
+justify-start
+        -end
+        -center
+        -between
+        -around
+        -evenly   
+
+wrap is set 
+content-center
+         -start
+         -end 
+        -between
+        -around
+        -evenly
+
+self-auto
+    -start
+    -end
+    -center
+    -stretch
+
+order-1
+order12
+order-first
+order-last
+order-none
+
+
+
+space-x-3
+space-y-4
+
+-
+
+flex-grow-0
+flex-grow
+
+-
+
+flex-shrink-0
+flex-shrink
+
+flex-1
+flex-auto
+flex-initial
+flex-none
+
+flex:{
+'1/3':'1 1 33%', --> flex33
+'2/3':'1 1 67%', --> flex67
+'1/4': '1 1 25%',--> flex25
+}
+
+
+items-start
+      -end
+      -center
+      -baseline
+      -stretch
+
+flex-1
+flex-auto
+flex-initial
+flex-none
+
+flex:{
+'1/3':'1 1 33%', --> flex33
+'2/3':'1 1 67%', --> flex67
+'1/4': '1 1 25%',--> flex25
+}
+
+
+<div class="grid grid-cols-3 gap-4">
+       <div class="...">01</div> 
+       <div class="...">02</div> 
+       <div class="...">03</div>
+        <div class="col-span-2 ...">04</div>
+        <div class="...">05</div>
+        <div class="...">06</div> 
+        <div class="col-span-2 ...">07</div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GRID
+
+
+
+
+
+grid
+Items-place-center
+gap-2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

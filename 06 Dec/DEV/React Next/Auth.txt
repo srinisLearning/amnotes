@@ -1,0 +1,139 @@
+'use server'
+
+import { currentUser } from "@clerk/nextjs"
+import prisma from "../db/dbConfig"
+
+    const clerkUser = await currentUser();
+  let username = clerkUser?.username;
+    if (!username) {
+      username = clerkUser?.firstName + " " + clerkUser?.lastName;
+    }
+
+ const userEmail = clerkUser?.emailAddresses[0].emailAddress
+
+ const profilePic =  clerkUser?.imageUrl,
+
+export const getCurrentUserFromMongoDb = async () => {
+
+  try {
+
+    let mongoUser = null
+    mongoUser = await prisma.user.findUnique({
+      where: {
+        clerkUserId: clerkUser?.id
+      }
+    });
+    if (mongoUser) {
+      return {
+        data: mongoUser
+      }  
+      
+
+    }
+  
+
+    username = username.replace("null", "");
+    const newUser: any = {
+      clerkUserId: clerkUser?.id,
+      username,
+      email: clerkUser?.emailAddresses[0].emailAddress,
+      profilePic: clerkUser?.imageUrl,
+    };
+    const result = await prisma.user.create({
+      data: newUser,
+    });
+    return {
+      data: result,
+    };
+
+  } catch (error: any) {
+
+    return {
+      error: error.message
+    }
+  }
+}
+import { UserButton,currentUser } from "@clerk/nextjs";
+ <UserButton afterSignOutUrl="/sign-in"/>
+https://clerk.com/docs/references/nextjs/read-session-data
+
+ 'use client'
+import { useAuth } from '@clerk/nextjs'
+
+export default function Example() {
+  const { isLoaded, userId, sessionId, getToken } = useAuth()
+
+  // In case the user signs out while on the page.
+  if (!isLoaded || !userId) {
+    return null
+  }
+
+  return (
+    <div>
+      Hello, {userId} your current active session is {sessionId}
+    </div>
+  )
+}
+
+
+
+
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+
+const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)','/','/products/(.*)']);
+
+export default clerkMiddleware((auth, request) => {
+  if(!isPublicRoute(request)) {
+    auth().protect();
+  }
+});
+
+export const config = {
+  matcher: [
+    // Skip Next.js internals and all static files, unless found in search params
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    // Always run for API routes
+    '/(api|trpc)(.*)',
+  ],
+};
+
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/sign-in
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+
+
+https://clerk.com/docs/upgrade-guides/core-2/nextjs
+https://clerk.com/docs/references/nextjs/clerk-middleware
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

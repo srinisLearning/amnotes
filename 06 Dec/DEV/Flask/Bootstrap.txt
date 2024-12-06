@@ -1,0 +1,164 @@
+BOOTSTRAP
+MySQL
+pip3 install flask-bootstrap
+pip3 install flask-bootstrap4
+
+from flask_bootstrap import Bootstrap;
+{% extends 'bootstrap/base.html/' %}
+pip3 install flask-mysqldb
+from flask_mysqldb import MySQL;
+
+pip3 install pyyaml
+import yaml
+
+ERROR: Could not find a version that satisfies the requirement bootstrap5 (from versions: none)
+ERROR: No matching distribution found for bootstrap5
+TEMPLATES
+
+{% extends "bootstrap/base.html" %}
+{% block title %} 
+
+
+{% endblock %}
+
+{% block navbar %}
+      {%  include '_navbar.html' %}
+{% endblock %}
+
+{% block content %}
+   {% block pageContent %}
+
+   {% endblock %}
+{% endblock %}
+
+
+Bootstrap(app)
+
+CSS
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='mystyle.css')}}">
+{% endblock %}
+
+JS
+{% block scripts %}
+<script src="{{url_for('.static', filename='myscripts.js')}}"></script>
+{{super()}}
+{% endblock %}
+
+{% block html_attribs %} lang="en"{% endblock %}
+
+Block name     Outer Block                         Purpose 
+doc             Outermost block. 
+html                    doc      Contains the complete content of the <html> tag. 
+html_attribs           doc      Attributes for the HTML tag. 
+head                        doc      Contains the complete content of the <head> tag. 
+body                        doc      Contains the complete content of the <body> tag. 
+body_attribs          body     Attributes for the Body Tag. 
+title                     head      Contains the complete content of the <title> tag. 
+styles                  head      Contains all CSS style <link> tags inside head. 
+metas                      head       Contains all <meta> tags inside head. 
+navbar                body         An empty block directly above content. 
+content               body     Convenience block inside the body. Put stuff here. 
+scripts                 body      Contains all <script> tags at the end of the body. 
+
+Static resources
+The url-endpoint bootstrap.static is available for refering to Bootstrap resources, but usually, this isn’t needed. A bit better is using the bootstrap_find_resource template filter, which will take CDN settings into account.
+The current resource-system is described in detail on CDN support.
+
+CDN support — Flask-Bootstrap 3.3.7.1 documentation (pythonhosted.org)
+
+from flask import Flask,render_template;
+from flask_bootstrap import Bootstrap;
+
+app = Flask(__name__)
+Bootstrap(app)
+
+@app.route('/')
+def index():
+    return render_template('index.html');
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5001);
+
+{% extends 'bootstrap/base.html/' %}  
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"      
+    />
+  </head>
+
+  <body>
+    <header>
+            {% block navbar%}
+ 
+            {% endblock %}
+   </header>
+    {% block content%}
+         {% block pageContent %} 
+         
+         {% endblock %}
+    {% endblock%}
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"      
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    ></script>
+  </body>
+</html>
+
+
+{% extends 'base.html/' %}
+
+{% block pageContent %}
+
+<div class="text-center">
+<h3 class='text-primary'>Welcome to Wasan World</h3>
+<button class="btn btn-primary">Continue</button>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

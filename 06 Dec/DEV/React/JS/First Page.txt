@@ -1,0 +1,168 @@
+
+Fundamentals
+Hooks
+Router
+Formik
+Storybook
+Render
+Table
+TypeScript
+Query
+Styled Comp 
+Redux
+Next
+
+
+
+
+import { v4 as uuidv4 } from "uuid";
+id:uuidv4()
+
+import { v4 as uuidv4 } from "uuid";
+
+export const MovieReducer = (movies, action) => {
+  switch (action.type) {
+    case 'ADD_MOVIE':
+      return (
+        [{title:action.movie.title,
+          hero:action.movie.hero,
+           id:uuidv4()},...movies]
+      )
+    case 'REMOVE_MOVIE':
+      return movies.filter(movie=>movie.id !== action.id);
+    default:
+      return movies;
+  }
+} 
+
+
+
+import React, { useState } from 'react';
+import { View, TextInput, Button, Text, FlatList } from 'react-native';
+
+const TodoApp = () => {
+  const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+
+  const handleAddTodo = () => {
+    setTodos([...todos, { key: todos.length.toString(), value: inputValue }]);
+    setInputValue('');
+  };
+
+  return (
+    <View>
+      <TextInput
+        value={inputValue}
+        onChangeText={text => setInputValue(text)}
+        placeholder="Enter a todo item"
+        style={{ borderWidth: 1, padding: 10, margin: 10 }}
+      />
+      <Button onPress={handleAddTodo} title="Add Todo" />
+      <FlatList
+        data={todos}
+        renderItem={({ item }) => <Text>{item.value}</Text>}
+      />
+    </View>
+  );
+};
+
+export default TodoApp;
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const MyComponent = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios.get('https://your-api-endpoint.com/data');
+        setData(result.data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>An error occurred: {error.message}</p>;
+  }
+
+  return (
+    <ul>
+      {data.map((item, index) => (
+        <li key={index}>{item.name}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default MyComponent;
+
+import React, { useState, useEffect } from 'react';
+
+const MyComponent = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://your-api-endpoint.com/data');
+        const result = await response.json();
+        setData(result);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>An error occurred: {error.message}</p>;
+  }
+
+  return (
+    <ul>
+      {data.map((item, index) => (
+        <li key={index}>{item.name}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default MyComponent;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

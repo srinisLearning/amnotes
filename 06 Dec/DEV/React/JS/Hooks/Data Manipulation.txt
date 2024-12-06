@@ -1,0 +1,167 @@
+
+
+
+
+
+
+default Props
+
+import React from "react";
+
+function App3({ name }) {
+  return <div>The name is {name}</div>;
+}
+
+App3.defaultProps = {
+  name: "srini",
+};
+
+export default App3;
+
+
+Passing Data from Child  to Parent
+-
+
+Parent Component
+
+import React from 'react'
+import Search from '../../components/search/search'
+
+function HomePage() {
+     
+   const getDataFromChild = (data)=>{
+     alert("This is from the parent   " + data)
+   }
+  return (
+    <div className='homepage'>
+        <Search getDataFromChild = {getDataFromChild}/>
+    </div>
+  )
+}
+
+export default HomePage
+
+ 
+-
+
+import React, { useState } from "react";
+import "./search.css";
+
+function Search(props) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const { getDataFromChild } = props;
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+     getDataFromChild(searchTerm);
+  }
+  return (
+    <form className="searchComp" onSubmit={handleSubmit}>
+      <input
+        name="searchInput"
+        onChange={handleInputChange}
+        id="searchInput"
+        value={searchTerm}
+        placeholder="Enter Recipe to Search"
+      />
+      <button  type="submit">
+        Search
+      </button>
+    </form>
+  )
+}
+
+export default Search;
+MovieList.js
+
+import React, { useState } from "react";
+import AddMovie from "./AddMovie";
+import { v4 as uuidv4 } from "uuid";
+//const { v4: uuidv4 } = require('uuid');
+
+function MovieList() {
+  const addMovieToList = (param1, param2) => {
+    setMovies([...movies, { id: uuidv4(), name: param1, lead: param2 }]);
+  };
+  const [movies, setMovies] = useState([
+    { id: "1", name: "Sholay", lead: "Gayatri" },
+    { id: "2", name: "Aajnabi", lead: "Vrinda" },
+    { id: "3", name: "Aradhana", lead: "Veni" },
+    { id: "4", name: "Main Ne Pyar Kiye", lead: "Sai Priya" },
+    { id: "5", name: "Kuch Kuch Hota Ha", lead: "Jothi" },
+  ]);
+  return (
+    <div>
+      <h3>Movies List</h3>
+      <ul style={{ listStyleType: "none" }}>
+        {movies.map((movie) => {
+          return (
+            <li key={movie.id}>
+              {movie.name} &nbsp;&nbsp; {movie.lead}
+            </li>
+          );
+        })}
+      </ul>
+      <hr />
+      <hr />
+      <AddMovie addMovieToList={addMovieToList} />
+    </div>
+  );
+}
+
+export default MovieList;
+
+ 
+-
+AddMovie.js
+
+import React, { useState } from "react";
+
+function AddMovie({ addMovieToList }) {
+  const [name, setName] = useState("");
+  const [lead, setLead] = useState("");
+  const addThisMovie = (e) => {
+    e.preventDefault();
+    addMovieToList(name, lead);
+  };
+  return (
+    <div>
+      <h3>AddMovie</h3>
+      <form onSubmit={addThisMovie}>
+        <p>
+          <label>Movie Name &nbsp;&nbsp;</label>
+          <input
+            type="text"
+            value={name}
+            placeholder="Enter Movie Name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          ></input>
+        </p>
+        <p>
+          <label>Movie Lead &nbsp;&nbsp;</label>
+          <input
+            type="text"
+            value={lead}
+            placeholder="Enter Movie Lead"
+            onChange={(e) => {
+              setLead(e.target.value);
+            }}
+          ></input>
+        </p>
+        <div>
+          <button type="submit">Add Movie</button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default AddMovie;
+-
+https://www.npmjs.com/package/uuid

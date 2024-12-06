@@ -1,0 +1,193 @@
+import React, { useContext } from 'react'
+import ComponentF from './ComponentF'
+import { UserContext, ChannelContext } from '../App'
+
+function ComponentE() {
+
+  const user = useContext(UserContext)
+  const channel = useContext(ChannelContext)
+  return <div> User is {user} and channel is {channel}</div>
+}
+
+export default ComponentE
+import React from 'react'
+import './App.css'
+import ComponentC from './components/ComponentC'
+
+export const UserContext = React.createContext()
+export const ChannelContext = React.createContext()
+
+function App() {
+	return (
+		<div className="App">
+       <UserContext.Provider value={'Vishwas'}>
+        <ChannelContext.Provider value={'Codevolution'}>
+	    <ComponentC />
+	</ChannelContext.Provider>
+	</UserContext.Provider>
+		</div>
+	)
+}
+
+export default App
+
+The useContext hook in React is a way to share data between components without passing props down manually.
+
+Imagine you have a big tree of components, and you want to share some data (like a theme or a user's name) between them. You could pass props down from parent to child, but that gets messy and hard to manage.
+
+Instead, you can use useContext to create a "context" that holds the shared data. Then, any component can use the useContext hook to access that data.
+
+Here's a simple example:
+
+Step 1: Create a context
+ 
+import { createContext, useState } from 'react';
+
+const ThemeContext = createContext();
+
+const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState('light');
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+Step 2: Wrap your app with the context provider
+ 
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ThemeProvider } from './ThemeContext';
+
+const App = () => {
+  // ...
+};
+
+ReactDOM.render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+  document.getElementById('root')
+);
+
+Step 3: Use the context in a component
+
+ 
+import React from 'react';
+import { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
+const Button = () => {
+  const { theme } = useContext(ThemeContext);
+
+  return (
+    <button style={{ backgroundColor: theme === 'light' ? '#fff' : '#333' }}>
+      Click me!
+    </button>
+  );
+};
+
+
+
+import React, { createContext, useContext, useState } from 'react';
+
+// Step 1: Create a Context
+const ThemeContext = createContext();
+
+// Step 2: Create a Context Provider Component
+const ThemeProvider = ({ children }) => {
+  // This state will hold the current theme
+  const [theme, setTheme] = useState('light');
+
+  // Toggle theme between 'light' and 'dark'
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  // Provide the context value and a function to toggle the theme
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+// Step 3: Create a Component that Consumes the Context
+const ThemedComponent = () => {
+  // Access the context value using useContext
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <div style={{ background: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff', padding: '20px' }}>
+      <p>The current theme is {theme}.</p>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+    </div>
+  );
+};
+
+// Step 4: Use the ThemeProvider to Wrap the Component Tree
+const App = () => {
+  return (
+    <ThemeProvider>
+      <ThemedComponent />
+    </ThemeProvider>
+  );
+};
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,91 @@
+1. You-Dont Know-JS
+
+? This is a series of books diving deep into the core mechanisms of the JavaScript language.
+?? https://lnkd.in/dDUZ_8zH
+
+2. wtfjs
+
+? A list of funny and tricky JavaScript examples. Learn with fun.
+?? https://lnkd.in/dsUYwkGZ
+
+3. JavaScript30
+
+? Learn to build 30 things in 30 days with 30 tutorials. No Frameworks, Compilers, Libraries or Boilerplate.
+?? https://lnkd.in/dke98qS3
+
+4. clean-code-javascript
+
+? Clean Code concepts adapted for JavaScript. Find the best code snippets here.
+?? https://lnkd.in/dTr4tKMf
+
+5. javascript-questions
+
+? A long list of (advanced) JavaScript questions, and their explanations
+?? https://lnkd.in/dXebxPAm
+
+6. ES6-for-humans
+
+? A Kickstarter guide to writing ES6. Best practices for code optimization, organization, and practicals.
+?? https://lnkd.in/dN3qPjEP
+
+7. javascript-algorithms
+
+? Algorithms and data structures implemented in JavaScript with explanations.
+?? https://lnkd.in/dvDFZq92
+
+8 js-stack-from-scratch
+
+? Learn JavaScript from scratch. A straight-to-the-point guide to assembling a JavaScript stack.
+?? https://lnkd.in/daJJ4RQU
+Hi, 
+
+I am planning to take online training for HTML, CSS, Javascript, React js, Node js, Express js, Mongodb
+
+Guidance will be given for college projects/personal projects/job/career switch.
+
+If anyone interested to learn or having any doubt, please message me privately.
+https://www.youtube.com/watch?v=0awA5Uw6SJE&list=PLC3y8-rFHvwiaOAuTtVXittwybYIorRB3
+https://www.youtube.com/watch?v=DXlnr7rDDR0&list=PLwGdqUZWnOp2nz2T6SfWX9t6D6SYn3XlN
+https://www.youtube.com/watch?v=HptuMAUaNGk
+https://www.youtube.com/watch?v=6RhOzQciVwI&list=PL4cUxeGkcC9hNokByJilPg5g9m2APUePI
+https://www.youtube.com/watch?v=cF2lQ_gZeA8&list=PLC3y8-rFHvwisvxhZ135pogtX7_Oe3Q3A
+https://www.udemy.com/course/python-programming-beginners/learn/lecture/6727878#overview
+https://www.youtube.com/watch?v=MCbvz0kAxk0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+Machine Learning : Using sample data to traing computer programs to recoginize patterns and algorithms.
+
+
+As a web developer, I understand how exciting it can be to bring a new idea to life through a custom web application. Whether you’re envisioning a sleek e-commerce platform, an interactive dashboard, or a unique service tool, my goal is to transform your vision into a functional and visually appealing reality.
+The first step in this process is understanding your needs and goals. What problems does your application aim to solve? Who is your target audience? Having clear answers to these questions helps us create an application that aligns with your business objectives and provides value to your users. Together, we’ll outline the core features and functionalities, balancing your wish list with technical feasibility and budget considerations.
+During development, I’ll keep you in the loop with regular updates and opportunities for feedback. I believe collaboration is key to ensuring the final product exceeds your expectations. Whether it’s choosing a design aesthetic, optimizing user experience, or implementing backend integrations, your input is invaluable.
+Beyond launch, I’ll be here to support you with updates, maintenance, and enhancements as your application evolves. A great web application is a living project that grows with your business.
+Investing in a custom web application is a big decision, but it’s also a rewarding one. Let’s create something that not only meets your needs but also excites your users and drives your success. I’m here to guide you every step of the way.
+
+
+Neural Networks : Computer systems designed to imitate the neurons in a brain
+
+Natural Language Processing : The ability to understand speech,as well as understand and analyze documents
+
+Robotics : Machines that can assist people without actual human involvement
+
+NLP is a branch of artifical intelligance that focuses on the interaction between computers and humans through natural language. ChatGPT emplyos advanced NLP algorithms to understand and generate human like text based on the input it receives.
+
+A Prompt is a specific instruction or cue given to a computer program, particulaly in the context of natural language processing (NLP). In the case of language models like ChatGPT, a prompt is a piece of text provided to the model to initiate a conversation or generate a response.
+
+Prompt Engineering refers to the process of designing and refining prompts to elicit specific responses or behaviors from a language model, such as ChatGPT. It involves crafting prompts that are clear, specific and tailored to the desired task or outcome
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

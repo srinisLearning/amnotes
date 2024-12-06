@@ -1,0 +1,70 @@
+
+<div className ='flex items-center justify-center h-screen'>
+      <h2 className="font-bold text-4xl text-green-500">
+        Welcome Now to Wasan Events </h2>
+    </div>
+
+
+
+
+npm install prisma 
+npx prisma init --datasource-provider sqlite
+
+npx prisma migrate dev
+
+ 
+-
+npm install @nextui-org/react framer-motion
+
+import { nextui } from "@nextui-org/react";
+
+ "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+
+plugins: [
+    nextui({ }),
+  ],
+
+
+
+http://localhost:3000/api/auth/callback/github
+
+npm install --save-exact
+
+@auth/core@0.18.1
+@auth/prisma-adapter@1.0.6
+next-auth@5.0.0-beta.3
+
+intrepline.live
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

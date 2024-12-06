@@ -1,0 +1,43 @@
+npm install bootstrap@v5.2.3
+
+main.js file
+import 'bootstrap/dist/css/bootstrap.css' 
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+esline diabale
+https://learn.coderslang.com/0023-eslint-disable-for-specific-lines-files-and-folders/#:~:text=To%20turn%20off%20ESLint%20in,eslintignore%20in%20the%20root%20catalog.
+ 
+
+npm outdated
+
+npm clean-install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

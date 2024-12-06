@@ -1,0 +1,282 @@
+install python
+
+pip install django
+
+To Check the Django version
+python
+import django
+django.VERSION
+
+django-admin startproject <PROJECT_NAME>
+py  manage.py startapp<APP_NAME>
+py  manage.py runserver
+
+
+
+pip install virtualenv   
+virtualenv <virtualenvname> | 
+<virtualenvname>\Scripts\activate
+
+pip freeze > requirements.txt
+
+pip install -r requirements.txt
+
+-
+ 
+
+pip install pipenv
+
+ pipenv shell
+
+pipenv install django
+
+pip  freeze
+
+
+install bootstrap
+create urls.py in the app folder
+include the app urls.py in the project url folder
+
+create template and static directory in the root
+
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
+STATIC_DIR = os.path.join(BASE_DIR,'static')
+
+-
+
+TEMPLATES = [
+    {
+        
+        'DIRS': [TEMPLATE_DIR],
+        
+    },
+]
+
+-
+
+STATICFILES_DIRS = [STATIC_DIR]
+
+
+
+
+ADMIN
+
+add the apps to Installed Apps
+
+ py manage.py migrate to enable admin mode
+
+
+ py manage.ppy createsuperuser
+
+
+
+VIEWS  
+
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('appleone/', include('appleone.urls')),
+]
+-
+ 
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
+    path('add/<int:a>/<int:b>/', views.add, name='add'),
+    path('info/<str:name>/<str:email>/', views.info, name='info')
+]
+ 
+
+-
+ 
+ 
+from django.shortcuts import render 
+from django.http import HttpResponse,JsonResponse
+ 
+
+def index(request):
+    return  HttpResponse('Hello from Appleone')
+
+def about(request):
+    return  HttpResponse('About Appleone')
+
+def contact(request):
+    return  HttpResponse('Contact Appleone')    
+
+def add(request,a,b):
+    return  HttpResponse(a+b)
+
+def info(request,name,email):
+    return  JsonResponse({'name':name,'email':email})
+  
+
+ 
+
+
+
+
+
+TEMPLATES
+
+https://docs.djangoproject.com/en/3.0/ref/templates/language
+
+-
+
+{% extends "base_generic.html" %}
+
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ section.title }}</h1>
+
+{% for story in story_list %}
+<h2>
+  <a href="{{ story.get_absolute_url }}">
+    {{ story.headline|upper }}
+  </a>
+</h2>
+<p>{{ story.tease|truncatewords:"100" }}</p>
+{% endfor %}
+{% endblock %}
+
+-
+def displayVariables(request):
+    fruits = ['apple','banana','orange','grapes','mango']
+    mydata = {
+       "name":"srini",
+       "age": 45,
+       "greeting":"Hello, How are you?",
+       "myfruits":fruits,
+
+    }
+
+
+    {% block content %}
+    <h3>Display Variables</h3>
+    {{ name }} <br>
+    {{ age }} <br>
+    {{ greeting }} <br>
+    {% endblock %}
+    <hr>
+    <h3>Fruits</h3>
+    <ul>
+        {% for fruit in myfruits %}
+        <li>{{ fruit }}</li>
+        {% endfor %}
+    </ul>
+
+
+
+BOOTSTRAP
+
+pip install django-bootstrap-v5
+
+INSTALLED_APPS = [
+     
+    'bootstrap5',
+]
+
+<head>
+ {% load bootstrap5 %}
+ {% bootstrap_css %}
+ {% bootstrap_javascript %}
+</head>
+
+
+
+
+STATIC
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+<img src="{% static 'images/dlogo.png'  %}" alt="Django Logo">
+<script src="{% static 'js/script.js' %}" defer></script>
+
+
+
+from django import forms
+
+class 
+
+
+
+MIGRATIONS
+from django.db import models
+
+class Tour(models.Model):
+    origin_country = models.CharField(max_length=200)
+    destination_country = models.CharField(max_length=200)
+    price = models.IntegerField()
+    mumber_of_nights = models.IntegerField()
+
+    def __str__(self):
+        return (f"ID:{self.id}: From {self.origin_country} To {self.destination_country}, {self.number_of_nights} nights costs ${self.price}")
+-
+from django.contrib import admin
+from .models import Tour 
+
+
+admin.site.register(Tour)
+
+-
+def showtours(request):
+    tours = Tour.objects.all()
+    context = {'tours':tours}
+    return  render(request,'asiantours/showtours.html',context)   
+
+
+-
+
+  <h3 class="text-center text-primary">All Tours</h3>
+    {% for tour in tours %}
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title">{{ tour.origin_country }}</p>
+                <p class="card-text">{{ tour.destination_country }}</p>
+                <p class="card-text">{{ tour.price }}</p>
+                <p class="card-text">{{ tour.number_of_nights }}</p>
+             
+                 
+            </div>
+        </div>
+    {% endfor %}
+
+-
+py manage.py makemigrations
+
+py manage.py migrate
+
+
+pipenv install ipython
+
+ipython
+
+py manage.py shell
+
+py manage.py createsuperuser
+
+
+
+
+
+
+
+
+LINKS
+
+https://github.com/prosoftwaredevelopment/Learn-Django
+
+https://github.com/BekBrace/django_course_2024/tree/main
+
+
+

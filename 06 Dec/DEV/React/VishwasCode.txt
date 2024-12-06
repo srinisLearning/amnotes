@@ -1,0 +1,146 @@
+type GreetProps = {
+  name: string
+  messageCount?: number
+  isLoggedIn: boolean
+}
+
+export const Greet = (props: GreetProps) => {
+  const { messageCount = 0 } = props
+  return (
+    <div>
+      {props.isLoggedIn ? (
+        <h2>
+          Hey {props.name}! You have {messageCount} unread messages
+        </h2>
+      ) : (
+        <h2>Welcome Guest</h2>
+      )}
+    </div>
+  )
+}
+-
+import { Greet } from './components/props/Greet'
+
+<Greet name='Vishwas' isLoggedIn={false} />
+ type GreetProps = {
+    name:string,
+    name2:{
+        first:string,
+        last:string,
+    }
+}
+-
+const Greet = ({name,name2}:any) => {
+
+  return (
+    <>
+    <div>Greetings {name}</div>
+     <p>The fullname is {name2.first} {name2.last}</p>
+    </>
+  )
+}
+
+export default Greet
+
+-
+     <Greet  name='ravisri' name2= {fullName}/>
+ if (player !== undefined) {
+  const team = player.team;
+  if (team !== undefined) {
+    const teamName = team.name;
+  }
+}
+const teamName = player?.team?.name;
+
+-
+
+const jerseyNumber = player.jerseyNumber ?? 0;
+
+The double question mark (??) checks if the left-hand side value is nullish (null or undefined) and provides the right-hand side value as the default if needed. Nullish coalescing ensures that we always have a valid jersey number, even if it's missing in the player data.
+  const nameList = [
+    {
+      first: 'Bruce',
+      last: 'Wayne'
+    },
+    {
+      first: 'Clark',
+      last: 'Kent'
+    },
+    {
+      first: 'Princess',
+      last: 'Diana'
+    }
+  ]
+-
+
+export const PersonList = (props: PersonListProps) => {
+  return (
+    <div>
+      {props.names.map(name => {
+        return (
+          <h2 key={name.first}>
+            {name.first} {name.last}
+          </h2>
+        )
+      })}
+    </div>
+  )
+}
+
+
+
+
+type ButtonProps = {
+  handleClick: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void
+}
+
+export const Button = (props: ButtonProps) => {
+  return <button onClick={event => props.handleClick(event, 1)}>Click</button>
+}
+
+-
+ 
+import { Button } from './components/props/Button'
+
+<Button
+        handleClick={(event, id) => {
+          console.log('Button clicked', event, id)
+        }}
+      />
+  type InputProps = {
+  value: string
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export const Input = ({ value, handleChange }: InputProps) => {
+  // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   console.log(event)
+  // }
+  return <input type='text' value={value} onChange={handleChange} />
+}
+-
+
+import { Input } from './components/props/Input'
+
+<Input value='' handleChange={event => console.log(event)} />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

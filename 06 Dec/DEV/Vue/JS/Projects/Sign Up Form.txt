@@ -1,0 +1,1477 @@
+
+
+<template>
+  <div class="registration-form">
+    <h1>Registration Form</h1>
+    <form @submit.prevent="submitForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" type="text" v-model="name" />
+        <span v-if="!nameValid" class="error">Please enter a valid name.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input id="phone" type="tel" v-model="phone" />
+        <span v-if="!phoneValid" class="error">Please enter a valid phone number.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" type="email" v-model="email" />
+        <span v-if="!emailValid" class="error">Please enter a valid email address.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input id="password" type="password" v-model="password" />
+        <span v-if="!passwordValid" class="error">Please enter a valid password (at least 8 characters).</span>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <div class="radio-group">
+          <label for="male">Male</label>
+          <input id="male" type="radio" value="male" v-model="gender" />
+          <label for="female">Female</label>
+          <input id="female" type="radio" value="female" v-model="gender" />
+          <span v-if="!genderValid" class="error">Please select a gender.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select id="country" v-model="country">
+          <option value="" disabled>Select your country</option>
+          <option value="USA">USA</option>
+          <option value="Canada">Canada</option>
+          <option value="Mexico">Mexico</option>
+        </select>
+        <span v-if="!countryValid" class="error">Please select a country.</span>
+      </div>
+
+      <div class="form-group">
+        <input id="agree" type="checkbox" v-model="agree" />
+        <label for="agree">I agree to the terms and conditions.</label>
+        <span v-if="!agreeValid" class="error">Please agree to the terms and conditions.</span>
+      </div>
+
+      <button type="submit" :disabled="!formValid">Register</button>
+    </form>
+  </div>
+</template>
+
+<style>
+.error {
+  color: red;
+}
+.radio-group {
+  display: flex;
+  flex-direction: row;
+}
+.radio-group label {
+  margin-right: 10px;
+}
+</style>
+
+<script>
+import { ref } from "vue";
+
+export default {
+  name: "RegistrationForm",
+  setup() {
+    const name = ref("");
+    const phone = ref("");
+    const email = ref("");
+    const password = ref("");
+    const gender = ref("");
+    const country = ref("");
+    const agree = ref(false);
+
+    const nameValid = ref(false);
+    const phoneValid = ref(false);
+    const emailValid = ref(false);
+    const passwordValid = ref(false);
+    const genderValid = ref(false);
+    const countryValid = ref(false);
+const agreeValid = ref(false);
+
+// Validation functions
+const validateName = () => {
+  nameValid.value = name.value.trim() !== "";
+};
+const validatePhone = () => {
+  const phoneRegex = /^[0-9]{10}$/;
+  phoneValid.value = phoneRegex.test(phone.value);
+};
+const validateEmail = () => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  emailValid.value = emailRegex.test(email.value);
+};
+const validatePassword = () => {
+  passwordValid.value = password.value.length >= 8;
+};
+const validateGender = () => {
+  genderValid.value = gender.value !== "";
+};
+const validateCountry = () => {
+  countryValid.value = country.value !== "";
+};
+const validateAgree = () => {
+  agreeValid.value = agree.value;
+};
+
+// Computed property for form validity
+const formValid = computed(() => {
+  return (
+    nameValid.value &&
+    phoneValid.value &&
+    emailValid.value &&
+    passwordValid.value &&
+    genderValid.value &&
+    countryValid.value &&
+    agreeValid.value
+  );
+});
+
+// Submit form function
+const submitForm = () => {
+  if (formValid.value) {
+    // Do something with the form data, e.g. send to a server
+    console.log("Form submitted!");
+  } else {
+    // Show error messages
+    validateName();
+    validatePhone();
+    validateEmail();
+    validatePassword();
+    validateGender();
+    validateCountry();
+    validateAgree();
+  }
+};
+
+// Watchers for validation
+watch(name, validateName);
+watch(phone, validatePhone);
+watch(email, validateEmail);
+watch(password, validatePassword);
+watch(gender, validateGender);
+watch(country, validateCountry);
+watch(agree, validateAgree);
+
+return {
+  name,
+  phone,
+  email,
+  password,
+  gender,
+  country,
+  agree,
+  nameValid,
+  phoneValid,
+  emailValid,
+  passwordValid,
+  genderValid,
+  countryValid,
+  agreeValid,
+  formValid,
+  submitForm,
+};
+
+},
+};
+</script>
+
+
+
+
+<template>
+  <form @submit.prevent="submitForm">
+    <label>
+      Name:
+      <input type="text" v-model="name" />
+      <span v-if="errors.name" class="error">{{ errors.name }}</span>
+    </label>
+
+    <label>
+      Email:
+      <input type="email" v-model="email" />
+      <span v-if="errors.email" class="error">{{ errors.email }}</span>
+    </label>
+
+    <label>
+      Mobile:
+      <input type="tel" v-model="mobile" />
+      <span v-if="errors.mobile" class="error">{{ errors.mobile }}</span>
+    </label>
+
+    <label>
+      Landline:
+      <input type="tel" v-model="landline" />
+      <span v-if="errors.landline" class="error">{{ errors.landline }}</span>
+    </label>
+
+    <label>
+      Website:
+      <input type="text" v-model="website" />
+      <span v-if="errors.website" class="error">{{ errors.website }}</span>
+    </label>
+
+    <label>
+      Food Type:
+      <input type="radio" value="veg" v-model="foodType" />
+      <span>Veg</span>
+      <input type="radio" value="nonveg" v-model="foodType" />
+      <span>Non-Veg</span>
+      <input type="radio" value="both" v-model="foodType" />
+      <span>Both</span>
+      <span v-if="errors.foodType" class="error">{{ errors.foodType }}</span>
+    </label>
+
+    <label>
+      Cuisine Type:
+      <input type="checkbox" value="chinese" v-model="cuisineType" />
+      <span>Chinese</span>
+      <input type="checkbox" value="indian" v-model="cuisineType" />
+      <span>Indian</span>
+      <input type="checkbox" value="mexican" v-model="cuisineType" />
+      <span>Mexican</span>
+      <input type="checkbox" value="italian" v-model="cuisineType" />
+      <span>Italian</span>
+      <span v-if="errors.cuisineType" class="error">{{
+        errors.cuisineType
+      }}</span>
+    </label>
+
+    <label>
+      Image:
+      <input type="file"  accept="image/*" onChange=''/>
+      <span v-if="errors.image" class="error">{{ errors.image }}</span>
+    </label>
+
+    <label>
+      Location:
+      <input type="text" v-model="location" />
+      <span v-if="errors.location" class="error">{{ errors.location }}</span>
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+</template>
+
+
+
+<script>
+import { ref } from "vue";
+import { required, email, numeric, maxLength } from "@vuelidate/validators";
+
+export default {
+  setup() {
+    const name = ref("");
+    const email = ref("");
+    const mobile = ref("");
+    const landline = ref("");
+    const website = ref("");
+    const foodType = ref("");
+    const cuisineType = ref([]);
+    const image = ref(null);
+    const location = ref("");
+
+    const { errors, validate } = useVuelidate({
+      name: { required },
+      email: { required, email },
+      mobile: { required, numeric, maxLength: maxLength(10) },
+      landline: { numeric, maxLength: maxLength(10) },
+      website: { required },
+      foodType: { required },
+      cuisineType: { required },
+      image: { required },
+      location: { required },
+    });
+
+    const submitForm = () => {
+      validate().then((success) => {
+        if (!success) return;
+
+        // Here, you can make an API call to submit the form data
+        const formData = {
+          name: name.value,
+          email: email.value,
+          mobile: mobile.value,
+          landline: landline.value,
+          website: website.value,
+          foodType: foodType.value,
+          cuisineType: cuisineType.value,
+          image: image.value,
+          location: location.value,
+        };
+        console.log(formData);
+      });
+    };
+
+    return {
+      name,
+      email,
+      mobile,
+      landline,
+      website,
+      foodType,
+      cuisineType,
+      image,
+      location,
+      errors,
+      submitForm,
+    };
+  },
+};
+</script>
+
+<style>
+.error {
+  color: red;
+}
+</style>
+SignUp Form
+
+Options API
+Composition API
+<template>
+  <div>
+    <h1>Sign Up</h1>
+    <form>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="name">
+        <p v-if="!nameValid" class="error">Please enter a valid name.</p>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email">
+        <p v-if="!emailValid" class="error">Please enter a valid email.</p>
+      </div>
+      <div>
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" v-model="mobile">
+        <p v-if="!mobileValid" class="error">Please enter a valid mobile number.</p>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" v-model="password">
+        <p v-if="!passwordValid" class="error">Please enter a valid password.</p>
+      </div>
+      <div>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" v-model="confirmPassword">
+        <p v-if="!passwordsMatch" class="error">Passwords do not match.</p>
+      </div>
+      <button type="submit" :disabled="!formValid">Sign Up</button>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: '',
+      email: '',
+      mobile: '',
+      password: '',
+      confirmPassword: '',
+      nameValid: false,
+      emailValid: false,
+      mobileValid: false,
+      passwordValid: false
+    }
+  },
+  computed: {
+    formValid() {
+      return this.nameValid && this.emailValid && this.mobileValid && this.passwordValid && this.passwordsMatch
+    },
+    passwordsMatch() {
+      return this.password === this.confirmPassword
+    }
+  },
+  watch: {
+    name(value) {
+      this.nameValid = value.length > 0
+    },
+    email(value) {
+      this.emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+    },
+    mobile(value) {
+      this.mobileValid = /^\d{10}$/.test(value)
+    },
+    password(value) {
+      this.passwordValid = value.length >= 8
+    }
+  }
+}
+</script>
+
+<style>
+.error {
+  color: red;
+}
+</style>
+
+<template>
+  <div>
+    <h1>Sign Up</h1>
+    <form>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="name">
+        <p v-if="!nameValid" class="error">Please enter a valid name.</p>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email">
+        <p v-if="!emailValid" class="error">Please enter a valid email.</p>
+      </div>
+      <div>
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" v-model="mobile">
+        <p v-if="!mobileValid" class="error">Please enter a valid mobile number.</p>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" v-model="password">
+        <p v-if="!passwordValid" class="error">Please enter a valid password.</p>
+      </div>
+      <div>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" v-model="confirmPassword">
+        <p v-if="!passwordsMatch" class="error">Passwords do not match.</p>
+      </div>
+      <button type="submit" :disabled="!formValid">Sign Up</button>
+    </form>
+  </div>
+</template>
+
+<script>
+import { ref, computed, watch } from 'vue'
+
+export default {
+  setup() {
+    const name = ref('')
+    const email = ref('')
+    const mobile = ref('')
+    const password = ref('')
+    const confirmPassword = ref('')
+    const nameValid = ref(false)
+    const emailValid = ref(false)
+    const mobileValid = ref(false)
+    const passwordValid = ref(false)
+
+    const formValid = computed(() => {
+      return nameValid.value && emailValid.value && mobileValid.value && passwordValid.value && passwordsMatch.value
+    })
+
+    const passwordsMatch = computed(() => {
+      return password.value === confirmPassword.value
+    })
+
+    watch(name, (value) => {
+      nameValid.value = value.length > 0
+    })
+
+    watch(email, (value) => {
+      emailValid.value = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+    })
+
+    watch(mobile, (value) => {
+      mobileValid.value = /^\d{10}$/.test(value)
+    })
+
+    watch(password, (value) => {
+      passwordValid.value = value.length >= 8
+    })
+
+    return {
+      name,
+      email,
+      mobile,
+      password,
+      confirmPassword,
+      nameValid,
+      emailValid,
+      mobileValid,
+      passwordValid,
+      formValid,
+      passwordsMatch
+    }
+  }
+}
+</script>
+
+<style>
+.error {
+  color: red;
+}
+</style>
+
+<template>
+  <div>
+    <h1>Sign Up</h1>
+    <form @submit.prevent="submitForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="name" :class="{ invalid: !nameValid && name.length > 0 }">
+        <p v-if="!nameValid && name.length > 0" class="error">Please enter a valid name.</p>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email" :class="{ invalid: !emailValid && email.length > 0 }">
+        <p v-if="!emailValid && email.length > 0" class="error">Please enter a valid email.</p>
+      </div>
+      <div>
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" v-model="mobile" :class="{ invalid: !mobileValid && mobile.length > 0 }">
+        <p v-if="!mobileValid && mobile.length > 0" class="error">Please enter a valid mobile number.</p>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" v-model="password" :class="{ invalid: !passwordValid && password.length > 0 }">
+        <p v-if="!passwordValid && password.length > 0" class="error">Please enter a valid password.</p>
+      </div>
+      <div>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" v-model="confirmPassword" :class="{ invalid: !passwordsMatch && confirmPassword.length > 0 }">
+        <p v-if="!passwordsMatch && confirmPassword.length > 0" class="error">Passwords do not match.</p>
+      </div>
+      <button type="submit" :disabled="!formValid">Sign Up</button>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: '',
+      email: '',
+      mobile: '',
+      password: '',
+      confirmPassword: '',
+    }
+  },
+  computed: {
+    nameValid() {
+      return this.name.length > 0
+    },
+    emailValid() {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)
+    },
+    mobileValid() {
+      return /^\d{10}$/.test(this.mobile)
+    },
+    passwordValid() {
+      return this.password.length >= 8
+    },
+    passwordsMatch() {
+      return this.password === this.confirmPassword
+    },
+    formValid() {
+      return this.nameValid && this.emailValid && this.mobileValid && this.passwordValid && this.passwordsMatch
+    },
+  },
+  methods: {
+    submitForm() {
+      if (this.formValid) {
+        // handle form submission here
+      }
+    },
+  },
+}
+</script>
+
+<style>
+.error {
+  color: red;
+}
+.invalid {
+  border: 1px solid red;
+}
+</style>
+
+ <input type="text" v-model="name" required>
+      <br>
+      <label for="email">Email Address:</label>
+      <input type="text" v-model="email" required> <br>
+      <span v-if="msg.email">{{msg.email}}</span>
+<label for="password">Password:</label>
+      <input type="text" v-model="password" required><br>
+      <span v-if="msg.password">{{msg.password}}</span>
+      <br>
+      <label for="twitter">Twitter Handle:</label>
+      <input type="text" v-model="twitter" required>
+      <input type="submit" :disabled="!disabled.every(i => i === false)" />
+    </form>
+</div>
+</template>
+
+<script>
+export default {
+  name: 'Test',
+  data(){
+    return {
+      name: '',
+      password: '',
+      email: '',
+      msg: [],
+      twitter: '',
+      disabled: [true, true]
+    }
+  },
+  watch: {
+    email(value){
+      // binding this to the data value in the email input
+      // this.email = value;
+      this.validateEmail(value);
+    },
+    password(value){
+      // this.password = value;
+      this.validatePassword(value);
+    }
+  },
+  methods:{
+    validateEmail(value){
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value))
+  {
+    this.msg['email'] = '';
+    this.disabled = [false, this.disabled[1]]
+  } else{
+    this.msg['email'] = 'Invalid Email Address';
+    this.disabled = [true, this.disabled[1]]
+  }
+    },
+    validatePassword(value){
+      let difference = 8 - value.length;
+      if (value.length<8) {
+        this.msg['password'] = 'Must be 8 characters! '+ difference + ' characters left' ;
+        this.disabled = [this.disabled[1], true]
+      } else {
+         this.msg['password'] = '';
+         this.disabled = [this.disabled[1], false]
+      }
+    },
+    handleSubmission(){
+      alert(`Email: ${this.email} Password: ${this.password}`)
+    }
+  }
+}
+</script>
+ 
+RESTAURANT FORM --  COMPOSITION API
+
+<template>
+  <div>
+    <form @submit.prevent="submitForm">
+      <div>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          v-model.trim="name"
+          :class="{ invalid: nameError }"
+        />
+        <p v-if="nameError" class="error">Name is required</p>
+      </div>
+      <div>
+        <label for="email">E-Mail:</label>
+        <input
+          type="email"
+          id="email"
+          v-model.trim="email"
+          :class="{ invalid: emailError }"
+        />
+        <p v-if="emailError" class="error">Valid email is required</p>
+      </div>
+      <div>
+        <label for="mobile">Mobile:</label>
+        <input
+          type="tel"
+          id="mobile"
+          v-model.trim="mobile"
+          :class="{ invalid: mobileError }"
+        />
+        <p v-if="mobileError" class="error">Valid mobile number is required</p>
+      </div>
+      <div>
+        <label for="landline">Landline:</label>
+        <input
+          type="tel"
+          id="landline"
+          v-model.trim="landline"
+          :class="{ invalid: landlineError }"
+        />
+        <p v-if="landlineError" class="error">
+          Valid landline number is required
+        </p>
+      </div>
+      <div>
+        <label for="website">Website:</label>
+        <select
+          id="website"
+          v-model="website"
+          :class="{ invalid: websiteError }"
+        >
+          <option value="none" disabled>Choose website type</option>
+          <option value="personal">Personal</option>
+          <option value="business">Business</option>
+        </select>
+        <p v-if="websiteError" class="error">Website type is required</p>
+      </div>
+      <div>
+        <label for="food-type">Food Type:</label>
+        <div id="food-type">
+          <label for="veg">
+            <input
+              type="radio"
+              id="veg"
+              name="food-type"
+              value="veg"
+              v-model="foodType"
+            />
+            Veg
+          </label>
+          <label for="non-veg">
+            <input
+              type="radio"
+              id="non-veg"
+              name="food-type"
+              value="non-veg"
+              v-model="foodType"
+            />
+            Non-Veg
+          </label>
+          <label for="both">
+            <input
+              type="radio"
+              id="both"
+              name="food-type"
+              value="both"
+              v-model="foodType"
+            />
+            Both
+          </label>
+        </div>
+        <p v-if="foodTypeError" class="error">Food type is required</p>
+      </div>
+      <div>
+        <label for="cusine-type">Cusine Type:</label>
+        <div id="cusine-type">
+          <label for="traditional">
+            <input
+              type="checkbox"
+              id="traditional"
+              name="cusine-type"
+              value="traditional"
+              v-model="cusineType"
+            />
+            Traditional
+          </label>
+          <label for="chinese">
+            <input
+              type="checkbox"
+              id="chinese"
+              name="cusine-type"
+              value="chinese"
+              v-model="cusineType"
+            />
+            Chinese
+          </label>
+          <label for="tandoori">
+            <input
+              type="checkbox"
+              id="tandoori"
+              name="cusine-type"
+              value="tandoori"
+              v-model="cusineType"
+            />
+            Tandoori
+          </label>
+          <label for="continental">
+            <input
+              type="checkbox"
+              id="continental"
+              name="cusine-type"
+              value="continental"
+              v-model="cusineType"
+            />
+            Continental
+          </label>
+        </div>
+        <p v-if="cusineTypeError" class="error">Cuisine type is required</p>
+      </div>
+      <div>
+        <label for="image">Image:</label>
+        <input type="file" id="image" @change="onImageChange" />
+        <p v-if="imageError" class="error">
+          Image is required and must be a valid image file
+        </p>
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <div id="location">
+          <input
+            type="text"
+            id="location-search"
+            placeholder="Search for location"
+            v-model="locationSearch"
+          />
+          <div id="map" ref="map"></div>
+        </div>
+        <p v-if="locationError" class="error">Location is required</p>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</template>
+
+<script>
+import { reactive, toRefs, watch } from "vue";
+
+export default {
+  name: "RestaurantAddForm",
+  setup() {
+    const state = reactive({
+      name: "",
+      email: "",
+      mobile: "",
+      landline: "",
+      website: "none",
+      foodType: "",
+      cusineType: [],
+      image: null,
+      location: null,
+      locationSearch: "",
+      nameError: false,
+      emailError: false,
+      mobileError: false,
+      landlineError: false,
+      websiteError: false,
+      foodTypeError: false,
+      cusineTypeError: false,
+      imageError: false,
+      locationError: false,
+    });
+
+    const validateName = () => {
+      state.nameError = state.name.trim() === "";
+    };
+
+    const validateEmail = () => {
+      state.emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email.trim());
+    };
+
+    const validateMobile = () => {
+      state.mobileError = !/^(\+\d{1,3}[- ]?)?\d{10}$/.test(
+        state.mobile.trim()
+      );
+    };
+
+    const validateLandline = () => {
+      state.landlineError = !/^\d{3}-\d{3}-\d{4}$/.test(state.landline.trim());
+    };
+
+    const validateWebsite = () => {
+      state.websiteError = state.website === "none";
+    };
+
+    const validateFoodType = () => {
+      state.foodTypeError = state.foodType === "";
+    };
+
+    const validateCusineType = () => {
+      state.cusineTypeError = state.cusineType.length === 0;
+    };
+
+    const validateImage = () => {
+      state.imageError =
+        state.image === null ||
+        !/^\w+\.(jpg|jpeg|gif|png)$/.test(state.image.name);
+    };
+
+    const validateLocation = () => {
+      state.locationError = state.location === null;
+    };
+
+    const submitForm = () => {
+      validateName();
+      validateEmail();
+      validateMobile();
+      validateLandline();
+      validateWebsite();
+      validateFoodType();
+      validateCusineType();
+      validateImage();
+      validateLocation();
+
+      if (
+        !state.nameError &&
+        !state.emailError &&
+        !state.mobileError &&
+        !state.landlineError &&
+        !state.websiteError &&
+        !state.foodTypeError &&
+        !state.cusineTypeError &&
+        !state.imageError &&
+        !state.locationError
+      ) {
+        // Send form data to server
+        const formData = new FormData();
+        formData.append("name", state.name.trim());
+        formData.append("email", state.email.trim());
+        formData.append("mobile", state.mobile.trim());
+        formData.append("landline", state.landline.trim());
+        formData.append("website", state.website);
+        formData.append("foodType", state.foodType);
+        formData.append("cusineType", state.cusineType.join(","));
+        formData.append("image", state.image);
+        formData.append("location", JSON.stringify(state.location));
+
+        console.log("Form data:", formData);
+
+        // Reset form state
+        state.name = "";
+        state.email = "";
+        state.mobile = "";
+        state.landline = "";
+        state.website = "none";
+        state.foodType = "";
+        state.cusineType = [];
+        state.image = null;
+        state.location = null;
+        state.locationSearch = "";
+        state.nameError = false;
+        state.emailError = false;
+        state.mobileError = false;
+        state.landlineError = false;
+        state.websiteError = false;
+        state.foodTypeError = false;
+        state.cusineTypeError = false;
+        state.imageError = false;
+        state.locationError = false;
+      }
+    };
+
+    const onImageChange = (event) => {
+      state.image = event.target.files[0];
+      validateImage();
+    };
+
+    watch(
+      () => state.locationSearch,
+      (newValue) => {
+        if (newValue.trim() !== "") {
+          // Perform location search
+          console.log("Searching for location:", newValue);
+        }
+      }
+    );
+
+    return {
+      ...toRefs(state),
+      onImageChange,
+      submitForm,
+    };
+  },
+};
+</script>
+<style>
+.error {
+  color: red;
+  font-weight: bold;
+}
+</style>
+
+
+ <template>
+  <div>
+    <h1>Add Restaurant</h1>
+    <form @submit.prevent="submitForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model.trim="name" :class="{ invalid: nameError }">
+        <p v-if="nameError" class="error">Name is required</p>
+      </div>
+      <div>
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" v-model.trim="email" :class="{ invalid: emailError }">
+        <p v-if="emailError" class="error">Valid e-mail is required</p>
+      </div>
+      <div>
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" v-model.trim="mobile" :class="{ invalid: mobileError }">
+        <p v-if="mobileError" class="error">Valid mobile number is required</p>
+      </div>
+      <div>
+        <label for="landline">Landline:</label>
+        <input type="tel" id="landline" v-model.trim="landline" :class="{ invalid: landlineError }">
+        <p v-if="landlineError" class="error">Valid landline number is required</p>
+      </div>
+      <div>
+        <label for="website">Website:</label>
+        <select id="website" v-model="website">
+          <option value="none" selected disabled hidden>Select website type</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <p v-if="websiteError" class="error">Website type is required</p>
+      </div>
+      <div>
+        <label for="food-type">Food Type:</label>
+        <label for="veg">
+          <input type="radio" id="veg" name="food-type" value="veg" v-model="foodType">
+          Veg
+        </label>
+        <label for="non-veg">
+          <input type="radio" id="non-veg" name="food-type" value="non-veg" v-model="foodType">
+          Non-Veg
+        </label>
+        <label for="both">
+          <input type="radio" id="both" name="food-type" value="both" v-model="foodType">
+          Both
+        </label>
+        <p v-if="foodTypeError" class="error">Food type is required</p>
+      </div>
+      <div>
+        <label for="cusine-type">Cusine Type:</label>
+        <label for="traditional">
+          <input type="checkbox" id="traditional" name="cusine-type" value="traditional" v-model="cusineType">
+          Traditional
+        </label>
+        <label for="chinese">
+          <input type="checkbox" id="chinese" name="cusine-type" value="chinese" v-model="cusineType">
+          Chinese
+        </label>
+        <label for="tandoori">
+          <input type="checkbox" id="tandoori" name="cusine-type" value="tandoori" v-model="cusineType">
+          Tandoori
+        </label>
+        <label for="continental>
+<input type="checkbox" id="continental" name="cusine-type" value="continental" v-model="cusineType">
+      Continental
+ 
+    </label>
+    <p v-if="cusineTypeError" class="error">At least one cusine type is required</p>
+  </div>
+  <div>
+    <label for="image">Image:</label>
+    <input type="file" id="image" @change="onImageChange" :class="{ invalid: imageError }">
+    <p v-if="imageError" class="error">Valid image file is required</p>
+  </div>
+  <div>
+    <label for="location">Location:</label>
+    <input type="text" id="location" v-model.trim="location" :class="{ invalid: locationError }">
+    <p v-if="locationError" class="error">Location is required</p>
+    <div id="map"></div>
+  </div>
+  <button type="submit">Add Restaurant</button>
+</form>
+
+</div> </template> <script> export default { data() { return { name: '', email: '', mobile: '', landline: '', website: 'none', foodType: '', cusineType: [], image: null, location: '', nameError: false, emailError: false, mobileError: false, landlineError: false, websiteError: false, foodTypeError: false, cusineTypeError: false, imageError: false, locationError: false, }; }, methods: { submitForm() { this.validateForm(); // Submit form data to server if valid if (!this.hasErrors()) { // TODO: Submit form data to server } }, validateForm() { this.nameError = this.name.trim() === ''; this.emailError = !/^\S+@\S+\.\S+$/.test(this.email.trim()); this.mobileError = !/^\d{10}$/.test(this.mobile.trim()); this.landlineError = !/^\d{8}$/.test(this.landline.trim()); this.websiteError = this.website === 'none'; this.foodTypeError = this.foodType === ''; this.cusineTypeError = this.cusineType.length === 0; this.imageError = this.image === null; this.locationError = this.location.trim() === ''; }, hasErrors() { return ( this.nameError || this.emailError || this.mobileError || this.landlineError || this.websiteError || this.foodTypeError || this.cusineTypeError || this.imageError || this.locationError ); }, onImageChange(event) { this.image = event.target.files[0]; }, }, }; </script> <style> .error { color: red; } .invalid { border-color: red; } </style>
+cssCopy code
+
+P
+Please note that this is just an example and you will need to modify it according to your specific requirements and implementation details.
+
+
+
+generate script for the above code using composition api
+Sure, here's the script for the above code using the Vue 3 Composition API:
+phpCopy code
+<template>
+  <div>
+    <form @submit.prevent="submitForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model.trim="name" :class="{ invalid: nameError }">
+        <p v-if="nameError" class="error">Name is required</p>
+      </div>
+      <div>
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" v-model.trim="email" :class="{ invalid: emailError }">
+        <p v-if="emailError" class="error">Valid email is required</p>
+      </div>
+      <div>
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" v-model.trim="mobile" :class="{ invalid: mobileError }">
+        <p v-if="mobileError" class="error">Valid mobile number is required</p>
+      </div>
+      <div>
+        <label for="landline">Landline:</label>
+        <input type="tel" id="landline" v-model.trim="landline" :class="{ invalid: landlineError }">
+        <p v-if="landlineError" class="error">Valid landline number is required</p>
+      </div>
+      <div>
+        <label for="website">Website:</label>
+        <select id="website" v-model="website" :class="{ invalid: websiteError }">
+          <option value="none" disabled>Choose website type</option>
+          <option value="personal">Personal</option>
+          <option value="business">Business</option>
+        </select>
+        <p v-if="websiteError" class="error">Website type is required</p>
+      </div>
+      <div>
+        <label for="food-type">Food Type:</label>
+        <div id="food-type">
+          <label for="veg">
+            <input type="radio" id="veg" name="food-type" value="veg" v-model="foodType">
+            Veg
+ 
+          </label>
+          <label for="non-veg">
+            <input type="radio" id="non-veg" name="food-type" value="non-veg" v-model="foodType">
+            Non-Veg
+ 
+          </label>
+          <label for="both">
+            <input type="radio" id="both" name="food-type" value="both" v-model="foodType">
+            Both
+ 
+          </label>
+        </div>
+        <p v-if="foodTypeError" class="error">Food type is required</p>
+      </div>
+      <div>
+        <label for="cusine-type">Cusine Type:</label>
+        <div id="cusine-type">
+          <label for="traditional">
+            <input type="checkbox" id="traditional" name="cusine-type" value="traditional" v-model="cusineType">
+            Traditional
+ 
+          </label>
+          <label for="chinese">
+            <input type="checkbox" id="chinese" name="cusine-type" value="chinese" v-model="cusineType">
+            Chinese
+ 
+          </label>
+          <label for="tandoori">
+            <input type="checkbox" id="tandoori" name="cusine-type" value="tandoori" v-model="cusineType">
+            Tandoori
+ 
+          </label>
+          <label for="continental"> 
+            <input type="checkbox" id="continental" name="cusine-type" value="continental" v-model="cusineType">
+            Continental
+ 
+          </label>
+        </div>
+        <p v-if="cusineTypeError" class="error">Cuisine type is required</p>
+      </div>
+      <div>
+        <label for="image">Image:</label>
+        <input type="file" id="image" @change="onImageChange">
+        <p v-if="imageError" class="error">Image is required and must be a valid image file</p>
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <div id="location">
+          <input type="text" id="location-search" placeholder="Search for location" v-model="locationSearch">
+          <div id="map" ref="map"></div>
+        </div>
+        <p v-if="locationError" class="error">Location is required</p>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</template>
+
+<script>
+import { reactive, toRefs, watch } from 'vue';
+
+
+
+export default {
+ 
+  name: 'RestaurantAddForm',
+ 
+  setup() {
+ 
+    const state = reactive({
+ 
+      name: '',
+ 
+      email: '',
+ 
+      mobile: '',
+ 
+      landline: '',
+ 
+      website: 'none',
+ 
+      foodType: '',
+ 
+      cusineType: [],
+ 
+      image: null,
+ 
+      location: null,
+ 
+      locationSearch: '',
+ 
+      nameError: false,
+ 
+      emailError: false,
+ 
+      mobileError: false,
+ 
+      landlineError: false,
+ 
+      websiteError: false,
+ 
+      foodTypeError: false,
+ 
+      cusineTypeError: false,
+ 
+      imageError: false,
+ 
+      locationError: false
+    });
+
+
+
+    const validateName = () => {
+ 
+      state.nameError = state.name.trim() === '';
+ 
+    };
+
+
+
+    const validateEmail = () => {
+ 
+      state.emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email.trim());
+ 
+    };
+
+
+
+    const validateMobile = () => {
+ 
+      state.mobileError = !/^(\+\d{1,3}[- ]?)?\d{10}$/.test(state.mobile.trim());
+ 
+    };
+
+
+
+    const validateLandline = () => {
+ 
+      state.landlineError = !/^\d{3}-\d{3}-\d{4}$/.test(state.landline.trim());
+ 
+    };
+
+
+
+    const validateWebsite = () => {
+ 
+      state.websiteError = state.website === 'none';
+ 
+    };
+
+
+
+    const validateFoodType = () => {
+ 
+      state.foodTypeError = state.foodType === '';
+ 
+    };
+
+
+
+    const validateCusineType = () => {
+ 
+      state.cusineTypeError = state.cusineType.length === 0;
+ 
+    };
+
+
+
+    const validateImage = () => {
+ 
+      state.imageError = state.image === null || !/^\w+\.(jpg|jpeg|gif|png)$/.test(state.image.name);
+ 
+    };
+
+
+
+    const validateLocation = () => {
+ 
+      state.locationError = state.location === null;
+ 
+    };
+
+
+
+    const submitForm = () => {
+ 
+      validateName();
+ 
+      validateEmail();
+ 
+      validateMobile();
+ 
+      validateLandline();
+ 
+      validateWebsite();
+ 
+      validateFoodType();
+ 
+      validateCusineType();
+ 
+      validateImage();
+ 
+      validateLocation();
+
+
+
+      if (!state.nameError && !state.emailError && !state.mobileError && !state.landlineError && !state.websiteError && !state.foodTypeError && !state.cusineTypeError && !state.imageError && !state.locationError) {
+ 
+ 
+        const formData = new FormData();
+ 
+    formData.append('name', state.name.trim());
+ 
+    formData.append('email', state.email.trim());
+ 
+    formData.append('mobile', state.mobile.trim());
+ 
+    formData.append('landline', state.landline.trim());
+ 
+    formData.append('website', state.website);
+ 
+    formData.append('foodType', state.foodType);
+ 
+    formData.append('cusineType', state.cusineType.join(','));
+ 
+    formData.append('image', state.image);
+ 
+    formData.append('location', JSON.stringify(state.location));
+
+
+
+    console.log('Form data:', formData);
+
+
+
+    // Reset form state
+    state.name = '';
+ 
+    state.email = '';
+ 
+    state.mobile = '';
+ 
+    state.landline = '';
+ 
+    state.website = 'none';
+ 
+    state.foodType = '';
+ 
+    state.cusineType = [];
+ 
+    state.image = null;
+ 
+    state.location = null;
+ 
+    state.locationSearch = '';
+ 
+    state.nameError = false;
+ 
+    state.emailError = false;
+ 
+    state.mobileError = false;
+ 
+    state.landlineError = false;
+ 
+    state.websiteError = false;
+ 
+    state.foodTypeError = false;
+ 
+    state.cusineTypeError = false;
+ 
+    state.imageError = false;
+ 
+    state.locationError = false;
+ 
+  }
+}
+};
+
+
+
+const onImageChange = (event) => {
+ 
+  state.image = event.target.files[0];
+ 
+  validateImage();
+}
+};
+
+
+
+watch(() => state.locationSearch, (newValue) => {
+ 
+  if (newValue.trim() !== '') {
+ 
+    // Perform location search
+    console.log('Searching for location:', newValue);
+ 
+  }
+}
+});
+
+
+
+return {
+ 
+  ...toRefs(state),
+ 
+  onImageChange,
+ 
+  submitForm
+}
+};
+
+
+} }; </script>
+<style> .error { color: red; font-weight: bold; } </style>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

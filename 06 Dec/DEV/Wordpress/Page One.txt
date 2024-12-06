@@ -1,0 +1,62 @@
+https://help.one.com/hc/en-us/articles/115005585969-
+Move-your-WordPress-site-to-another-domain
+
+define('WP_ALLOW_REPAIR', true);
+
+http://yourdomain.com/wp-admin/maint/repair.php
+
+  define('WP_MEMORY_LIMIT', '256M');
+https://learnwptutorials.com/
+A "500 Internal Server Error" is a generic error message that indicates something went wrong on the server's end, but it doesn't provide specific details about the exact cause. It could be due to various reasons, such as code issues, server configuration problems, or resource limitations. When encountering a 500 error in WordPress with Elementor, here are some steps you can take to troubleshoot and resolve the issue:
+
+1. **Check for Plugin or Theme Conflicts**:
+   - Deactivate all plugins except Elementor and see if the error persists. If the error goes away, reactivate plugins one by one to identify the conflicting plugin.
+   - Switch to a default WordPress theme (e.g., Twenty Twenty-One) to see if the issue is related to your current theme. If the error disappears, your theme might be causing the problem.
+
+2. **Increase PHP Memory Limit**:
+   - Sometimes, insufficient PHP memory can cause a 500 error. You can increase the memory limit by adding the following code to your `wp-config.php` file:
+   
+     ```php
+     define('WP_MEMORY_LIMIT', '256M');
+     ```
+
+3. **Check Server Logs**:
+   - Review your server error logs to get more specific information about the error. Look for the error logs either in your hosting control panel or directly in your server's file system.
+
+4. **Check .htaccess File**:
+   - An incorrectly configured `.htaccess` file can lead to a 500 error. Make a backup and then temporarily rename or delete your `.htaccess` file to see if the error is resolved. If it is, you can regenerate a new `.htaccess` file from within WordPress.
+
+5. **Update WordPress, Elementor, and Plugins**:
+   - Ensure that WordPress, Elementor, and all your plugins are up to date. Outdated software can lead to compatibility issues.
+
+6. **Check File and Folder Permissions**:
+   - Incorrect file or folder permissions might trigger a 500 error. Verify that your WordPress files and folders have the correct permissions. Typically, folders should be set to 755, and files should be set to 644.
+
+7. **Debugging Mode**:
+   - Enable WordPress debugging mode to get more detailed error messages. Add the following lines to your `wp-config.php` file:
+   
+     ```php
+     define('WP_DEBUG', true);
+     define('WP_DEBUG_LOG', true);
+     define('WP_DEBUG_DISPLAY', false);
+     ```
+
+8. **Contact Hosting Support**:
+   - If you've tried the above steps and the issue persists, it might be a server-related problem. Reach out to your hosting provider's support for assistance.
+
+9. **Backup and Restore**:
+   - If none of the above solutions work, you might consider restoring a recent backup of your website when it was working correctly.
+
+Remember to perform these troubleshooting steps carefully and make backups before making any changes to your website. It's also a good practice to work on a staging site before applying changes to your live website to prevent any disruptions.
+https://contactform7.com/checkboxes-radio-buttons-and-menus/
+
+https://scottsweb.dev/horizontal-forms-contact-form-7/
+
+https://www.youtube.com/watch?v=wy70WGCjMY4&list=PLlgSvQqMfii5Q05RFNFaZhTbPomLfZssV
+
+
+
+
+
+
+

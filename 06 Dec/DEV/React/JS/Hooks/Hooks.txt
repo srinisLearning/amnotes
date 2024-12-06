@@ -1,0 +1,421 @@
+https://beta.reactjs.org/reference/react
+
+useState
+useEffect
+useContext
+useReducer
+useCallback
+useMemo
+useRef
+useImperativeHandle
+useLayoutEffect
+useEffect
+useId
+useSyncExternalStore
+useTransition
+useInsertionEffect
+useDefferedValue
+useDebugValue
+useState
+
+
+const [quantity,setQuantity] = useState(0)
+const[name,setName]=useState('');
+
+
+
+
+
+useReducer
+
+
+https://medium.com/swlh/usereducer-form-example-16675fa60229
+
+
+
+
+
+ 
+
+
+import React from "react";
+import { UserContext, ChannelContext } from "./ContextApp2";
+
+function ComponentF() {
+  return (
+    <div>
+      <h3> ComponentF Welcomes You</h3>
+      <UserContext.Consumer>
+        {(user) => {
+          return (
+            <ChannelContext.Consumer>
+              {(channel) => {
+                return (
+                  <div>
+                    User Context Value {user},{channel}
+                  </div>
+                );
+              }}
+            </ChannelContext.Consumer>
+          );
+        }}
+      </UserContext.Consumer>
+    </div>
+  );
+}
+
+export default ComponentF;
+
+
+
+
+
+
+useRef	
+
+
+In React, a ref is a way to access the properties of a DOM element. Refs are created using React's useRef hook and attached to React elements via the ref attribute.
+Here is an example of how to use useRef hook in React:
+
+import React, { useRef } from 'react';
+
+function Example() {
+  const inputRef = useRef(null);
+
+  function handleClick() {
+    inputRef.current.focus();
+  }
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleClick}>Focus the input</button>
+    </div>
+  );
+}
+In this example, we use useRef to create a ref that we assign to the input element. The handleClick function uses the current property of the ref to access the input element and call its focus method.
+
+
+useMemo and useCallback are both React hooks that can help optimize your React application's performance by avoiding unnecessary re-renders.
+
+useMemo is used to memoize a value. It takes two arguments: a function that returns the value to be memoized, and a list of dependencies. The value will be recalculated only if one of the dependencies has changed. This hook is useful when you have expensive calculations that don't need to be performed on every render.
+
+useCallback is used to return a memoized version of a callback function. It takes two arguments: the callback function and a list of dependencies. The memoized callback will only change if one of the dependencies has changed. This hook is useful when you want to pass a callback to a child component and want to avoid re-creating the callback on every render.
+
+In summary:
+* useMemo is used to memoize a value, while useCallback is used to memoize a function.
+* useMemo is used to optimize expensive calculations, while useCallback is used to avoid re-creating functions on every render.
+
+
+use Memo
+
+
+The useMemo hook is a way to optimize the performance of your React components by memoizing (or caching) the result of a function that is expensive to compute. This means that the function will only run when one of its dependencies changes, and otherwise it will return the same value as before.
+
+const memoizedValue = useMemo(() => {
+  // some expensive calculation
+  return result;
+}, [dependencies]);
+const memoizedValue = useMemo(() => {
+  // some expensive calculation
+  return result;
+}, [dependencies]);
+The first argument is a function that returns the value you want to memoize. The second argument is an array of dependencies that determine when the function should run again. If the dependencies are the same as the previous render, the function will not run and the memoized value will be returned. If any of the dependencies change, the function will run and return a new value, which will be memoized for the next render.
+The useMemo hook can help you avoid unnecessary re-rendering of components or re-calculating of values that depend on props or state. For example, if you have a component that renders a list of items based on a filter, you can use useMemo to memoize the filtered list and only update it when the filter or the original list changes. This way, you can avoid re-filtering the list on every render, which can be costly if the list is large or the filter is complex.
+Here is a simple example of using useMemo to memoize a filtered list:
+
+The useRef Hook allows you to persist values between renders.
+It can be used to store a mutable value that does not cause a re-render when updated.
+It can be used to access a DOM element directly.
+import { useState, useMemo } from "react";
+
+
+
+function TodoList({ todos }) {
+ 
+  const [filter, setFilter] = useState("");
+
+
+
+  // useMemo returns a memoized value
+  const filteredTodos = useMemo(() => {
+ 
+    // filter the todos based on the filter state
+    return todos.filter((todo) => todo.text.includes(filter));
+ 
+  }, [filter, todos]); // only re-run the filter function if filter or todos change
+
+  return (
+ 
+    <div>
+      <input
+        type="text"
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+ 
+        placeholder="Search todos"
+ 
+      />
+ 
+      <ul>
+        {filteredTodos.map((todo) => (
+ 
+          <li key={todo.id}>{todo.text}</li>
+        ))}
+ 
+      </ul>
+    </div>
+  );
+}
+}
+
+
+
+
+
+
+
+
+useCallback
+
+
+useCallback is a React hook that returns a memoized version of a given callback function. It helps improve the performance of your React components by preventing unnecessary re-renders.
+Here is an example of how to use useCallback in React:
+import React, { useCallback } from 'react';
+
+function Example({ data }) {
+  const memoizedCallback = useCallback(
+    () => {
+      // Expensive calculation
+      console.log('Callback function called');
+    },
+    [data],
+  );
+
+  return <button onClick={memoizedCallback}>Click me</button>;
+}
+
+In this example, useCallback returns a memoized version of the callback function that will only be re-created when data changes. This means that the expensive calculation inside the callback will only be performed when data changes, improving the performance of your component.
+It is important to note that the second argument to useCallback, which is an array of dependencies, should only include values that are directly used inside the callback. Including values that are not used directly can cause unnecessary re-renders.
+
+
+
+useHref
+
+
+
+
+
+	useContext
+
+
+contextApp2.js
+
+import React from 'react';
+import ComponenC from './ComponenC';
+export const UserContext = React.createContext();
+export const ChannelContext = React.createContext();
+function ContextApp2() {
+
+  return (
+    <div> <h2>ContextApp 2 Demo</h2>
+      <UserContext.Provider value={'Vishwas'}>
+        <ChannelContext.Provider value={'Code Evolution'}>
+      <ComponenC />
+      </ChannelContext.Provider>
+      </UserContext.Provider>
+
+     </div>
+  )
+}
+
+export default ContextApp2;
+-
+ componentA.js
+
+import React from 'react'
+
+function ComponentA() {
+  return (
+    <div>ComponentA Welcomes You</div>
+  )
+}
+
+export default ComponentA
+-
+componentE.js
+
+import React, {useContext} from 'react'
+import ComponentF from './ComponentF'
+ import { UserContext,ChannelContext } from './ContextApp2';
+
+function ComponentE() {
+    const user = useContext(UserContext);
+    const channel = useContext(ChannelContext);
+  return (
+    <div>ComponentE Welcomes You
+       <p>
+        { user } { channel }
+        </p>
+    </div>
+  )
+}
+
+export default ComponentE
+-
+
+componentF.js
+
+import React from "react";
+import { UserContext, ChannelContext } from "./ContextApp2";
+
+function ComponentF() {
+  return (
+    <div>
+      <h3> ComponentF Welcomes You</h3>
+      <UserContext.Consumer>
+        {(user) => {
+          return (
+            <ChannelContext.Consumer>
+              {(channel) => {
+                return (
+                  <div>
+                    User Context Value {user},{channel}
+                  </div>
+                );
+              }}
+            </ChannelContext.Consumer>
+          );
+        }}
+      </UserContext.Consumer>
+    </div>
+  );
+}
+
+export default ComponentF;
+
+
+
+useContext - Counter Context
+
+
+appcontext3.js
+
+import React from "react";
+import ComponentA from "./components/ComponentA";
+import ComponentB from "./components/ComponentB";
+import MyCounter from "./components/MyCounter";
+import CounterContextProvider from "./context/CounterContextProvider";
+
+function AppContext3() {
+  return (
+    <>
+      <CounterContextProvider>
+        <h2>Counter Context</h2>
+        <MyCounter />
+        <ComponentB />
+      </CounterContextProvider>
+    </>
+  );
+}
+
+export default AppContext3;
+-
+counterContextProvider.js
+
+import React, { useState, createContext } from "react";
+
+const CounterContext = createContext();
+
+function CounterContextProvider(props) {
+  const [count, setCount] = useState(0);
+
+  function increment() {
+    setCount(count + 1);
+  }
+
+  function decrement() {
+    setCount(count - 1);
+  }
+  const values = { count, increment, decrement };
+  return (
+    <CounterContext.Provider value={values}>
+      {props.children}
+    </CounterContext.Provider>
+  );
+}
+
+export default CounterContextProvider;
+export { CounterContext };
+
+MyCounter.js
+import React, { useState, useContext } from "react";
+import { CounterContext } from "../context/CounterContextProvider";
+
+function MyCounter() {
+  const { count, increment, decrement } = useContext(CounterContext);
+  return (
+    <>
+      <div>MyCounter</div>
+      <p>
+        <strong> {count} </strong>
+      </p>
+      <div>
+        <button onClick={increment}>Increment</button>
+        <button onClick={decrement}>Decrement</button>
+      </div>
+    </>
+  );
+}
+
+export default MyCounter;
+-
+Component A
+
+import React, { useContext } from "react";
+import { CounterContext } from "../context/CounterContextProvider";
+
+function ComponentA() {
+  const { count } = useContext(CounterContext);
+  return (
+    <>
+      <div style={{ backgroundColor: "wheat" }}>ComponentA : {count}</div>
+    </>
+  );
+}
+
+export default ComponentA;
+-
+Component B
+
+import React, { useContext } from "react";
+import { CounterContext } from "../context/CounterContextProvider";
+
+function ComponentB() {
+  const { count, increment, decrement } = useContext(CounterContext);
+
+  return (
+    <>
+      <div style={{ backgroundColor: "lightblue" }}>
+        <h2>Component B</h2>
+        <p>{count}</p>
+        <div>
+          <button onClick={increment}>Increment</button>
+          <button onClick={decrement}>Decrement</button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default ComponentB;
+
+
+useReducer UseContext - MovieList Example
+
+
+
+
+
+
+

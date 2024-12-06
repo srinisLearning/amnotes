@@ -1,0 +1,538 @@
+In the Vue 3 Composition API, ref and reactive are both functions used to create reactive data that can be used in your components.
+ref creates a reactive reference to a single value, whereas reactive creates a reactive object that can contain multiple values.
+
+
+Here is an example of using ref to create a reactive value:
+import { ref } from 'vue';
+
+const count = ref(0);
+
+// increment count
+count.value++;
+
+Here is an example of using reactive to create a reactive object:
+
+import { reactive } from 'vue';
+
+const state = reactive({
+  count: 0,
+  message: 'Hello World!'
+});
+
+// update count and message
+state.count++;
+state.message = 'Hello Vue!';
+
+
+<template>
+  <h3>Welcome to DataNet</h3>
+  Name is {{ name }}<br />
+  Surname is {{ surname }}<br />
+  Age is {{ age }}<br />
+  <button @click="age++">Change Name</button>
+</template>
+
+<script>
+import { ref } from "vue";
+export default {
+  name: "DataNet",
+  setup() {
+    const name = ref("srini");
+    const surname = ref("singh");
+    const age = ref(25);
+    const changeTheName = () => {
+      name.value = "wasan";
+      age.value = 30;
+    };
+
+    return {
+      name,
+      surname,
+      age,
+      changeTheName,
+    };
+  },
+};
+</script>
+
+<style></style>
+
+Write  a Vue registration form with validation  using composition form having a text filed ,email filed, password field, radio button , select and check box.
+<
+
+
+
+<template>
+  <div>
+    <input v-model="name" type="text" placeholder="Enter name" />
+    <div class="buttons-container">
+      <button @click="greetName">Greet</button>
+      <button @click="clearName">Reset</button>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+    };
+  },
+  methods: {
+    greetName() {
+      alert(`Hello ${this.name}!`);
+    },
+    clearName() {
+      this.name = "";
+    },
+  },
+};
+</script>
+<script setup>
+import { ref } from "vue";
+const name = ref("");
+const greetName = () => alert(`Hello ${name.value}!`);
+const clearName = () => (name.value = "");
+</script>
+
+data
+
+<template>
+ 
+  <h2>Options - {{ o_firstName }} {{ o_lastName }} a.k.a {{ o_heroName }}</h2>
+ 
+  <h2>Composition - {{ c_firstName }} {{ c_lastName }} {{ c_heroName }}</h2>
+ 
+  <h2>Composition - {{ greet }}</h2>
+ 
+  <h2>Composition - {{ greetHero }}</h2>
+ 
+  <h2>
+ 
+    Composition - {{ state.firstName }} {{ state.lastName }}
+ 
+    {{ state.heroName }}
+ 
+  </h2>
+ 
+  <h2>Composition - {{ reactiveGreetHero }}</h2>
+<
+</template>
+
+
+
+<
+<script>
+i
+import { ref, reactive } from 'vue'
+e
+export default {
+ 
+  name: 'Data',
+ 
+  setup() {
+ 
+    const c_firstName = ref('Clark')
+ 
+    const c_lastName = ref('Kent')
+ 
+    const c_heroName = ref('Superman')
+
+
+
+    const state = reactive({
+ 
+      firstName: 'Princess',
+ 
+      lastName: 'Diana',
+ 
+      heroName: 'Wonder Woman',
+ 
+    })
+
+
+
+    const greet = `Hello ${c_firstName.value}`
+ 
+    const greetHero = `Hello ${c_firstName.value} ${c_lastName.value} a.k.a ${c_heroName.value}`
+ 
+    const reactiveGreetHero = `Hello ${state.firstName} ${state.lastName} a.k.a ${state.heroName}`
+
+
+
+    return {
+ 
+      c_firstName,
+ 
+      c_lastName,
+ 
+      c_heroName,
+ 
+      greet,
+ 
+      greetHero,
+ 
+      state,
+ 
+      reactiveGreetHero,
+ 
+    }
+ 
+  },
+ 
+  data() {
+ 
+    return {
+ 
+      o_firstName: 'Bruce',
+ 
+      o_lastName: 'Wayne',
+ 
+      o_heroName: 'Batman',
+ 
+    }
+ 
+  },
+}
+}
+<
+</script>
+
+
+
+<
+<style scoped>
+<
+</style>
+reactive
+toRef
+
+<template>
+ 
+  <div>
+ 
+    <!-- Options API -->
+ 
+    <input type="text" placeholder="First Name" v-model="fName" />
+ 
+    <input type="text" placeholder="Last Name" v-model="lName" />
+
+
+
+    <!-- ref -->
+ 
+    <input type="text" placeholder="Hero Name" v-model="heroName" />
+
+
+
+    <!-- reactive -->
+ 
+    <input type="text" placeholder="First Name" v-model="firstName" />
+ 
+    <input type="text" placeholder="Last Name" v-model="lastName" />
+ 
+  </div>
+<
+</template>
+
+
+
+<
+<script>
+i
+import { ref, reactive, toRefs } from 'vue'
+e
+export default {
+ 
+  name: 'VModel',
+ 
+  setup() {
+ 
+    const heroName = ref('')
+ 
+    const state = reactive({
+ 
+      firstName: '',
+ 
+      lastName: '',
+ 
+    })
+
+
+
+    return {
+ 
+      heroName,
+ 
+      ...toRefs(state),
+ 
+    }
+ 
+  },
+ 
+  data() {
+ 
+    return {
+ 
+      fName: '',
+ 
+      lName: '',
+ 
+    }
+ 
+  },
+}
+}
+<
+</script>
+
+
+
+<
+<style scoped>
+<
+</style>
+computed
+
+<template>
+ 
+  <div>
+ 
+    <!-- Options API -->
+ 
+    <input type="text" placeholder="First Name" v-model="fName" />
+ 
+    <input type="text" placeholder="Last Name" v-model="lName" />
+ 
+    <h2>Options Fullname is {{ fullName }}</h2>
+
+
+
+    <!-- ref -->
+ 
+    <input type="text" placeholder="First Name" v-model="refFirstName" />
+ 
+    <input type="text" placeholder="Last Name" v-model="refLastName" />
+ 
+    <h2>ref Fullname is {{ refFullName }}</h2>
+
+
+
+    <!-- reactive -->
+ 
+    <input type="text" placeholder="First Name" v-model="reactiveFirstName" />
+ 
+    <input type="text" placeholder="Last Name" v-model="reactiveLastName" />
+ 
+    <h2>reactive Fullname is {{ reactiveFullName }}</h2>
+ 
+  </div>
+<
+</template>
+
+
+
+<
+<script>
+i
+import { ref, reactive, toRefs, computed } from 'vue'
+e
+export default {
+ 
+  name: 'Computed',
+ 
+  setup() {
+ 
+    const refFirstName = ref('')
+ 
+    const refLastName = ref('')
+
+
+
+    const state = reactive({
+ 
+      reactiveFirstName: '',
+ 
+      reactiveLastName: '',
+ 
+    })
+
+
+
+    const refFullName = computed(function () {
+ 
+      return `${refFirstName.value} ${refLastName.value}`
+ 
+    })
+
+
+
+    const reactiveFullName = computed(function () {
+ 
+      return `${state.reactiveFirstName} ${state.reactiveLastName}`
+ 
+    })
+
+
+
+    return {
+ 
+      refFirstName,
+ 
+      refLastName,
+ 
+      refFullName,
+ 
+      ...toRefs(state),
+ 
+      reactiveFullName,
+ 
+    }
+ 
+  },
+ 
+  data() {
+ 
+    return {
+ 
+      fName: '',
+ 
+      lName: '',
+ 
+    }
+ 
+  },
+ 
+  computed: {
+ 
+    fullName() {
+ 
+      return `${this.fName} ${this.lName}`
+ 
+    },
+ 
+  },
+}
+}
+<
+</script>
+
+
+
+<
+<style scoped>
+<
+</style>
+
+lifecycle
+
+<template>
+ 
+  <div>Composition API Lifecycle Hooks</div>
+<
+</template>
+
+
+
+<
+<script>
+i
+import {
+ 
+  onBeforeMount,
+ 
+  onMounted,
+ 
+  onBeforeUpdate,
+ 
+  onUpdated,
+ 
+  onBeforeUnmount,
+ 
+  onUnmounted,
+}
+} from 'vue'
+e
+export default {
+ 
+  name: 'LifecycleC',
+ 
+  setup() {
+ 
+    onBeforeMount(() => {
+ 
+      console.log('LifeCycleC onBeforeMount()')
+ 
+    })
+ 
+    onMounted(() => {
+ 
+      console.log('LifeCycleC onMounted()')
+ 
+    })
+ 
+    onBeforeUpdate(() => {
+ 
+      console.log('LifeCycleC onBeforeUpdate()')
+ 
+    })
+ 
+    onUpdated(() => {
+ 
+      console.log('LifeCycleC onUpdated()')
+ 
+    })
+ 
+    onBeforeUnmount(() => {
+ 
+      console.log('LifeCycleC onBeforeUnmount()')
+ 
+    })
+ 
+    onUnmounted(() => {
+ 
+      console.log('LifeCycleC onUnmounted()')
+ 
+    })
+ 
+  },
+}
+}
+<
+</script>
+
+
+
+<
+<style scoped>
+<
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

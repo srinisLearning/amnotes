@@ -1,0 +1,375 @@
+Comment in Next js
+
+  {/*  
+       
+ 
+       */}
+https://github.com/LinkedinLearning/learning-nextjs-codespaces-5914444
+https://learn.coderslang.com/0023-eslint-disable-for-specific-lines-files-and-folders/
+
+import {notFound } from 'next/navigation'
+
+if(parseInt(params.reviewId)>1000){
+ notFound()
+}
+next.config.js
+
+module.exports = 
+{ 
+eslint:
+ { 
+.
+ ignoreDuringBuilds: true, 
+
+},
+}
+
+// Warning: This allows production builds to successfully complete even if // your project has ESLint errors
+import React from 'react'
+
+const BlogParams = ({params}) => {
+  if(!params.blogParams) return <h1>Blog Page</h1>
+  return (
+    <>
+     
+     
+    <div>BlogParams</div>
+    <h2>This is catch all routes</h2>
+    {params.blogParams.map((blogParam, index) => {
+      return <div key={index}>{index +1} - {blogParam}</div>
+    })}
+   
+       No. of Params = {params.blogParams.length}
+   
+
+    </>
+  )
+}
+
+export default BlogParams
+ <div className='bg-blue-500 h-full'>
+     <h1 className='text-white-500 items-center justify-center'>Home Page</h1>
+<div>
+nps create-next-app - e with-tailwindcss
+
+npx craete-next-app@13.1.6
+npx create-next-app@13.2.3
+layout, page , loading, error,template,head,not found,
+Server Side rendering
+Static Site Generation
+Incremental Site Generation 
+typings.d.ts
+
+export type Todo = {
+    userId:number,
+    id:number,
+    title:string,
+    completed:boolean
+}
+import Link from "next/link";
+import React from "react";
+
+
+    const UsersPage = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+    const users: User[] = await res.json();
+
+    return (
+        <>
+            <h1>User List</h1>
+            <ul>
+                {users.map((user) => (
+                    <li key={user.id}>                   
+                        {user.name}--- {user.email} --- {user.phone}
+                    </li>
+                ))}
+            </ul>
+        </>
+    );
+};
+
+export default UsersPage;
+
+{cache:'no-store'}
+
+{next:{revalidate:10}}
+
+type User = {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+};
+
+ 
+ import Link from "next/link"
+import DeleteButton from "./DeleteButton"
+import {HiPencilAlt} from "react-icons/hi"
+
+const getAllItems = async ()=>{
+    try {
+      const response = await fetch(`${process.env.API_BASE_URL}/api/items`, {cache: "no-store"});
+      if(!response.ok){
+        throw new Error("Error occured while fetching all items");
+      }
+      return response.json();
+    } catch (error) {
+      console.log("Error while fetching items: ", error);
+    }
+}
+
+const ItemList = async () => {
+  const{items} = await getAllItems();
+  return (
+    <>
+      {
+        items.map((item)=>(
+          <div key={item._id} className="p-4 border border-orange-500 my-2 
+          flex justify-between items-start">
+              <div>
+                  <h2 className="font-bold text-xl">{item.title}</h2>
+                  <div>{item.description}</div>
+              </div>
+              <div className="flex gap-2">
+                  <DeleteButton id={item._id} />
+                  <Link href={`/editItem/${item._id}`}>
+                      <HiPencilAlt size={24} />
+                  </Link>
+              </div>
+          </div>
+        ))
+      }
+    </>
+  );
+}
+
+export default ItemList
+
+import Link from "next/link";
+import DeleteButton from "./DeleteButton";
+import { HiPencilAlt } from "react-icons/hi";
+
+interface Item {
+  _id: string;
+  title: string;
+  description: string;
+}
+
+const getAllItems = async (): Promise<Item[]> => {
+  try {
+    const response = await fetch(`${process.env.API_BASE_URL}/api/items`, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error("Error occurred while fetching all items");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error while fetching items: ", error);
+    return [];
+  }
+};
+
+const ItemList: React.FC = async () => {
+  const items = await getAllItems();
+  return (
+    <>
+      {items.map((item) => (
+        <div key={item._id} className="p-4 border border-orange-500 my-2 flex justify-between items-start">
+          <div>
+            <h2 className="font-bold text-xl">{item.title}</h2>
+            <div>{item.description}</div>
+          </div>
+          <div className="flex gap-2">
+            <DeleteButton id={item._id} />
+            <Link href={`/editItem/${item._id}`}>
+              <a>
+                <HiPencilAlt size={24} />
+              </a>
+            </Link>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+};
+
+export default ItemList;
+
+
+
+
+
+
+
+
+
+
+ import {revalidatePath) form "next/cache"
+revalidatePath("/expense-tracker")
+
+
+
+getStaticPaths
+What are Server Actions?
+In Next.js 14, Server Actions are a feature introduced to handle side-effects and perform server-side logic during the server rendering phase. They are primarily used for performing tasks that need to be executed on the server before sending the initial HTML to the client. This can include fetching data from an API, accessing a database, processing cookies, and other server-specific operations.
+
+Detailing Next.js 14 Server Actions:
+
+1. Handling Dynamic Data: Server Actions are useful when you need to fetch dynamic data during server-side rendering. For example, if you have a blog, you might want to fetch the list of blog posts from a database before rendering the page.
+
+2. Executing Code on the Server: Server Actions allow you to execute code directly on the server before the page is sent to the client. This can be helpful for tasks like authentication, authorization, or any server-specific logic.
+
+3. Usage Syntax: Server Actions are defined within a special getServerActions function exported from a page or an API route in Next.js. This function returns an object containing the server actions to be executed.
+
+export async function getServerActions(context) {
+    // Perform server-side logic here
+    return {
+        props: {
+            // Data to be passed to the component
+        },
+        redirect: {
+            destination: '/redirect-url',
+            permanent: false // Set to true for permanent         redirects
+        },
+        notFound: true // Set to true if the page should          return a 404
+    };
+}
+
+1. Here, context provides information about the request such as request parameters, headers, cookies, etc.
+
+2. Returning Data: Server actions can return several options:
+o props: This is the most common option. It returns data that will be passed as props to the component rendered by the page.
+o redirect: If the server action determines a redirect is necessary, it can return a redirect object specifying the destination and whether it's permanent or temporary.
+o notFound: If the server action determines that the requested resource doesn't exist, it can return notFound: true, and Next.js will render a 404 page.
+
+3. Async/Await Support: Server actions can be asynchronous, allowing you to perform asynchronous tasks like fetching data from an external API or querying a database.
+
+4. Error Handling: You can also handle errors within server actions using try-catch blocks or returning an error response.
+
+5. Integration with Page Components: The data returned by server actions can be accessed within the page component via props, just like with regular Next.js data fetching methods.
+Summary:
+Next.js 14 Server Actions provide a mechanism for executing server-side logic and handling side-effects during the server rendering phase. They enable fetching dynamic data, executing code on the server, and handling redirects and errors before the initial HTML is sent to the client. With Server Actions, Next.js further enhances its capabilities for building server-rendered React applications with ease.
+
+
+getServerSideProps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+          Get started by editing&nbsp;
+          <code className="font-mono font-bold">src/app/page.tsx</code>
+        </p>
+        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+          <a
+            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            By{' '}
+            <Image
+              src="/vercel.svg"
+              alt="Vercel Logo"
+              className="dark:invert"
+              width={100}
+              height={24}
+              priority
+            />
+          </a>
+        </div>
+      </div>
+
+      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+        <Image
+          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+          src="/next.svg"
+          alt="Next.js Logo"
+          width={180}
+          height={37}
+          priority
+        />
+      </div>
+
+      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+        <a
+          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2 className={`mb-3 text-2xl font-semibold`}>
+            Docs{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </h2>
+          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+            Find in-depth information about Next.js features and API.
+          </p>
+        </a>
+
+        <a
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2 className={`mb-3 text-2xl font-semibold`}>
+            Learn{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </h2>
+          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+            Learn about Next.js in an interactive course with&nbsp;quizzes!
+          </p>
+        </a>
+
+        <a
+          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2 className={`mb-3 text-2xl font-semibold`}>
+            Templates{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </h2>
+          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+            Explore starter templates for Next.js.
+          </p>
+        </a>
+
+        <a
+          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2 className={`mb-3 text-2xl font-semibold`}>
+            Deploy{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </h2>
+          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+            Instantly deploy your Next.js site to a shareable URL with Vercel.
+          </p>
+        </a>
+      </div>
+    </main>

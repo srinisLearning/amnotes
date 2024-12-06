@@ -1,0 +1,346 @@
+from flask import Flask;
+
+app = Flask(__name__)
+@app.route('/')
+def index():
+    return("Hello from another  Wasan World");
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000);
+from flask import Flask,render_template;
+
+app = Flask(__name__)
+@app.route('/')
+def index():
+    return render_template('index.html);
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000);
+from flask import Flask, render_template;
+
+app = Flask(__name__)
+@app.route('/')
+
+def index():
+   #return render_template('index.html');
+    return redirect(url_for('about'))
+
+@app.route('/hello/<name>')
+def hello(name):
+       return "Hello (%s)",name
+ 
+
+@app.route('/about')
+def about():
+    return render_template('about.html');
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8000);
+-
+<html>
+<head>
+
+</head>
+<body>
+<h2>This is home Page</h2>
+<img src={{url_for('static',filename='01bolly1.jpg') }} height="300" width="200" />
+</body>
+</html>
+<link rel='stylesheet' href="{{'static', filename='files/css/styles.css' }}"
+
+GOLD@123
+
+python -m venv env
+env\Scripts\activate
+deactivate
+pip3 install pyyaml==5.4.1
+pip3 install pyyaml
+pip3 install flask-mysqldb
+@app.route('/fruits')
+def fruits():
+    fruits = ['Apple','Orange','Banana','Pineapple'];
+    return render_template('fruits.html',fruits=fruits);
+
+-
+<html>
+<head></head>
+<body>
+<ul>
+ {% for fruit in fruits %}
+ <li>{{fruit}}</li>
+ {% endfor %}
+</ul>
+
+{% if 'Mango' in fruits %}
+ <p> Mango is in the list fruits</p>
+{% else %}
+<p>Mango is not in list</p>
+{% endif %}
+</body>
+
+
+</html>
+
+<html>
+<head>
+
+</head>
+<body>
+ {% block body %}
+
+ {% endblock %}
+</body>
+</html>
+
+-
+<html>
+{%  extends 'base.html' %}
+{% block body %}
+
+<ul>
+ {% for fruit in fruits %}
+ <li>{{fruit}}</li>
+ {% endfor %}
+</ul>
+
+{% if 'Mango' in fruits %}
+ <p> Mango is in the list fruits</p>
+{% else %}
+<p>Mango is not in list</p>
+{% endif %}
+
+{% endblock %}
+
+
+</html>
+-
+https://pythonhosted.org/Flask-Bootstrap/basic-usage.html
+import os
+app.config['SECRET_KEY'] = os.urandom[24]
+session['username'] = employees[0]['name']
+{{ session['username']
+from flask import Flask;
+from flask_mysqldb import MySQL;
+import yaml;
+
+app = Flask(__name__)
+#db = yaml.load(open('db.yaml'));
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] =''
+app.config['MYSQL_DB'] = 'flask_db1'
+
+mysql = MySQL(app);
+
+@app.route('/')
+def index():
+    cur =mysql.connection.cursor();
+    cur.execute("INSERT INTO users (user) VALUES(%s)",["Priya"]);
+    mysql.connection.commit();
+    
+    return("Hello from another  Wasan World");
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5001);
+from werkzeug.security import generate_password_hash,check_password_hash
+variable = generate_password_hash(variable)
+variable = check_password_hash(variable)
+
+
+flash("Successfully entered User", "success")
+
+flash("Error entering User", "danger")
+
+
+
+ {% with messages = get_flashed_messages(with_categories=true) %}
+        
+            {% if messages %}
+                 <ul>
+                    {% for category, message in messages%}
+
+                        <li class="alert alert-{{ category }}">{{ message }}</li>
+
+                    {% endfor %}
+
+                 </ul>
+
+            {% endif%}
+
+        {% endwith %}
+FORM
+
+app.py
+
+from flask import Flask,render_template,request;
+from flask_bootstrap import Bootstrap;
+from flask_mysqldb import MySQL;
+import yaml;
+
+app = Flask(__name__)
+
+Bootstrap(app)
+'''
+db = yaml.safe_load(open('db.yaml'));
+
+app.config[ 'MYSQL_HOST' ]  = db['mysql_host'];
+app.config [ 'MYSQL_USER' ] = db['mysql_user'];
+app.config['MYSQL_PASSWORD'] = db['mysql_password'];
+app.config['MYSQL_DB'] = db['mysql_db'];
+
+'''
+
+app.config[ 'MYSQL_HOST' ]  = 'localhost';
+app.config [ 'MYSQL_USER' ] = 'root';
+app.config['MYSQL_PASSWORD'] = '';
+app.config['MYSQL_DB'] = 'flask_form';
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+mysql = MySQL(app);
+
+@app.route('/')
+def index():
+    cur = mysql.connection.cursor();
+    #queryString = "INSERT into users (name) VALUES (%s) ";
+    #cur.execute(queryString,["Rani"]);
+    #mysql.connection.commit();
+    queryString = 'select * from users';
+    resultSet = cur.execute(queryString);
+    if resultSet > 0:
+        myUsers = cur.fetchall();
+       
+    return render_template('index.html',users= myUsers);
+
+@app.route('/dbdemo')
+def dbdemo():
+    return render_template('dbdemo.html');
+
+@app.route('/register', methods=["POST","GET"])
+def register():
+    if request.method == 'POST':
+        name = request.form['name'];
+        mobile = request.form['mobile'];
+        email = request.form['email'];
+        cur = mysql.connection.cursor;
+        cur.execute("INSERT INTO employees (name,mobile,email) VALUES (%s,%s,%s)",(name,mobile,email));
+        mysql.connection.commit();
+    return render_template('/register.html');
+
+    
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5001);
+register.html
+
+{% extends 'base.html' %}
+
+
+    
+    {%  block pageContent    %}        
+        
+    <h3 class="text-success text-center">Register</h3>
+    <form method='POST' action ='/register'>
+    <div class='container mx-auto w-50 p-2'>
+        <div class='form-group'>
+            <label for='name'>Name</label>
+            <input type='text' class='form-control' name='name' placeholder='Enter Name' />
+        </div>
+         
+        <div class='form-group'>
+            <label for='name'>E-Mail</label>
+            <input type='text' class='form-control' name='email' placeholder='Enter Name' />
+        </div>
+        <div class='form-group'>
+            <label for='name'>Mobile</label>
+            <input type='text' class='form-control' name='mobile' placeholder='Enter Name' />
+        </div>
+        <div class='form-group'>
+            <button type='submit' class='btn btn-primar'y>Register</button>
+        </div>     
+    </div>
+    </form>
+    
+    
+    {%  endblock    %}
+
+{% extends 'base.html/' %}
+
+{% block pageContent %}
+
+<div class="text-center">
+<h3 class='text-primary'>Welcome to Wasan World</h3>
+            {% for user in users %}
+
+            {{  user.name }} <br />
+
+            {% endfor %}
+<button class="btn btn-primary">Continue</button>
+</div>
+{% endblock %}
+
+base.html
+
+{% extends 'bootstrap/base.html/' %}  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"      
+    />
+  </head>
+
+  <body>
+    <header>{% block navbar%} {% endblock %}</header>
+    {% block content%}
+         {% block pageContent %} 
+         
+         {% endblock %}
+    {% endblock%}
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"      
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    ></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

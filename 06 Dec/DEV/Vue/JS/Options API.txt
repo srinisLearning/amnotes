@@ -1,0 +1,171 @@
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+watch: {
+ volume: {
+ handler(newValue, oldValue) {
+ if (newValue > oldValue && newValue === 16) {
+ alert(
+ 'Listening to a high volumne for a long time may damage your hearing'
+ )
+ }
+ },
+ immediate: true,
+ },
+ movie: {
+ handler(newValue) {
+ console.log(`Calling API with movie name = ${newValue}`)
+ },
+ immediate: true,
+ },
+ movieInfo: {
+ handler(newValue) {
+ console.log(
+ `Calling API with movie title = ${newValue.title} and actor = ${newValue.actor}`
+ )
+ },
+ deep: true,
+ },
+ movieList: {
+ handler(newValue) {
+ console.log(`Updated list ${newValue}`)
+ },
+ // deep: true,
+ },
+ },
+ }
+ </script>
+watch: {
+ 
+    typesearch: function () {
+ 
+      this.processingmsg = "processing type...";
+ 
+      this.filteredItems = this.filterItems()
+ 
+    },
+ 
+    codesearch: function () {
+ 
+      this.processingmsg = "processing code...";
+ 
+      this.filteredItems = this.filterItems()
+ 
+    }
+ 
+  },
+
+
+
+  // filter the list based on typesearch, then on codesearch               
+  methods: {
+ 
+    filterItems: function() {
+ 
+      return this.items.filter(item => {
+ 
+         return (
+ 
+           (item.type.indexOf(this.typesearch.toLowerCase()) > -1)
+ 
+         );
+ 
+      }).filter(item => {
+ 
+        return (item.code.indexOf(this.codesearch.toLowerCase()) > -1)
+ 
+      })
+ 
+    }
+ 
+  }  
+computed: {
+ 
+  filteredMovies() {
+ 
+    return this.movies.filter((movie) => { 
+ 
+      return movie.time_session.reduce((acc, session) => {
+ 
+        return acc || (moment(session.time).hour() > 20);
+ 
+      }, false);
+ 
+    });
+ 
+  }
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+The filter function in JavaScript is used to create a new array with elements that pass a certain test condition. The filter function takes a callback function as its argument and this callback function is called for each element in the original array. If the callback function returns true for a given element, it is included in the new array, otherwise it is excluded.
+const numbers = [1, 2, 3, 4, 5];
+
+const evenNumbers = numbers.filter(number => number % 2 === 0);
+
+console.log(evenNumbers); 
+
+In this example, the filter function creates a new array evenNumbers that includes only the elements from the numbers array that are even. The callback function passed to the filter function returns true for elements that are divisible by 2 (i.e., even numbers) and false for elements that are not divisible by 2 (i.e., odd numbers).

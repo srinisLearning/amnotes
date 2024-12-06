@@ -1,0 +1,98 @@
+Sure, I'd be happy to explain `for`, `of`, and `forEach` loops in TypeScript with examples.
+
+**1. `for` Loop:**
+The `for` loop is a traditional loop that iterates over a range of values. It's commonly used when you know the exact number of iterations you want to perform.
+
+Example:
+```typescript
+// Using a for loop to iterate over an array
+const numbers: number[] = [1, 2, 3, 4, 5];
+for (let i = 0; i < numbers.length; i++) {
+    console.log(numbers[i]);
+}
+```
+
+**2. `for...of` Loop:**
+The `for...of` loop is a more modern loop that is used specifically for iterating over elements of an iterable (e.g., arrays, strings, maps, sets, etc.). It provides a cleaner syntax and is especially useful when you want to focus on the values rather than indices.
+
+Example:
+```typescript
+// Using a for...of loop to iterate over an array
+const fruits: string[] = ["apple", "banana", "orange"];
+for (const fruit of fruits) {
+    console.log(fruit);
+}
+```
+
+**3. `forEach` Loop:**
+The `forEach` loop is a method provided by arrays in JavaScript and TypeScript. It iterates over the elements of an array and allows you to pass a callback function to perform an operation on each element. This is especially useful for applying the same operation to every element.
+
+Example:
+```typescript
+// Using forEach loop to iterate over an array
+const animals: string[] = ["cat", "dog", "elephant"];
+animals.forEach((animal) => {
+    console.log(animal);
+});
+```
+
+**Note:** In TypeScript, you can also specify the data type of the elements explicitly:
+
+```typescript
+const numbers: number[] = [1, 2, 3, 4, 5];
+
+// Using for loop
+for (let i: number = 0; i < numbers.length; i++) {
+    console.log(numbers[i]);
+}
+
+// Using for...of loop
+for (const num of numbers) {
+    console.log(num);
+}
+
+// Using forEach loop
+numbers.forEach((num: number) => {
+    console.log(num);
+});
+```
+
+All three loop constructs allow you to iterate over elements, but they have different use cases. The `for` loop is suitable when you need to control the iteration explicitly, the `for...of` loop is more concise and suitable for iterating over iterable elements, and the `forEach` loop is great for applying a function to each element of an array.
+npx tsc first-app.ts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

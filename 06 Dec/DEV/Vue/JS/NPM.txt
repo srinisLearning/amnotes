@@ -1,0 +1,91 @@
+Option 1: Disable globally
+To disable the rule in all files (even those in src/components):
+// <projectRoot>/.eslintrc.js
+module.exports = {
+ 
+  ?
+ 
+  rules: {
+ 
+    'vue/multi-word-component-names': 0,
+ 
+  },
+}
+}
+
+
+Option 2: 
+overrides in ESLint config for src/views/
+To disable the rule only for src/views/**/*.vue, specify an overrides config:
+// <projectRoot>/.eslintrc.js
+module.exports = {
+ 
+  ?
+ 
+  overrides: [
+ 
+    {
+ 
+      files: ['src/views/**/*.vue'],
+ 
+      rules: {
+ 
+        'vue/multi-word-component-names': 0,
+ 
+      },
+ 
+    },
+ 
+  ],
+}
+}
+   // eslint-disable-next-line no-unused-vars
+/* eslint-disable */
+"rules": {
+      "vue/multi-word-component-names": 0
+    }
+
+Bootstrap
+
+npm install bootstrap
+n
+npm install bootstrap-vue
+ 
+Then, open the main.js file with your code editor. Import bootstrap.
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
